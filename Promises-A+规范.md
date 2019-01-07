@@ -1,46 +1,107 @@
 ## Promises/A+ 规范
-> 原文： https://promisesaplus.com/
+> 原文： https://promisesaplus.com/  
 
 **An open standard for sound, interoperable JavaScript promises—by implementers, for implementers.**
 
+**一个开放标准，对于开发人员可互操作的 Javascript 承诺**
+
 A promise represents the eventual result of an asynchronous operation. The primary way of interacting with a promise is through its then method, which registers callbacks to receive either a promise’s eventual value or the reason why the promise cannot be fulfilled.
+
+一个 promise 代表一个异步操作的最终结果。主要的操作方式是通过调用 promise 的 then 方法，它接受的回调函数接受 promise 成功的结果或失败的原因
 
 This specification details the behavior of the then method, providing an interoperable base which all Promises/A+ conformant promise implementations can be depended on to provide. As such, the specification should be considered very stable. Although the Promises/A+ organization may occasionally revise this specification with minor backward-compatible changes to address newly-discovered corner cases, we will integrate large or backward-incompatible changes only after careful consideration, discussion, and testing.
 
+这个规范详细的描述了 then 方法的行为，提供一个互操作基础，所有符合 Promises/A+ 的都可以依赖这个标准实现。因此，该规范已经十分稳定。尽管 Promises/A+ 组织可能会偶尔修改以实现向后兼容，我们也会整合这些大的或不能向后兼容的改变，一起研究，讨论，测试。
+
+
 Historically, Promises/A+ clarifies the behavioral clauses of the earlier Promises/A proposal, extending it to cover de facto behaviors and omitting parts that are underspecified or problematic.
+
+曾经， Promises/A+ 解释了早期 PromisesA 提议的条款，扩展了事实上的行为和忽略了不标准和有问题的部分。
 
 Finally, the core Promises/A+ specification does not deal with how to create, fulfill, or reject promises, choosing instead to focus on providing an interoperable then method. Future work in companion specifications may touch on these subjects.
 
+最终，Promises/A+ 规范并没处理如何创建 fulfill，或 reject promise，而选择了可互操作的 then 方法替代。在今后的工作中可能会考虑。
+
+
 ### 1. Terminology
+
+### 1. 术语
 
 1.1 “promise” is an object or function with a then method whose behavior conforms to this specification.
 
+1.1 ‘promoise’ 是一个有符合此标准的 then 方法的 object 或 function 
+
 1.2 “thenable” is an object or function that defines a then method. 
+
+1.2 ‘thenable’ 是 then 方法定义的 object 或 function
 
 1.3 “value” is any legal JavaScript value (including undefined, a thenable, or a promise).
 
+1.3 ‘value’ 是一个 Javascript 合法值（包括 undefined，thenable，promise）
+
 1.4 “exception” is a value that is thrown using the throw statement.
+
+1.4 ‘exception’ 是一个 throw 语句抛出错误的值
 
 1.5 “reason” is a value that indicates why a promise was rejected.
 
+1.5 ‘reason’ 是一个表明 promise 失败的原因的值
+
 ### 2. Requirements
 
+### 2. 要求
+
 #### 2.1 Promise States
+
+#### 2.1 Promise 状态
+
 A promise must be in one of three states: pending, fulfilled, or rejected.
 
+一个 promise 有且只有一个状态（pending，fulfilled，rejected 其中之一）
+
 2.1.1 When pending, a promise:   
+
+2.1.1 pending 状态时：
+
 - 2.1.1.1 may transition to either the fulfilled or rejected state.
-- 2.1.1.2 When fulfilled, a promise:
-must not transition to any other state.
-must have a value, which must not change.
+
+- 2.1.1.1 可能会转变为 fulfilled 或 rejected 状态
+
+2.1.2 When fulfilled, a promise:
+
+2.1.2 fulfilled 状态时：
+
+- 2.1.2.1 must not transition to any other state.
+
+- 2.1.2.1 不能再状态为任何其他状态
+
+- 2.1.2.2 must have a value, which must not change.
+
+- 2.1.2.2 必须有一个 value，且不可改变
 
 2.1.3 When rejected, a promise:  
+
+2.1.3 rejected 状态时：
+
 - 2.1.3.1 must not transition to any other state.
+
+- 2.1.3.1 不能再状态为任何其他状态
+
 - 2.1.3.2 must have a reason, which must not change.
+
+- 2.1.3.2 必须有一个 reason，且不可改变
+
 
 Here, “must not change” means immutable identity (i.e. ===), but does not imply deep immutability.
 
+注：这里 ‘不可改变’ 意思是不可变恒等（同理 === ），但不意味永远不可变
+
 #### 2.2 The then Method
+
+#### 2.2 then 方法
+
+// TODO
+
 A promise must provide a then method to access its current or eventual value or reason.
 
 A promise’s then method accepts two arguments:
