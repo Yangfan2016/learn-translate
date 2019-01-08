@@ -100,47 +100,109 @@ Here, “must not change” means immutable identity (i.e. ===), but does not im
 
 #### 2.2 then 方法
 
-// TODO
-
 A promise must provide a then method to access its current or eventual value or reason.
 
+一个 promise 必须提供一个 then 方法，用来获取当前或最终的 value 或 reason
+
 A promise’s then method accepts two arguments:
+
+一个 promise 的 then 方法接受两个参数：
 
 `promise.then(onFulfilled, onRejected)`  
 
 2.2.1 Both onFulfilled and onRejected are optional arguments:
+
+2.2.1 onFulfilled 和 onRejected 都是可选参数：
+
 - 2.2.1.1 If onFulfilled is not a function, it must be ignored.  
+
+- 2.2.1.1 如果 onFulfilled 不是函数，它会被忽略
+
 - 2.2.1.2 If onRejected is not a function, it must be ignored. 
 
+- 2.2.1.2 如果 onRejected 不是函数，它会被忽略
+
+
 2.2.2 If onFulfilled is a function:
+
+2.2.2 如果 onFulfilled 是一个函数：
+
 - 2.2.2.1 it must be called after promise is fulfilled, with promise’s value as its first argument.
+
+- 2.2.2.1 它一定是在 promise 是 fulfilled 状态后调用，并且接受一个参数 value
+
 - 2.2.2.2 it must not be called before promise is fulfilled.
+
+- 2.2.2.2 它一定是在 promise 是 fulfilled 状态后调用
+
 - 2.2.2.3 it must not be called more than once.
 
-2.2.3 If onRejected is a function,
+- 2.2.2.3 它最多被调用一次
+
+2.2.3 If onRejected is a function:
+
+2.2.3 如果 onRejected 是一个函数：
+
 - 2.2.3.1 it must be called after promise is rejected, with promise’s reason as its first argument.
+
+- 2.2.3.1 它一定在 promise 是 rejected 状态后调用，并且接受一个参数 reason
+
 - 2.2.3.2 it must not be called before promise is rejected.
+
+- 2.2.3.2 它一定在 promise 是 rejected 状态后调用
+
 - 2.2.3.3 it must not be called more than once.
+
+- 2.2.3.3 它最多被调用一次
 
 2.2.4 onFulfilled or onRejected must not be called until the execution context stack contains only platform code. [3.1]. 
 
+2.2.4 onFulfilled 或 onRejected 只在执行环境堆栈只包含平台代码之后调用 [3.1]
+
 2.2.5 onFulfilled and onRejected must be called as functions (i.e. with no this value). [3.2]
 
+2.2.5 onFulfilled 和 onRejected 会作为函数形式调用 (也就是说，默认 this 指向 global，严格模式 undefined) [3.2]
+
 2.2.6 then may be called multiple times on the same promise.
+
+2.2.6 在同一个 promise 实例中，then 可以链式调用多次
+
 - 2.2.6.1 If/when promise is fulfilled, all respective onFulfilled callbacks must execute in the order of their originating calls to then.
+
+- 2.2.6.1 如果或当 promise 转态是 fulfilled 时，所有的 onFulfilled 回调回以他们注册时的顺序依次执行
+
 - 2.2.6.2 If/when promise is rejected, all respective onRejected callbacks must execute in the order of their originating calls to then.
+
+- 2.2.6.2 如果或当 promise 转态是 rejected 时，所有的 onRejected 回调回以他们注册时的顺序依次执行
 
 2.2.7 then must return a promise [3.3].
 
+2.2.7 then 方法一定返回一个 promise
+
  `promise2 = promise1.then(onFulfilled, onRejected);`
+
 - 2.2.7.1 If either onFulfilled or onRejected returns a value x, run the Promise Resolution Procedure [[Resolve]](promise2, x).
+
+- 2.2.7.1 如果 onFulfilled 或 onRejected 返回的是一个 x，那么它会以 [[Resolve]](promise2, x) 处理解析
+
 - 2.2.7.2 If either onFulfilled or onRejected throws an exception e, promise2 must be rejected with e as the reason.
+
+- 2.2.7.2 如果 onFulfilled 或 onRejected 里抛出了一个异常，那么 promise2 必须捕获这个错误（接受一个 reason 参数）
 
 - 2.2.7.3 If onFulfilled is not a function and promise1 is fulfilled, promise2 must be fulfilled with the same value as promise1.
 
+- 2.2.7.3 如果 onFulfilled 不是一个函数，并且 promise1 状态是 fulfilled，那么 promise2 一定会接受到与 promse1 一样的值 value
+
 - 2.2.7.4 If onRejected is not a function and promise1 is rejected, promise2 must be rejected with the same reason as promise1.
 
+- 2.2.7.4 如果 onRejected 不是一个函数，并且 promise1 状态是 rejected，promise2 一定会接受到与 promse1 一样的值 reason
+
 #### 2.3 The Promise Resolution Procedure
+
+#### 2.3 Promise 解析过程
+
+/// TODO
+
 The promise resolution procedure is an abstract operation taking as input a promise and a value, which we denote as [[Resolve]](promise, x). If x is a thenable, it attempts to make promise adopt the state of x, under the assumption that x behaves at least somewhat like a promise. Otherwise, it fulfills promise with the value x.
 
 This treatment of thenables allows promise implementations to interoperate, as long as they expose a Promises/A+-compliant then method. It also allows Promises/A+ implementations to “assimilate” nonconformant implementations with reasonable then methods.
