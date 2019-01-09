@@ -199,33 +199,55 @@ A promise’s then method accepts two arguments:
 
 #### 2.3 The Promise Resolution Procedure
 
-#### 2.3 Promise 解析过程
-
-/// TODO
+#### 2.3 Promise 处理程序
 
 The promise resolution procedure is an abstract operation taking as input a promise and a value, which we denote as [[Resolve]](promise, x). If x is a thenable, it attempts to make promise adopt the state of x, under the assumption that x behaves at least somewhat like a promise. Otherwise, it fulfills promise with the value x.
 
+promise 处理程序是一个表现形式为 [[Resolve]](promise, x) 的抽象处理操作。如果 x 是 thenable 类型，它会尝试生成一个 promise 处理 x，否则它将直接 resolve x
+
 This treatment of thenables allows promise implementations to interoperate, as long as they expose a Promises/A+-compliant then method. It also allows Promises/A+ implementations to “assimilate” nonconformant implementations with reasonable then methods.
+
+只要 then 方法符合 Promises/A+ 规则，那么对 thenables 处理就允许实现可互操作（链式调用，层层传递下去）。它也允许对那些不符合 Promises/A+ 的 then 方法进行 “吸收”
 
 To run [[Resolve]](promise, x), perform the following steps:
 
+[[Resolve]](promise, x) 的执行表现形式如下步骤：
+
 2.3.1 If promise and x refer to the same object, reject promise with a TypeError as the reason.
+
+2.3.1 如果返回的 promise1 和 x 是指向同一个引用（循环引用），则抛出错误
 
 2.3.2 If x is a promise, adopt its state [3.4]:
 
+2.3.2 如果 x 是一个 promise 实例，则采用它的状态：
+
 - 2.3.2.1 If x is pending, promise must remain pending until x is fulfilled or rejected.
+
+- 2.3.2.1 如果 x 是 pending 状态，那么保留它（递归执行这个 promise 处理程序），直到 pending 状态转为 fulfilled 或 rejected 状态
 
 - 2.3.2.2 If/when x is fulfilled, fulfill promise with the same value.
 
+- 2.3.2.2 如果或当 x 状态是 fulfilled，resolve 它，并且传入和 promise1 一样的值 value
+
 - 2.3.2.3 If/when x is rejected, reject promise with the same reason.
+
+- 2.3.2.3 如果或当 x 状态是 rejected，reject 它，并且传入和 promise1 一样的值 reason
 
 2.3.3 Otherwise, if x is an object or function,
 
+2.3.3 此外，如果 x 是个对象或函数类型
+
 - 2.3.3.1 Let then be x.then. [3.5]
+
+- 2.3.3.1 把 x.then 赋值给 then 变量
 
 - 2.3.3.2 If retrieving the property x.then results in a thrown exception e, reject promise with e as the reason.
 
+- 2.3.3.2 如果捕获（try，catch）到 x.then 抛出的错误的话，需要 reject 这个promise
+
 - 2.3.3.3 If then is a function, call it with x as this, first argument resolvePromise, and second argument rejectPromise, where:
+
+/// TODO
 
     - 2.3.3.3.1 If/when resolvePromise is called with a value y, run [[Resolve]](promise, y).
 
@@ -246,6 +268,9 @@ If a promise is resolved with a thenable that participates in a circular thenabl
 3.1 Here “platform code” means engine, environment, and promise implementation code. In practice, this requirement ensures that onFulfilled and onRejected execute asynchronously, after the event loop turn in which then is called, and with a fresh stack. This can be implemented with either a “macro-task” mechanism such as setTimeout or setImmediate, or with a “micro-task” mechanism such as MutationObserver or process.nextTick. Since the promise implementation is considered platform code, it may itself contain a task-scheduling queue or “trampoline” in which the handlers are called.
 
 3.2 That is, in strict mode this will be undefined inside of them; in sloppy mode, it will be the global object.
+
+
+3.2 这个 this 在严格模式下是 undefined，在宽松模式，指向 global 对象
 
 3.3 Implementations may allow promise2 === promise1, provided the implementation meets all requirements. Each implementation should document whether it can produce promise2 === promise1 and under what conditions.
 
