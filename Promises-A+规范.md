@@ -283,20 +283,32 @@ To run [[Resolve]](promise, x), perform the following steps:
 
 If a promise is resolved with a thenable that participates in a circular thenable chain, such that the recursive nature of [[Resolve]](promise, thenable) eventually causes [[Resolve]](promise, thenable) to be called again, following the above algorithm will lead to infinite recursion. Implementations are encouraged, but not required, to detect such recursion and reject promise with an informative TypeError as the reason. [3.6]
 
-/// TODO
+如果被 resolve 的 promise 参与了 thenable 的循环链中，那么可能会导致无限递归。我们鼓励实现检测这种无限递归的方法并且返回一个错误信息，但并不是必须的 [3.6] 
 
 ### 3.Notes
+
+### 3. 备注
+
 3.1 Here “platform code” means engine, environment, and promise implementation code. In practice, this requirement ensures that onFulfilled and onRejected execute asynchronously, after the event loop turn in which then is called, and with a fresh stack. This can be implemented with either a “macro-task” mechanism such as setTimeout or setImmediate, or with a “micro-task” mechanism such as MutationObserver or process.nextTick. Since the promise implementation is considered platform code, it may itself contain a task-scheduling queue or “trampoline” in which the handlers are called.
 
-3.2 That is, in strict mode this will be undefined inside of them; in sloppy mode, it will be the global object.
+3.1 这里的 “平台代码”是指引擎，环境，和 promise 实现代码。实际上，这个要求确保 onFulfilled 和 onRejected 都在下一轮的事件循环中（一个新的栈）被异步调用。可以用宏任务，例如：setTimeout，setImmediate 或者微任务，例如：MutationObsever 或 process.nextTick 实现。 由于 promise 的实现被当做平台代码，所以它本身可能包含一个任务队列或 “trampoline” 的处理程序
 
+3.2 That is, in strict mode this will be undefined inside of them; in sloppy mode, it will be the global object.
 
 3.2 这个 this 在严格模式下是 undefined，在宽松模式，指向 global 对象
 
 3.3 Implementations may allow promise2 === promise1, provided the implementation meets all requirements. Each implementation should document whether it can produce promise2 === promise1 and under what conditions.
 
+3.3 具体的实现可以允许 promise2 和 promise1 绝对相等，要满足所有要求。每一个处理 promise2 和 promise1 绝对相等的实现都要写上文档标注
+
 3.4 Generally, it will only be known that x is a true promise if it comes from the current implementation. This clause allows the use of implementation-specific means to adopt the state of known-conformant promises.
+
+3.4 通常，只有它来自当前实现才可以判断 x 是一个真正的 promise。 此条款允许采取已知符合 promise 标准实现的状态
 
 3.5 This procedure of first storing a reference to x.then, then testing that reference, and then calling that reference, avoids multiple accesses to the x.then property. Such precautions are important for ensuring consistency in the face of an accessor property, whose value could change between retrievals.
 
+3.5 把 x.then 存起来，然后测试、调用这个引用，避免多次访问 x.then 属性。这么做的原因是防止每次获取 x.then 时，返回不同的情况（ES5的getter特性可能会产生副作用）
+
 3.6 Implementations should not set arbitrary limits on the depth of thenable chains, and assume that beyond that arbitrary limit the recursion will be infinite. Only true cycles should lead to a TypeError; if an infinite chain of distinct thenables is encountered, recursing forever is the correct behavior.
+
+3.6 实现不应该武断地限制 thenable 链的深度，假设超出限制的无限递归。只有真正的循环引用才会导致一个 TypeError 错误，如果遇到一个不同的无限递归 thenable 链，一直递归永远是正确的行为
