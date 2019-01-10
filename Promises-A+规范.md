@@ -247,22 +247,43 @@ To run [[Resolve]](promise, x), perform the following steps:
 
 - 2.3.3.3 If then is a function, call it with x as this, first argument resolvePromise, and second argument rejectPromise, where:
 
-/// TODO
+- 2.3.3.3 如果 then 是函数类型，那个用 x 调用它（将 then 的 this 指向 x）,第一个参数传 resolvePromise ，第二个参数传 rejectPromise：
 
     - 2.3.3.3.1 If/when resolvePromise is called with a value y, run [[Resolve]](promise, y).
 
+    - 2.3.3.3.1 如果或当 resolvePromise 被调用并接受一个参数 y 时，执行 [[Resolve]](promise, y)
+
     - 2.3.3.3.2 If/when rejectPromise is called with a reason r, reject promise with r.
 
+    - 2.3.3.3.2 如果或当 rejectPromise 被调用并接受一个参数 r 时，执行 reject(r)    
+
     - 2.3.3.3.3 If both resolvePromise and rejectPromise are called, or multiple calls to the same argument are made, the first call takes precedence, and any further calls are ignored.
+
+    - 2.3.3.3.3 如果 resolvePromise 和 rejectPromise 已经被调用或以相同的参数多次调用的话吗，优先第一次的调用，并且之后的调用全部被忽略（避免多次调用）
+
     - 2.3.3.3.4 If calling then throws an exception e,
+        
+    - 2.3.3.4 如果 then 执行过程中抛出了异常，
+
         - 2.3.3.3.4.1 If resolvePromise or rejectPromise have been called, ignore it.
 
-        - 2.3.3.3.4.1 Otherwise, reject promise with e as the reason.
+        - 2.3.3.3.4.1 如果 resolvePromise 或 rejectPromise 已经被调用，那么忽略异常
+
+        - 2.3.3.3.4.2 Otherwise, reject promise with e as the reason.
+
+        - 2.3.3.3.4.2 否则，则 reject 这个异常
+
 - 2.3.3.4 If then is not a function, fulfill promise with x.
+
+- 2.3.3.4 如果 then 不是函数类型，直接 resolve x（resolve(x)）
 
 2.3.4 If x is not an object or function, fulfill promise with x.
 
+2.3.4 如果 x 即不是函数类型也不是对象类型，直接 resolve x（resolve(x)）
+
 If a promise is resolved with a thenable that participates in a circular thenable chain, such that the recursive nature of [[Resolve]](promise, thenable) eventually causes [[Resolve]](promise, thenable) to be called again, following the above algorithm will lead to infinite recursion. Implementations are encouraged, but not required, to detect such recursion and reject promise with an informative TypeError as the reason. [3.6]
+
+/// TODO
 
 ### 3.Notes
 3.1 Here “platform code” means engine, environment, and promise implementation code. In practice, this requirement ensures that onFulfilled and onRejected execute asynchronously, after the event loop turn in which then is called, and with a fresh stack. This can be implemented with either a “macro-task” mechanism such as setTimeout or setImmediate, or with a “micro-task” mechanism such as MutationObserver or process.nextTick. Since the promise implementation is considered platform code, it may itself contain a task-scheduling queue or “trampoline” in which the handlers are called.
