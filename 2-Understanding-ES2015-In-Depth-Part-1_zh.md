@@ -84,11 +84,9 @@ function fn() {
 
 ### 声明提升
 
-/// TODO
+理解提升的概念是理解 JavaScript 如何工作的基础。JavaScript 有两个阶段：解析阶段（JavaScript 引擎读取所有的代码）、执行阶段（执行已解析的代码）。大多数的事情都发生在第二阶段；例如，当你使用 `console.log` 语句时，实际的日志消息会在执行阶段打印到控制台
 
-Understanding the concept of hoisting is fundamental to understanding how JavaScript works. JavaScript has two phases: a parsing phase—where all of the code is read by the JavaScript engine—followed by an execution phase in which the code that has been parsed is executed. It is during this second phase that most things happen; for example, when you use a `console.log` statement, the actual log message is printed to the console during the execution phase.
-
-However, some important things happen during the parsing phase as well, including memory allocation for variables and scope creation. The term hoisting describes what happens when the JavaScript engine encounters an identifier, such as a variable or function declaration; when it does this, it acts as if it literally lifts (hoists) that declaration up to the top of the current scope. In light of this, in the above code example, what really happens is this:
+然而，一些重要的事情也会在解析阶段发生，包括变量的内存分配、作用域创建。提升这个术语指的是 JavaScript 引擎在遇到标识符，如变量、函数声明时所发生到事情；当发生声明提升时，它的行为就像是把它定义的字面量提升到当前作用域的顶部。鉴于此，上面到代码示例实际会变成如下情况：
 
 ```js
 function fn() {
@@ -108,9 +106,9 @@ function fn() {
 }
 ```
 
-Only the variable declaration is hoisted to the top of its scope; the variable assignment still occurs at the place where we assigned the value, inside the `if` statement in this example. Of course, our variables aren’t literally moved around in our code, but the engine behaves as if this is what happens, so this is a useful device for understanding our code better.
+只有变量到声明会提升到它的作用域的顶部；在这个例子的 `if` 语句中，变量赋值依然发生在我们所赋值的地方。当然，我们到变量并不会移动，而是引擎行为的确如此，因此这样可以更好的帮助我们理解代码
 
-In addition to variables, function declarations are also hoisted. Consequently, from the JavaScript engine’s perspective, the code actually looks like this:
+除了变量，函数声明也会被提升。结果就是，从 JavaScript 引擎到角度来看，代码实际上看起来是这样的：
 
 ```js
 function fn() {
@@ -129,7 +127,7 @@ function fn() {
 }
 ```
 
-The declaration of `innerFn` is also moved to the top of its scope. But remember, it is just the declaration of the function that is hoisted, not the invocation of the function. The above code won’t throw any errors because `innerFn` isn’t invoked until after the `x` and `y` variables have had values assigned to them.
+`innerFn` 的声明也被提升到了它的作用域的顶部。但是，记住它仅仅是函数声明被提升了，函数调用没有被提升。上面的代码并不会报任何错，因为 `innerFn` 在 `x` 和 `y` 赋值之前并没有被调用   
 
 ### 使用 `let`
 
@@ -225,9 +223,9 @@ As with other programming languages, constants are useful for holding values tha
 
 It is important to note that `let` and `const` are both reserved words in JavaScript, and so cannot be used as identifier names in strict mode. As ES2015 becomes more and more common, a consensus is emerging that both `let` and `const` are superior to `var` because the scope of variables created with them is more aligned to other modern programming languages, and code behaves in a much more predictable way. Therefore, for most situations it is preferable to avoid the use of `var` if possible.
 
-### 永恒性
+### 不可变性
 
-While the value of a `const` variable cannot be changed with reassignment, `const` variables are not completely immutable. If we initialize a `const` variable with an object or an array, we will still be able to set the properties of the object and add and remove items to the array.
+用 `const` 声明的变量不能被再次赋值，但是 `const` 声明的变量并不是完全不可变的。如果我们用对象或数组初始化了一个 `const` 变量，我们依然可以修改对象到属性和增加删除数组到元素 
 
 ### 练习
 
