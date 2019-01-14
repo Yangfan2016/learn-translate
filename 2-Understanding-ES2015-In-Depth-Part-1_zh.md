@@ -165,14 +165,14 @@ fn();
 
 ### 暂时性死区
 
-When a regular variable created using `var` is hoisted to the top of its scope, it’s initialized with the value `undefined`, which is what allows us to be able to reference a normal variable before it has a value declared through assignment:
+当一个用 `var` 声明的常规变量被创建时，会被提升到它的作用域的顶部，然后并初始化一个 `undefined` 值，这样就允许我们能够在它赋值之前引用一个正常的变量
 
 ```js
 console.log(x); // undefined
 var x = 10;
 ```
 
-Remember, because of hoisting, the code is actually understood as this:
+记住，由于存在声明提升，代码实际看起来是这样的：
 
 ```js
 var x = undefined;
@@ -180,16 +180,18 @@ console.log(x); // undefined
 x = 10;
 ```
 
-This behavior prevents a `ReferenceError` from being thrown.
+这个行为会阻止抛出引用错误 `ReferenceError`
 
-Variables declared with `let` are hoisted, but crucially, they are not automatically initialised with the value `undefined`, which means that the following code produces an error:
+用 `let` 声明的变量也被提升了，但重要的是，他们并不会自动初始化值 `undefined`，因此意味着下面的代码会产生一个错误：
 
 ```js
 console.log(x); // Uncaught ReferenceError: x is not defined
 let x = 10;
 ```
 
-This error is caused by the temporal dead zone (TDZ). The TDZ exists from the moment the scope is initialized to the moment the variable is declared. To fix the `ReferenceError`, we need to declare the variable before trying to access it:
+这个错误是由暂时性死区（TDZ）引起的。TDZ 存在于作用域初始化到变量声明期间。为了修复这个错误（`ReferenceError`），我们需要在访问它前声明它：
+
+> 译者注：[TDZ](https://gist.github.com/rwaldron/ca35924d59ddc60a6aa165e1e4a3acda)
 
 ```js
 let x;
@@ -197,7 +199,7 @@ console.log(x); // undefined
 x = 10;
 ```
 
-The TDZ was designed like this in order to make development easier—trying to reference a variable that has not been declared yet is more commonly an error than an intentional decision, so the error highlights this to us immediately.
+TDZ 这样设计是为了使开发更容易（视图引用一个还没声明的变量通常视为一个错误，而不是故意的决策），因此这个错误可以立即提醒我们
 
 ### 使用 `const`
 
@@ -229,7 +231,7 @@ It is important to note that `let` and `const` are both reserved words in JavaSc
 
 ### 练习
 
-1. 在 `for` 循环里用 `let` 来初始化计数器变量  
+1. 在 `for` 循环里用 `let` 来初始化计数器变量  
 2. 修复下面 `const` 的错误：
 
 ```js
