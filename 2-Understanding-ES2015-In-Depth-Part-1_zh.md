@@ -1,7 +1,10 @@
-## 深入理解 ES2015，第一趴：块级作用域 `let` 和 `const`
+## 【译】深入理解 ES2015，第一趴：块作用域 `let` 和 `const`
 
-> 原文：http://javascriptissexy.com/understanding-es2015-in-depth-part-1-block-scope-with-let-and-const/  
-作者：[Dan Wellman](http://javascriptissexy.com/author/dan_wellman/)
+> - 原文地址：http://javascriptissexy.com/understanding-es2015-in-depth-part-1-block-scope-with-let-and-const/
+> - 原文作者：[Dan Wellman](http://javascriptissexy.com/author/dan_wellman/)
+> - Markdown 地址：https://github.com/Yangfan2016/learn-translate/blob/master/2-Understanding-ES2015-In-Depth-Part-1.md
+> - 译者：[Yangfan2016](https://github.com/Yangfan2016)
+
 
 ES2015 最大的特性之一就是有了一个全新的作用域。在这个章节里，我们将开始学习什么是作用域。我们将继续学习如何创建新的作用域类型，以及给我们代码带来的好处
 
@@ -106,7 +109,7 @@ function fn() {
 }
 ```
 
-只有变量到声明会提升到它的作用域的顶部；在这个例子的 `if` 语句中，变量赋值依然发生在我们所赋值的地方。当然，我们到变量并不会移动，而是引擎行为的确如此，因此这样可以更好的帮助我们理解代码
+只有变量到声明会提升到它的作用域的顶部；在这个例子的 `if` 语句中，变量赋值依然发生在我们所赋值的地方。当然，我们到变量并不会移动，而是引擎行为表现如此，因此这样可以更好的帮助我们理解代码
 
 除了变量，函数声明也会被提升。结果就是，从 JavaScript 引擎到角度来看，代码实际上看起来是这样的：
 
@@ -131,7 +134,7 @@ function fn() {
 
 ### 使用 `let`
 
-即使使用了 ES2015，`var` 语句也不会创建块作用域。为了创建块作用域，我们需要在块里使用 `let` 或 `const` 语句。我们一会再看 `const`，首先来看下 `let`
+即使使用了 ES2015，`var` 声明也不会创建块作用域。为了创建块作用域，我们需要在块里使用 `let` 或 `const` 声明。我们一会再看 `const`，首先来看下 `let`
 
 表面上，`let` 和 `var`（我们用它来声明变量）的行为很相似：
 
@@ -142,7 +145,7 @@ function fn() {
 }
 ```
 
-在这个简单的例子中，`var` 和 `let` 语句都做了相同的事情（在 `fn` 创建的作用域下初始化了一个新的变量）。为了创建一个新的块作用域，我们需要在块里使用 `let`：
+在这个简单的例子中，`var` 和 `let` 声明都做了相同的事情（在 `fn` 创建的作用域下初始化了一个新的变量）。为了创建一个新的块作用域，我们需要在块里使用 `let`：
 
 ```js
 function fn() {
@@ -157,7 +160,7 @@ function fn() {
 fn();
 ```
 
-在这个代码示例中，抛出了一个引用错误（reference error）；让我们来探索下为什么会这样。`fn` 函数创建了一个新作用域，里面声明了变量 `variable1`。然后我们在 `if` 语句的块里，声明了变量 `variable2`。然而，因为我们在块里使用了 `let` 语句，因此一个新的块作用域在 `fn` 的作用域下被创建了
+在这个代码示例中，抛出了一个引用错误（reference error）；让我们来探索下为什么会这样。`fn` 函数创建了一个新作用域，里面声明了变量 `variable1`。然后我们在 `if` 语句的块里，声明了变量 `variable2`。然而，因为我们在块里使用了 `let` 声明，因此一个新的块作用域在 `fn` 的作用域下被创建了
 
 如果 `console.log` 语句也在 `if` 块中的话，那么它就和 `variable2` 在相同的作用域下了，也能够通过作用域链找到 `variable1`。但是因为 `console.log` 在外头，因此它不能访问 `variable2`，所以会抛出一个引用错误
 
@@ -165,7 +168,7 @@ fn();
 
 ### 暂时性死区
 
-当一个用 `var` 声明的常规变量被创建时，会被提升到它的作用域的顶部，然后并初始化一个 `undefined` 值，这样就允许我们能够在它赋值之前引用一个正常的变量
+当一个用 `var` 声明的常规变量被创建时，会被提升到它的作用域的顶部，然后并初始化一个 `undefined` 值，这样就允许我们能够在它赋值之前引用一个常规变量
 
 ```js
 console.log(x); // undefined
@@ -199,35 +202,36 @@ console.log(x); // undefined
 x = 10;
 ```
 
-TDZ 这样设计是为了使开发更容易（试图引用一个还没声明的变量通常视为一个错误，而不是故意的决策），因此这个错误可以立即提醒我们
+TDZ 这样设计是为了使开发更容易（试图引用一个还没声明的变量通常视为一个错误，而不是故意为之），因此这个错误可以立即提醒我们
 
 ### 使用 `const`
 
-The new `const` statement is used to declare a variable whose value cannot be reassigned. It behaves in a very similar way as `let` does with regard to the TDZ, but when being declared, a `const` variable must be initialised with a value:
+新的 `const` 被用来声明一个不可再次赋值的变量。它和 `let` 的在 TDZ 的行为非常相似，但是，`const` 变量必须初始化一个值
 
 ```js
 const VAR1 = 'constant';
 ```
 
-From this point on, the value of `VAR1` will always be the string `constant`. If we try to change the value of the variable through reassignment, we’ll see an error:
+从现在开始， 变量 `VAR1` 的值将永远是 “constant” 这个字符串。如果我们试图再次对它赋值，我们会得到一个错误：
 
 > TypeError: Assignment to `constant` variable
 
-If we try to create a `const` variable without initializing it with a value, we’ll also see an error; this time a SyntaxError:
+如果我们试图创建一个没有初始化的 `const` 变量，我们将看到一个语法错误：
 
 > SyntaxError: Missing initializer in `const` declaration
 
-Simirlarly, a `const` variable cannot be redeclared. If we try to declare the same `const` variable more than once, we’ll see a different type of SyntaxError:
+相似地，一个 `const` 变量不能被再次声明。如果我们试图再次用 `const` 声明一个相同变量时，我们将得到一个不同类型的语法错误
 
 > SyntaxError: Identifier ‘VAR1′ has already been declared
 
-As with other programming languages, constants are useful for holding values that we do not expect to change over the life of our program.
+和其他编程语言一样，常量是被用来保存我们的程序在生命周期里不希望改变的值
 
-It is important to note that `let` and `const` are both reserved words in JavaScript, and so cannot be used as identifier names in strict mode. As ES2015 becomes more and more common, a consensus is emerging that both `let` and `const` are superior to `var` because the scope of variables created with them is more aligned to other modern programming languages, and code behaves in a much more predictable way. Therefore, for most situations it is preferable to avoid the use of `var` if possible.
+记住 `let` 和 `const` 都是 JavaScript 的保留词，因此在严格模式下，是不能被用作标识符名称的（变量名，函数名等）。随着 ES2015 越来越普遍，`let` 和 `const` 优于 `var` 已形成一个共识，因为变量创建的作用域更与其他现代编程语言看齐，并且代码的行为也更好预测。
+因此，在大多数情况下尽可能的避免使用 `var`
 
 ### 不可变性
 
-用 `const` 声明的变量不能被再次赋值，但是 `const` 声明的变量并不是完全不可变的。如果我们用对象或数组初始化了一个 `const` 变量，我们依然可以修改对象到属性和增加删除数组到元素 
+用 `const` 声明的变量不能被再次赋值的，但是 `const` 声明的变量并不是完全不可变的。如果我们用对象或数组初始化了一个 `const` 变量，我们依然可以修改对象的属性和增加删除数组的元素 
 
 ### 练习
 
@@ -243,3 +247,8 @@ VAR2 = 'constant';
 
 > #### 成功是通过不断的练习和知识的积累，而非智力
 
+
+
+> - 本文仅代表原作者个人观点，译者不发表任何观点
+> - Markdown 文件由译者手动整理，如有勘误，欢迎指正
+> - 译文和原文采用一样协议，侵删

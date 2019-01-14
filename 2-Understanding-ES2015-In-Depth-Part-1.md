@@ -1,7 +1,8 @@
 ## Understanding ES2015 In Depth, Part 1: Block Scope with `let` and `const`
 
-> 原文：http://javascriptissexy.com/understanding-es2015-in-depth-part-1-block-scope-with-let-and-const/  
-作者：[Dan Wellman](http://javascriptissexy.com/author/dan_wellman/)
+> - 原文地址：http://javascriptissexy.com/understanding-es2015-in-depth-part-1-block-scope-with-let-and-const/
+> - 原文作者：[Dan Wellman](http://javascriptissexy.com/author/dan_wellman/)
+> - Markdown 地址：https://github.com/Yangfan2016/learn-translate/blob/master/2-Understanding-ES2015-In-Depth-Part-1.md
 
 One of the major features introduced by ES2015 is a whole new scope. In this section, we’re going to start by learning what a scope is. We’ll then move on to look at how we can create the new type of scope, and the benefits it can bring to our code.
 
@@ -216,7 +217,7 @@ If we try to create a `const` variable without initializing it with a value, we�
 
 > SyntaxError: Missing initializer in `const` declaration
 
-Simirlarly, a `const` variable cannot be redeclared. If we try to declare the same `const` variable more than once, we’ll see a different type of SyntaxError:
+Similarly, a `const` variable cannot be redeclared. If we try to declare the same `const` variable more than once, we’ll see a different type of SyntaxError:
 
 > SyntaxError: Identifier ‘VAR1′ has already been declared
 
