@@ -134,7 +134,7 @@ The declaration of `innerFn` is also moved to the top of its scope. But remember
 
 Even when using ES2015, the `var` statement does not create block scope. In order to create block scope, we need to use either the `let` or `const` statements inside a block. We’ll come back to `const` shortly. For now, let’s focus on `let`.
 
-Superficially, `let` is very similar to var—we use it to declare variables:
+Superficially, `let` is very similar to `var`—we use it to declare variables:
 
 ```js
 function fn() {
@@ -160,7 +160,7 @@ fn();
 
 In this case the code throws a reference error; let’s explore why. The `fn` function creates a new scope within which `variable1` is declared. We then have an `if` statement, which uses a block to declare `variable2`. However, because we used the `let` statement within that block, a new block scope is created within the `fn` scope.
 
-If the `console.log` statement had been inside the if block as well, it would be in the same scope as `variable2` and would be able to use the scope chain to find `variable1`. But because `console.log` is in the `outer` `fn` scope, it can’t access `variable2`, so it throws a reference error.
+If the `console.log` statement had been inside the `if` block as well, it would be in the same scope as `variable2` and would be able to use the scope chain to find `variable1`. But because `console.log` is in the `outer` `fn` scope, it can’t access `variable2`, so it throws a reference error.
 
 Block scopes work the same as function scopes work, but they are created for blocks, rather than functions.
 

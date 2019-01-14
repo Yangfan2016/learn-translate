@@ -59,11 +59,11 @@ function outer() {
 
 ### JavaScript 的新作用域
 
-在 JavaScript 中，一个块是由一个或多个语句用大括号包裹起来的。诸如 `if`，`for`，`while` 的条件表达式，都是用块基于特定的条件来执行块语句
+在 JavaScript 中，一个块是由一个或多个语句用大括号包裹起来的。诸如 `if`，`for`，`while` 的条件表达式，都是用块基于特定的条件来执行块语句
 
-其他流行的常见的编程语言都有块作用域，JavaScript 作用域中，直到如今却只有全局作用域和函数作用域，因此使我们变得很困惑。ES2015 在 JavaScript 新增了块作用域，对于我们的代码来说有很大的影响，并且对于那些熟悉其他编程语言的开发者来说变得更直观
+其他流行的常见的编程语言都有块作用域，JavaScript 作用域中，直到如今却只有全局作用域和函数作用域，因此使我们变得很困惑。ES2015 在 JavaScript 新增了块作用域，对于我们的代码来说有很大的影响，并且对于那些熟悉其他编程语言的开发者来说变得更直观
 
-块作用域意味着一个块可以创建它自己的作用域，而不是简单的存在于它最近到父级函数作用域或全局作用域下。让我们在认识块作用域是如何工作的之前，先来了解下传统上块里的 JavaScript 是如何工作的：
+块作用域意味着一个块可以创建它自己的作用域，而不是简单的存在于它最近到父级函数作用域或全局作用域下。让我们在认识块作用域是如何工作的之前，先来了解下传统上块里的 JavaScript 是如何工作的：
 
 ```js
 function fn() {
@@ -80,7 +80,7 @@ function fn() {
 }
 ```
 
-`var` 语句是不能够创建块作用域的，即使是在块里，因此 `console.log` 语句可以访问到 `x` 和 `y` 变量。 `fn` 函数创建了一个函数作用域而且 `x` 和 `y` 变量都是可以通过作用域内的作用域链访问到 
+`var` 语句是不能够创建块作用域的，即使是在块里，因此 `console.log` 语句可以访问到 `x` 和 `y` 变量。 `fn` 函数创建了一个函数作用域而且 `x` 和 `y` 变量都是可以通过作用域内的作用域链访问到 
 
 ### 声明提升
 
@@ -131,9 +131,9 @@ function fn() {
 
 ### 使用 `let`
 
-Even when using ES2015, the `var` statement does not create block scope. In order to create block scope, we need to use either the `let` or `const` statements inside a block. We’ll come back to `const` shortly. For now, let’s focus on `let`.
+即使使用了 ES2015，`var` 语句也不会创建块作用域。为了创建块作用域，我们需要在块里使用 `let` 或 `const` 语句。我们一会在看 `const`，首先来看下 `let`
 
-Superficially, `let` is very similar to var—we use it to declare variables:
+表面上，`let` 和 `var`（我们用它来声明变量）的行为很相似：
 
 ```js
 function fn() {
@@ -142,7 +142,7 @@ function fn() {
 }
 ```
 
-In this simple example, the `var` and `let` statements both do the same thing—they initialise a new variable in the current scope, which is the scope created by the `fn` function. In order to create a new block scope, we need to use `let` inside a block:
+在这个简单的例子中，`var` 和 `let` 语句都做了相同的事情（在 `fn` 创建的作用域下初始化了一个新的变量。为了创建一个新的块作用域，我们需要在块里使用 `let`：
 
 ```js
 function fn() {
@@ -157,11 +157,11 @@ function fn() {
 fn();
 ```
 
-In this case the code throws a reference error; let’s explore why. The `fn` function creates a new scope within which `variable1` is declared. We then have an `if` statement, which uses a block to declare `variable2`. However, because we used the `let` statement within that block, a new block scope is created within the `fn` scope.
+在这个代码示例中，抛出了一个引用错误（reference error）；让我们来探索下为什么会这样。`fn` 函数创建了一个新作用域，里面声明了变量 `variable1`。然后我们在 `if` 语句的块里，声明了变量 `variable2`。然而，因为我们在块里使用了 `let` 语句，因此一个新的块作用域在 `fn` 的作用域下被创建了
 
-If the `console.log` statement had been inside the if block as well, it would be in the same scope as `variable2` and would be able to use the scope chain to find `variable1`. But because `console.log` is in the `outer` `fn` scope, it can’t access `variable2`, so it throws a reference error.
+如果 `console.log` 语句也在 `if` 块中的话，那么它就和 `variable2` 在相同的作用域下了，也能够通过作用域链找到 `variable1`。但是因为 `console.log` 在外头，因此它不能访问 `variable2`，所以会抛出一个引用错误
 
-Block scopes work the same as function scopes work, but they are created for blocks, rather than functions.
+块作用域和函数作用域的行为相同，但是他们是为块创建的，而不是函数
 
 ### 暂时性死区
 
