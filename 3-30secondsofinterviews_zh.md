@@ -1,57 +1,59 @@
 <h1 align="center">
-  30 Seconds of Interviews
+  面试 30 秒
 </h1>
 
-<h4 align="center">A curated collection of common interview questions to help you prepare for your next interview.</h4>
+<h4 align="center">一个面试常用的问题精选集，帮助你准备下一次面试</h4>
 
 > 原文 https://github.com/30-seconds/30-seconds-of-interviews
 
+## 前言
 
-## Foreword
-
-Interviews are daunting and can make even the most seasoned expert forget things under pressure. Review and learn what questions are commonly encountered in interviews curated by the community that's answered them and go prepared for anything they'll ask. By bringing together experience and real-world examples, you can go from being nervous to being prepared for that next big opportunity.
-
-## [View online](https://30secondsofinterviews.org/)
+面试是令人生畏的，它甚至可以让经验丰富的专家在压力之下大脑一片空白。复习和学习那些在面试中常遇到的问题（从社区中收集了被问到的和他们是如何应对的问题）。通过把实践和现实生活结合起来，你就可以从容的准备，面对下一次大锦鲤
 
 
-## Table of Contents
+## [在线观看](https://30secondsofinterviews.org/)
+
+
+## 目录
 
 
 ### JavaScript
 
 <details>
-<summary>View contents</summary>
+<summary>查看内容</summary>
 
-* [Create a function `batches` that returns the maximum number of whole batches that can be cooked from a recipe.](#create-a-function-batches-that-returns-the-maximum-number-of-whole-batches-that-can-be-cooked-from-a-recipe)
-* [What is Big O Notation?](#what-is-big-o-notation)
-* [Create a standalone function `bind` that is functionally equivalent to the method `Function.prototype.bind`.](#create-a-standalone-function-bind-that-is-functionally-equivalent-to-the-method-functionprototypebind)
-* [How can you avoid callback hells?](#how-can-you-avoid-callback-hells)
-* [What is the purpose of callback function as an argument of `setState`?](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
-* [Which is the preferred option between callback refs and findDOMNode()?](#which-is-the-preferred-option-between-callback-refs-and-finddomnode)
-* [What is a callback? Can you show an example using one?](#what-is-a-callback-can-you-show-an-example-using-one)
-* [What is children prop?](#what-is-children-prop)
-* [How do you clone an object in JavaScript?](#how-do-you-clone-an-object-in-javascript)
-* [What is a closure? Can you give a useful example of one?](#what-is-a-closure-can-you-give-a-useful-example-of-one)
-* [How do you compare two objects in JavaScript?](#how-do-you-compare-two-objects-in-javascript)
-* [What is context?](#what-is-context)
-* [What is CORS?](#what-is-cors)
-* [What is the DOM?](#what-is-the-dom)
-* [What is the difference between the equality operators `==` and `===`?](#what-is-the-difference-between-the-equality-operators--and-)
-* [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component)
-* [What is event delegation and why is it useful? Can you show an example of how to use it?](#what-is-event-delegation-and-why-is-it-useful-can-you-show-an-example-of-how-to-use-it)
-* [What is event-driven programming?](#what-is-event-driven-programming)
-* [What is the difference between an expression and a statement in JavaScript?](#what-is-the-difference-between-an-expression-and-a-statement-in-javascript)
-* [What are truthy and falsy values in JavaScript?](#what-are-truthy-and-falsy-values-in-javascript)
-* [Generate an array, containing the Fibonacci sequence, up until the nth term.](#generate-an-array-containing-the-fibonacci-sequence-up-until-the-nth-term)
-* [What does `0.1 + 0.2 === 0.3` evaluate to?](#what-does-01--02--03-evaluate-to)
-* [What is the difference between the array methods `map()` and `forEach()`?](#what-is-the-difference-between-the-array-methods-map-and-foreach)
-* [What are fragments?](#what-are-fragments)
-* [What is functional programming?](#what-is-functional-programming)
-* [What will the console log in this example?](#what-will-the-console-log-in-this-example)
-* [How does hoisting work in JavaScript?](#how-does-hoisting-work-in-javascript)
-* [What is the difference between HTML and React event handling?](#what-is-the-difference-between-html-and-react-event-handling)
-* [What is the reason for wrapping the entire contents of a JavaScript source file in a function that is immediately invoked?](#what-is-the-reason-for-wrapping-the-entire-contents-of-a-javascript-source-file-in-a-function-that-is-immediately-invoked)
-* [Explain the differences between imperative and declarative programming.](#explain-the-differences-between-imperative-and-declarative-programming)
+* [创建一个 `batches` 函数，返回一个食谱中可以被作为烹饪整批食材的最大数量](#create-a-function-batches-that-returns-the-maximum-number-of-whole-batches-that-can-be-cooked-from-a-recipe)
+* [什么是大 O 标记法？](#what-is-big-o-notation)
+* [创建一个和 `Function.prototype.bind` 功能一样的独立函数 `bind`](#create-a-standalone-function-bind-that-is-functionally-equivalent-to-the-method-functionprototypebind)
+* [你可以避免回调地狱吗？](#how-can-you-avoid-callback-hells)
+* [`setState` 将回调函数作为参数目的是什么？](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
+* [回调引用 refs 和 findDOMMNode 哪个更推荐使用？](#which-is-the-preferred-option-between-callback-refs-and-finddomnode)
+* [什么是回调，你可以举个例子吗？](#what-is-a-callback-can-you-show-an-example-using-one)
+* [React 组件中的属性（prop）`children` 是什么？](#what-is-children-prop)
+* [在 JavaScript 中，你是如何克隆一个对象的？](#how-do-you-clone-an-object-in-javascript)
+* [什么是闭包，你可以举一个有用的例子吗？](#what-is-a-closure-can-you-give-a-useful-example-of-one)
+* [在 JavaScript 中，你是如何比较两个对象的？](#how-do-you-compare-two-objects-in-javascript)
+* [在 React 中，什么是 `context`？](#what-is-context)
+* [什么是 `CORS`？](#what-is-cors)
+* [什么是 `DOM`？](#what-is-the-dom)
+* [`==` 和 `===` 相等运算符有什么区别？](#what-is-the-difference-between-the-equality-operators--and-)
+* [在 React 中，`Element` 和 `Component` 有什么区别？](#what-is-the-difference-between-element-and-component)
+* [什么是事件委托，为什么它是有用的，你可以举个例子说明如何使用它？](#what-is-event-delegation-and-why-is-it-useful-can-you-show-an-example-of-how-to-use-it)
+* [什么是事件驱动编程？](#what-is-event-driven-programming)
+* [在 JavaScript 中，声明和表达式的区别？](#what-is-the-difference-between-an-expression-and-a-statement-in-javascript)
+* [在 JavaScript 中，什么是真值（truthy），假值（falsy）?](#what-are-truthy-and-falsy-values-in-javascript)
+* [生成一个包含的 n 项斐波那契数列元素的数组](#generate-an-array-containing-the-fibonacci-sequence-up-until-the-nth-term)
+* [`0.1 + 0.2 === 0.3` 表达式的值是？](#what-does-01--02--03-evaluate-to)
+* [数组 `map()` 和 `forEach()` 方法的区别？](#what-is-the-difference-between-the-array-methods-map-and-foreach)
+* [在 React 中，什么是 `fragments`？](#what-are-fragments)
+* [什么是函数式编程？](#what-is-functional-programming)
+* [下面的例子中，`console.log` 会打印出什么？](#what-will-the-console-log-in-this-example)
+* [在 JavaScript 中，声明提升是如何工作的？](#how-does-hoisting-work-in-javascript)
+* [HTML 和 React 中的事件处理有什么区别？](#what-is-the-difference-between-html-and-react-event-handling)
+* [为何将 JavaScript 源文件里的整个内容用匿名函数包裹起来？](#what-is-the-reason-for-wrapping-the-entire-contents-of-a-javascript-source-file-in-a-function-that-is-immediately-invoked)
+* [阐释下命令式编程和声明式编程的区别？](#explain-the-differences-between-imperative-and-declarative-programming)
+
+// todo
 * [What is inline conditional expressions?](#what-is-inline-conditional-expressions)
 * [What is a key? What are the benefits of using it in lists?](#what-is-a-key-what-are-the-benefits-of-using-it-in-lists)
 * [What is the difference between lexical scoping and dynamic scoping?](#what-is-the-difference-between-lexical-scoping-and-dynamic-scoping)
@@ -130,12 +132,12 @@ Interviews are daunting and can make even the most seasoned expert forget things
 ### HTML
 
 <details>
-<summary>View contents</summary>
+<summary>查看内容</summary>
 
-* [What is the purpose of the `alt` attribute on images?](#what-is-the-purpose-of-the-alt-attribute-on-images)
-* [What are `defer` and `async` attributes on a `<script>` tag?](#what-are-defer-and-async-attributes-on-a-script-tag)
-* [What is the purpose of cache busting and how can you achieve it?](#what-is-the-purpose-of-cache-busting-and-how-can-you-achieve-it)
-* [What is the DOM?](#what-is-the-dom)
+* [图片里的 `alt` 属性是做什么的？](#what-is-the-purpose-of-the-alt-attribute-on-images)
+* [`<script>` 标签的 `defer` 和 `async` 是什么？](#what-are-defer-and-async-attributes-on-a-script-tag)
+* [不采用缓存的目的是什么，你如何实现它？](#what-is-the-purpose-of-cache-busting-and-how-can-you-achieve-it)
+* [什么是 `DOM`？](#what-is-the-dom)
 * [Can a web page contain multiple `<header>` elements? What about `<footer>` elements?](#can-a-web-page-contain-multiple-header-elements-what-about-footer-elements)
 * [Discuss the differences between an HTML specification and a browser’s implementation thereof.](#discuss-the-differences-between-an-html-specification-and-a-browsers-implementation-thereof)
 * [What is the difference between HTML and React event handling?](#what-is-the-difference-between-html-and-react-event-handling)
@@ -149,7 +151,7 @@ Interviews are daunting and can make even the most seasoned expert forget things
 ### CSS
 
 <details>
-<summary>View contents</summary>
+<summary>查看内容</summary>
 
 * [What is CSS BEM?](#what-is-css-bem)
 * [Describe the layout of the CSS Box Model and briefly describe each component.](#describe-the-layout-of-the-css-box-model-and-briefly-describe-each-component)
@@ -167,21 +169,21 @@ Interviews are daunting and can make even the most seasoned expert forget things
 ### Node
 
 <details>
-<summary>View contents</summary>
+<summary>查看内容</summary>
 
-* [How can you avoid callback hells?](#how-can-you-avoid-callback-hells)
-* [NodeJS often uses a callback pattern where if an error is encountered during execution, this error is passed as the first argument to the callback. What are the advantages of this pattern?](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
-* [What is the event loop in Node.js?](#what-is-the-event-loop-in-nodejs)
-* [What is REST?](#what-is-rest)
+* [你如何避免回调地狱？](#how-can-you-avoid-callback-hells)
+* [Node.js 中，经常使用回调的模式，把执行过程中遇到的错误，作为回调函数的第一个参数，这么做的优势是什么？](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
+* [在 Node.js 中，事件循环是什么？](#what-is-the-event-loop-in-nodejs)
+* [什么是 `REST`？](#what-is-rest)
 </details>
 
 
-### Security
+### 安全
 
 <details>
-<summary>View contents</summary>
+<summary>查看内容</summary>
 
-* [What is a cross-site scripting attack (XSS) and how do you prevent it?](#what-is-a-cross-site-scripting-attack-xss-and-how-do-you-prevent-it)
+* [什么是 XSS 攻击，你如何预防它？](#what-is-a-cross-site-scripting-attack-xss-and-how-do-you-prevent-it)
 </details>
 
 
