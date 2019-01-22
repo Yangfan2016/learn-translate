@@ -115,7 +115,7 @@
 * [React 和 HTML 对事件处理的区别？](#what-is-the-difference-between-html-and-react-event-handling)
 * [什么是内联条件表达式？](#what-is-inline-conditional-expressions)
 * [什么是 key ，在 lists 中使用的好处是什么？](#what-is-a-key-what-are-the-benefits-of-using-it-in-lists)
-* [React 里的声明周期有哪些？](#what-are-the-lifecycle-methods-in-react)
+* [React 里的生命周期有哪些？](#what-are-the-lifecycle-methods-in-react)
 * [React 组件中，生命周期的各个阶段是什么？](#what-are-the-different-phases-of-the-component-lifecycle-in-react)
 * [在 React 中，状态提升是什么意思？](#what-does-lifting-state-up-in-react-mean)
 * [在 React class 组件中，你是如何确保 `this` 的正确指向的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
