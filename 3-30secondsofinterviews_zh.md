@@ -101,31 +101,31 @@
 ### React
 
 <details>
-<summary>View contents</summary>
+<summary>查看内容</summary>
 
-* [What is the purpose of callback function as an argument of `setState`?](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
-* [Which is the preferred option between callback refs and findDOMNode()?](#which-is-the-preferred-option-between-callback-refs-and-finddomnode)
-* [What is children prop?](#what-is-children-prop)
-* [Why React uses className over class attribute?](#why-react-uses-classname-over-class-attribute)
-* [What is context?](#what-is-context)
-* [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component)
-* [What are error boundaries in React?](#what-are-error-boundaries-in-react)
-* [What are fragments?](#what-are-fragments)
-* [What are higher-order components?](#what-are-higher-order-components)
-* [What is the difference between HTML and React event handling?](#what-is-the-difference-between-html-and-react-event-handling)
-* [What is inline conditional expressions?](#what-is-inline-conditional-expressions)
-* [What is a key? What are the benefits of using it in lists?](#what-is-a-key-what-are-the-benefits-of-using-it-in-lists)
-* [What are the lifecycle methods in React?](#what-are-the-lifecycle-methods-in-react)
-* [What are the different phases of the component lifecycle in React?](#what-are-the-different-phases-of-the-component-lifecycle-in-react)
-* [What does lifting state up in React mean?](#what-does-lifting-state-up-in-react-mean)
-* [How do you ensure methods have the correct `this` context in React component classes?](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
-* [How do you pass an argument to an event handler or callback?](#how-do-you-pass-an-argument-to-an-event-handler-or-callback)
-* [What are portals in ReactJS?](#what-are-portals-in-reactjs)
-* [How to apply prop validation in React?](#how-to-apply-prop-validation-in-react)
-* [How to write comments in React?](#how-to-write-comments-in-react)
-* [What are refs? When should they be used?](#what-are-refs-when-should-they-be-used)
-* [What is a stateful component?](#what-is-a-stateful-component)
-* [What is a stateless component?](#what-is-a-stateless-component)
+* [`setState` 将回调函数作为参数目的是什么](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
+* [回调引用 refs 和 findDOMMNode 哪个更推荐使用？](#which-is-the-preferred-option-between-callback-refs-and-finddomnode)
+* [React 组件中的属性（prop）`children` 是什么？](#what-is-children-prop)
+* [React 为什么用 `className` 属性代替 `class`?](#why-react-uses-classname-over-class-attribute)
+* [在 React 中，什么是 `context`？](#what-is-context)
+* [在 React 中，`Element` 和 `Component` 有什么区别？](#what-is-the-difference-between-element-and-component)
+* [在 React 中，错误边界是什么？](#what-are-error-boundaries-in-react)
+* [在 React 中，什么是 `fragments`？](#what-are-fragments)
+* [什么是高阶组件？](#what-are-higher-order-components)
+* [React 和 HTML 对事件处理的区别？](#what-is-the-difference-between-html-and-react-event-handling)
+* [什么是内联条件表达式？](#what-is-inline-conditional-expressions)
+* [什么是 key ，在 lists 中使用的好处是什么？](#what-is-a-key-what-are-the-benefits-of-using-it-in-lists)
+* [React 里的声明周期有哪些？](#what-are-the-lifecycle-methods-in-react)
+* [React 组件中，生命周期的各个阶段是什么？](#what-are-the-different-phases-of-the-component-lifecycle-in-react)
+* [在 React 中，状态提升是什么意思？](#what-does-lifting-state-up-in-react-mean)
+* [在 React class 组件中，你是如何确保 `this` 的正确指向的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
+* [你是么给事件处理或回调函数传参的？](#how-do-you-pass-an-argument-to-an-event-handler-or-callback)
+* [在 React 中是 `portals` 是什么？](#what-are-portals-in-reactjs)
+* [在 React 中，如何校验 `prop`？](#how-to-apply-prop-validation-in-react)
+* [在 React 里，如何写注释？](#how-to-write-comments-in-react)
+* [什么是 `refs`，我们如何使用它？](#what-are-refs-when-should-they-be-used)
+* [什么是有状态组件？](#what-is-a-stateful-component)
+* [什么是无状态组件？](#what-is-a-stateless-component)
 </details>
 
 
@@ -138,13 +138,13 @@
 * [`<script>` 标签的 `defer` 和 `async` 是什么？](#what-are-defer-and-async-attributes-on-a-script-tag)
 * [不采用缓存的目的是什么，你如何实现它？](#what-is-the-purpose-of-cache-busting-and-how-can-you-achieve-it)
 * [什么是 `DOM`？](#what-is-the-dom)
-* [Can a web page contain multiple `<header>` elements? What about `<footer>` elements?](#can-a-web-page-contain-multiple-header-elements-what-about-footer-elements)
-* [Discuss the differences between an HTML specification and a browser’s implementation thereof.](#discuss-the-differences-between-an-html-specification-and-a-browsers-implementation-thereof)
-* [What is the difference between HTML and React event handling?](#what-is-the-difference-between-html-and-react-event-handling)
-* [What are some differences that XHTML has compared to HTML?](#what-are-some-differences-that-xhtml-has-compared-to-html)
-* [Briefly describe the correct usage of the following HTML5 semantic elements: `<header>`, `<article>`,`<section>`, `<footer>`](#briefly-describe-the-correct-usage-of-the-following-html5-semantic-elements-header-articlesection-footer)
-* [What is HTML5 Web Storage? Explain `localStorage` and `sessionStorage`.](#what-is-html5-web-storage-explain-localstorage-and-sessionstorage)
-* [Where and why is the `rel="noopener"` attribute used?](#where-and-why-is-the-relnoopener-attribute-used)
+* [一个页面里是否可以包含多个 `<header>` 元素， `<footer>` 元素呢？](#can-a-web-page-contain-multiple-header-elements-what-about-footer-elements)
+* [讨论下 HTML 规范和浏览器实现之间的区别？](#discuss-the-differences-between-an-html-specification-and-a-browsers-implementation-thereof)
+* [React 和 HTML 对事件处理的区别？](#what-is-the-difference-between-html-and-react-event-handling)
+* [相比 HTML，XHTML 有哪些不同？](#what-are-some-differences-that-xhtml-has-compared-to-html)
+* [简明的阐述下 HTML5 语义标签 `<header>`，`<article>`，`<section>`，`<footer>` 的用法](#briefly-describe-the-correct-usage-of-the-following-html5-semantic-elements-header-articlesection-footer)
+* [什么是 HTML5 Web Storage，解释下 `localStorage` 和 `sessionStorage`？](#what-is-html5-web-storage-explain-localstorage-and-sessionstorage)
+* [什么时候和为什么使用 `rel="noopener"` 属性？](#where-and-why-is-the-relnoopener-attribute-used)
 </details>
 
 
@@ -153,16 +153,16 @@
 <details>
 <summary>查看内容</summary>
 
-* [What is CSS BEM?](#what-is-css-bem)
-* [Describe the layout of the CSS Box Model and briefly describe each component.](#describe-the-layout-of-the-css-box-model-and-briefly-describe-each-component)
-* [What are the advantages of using CSS preprocessors?](#what-are-the-advantages-of-using-css-preprocessors)
-* [What is the difference between '+' and '~' sibling selectors?.](#what-is-the-difference-between--and--sibling-selectors)
-* [Can you describe how CSS specificity works?](#can-you-describe-how-css-specificity-works)
-* [What is the difference between `em` and `rem` units?](#what-is-the-difference-between-em-and-rem-units)
-* [Using flexbox, create a 3-column layout where each column takes up a `col-{n} / 12` ratio of the container.](#using-flexbox-create-a-3-column-layout-where-each-column-takes-up-a-col-n--12-ratio-of-the-container)
-* [What is a focus ring? What is the correct solution to handle them?](#what-is-a-focus-ring-what-is-the-correct-solution-to-handle-them)
-* [Can you name the four types of `@media` properties?](#can-you-name-the-four-types-of-media-properties)
-* [What are the advantages of using CSS sprites and how are they utilized?](#what-are-the-advantages-of-using-css-sprites-and-how-are-they-utilized)
+* [什么是 CSS BEM？](#what-is-css-bem)
+* [简要阐述下 CSS 的盒模型，及各个组成部分？](#describe-the-layout-of-the-css-box-model-and-briefly-describe-each-component)
+* [用 CSS 预处理的优势是什么？](#what-are-the-advantages-of-using-css-preprocessors)
+* [CSS 里通用兄弟选择器和相邻兄弟选择器的区别？](#what-is-the-difference-between--and--sibling-selectors)
+* [你能描述下 CSS 优先级是如何工作的？](#can-you-describe-how-css-specificity-works)
+* [`em` 和 `rem` 单位的区别？](#what-is-the-difference-between-em-and-rem-units)
+* [使用 flexbox，创建一个 3 列布局，每一列取容器的百分之 `col-{n}`/12 ](#using-flexbox-create-a-3-column-layout-where-each-column-takes-up-a-col-n--12-ratio-of-the-container)
+* [什么是聚焦环，正确的解决方案是什么？](#what-is-a-focus-ring-what-is-the-correct-solution-to-handle-them)
+* [你能说出 `@media` 属性的四种类型吗？](#can-you-name-the-four-types-of-media-properties)
+* [CSS 雪碧图的优势在哪里，如何使用？](#what-are-the-advantages-of-using-css-sprites-and-how-are-they-utilized)
 </details>
 
 
