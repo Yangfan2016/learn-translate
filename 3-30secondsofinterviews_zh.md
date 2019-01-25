@@ -53,14 +53,15 @@
 * [为何将 JavaScript 源文件里的整个内容用匿名函数包裹起来？](#what-is-the-reason-for-wrapping-the-entire-contents-of-a-javascript-source-file-in-a-function-that-is-immediately-invoked)
 * [阐释下命令式编程和声明式编程的区别？](#explain-the-differences-between-imperative-and-declarative-programming)
 
+* [什么是内联条件表达式？](#what-is-inline-conditional-expressions)
+* [什么是 key ，在 lists 中使用的好处是什么？](#what-is-a-key-what-are-the-benefits-of-using-it-in-lists)
+* [词法作用域和动态作用域的区别？](#what-is-the-difference-between-lexical-scoping-and-dynamic-scoping)
+* [创建一个函数，用 ‘#’ 符号遮住字符串（除最后4个字符之外）](#create-a-function-that-masks-a-string-of-characters-with--except-for-the-last-four-4-characters)
+* [什么是记忆（memoization）？](#what-is-memoization)
+* [在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
+* [什么是 MIME 类型，有什么作用？](#what-is-a-mime-type-and-what-is-it-used-for)
+
 // todo
-* [What is inline conditional expressions?](#what-is-inline-conditional-expressions)
-* [What is a key? What are the benefits of using it in lists?](#what-is-a-key-what-are-the-benefits-of-using-it-in-lists)
-* [What is the difference between lexical scoping and dynamic scoping?](#what-is-the-difference-between-lexical-scoping-and-dynamic-scoping)
-* [Create a function that masks a string of characters with `#` except for the last four (4) characters.](#create-a-function-that-masks-a-string-of-characters-with--except-for-the-last-four-4-characters)
-* [What is memoization?](#what-is-memoization)
-* [How do you ensure methods have the correct `this` context in React component classes?](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
-* [What is a MIME type and what is it used for?](#what-is-a-mime-type-and-what-is-it-used-for)
 * [Contrast mutable and immutable values, and mutating vs non-mutating methods.](#contrast-mutable-and-immutable-values-and-mutating-vs-non-mutating-methods)
 * [What is the only value not equal to itself in JavaScript?](#what-is-the-only-value-not-equal-to-itself-in-javascript)
 * [NodeJS often uses a callback pattern where if an error is encountered during execution, this error is passed as the first argument to the callback. What are the advantages of this pattern?](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
@@ -89,12 +90,12 @@
 * [What is the difference between synchronous and asynchronous code in JavaScript?](#what-is-the-difference-between-synchronous-and-asynchronous-code-in-javascript)
 * [What is the `this` keyword and how does it work?](#what-is-the-this-keyword-and-how-does-it-work)
 * [What does the following code evaluate to?](#what-does-the-following-code-evaluate-to)
-* [What are JavaScript data types?](#what-are-javascript-data-types)
-* [What is the purpose of JavaScript UI libraries/frameworks like React, Vue, Angular, Hyperapp, etc?](#what-is-the-purpose-of-javascript-ui-librariesframeworks-like-react-vue-angular-hyperapp-etc)
-* [What does `'use strict'` do and what are some of the key benefits to using it?](#what-does-use-strict-do-and-what-are-some-of-the-key-benefits-to-using-it)
-* [What are the differences between `var`, `let`, `const` and no keyword statements?](#what-are-the-differences-between-var-let-const-and-no-keyword-statements)
-* [What is a virtual DOM and why is it used in libraries/frameworks?](#what-is-a-virtual-dom-and-why-is-it-used-in-librariesframeworks)
-* [What is a cross-site scripting attack (XSS) and how do you prevent it?](#what-is-a-cross-site-scripting-attack-xss-and-how-do-you-prevent-it)
+* [什么是 JavaScript 的数据类型？](#what-are-javascript-data-types)
+* [诸如 React，Vue，Angular，Hyperapp 等 JavaScript UI 库/框架的目的是什么？](#what-is-the-purpose-of-javascript-ui-librariesframeworks-like-react-vue-angular-hyperapp-etc)
+* [什么是‘严格模式’，它带来那些关键性的好处？](#what-does-use-strict-do-and-what-are-some-of-the-key-benefits-to-using-it)
+* [`let` `var` `const` 和无关键字声明变量有何不同？](#what-are-the-differences-between-var-let-const-and-no-keyword-statements)
+* [什么是虚拟 DOM，为何库/框架都在用它？](#what-is-a-virtual-dom-and-why-is-it-used-in-librariesframeworks)
+* [什么是跨站脚本攻击（XSS），你是如何阻止它的？](#what-is-a-cross-site-scripting-attack-xss-and-how-do-you-prevent-it)
 </details>
 
 
@@ -1155,7 +1156,7 @@ myLibrary.publicMethod() // 2
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is inline conditional expressions?
+### 什么是内联条件表达式？
 
 <details>
 <summary>View answer</summary>
@@ -1184,7 +1185,7 @@ You can use either `if` statements or ternary expressions to conditionally rende
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is a key? What are the benefits of using it in lists?
+### 什么是 key ，在 lists 中使用的好处是什么？
 
 <details>
 <summary>View answer</summary>
@@ -1216,7 +1217,7 @@ const todoItems = todos.map(todo => <li key={todo.id}>{todo.text}</li>)
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the difference between lexical scoping and dynamic scoping?
+### 词法作用域和动态作用域的区别？
 
 <details>
 <summary>View answer</summary>
@@ -1241,7 +1242,7 @@ Lexical scoping refers to when the location of a function's definition determine
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Create a function that masks a string of characters with `#` except for the last four (4) characters.
+### 创建一个函数，用 ‘#’ 符号遮住字符串（除最后4个字符之外）
 
 ```js
 mask("123456789") // "#####6789"
@@ -1274,7 +1275,7 @@ const mask = (str, maskChar = "#") =>
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is a MIME type and what is it used for?
+### 什么是 MIME 类型，有什么作用？
 
 <details>
 <summary>View answer</summary>
@@ -1870,7 +1871,7 @@ It evaluates to `"string"`.
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are JavaScript data types?
+### 什么是 JavaScript 的数据类型？
 
 <details>
 <summary>View answer</summary>
@@ -1896,7 +1897,7 @@ The latest ECMAScript standard defines seven data types, six of them being primi
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are the differences between `var`, `let`, `const` and no keyword statements?
+### `let` `var` `const` 和无关键字声明变量有何不同？
 
 <details>
 <summary>View answer</summary>
@@ -1979,7 +1980,7 @@ myObject = "hello" // Error
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is a cross-site scripting attack (XSS) and how do you prevent it?
+### 什么是跨站脚本攻击（XSS），你是如何阻止它的？
 
 <details>
 <summary>View answer</summary>
@@ -2495,7 +2496,7 @@ We declare that the new array is mapped to a new one where each value is doubled
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is memoization?
+### 什么是记忆（memoization）？
 
 <details>
 <summary>View answer</summary>
@@ -2535,7 +2536,7 @@ const memoize = fn => {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### How do you ensure methods have the correct `this` context in React component classes?
+### 在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？
 
 <details>
 <summary>View answer</summary>
@@ -3035,7 +3036,7 @@ obj.doubleArr() // Uncaught TypeError: this.double is not a function
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the purpose of JavaScript UI libraries/frameworks like React, Vue, Angular, Hyperapp, etc?
+### 诸如 React，Vue，Angular，Hyperapp 等 JavaScript UI 库/框架的目的是什么？
 
 <details>
 <summary>View answer</summary>
@@ -3062,7 +3063,7 @@ When working with DOM manipulation libraries like jQuery, the data of an applica
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What does `'use strict'` do and what are some of the key benefits to using it?
+### 什么是‘严格模式’，它带来那些关键性的好处？
 
 <details>
 <summary>View answer</summary>
@@ -3094,7 +3095,7 @@ Including `'use strict'` at the beginning of your JavaScript source file enables
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is a virtual DOM and why is it used in libraries/frameworks?
+### 什么是虚拟 DOM，为何库/框架都在用它？
 
 <details>
 <summary>View answer</summary>
@@ -3408,7 +3409,7 @@ function handleClick(e) {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is inline conditional expressions?
+### 什么是内联条件表达式？
 
 <details>
 <summary>View answer</summary>
@@ -3437,7 +3438,7 @@ You can use either `if` statements or ternary expressions to conditionally rende
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is a key? What are the benefits of using it in lists?
+### 什么是 key ，在 lists 中使用的好处是什么？
 
 <details>
 <summary>View answer</summary>
@@ -3796,7 +3797,7 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent)
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### How do you ensure methods have the correct `this` context in React component classes?
+### 在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？
 
 <details>
 <summary>View answer</summary>
@@ -4878,7 +4879,7 @@ The event loop handles all async callbacks. Callbacks are queued in a loop, whil
 
 
 ## Security
-### What is a cross-site scripting attack (XSS) and how do you prevent it?
+### 什么是跨站脚本攻击（XSS），你是如何阻止它的？
 
 <details>
 <summary>View answer</summary>

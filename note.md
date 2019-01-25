@@ -5,3 +5,5 @@
 `semantic` 语义的
 `semantic elements` 语义元素  
 `manipulate` 操纵  
+`arbitrary` 武断的、任意的  
+`ternary expressions` 三元表达式
