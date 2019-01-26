@@ -65,24 +65,24 @@
 * [Contrast mutable and immutable values, and mutating vs non-mutating methods.](#contrast-mutable-and-immutable-values-and-mutating-vs-non-mutating-methods)
 * [What is the only value not equal to itself in JavaScript?](#what-is-the-only-value-not-equal-to-itself-in-javascript)
 * [NodeJS often uses a callback pattern where if an error is encountered during execution, this error is passed as the first argument to the callback. What are the advantages of this pattern?](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
-* [What is the event loop in Node.js?](#what-is-the-event-loop-in-nodejs)
-* [What is the difference between `null` and `undefined`?](#what-is-the-difference-between-null-and-undefined)
+* [什么是 Nodejs 里的事件循环（event loop）？](#what-is-the-event-loop-in-nodejs)
+* [`null`  和 `undefined` 有何不同？](#what-is-the-difference-between-null-and-undefined)
 * [Describe the different ways to create an object. When should certain ways be preferred over others?](#describe-the-different-ways-to-create-an-object-when-should-certain-ways-be-preferred-over-others)
 * [What is the difference between a parameter and an argument?](#what-is-the-difference-between-a-parameter-and-an-argument)
-* [Does JavaScript pass by value or by reference?](#does-javascript-pass-by-value-or-by-reference)
+* [JavaScript 里是通过值传递还是引用传递？](#does-javascript-pass-by-value-or-by-reference)
 * [How do you pass an argument to an event handler or callback?](#how-do-you-pass-an-argument-to-an-event-handler-or-callback)
 * [Create a function `pipe` that performs left-to-right function composition by returning a function that accepts one argument.](#create-a-function-pipe-that-performs-left-to-right-function-composition-by-returning-a-function-that-accepts-one-argument)
-* [What are portals in ReactJS?](#what-are-portals-in-reactjs)
+* [ReactJS 中，‘portals’（传送门） 是什么？](#what-are-portals-in-reactjs)
 * [What is the difference between the postfix `i++` and prefix `++i` increment operators?](#what-is-the-difference-between-the-postfix-i-and-prefix-i-increment-operators)
 * [In which states can a Promise be?](#in-which-states-can-a-promise-be)
 * [What are Promises?](#what-are-promises)
 * [How does prototypal inheritance differ from classical inheritance?](#how-does-prototypal-inheritance-differ-from-classical-inheritance)
-* [What is a pure function?](#what-is-a-pure-function)
+* [什么是纯函数？](#what-is-a-pure-function)
 * [What is recursion and when is it useful?](#what-is-recursion-and-when-is-it-useful)
 * [What is the output of the following code?](#what-is-the-output-of-the-following-code)
 * [What are refs? When should they be used?](#what-are-refs-when-should-they-be-used)
 * [What does the following function return?](#what-does-the-following-function-return)
-* [Are semicolons required in JavaScript?](#are-semicolons-required-in-javascript)
+* [JavaScript 里分号是必须的吗？](#are-semicolons-required-in-javascript)
 * [What is short-circuit evaluation in JavaScript?](#what-is-short-circuit-evaluation-in-javascript)
 * [What is a stateful component?](#what-is-a-stateful-component)
 * [What is a stateless component?](#what-is-a-stateless-component)
@@ -1371,7 +1371,7 @@ isTrue(true, callback)
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the difference between `null` and `undefined`?
+### `null`  和 `undefined` 有何不同？
 
 <details>
 <summary>View answer</summary>
@@ -1522,7 +1522,7 @@ myFunction("argument1", "argument2")
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Does JavaScript pass by value or by reference?
+### JavaScript 里是通过值传递还是引用传递？
 
 <details>
 <summary>View answer</summary>
@@ -1696,7 +1696,7 @@ Because of JavaScript's automatic semicolon insertion (ASI), the compiler places
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Are semicolons required in JavaScript?
+### JavaScript 里分号是必须的吗？
 
 <details>
 <summary>View answer</summary>
@@ -2658,7 +2658,7 @@ originalArray.concat(4) // returns a new array, does not mutate the original
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the event loop in Node.js?
+### 什么是 Nodejs 里的事件循环（event loop）？
 
 <details>
 <summary>View answer</summary>
@@ -2716,7 +2716,7 @@ const pipe = (...fns) => x => fns.reduce((v, fn) => fn(v), x)
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are portals in ReactJS?
+### ReactJS 中，‘portals’（传送门） 是什么？
 
 <details>
 <summary>View answer</summary>
@@ -2744,7 +2744,7 @@ The first argument (`child`) is any renderable React child, such as an element, 
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is a pure function?
+### 什么是纯函数？
 
 <details>
 <summary>View answer</summary>
@@ -3856,7 +3856,7 @@ Note that extra re-rendering can occur using this technique because a new functi
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are portals in ReactJS?
+### ReactJS 中，‘portals’（传送门） 是什么？
 
 <details>
 <summary>View answer</summary>
@@ -4854,7 +4854,7 @@ There are lots of ways to solve the issue of callback hells:
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the event loop in Node.js?
+### 什么是 Nodejs 里的事件循环（event loop）？
 
 <details>
 <summary>View answer</summary>
