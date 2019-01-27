@@ -11,7 +11,7 @@
 面试是令人生畏的，它甚至可以让经验丰富的专家在压力之下大脑一片空白。复习和学习那些在面试中常遇到的问题（从社区中收集了被问到的和他们是如何应对的问题）。通过把实践和现实生活结合起来，你就可以从容的准备，面对下一次大锦鲤
 
 
-## [在线观看](https://30secondsofinterviews.org/)
+## [在线观看](https://30secondsofinterviews.org/)
 
 
 ## 目录
@@ -22,43 +22,43 @@
 <details>
 <summary>查看内容</summary>
 
-* [创建一个 `batches` 函数，返回一个食谱中可以被作为烹饪整批食材的最大数量](#create-a-function-batches-that-returns-the-maximum-number-of-whole-batches-that-can-be-cooked-from-a-recipe)
-* [什么是大 O 标记法？](#what-is-big-o-notation)
-* [创建一个和 `Function.prototype.bind` 功能一样的独立函数 `bind`](#create-a-standalone-function-bind-that-is-functionally-equivalent-to-the-method-functionprototypebind)
-* [你可以避免回调地狱吗？](#how-can-you-avoid-callback-hells)
+* [创建一个 `batches` 函数，返回一个食谱中可以被作为烹饪整批食材的最大数量](#create-a-function-batches-that-returns-the-maximum-number-of-whole-batches-that-can-be-cooked-from-a-recipe)
+* [什么是大 O 标记法？](#what-is-big-o-notation)
+* [创建一个和 `Function.prototype.bind` 功能一样的独立函数 `bind`](#create-a-standalone-function-bind-that-is-functionally-equivalent-to-the-method-functionprototypebind)
+* [你可以避免回调地狱吗？](#how-can-you-avoid-callback-hells)
 * [`setState` 将回调函数作为参数目的是什么？](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
-* [回调引用 refs 和 findDOMMNode 哪个更推荐使用？](#which-is-the-preferred-option-between-callback-refs-and-finddomnode)
+* [回调引用 refs 和 findDOMNode 哪个更推荐使用？](#which-is-the-preferred-option-between-callback-refs-and-finddomnode)
 * [什么是回调，你可以举个例子吗？](#what-is-a-callback-can-you-show-an-example-using-one)
-* [React 组件中的属性（prop）`children` 是什么？](#what-is-children-prop)
-* [在 JavaScript 中，你是如何克隆一个对象的？](#how-do-you-clone-an-object-in-javascript)
+* [React 组件中的属性（prop）`children` 是什么？](#what-is-children-prop)
+* [在 JavaScript 中，你是如何克隆一个对象的？](#how-do-you-clone-an-object-in-javascript)
 * [什么是闭包，你可以举一个有用的例子吗？](#what-is-a-closure-can-you-give-a-useful-example-of-one)
 * [在 JavaScript 中，你是如何比较两个对象的？](#how-do-you-compare-two-objects-in-javascript)
 * [在 React 中，什么是 `context`？](#what-is-context)
 * [什么是 `CORS`？](#what-is-cors)
-* [什么是 `DOM`？](#what-is-the-dom)
-* [`==` 和 `===` 相等运算符有什么区别？](#what-is-the-difference-between-the-equality-operators--and-)
+* [什么是 `DOM`？](#what-is-the-dom)
+* [`==` 和 `===` 相等运算符有什么区别？](#what-is-the-difference-between-the-equality-operators--and-)
 * [在 React 中，`Element` 和 `Component` 有什么区别？](#what-is-the-difference-between-element-and-component)
 * [什么是事件委托，为什么它是有用的，你可以举个例子说明如何使用它？](#what-is-event-delegation-and-why-is-it-useful-can-you-show-an-example-of-how-to-use-it)
 * [什么是事件驱动编程？](#what-is-event-driven-programming)
 * [在 JavaScript 中，声明和表达式的区别？](#what-is-the-difference-between-an-expression-and-a-statement-in-javascript)
-* [在 JavaScript 中，什么是真值（truthy），假值（falsy）?](#what-are-truthy-and-falsy-values-in-javascript)
-* [生成一个包含的 n 项斐波那契数列元素的数组](#generate-an-array-containing-the-fibonacci-sequence-up-until-the-nth-term)
+* [在 JavaScript 中，什么是真值（truthy），假值（falsy）?](#what-are-truthy-and-falsy-values-in-javascript)
+* [生成一个包含的 n 项斐波那契数列元素的数组](#generate-an-array-containing-the-fibonacci-sequence-up-until-the-nth-term)
 * [`0.1 + 0.2 === 0.3` 表达式的值是？](#what-does-01--02--03-evaluate-to)
 * [数组 `map()` 和 `forEach()` 方法的区别？](#what-is-the-difference-between-the-array-methods-map-and-foreach)
-* [在 React 中，什么是 `fragments`？](#what-are-fragments)
+* [在 React 中，什么是 `fragments`？](#what-are-fragments)
 * [什么是函数式编程？](#what-is-functional-programming)
 * [下面的例子中，`console.log` 会打印出什么？](#what-will-the-console-log-in-this-example)
 * [在 JavaScript 中，声明提升是如何工作的？](#how-does-hoisting-work-in-javascript)
-* [HTML 和 React 中的事件处理有什么区别？](#what-is-the-difference-between-html-and-react-event-handling)
-* [为何将 JavaScript 源文件里的整个内容用匿名函数包裹起来？](#what-is-the-reason-for-wrapping-the-entire-contents-of-a-javascript-source-file-in-a-function-that-is-immediately-invoked)
+* [HTML 和 React 中的事件处理有什么区别？](#what-is-the-difference-between-html-and-react-event-handling)
+* [为何将 JavaScript 源文件里的整个内容用匿名函数包裹起来？](#what-is-the-reason-for-wrapping-the-entire-contents-of-a-javascript-source-file-in-a-function-that-is-immediately-invoked)
 * [阐释下命令式编程和声明式编程的区别？](#explain-the-differences-between-imperative-and-declarative-programming)
 
 * [什么是内联条件表达式？](#what-is-inline-conditional-expressions)
 * [什么是 key ，在 lists 中使用的好处是什么？](#what-is-a-key-what-are-the-benefits-of-using-it-in-lists)
 * [词法作用域和动态作用域的区别？](#what-is-the-difference-between-lexical-scoping-and-dynamic-scoping)
-* [创建一个函数，用 ‘#’ 符号遮住字符串（除最后4个字符之外）](#create-a-function-that-masks-a-string-of-characters-with--except-for-the-last-four-4-characters)
+* [创建一个函数，用 ‘#’ 符号遮住字符串（除最后4个字符之外）](#create-a-function-that-masks-a-string-of-characters-with--except-for-the-last-four-4-characters)
 * [什么是记忆（memoization）？](#what-is-memoization)
-* [在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
+* [在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
 * [什么是 MIME 类型，有什么作用？](#what-is-a-mime-type-and-what-is-it-used-for)
 
 // todo
@@ -120,7 +120,7 @@
 * [React 组件中，生命周期的各个阶段是什么？](#what-are-the-different-phases-of-the-component-lifecycle-in-react)
 * [在 React 中，状态提升是什么意思？](#what-does-lifting-state-up-in-react-mean)
 * [在 React class 组件中，你是如何确保 `this` 的正确指向的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
-* [你是么给事件处理或回调函数传参的？](#how-do-you-pass-an-argument-to-an-event-handler-or-callback)
+* [你是怎么给事件处理或回调函数传参的？](#how-do-you-pass-an-argument-to-an-event-handler-or-callback)
 * [在 React 中是 `portals` 是什么？](#what-are-portals-in-reactjs)
 * [在 React 中，如何校验 `prop`？](#how-to-apply-prop-validation-in-react)
 * [在 React 里，如何写注释？](#how-to-write-comments-in-react)
