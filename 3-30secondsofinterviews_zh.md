@@ -67,15 +67,15 @@
 * [NodeJS often uses a callback pattern where if an error is encountered during execution, this error is passed as the first argument to the callback. What are the advantages of this pattern?](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
 * [什么是 Nodejs 里的事件循环（event loop）？](#what-is-the-event-loop-in-nodejs)
 * [`null`  和 `undefined` 有何不同？](#what-is-the-difference-between-null-and-undefined)
-* [Describe the different ways to create an object. When should certain ways be preferred over others?](#describe-the-different-ways-to-create-an-object-when-should-certain-ways-be-preferred-over-others)
+* [描述下创建对象方式的不同，哪种方式更推荐？](#describe-the-different-ways-to-create-an-object-when-should-certain-ways-be-preferred-over-others)
 * [What is the difference between a parameter and an argument?](#what-is-the-difference-between-a-parameter-and-an-argument)
 * [JavaScript 里是通过值传递还是引用传递？](#does-javascript-pass-by-value-or-by-reference)
-* [How do you pass an argument to an event handler or callback?](#how-do-you-pass-an-argument-to-an-event-handler-or-callback)
+* [你是怎么给事件处理/回调函数传参的？](#how-do-you-pass-an-argument-to-an-event-handler-or-callback)
 * [Create a function `pipe` that performs left-to-right function composition by returning a function that accepts one argument.](#create-a-function-pipe-that-performs-left-to-right-function-composition-by-returning-a-function-that-accepts-one-argument)
 * [ReactJS 中，‘portals’（传送门） 是什么？](#what-are-portals-in-reactjs)
-* [What is the difference between the postfix `i++` and prefix `++i` increment operators?](#what-is-the-difference-between-the-postfix-i-and-prefix-i-increment-operators)
-* [In which states can a Promise be?](#in-which-states-can-a-promise-be)
-* [What are Promises?](#what-are-promises)
+* [`i++`  和 `++i` 有什么不同？](#what-is-the-difference-between-the-postfix-i-and-prefix-i-increment-operators)
+* [Promise 可以变成哪些状态？](#in-which-states-can-a-promise-be)
+* [什么是 Promises？](#what-are-promises)
 * [How does prototypal inheritance differ from classical inheritance?](#how-does-prototypal-inheritance-differ-from-classical-inheritance)
 * [什么是纯函数？](#what-is-a-pure-function)
 * [What is recursion and when is it useful?](#what-is-recursion-and-when-is-it-useful)
@@ -88,8 +88,8 @@
 * [What is a stateless component?](#what-is-a-stateless-component)
 * [Explain the difference between a static method and an instance method.](#explain-the-difference-between-a-static-method-and-an-instance-method)
 * [What is the difference between synchronous and asynchronous code in JavaScript?](#what-is-the-difference-between-synchronous-and-asynchronous-code-in-javascript)
-* [What is the `this` keyword and how does it work?](#what-is-the-this-keyword-and-how-does-it-work)
-* [What does the following code evaluate to?](#what-does-the-following-code-evaluate-to)
+* [`this` 关键字是什么，它是如何工作的？](#what-is-the-this-keyword-and-how-does-it-work)
+* [下面的代码执行的结果是什么？](#what-does-the-following-code-evaluate-to)
 * [什么是 JavaScript 的数据类型？](#what-are-javascript-data-types)
 * [诸如 React，Vue，Angular，Hyperapp 等 JavaScript UI 库/框架的目的是什么？](#what-is-the-purpose-of-javascript-ui-librariesframeworks-like-react-vue-angular-hyperapp-etc)
 * [什么是‘严格模式’，它带来那些关键性的好处？](#what-does-use-strict-do-and-what-are-some-of-the-key-benefits-to-using-it)
@@ -243,7 +243,7 @@ A component, on the other hand, can be declared in several different ways. It ca
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the difference between the postfix `i++` and prefix `++i` increment operators?
+### `i++`  和 `++i` 有什么不同？
 
 <details>
 <summary>View answer</summary>
@@ -280,7 +280,7 @@ let i = 0
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### In which states can a Promise be?
+### Promise 可以变成哪些状态？
 
 <details>
 <summary>View answer</summary>
@@ -1397,7 +1397,7 @@ In JavaScript, two values discretely represent nothing - `undefined` and `null`.
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Describe the different ways to create an object. When should certain ways be preferred over others?
+### 描述下创建对象方式的不同，哪种方式更推荐？
 
 <details>
 <summary>View answer</summary>
@@ -1545,7 +1545,7 @@ JavaScript always passes by value. However, with objects, the value is a referen
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### How do you pass an argument to an event handler or callback?
+### 你是怎么给事件处理/回调函数传参的？
 
 <details>
 <summary>View answer</summary>
@@ -1572,7 +1572,7 @@ You can use an arrow function to wrap around an event handler and pass arguments
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are Promises?
+### 什么是 Promises？
 
 <details>
 <summary>View answer</summary>
@@ -1843,7 +1843,7 @@ In JavaScript, all code is synchronous due to the single-threaded nature of it. 
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What does the following code evaluate to?
+### 下面的代码执行的结果是什么？
 
 ```js
 typeof typeof 0
@@ -2925,7 +2925,7 @@ Array.push(arr, 4)
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the `this` keyword and how does it work?
+### `this` 关键字是什么，它是如何工作的？
 
 <details>
 <summary>View answer</summary>
@@ -3536,7 +3536,7 @@ There are four different phases of component’s lifecycle:
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### How do you pass an argument to an event handler or callback?
+### 你是怎么给事件处理/回调函数传参的？
 
 <details>
 <summary>View answer</summary>
