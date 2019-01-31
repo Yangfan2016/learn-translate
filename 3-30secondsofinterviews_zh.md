@@ -68,7 +68,7 @@
 * [什么是 Nodejs 里的事件循环（event loop）？](#what-is-the-event-loop-in-nodejs)
 * [`null`  和 `undefined` 有何不同？](#what-is-the-difference-between-null-and-undefined)
 * [描述下创建对象方式的不同，哪种方式更推荐？](#describe-the-different-ways-to-create-an-object-when-should-certain-ways-be-preferred-over-others)
-* [What is the difference between a parameter and an argument?](#what-is-the-difference-between-a-parameter-and-an-argument)
+* [形参和实参的区别？](#what-is-the-difference-between-a-parameter-and-an-argument)
 * [JavaScript 里是通过值传递还是引用传递？](#does-javascript-pass-by-value-or-by-reference)
 * [你是怎么给事件处理/回调函数传参的？](#how-do-you-pass-an-argument-to-an-event-handler-or-callback)
 * [Create a function `pipe` that performs left-to-right function composition by returning a function that accepts one argument.](#create-a-function-pipe-that-performs-left-to-right-function-composition-by-returning-a-function-that-accepts-one-argument)
@@ -78,16 +78,16 @@
 * [什么是 Promises？](#what-are-promises)
 * [How does prototypal inheritance differ from classical inheritance?](#how-does-prototypal-inheritance-differ-from-classical-inheritance)
 * [什么是纯函数？](#what-is-a-pure-function)
-* [What is recursion and when is it useful?](#what-is-recursion-and-when-is-it-useful)
-* [What is the output of the following code?](#what-is-the-output-of-the-following-code)
-* [What are refs? When should they be used?](#what-are-refs-when-should-they-be-used)
-* [What does the following function return?](#what-does-the-following-function-return)
+* [什么是递归，什么时候它是有用的？](#what-is-recursion-and-when-is-it-useful)
+* [下面的代码会输出什么？](#what-is-the-output-of-the-following-code)
+* [什么是 refs，什么时候用它们？](#what-are-refs-when-should-they-be-used)
+* [下面的函数会返回什么？](#what-does-the-following-function-return)
 * [JavaScript 里分号是必须的吗？](#are-semicolons-required-in-javascript)
-* [What is short-circuit evaluation in JavaScript?](#what-is-short-circuit-evaluation-in-javascript)
-* [What is a stateful component?](#what-is-a-stateful-component)
-* [What is a stateless component?](#what-is-a-stateless-component)
-* [Explain the difference between a static method and an instance method.](#explain-the-difference-between-a-static-method-and-an-instance-method)
-* [What is the difference between synchronous and asynchronous code in JavaScript?](#what-is-the-difference-between-synchronous-and-asynchronous-code-in-javascript)
+* [在 JavaScript 里，什么是短路运算？](#what-is-short-circuit-evaluation-in-javascript)
+* [什么是有状态组件？](#what-is-a-stateful-component)
+* [什么是无状态组件？](#what-is-a-stateless-component)
+* [解释下静态方法和实例方法的区别](#explain-the-difference-between-a-static-method-and-an-instance-method)
+* [在 JavaScript 里，同步代码和异步代码有什么不同？](#what-is-the-difference-between-synchronous-and-asynchronous-code-in-javascript)
 * [`this` 关键字是什么，它是如何工作的？](#what-is-the-this-keyword-and-how-does-it-work)
 * [下面的代码执行的结果是什么？](#what-does-the-following-code-evaluate-to)
 * [什么是 JavaScript 的数据类型？](#what-are-javascript-data-types)
@@ -309,7 +309,7 @@ When either of these options happens, the associated handlers queued up by a pro
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is a stateful component?
+### 什么是有状态组件？
 
 <details>
 <summary>View answer</summary>
@@ -346,7 +346,7 @@ class App extends Component {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is a stateless component?
+### 什么是无状态组件？
 
 <details>
 <summary>View answer</summary>
@@ -1492,7 +1492,7 @@ Object.create(personProto, {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the difference between a parameter and an argument?
+### 形参和实参的区别？
 
 <details>
 <summary>View answer</summary>
@@ -1630,7 +1630,7 @@ In the prototypal inheritance paradigm, object instances inherit directly from o
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the output of the following code?
+### 下面的代码会输出什么？
 
 ```js
 const a = [1, 2, 3]
@@ -1664,7 +1664,7 @@ The first `console.log` outputs `true` because JavaScript's compiler performs ty
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What does the following function return?
+### 下面的函数会返回什么？
 
 ```js
 function greet() {
@@ -1739,7 +1739,7 @@ In the above cases, the interpreter does not insert a semicolon after `3`, and t
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is short-circuit evaluation in JavaScript?
+### 在 JavaScript 里，什么是短路运算？
 
 <details>
 <summary>View answer</summary>
@@ -1816,7 +1816,7 @@ In the above case, if `e.target` is not or does not contain an element matching 
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the difference between synchronous and asynchronous code in JavaScript?
+### 在 JavaScript 里，同步代码和异步代码有什么不同？
 
 <details>
 <summary>View answer</summary>
@@ -2790,7 +2790,7 @@ const c = arr => arr.sort((a, b) => a - b)
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is recursion and when is it useful?
+### 什么是递归，什么时候它是有用的？
 
 <details>
 <summary>View answer</summary>
@@ -2842,7 +2842,7 @@ In the above example, the base condition is met if `filter()` returns an empty a
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are refs? When should they be used?
+### 什么是 refs，什么时候用它们？
 
 <details>
 <summary>View answer</summary>
@@ -2887,7 +2887,7 @@ Refs can also be used in functional components with the help of closures.
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Explain the difference between a static method and an instance method.
+### 解释下静态方法和实例方法的区别
 
 <details>
 <summary>View answer</summary>
@@ -3240,7 +3240,7 @@ render() => (<div>
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is a stateful component?
+### 什么是有状态组件？
 
 <details>
 <summary>View answer</summary>
@@ -3277,7 +3277,7 @@ class App extends Component {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is a stateless component?
+### 什么是无状态组件？
 
 <details>
 <summary>View answer</summary>
@@ -3931,7 +3931,7 @@ User.propTypes = {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are refs? When should they be used?
+### 什么是 refs，什么时候用它们？
 
 <details>
 <summary>View answer</summary>
