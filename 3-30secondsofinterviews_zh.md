@@ -52,7 +52,6 @@
 * [HTML 和 React 中的事件处理有什么区别？](#what-is-the-difference-between-html-and-react-event-handling)
 * [为何将 JavaScript 源文件里的整个内容用匿名函数包裹起来？](#what-is-the-reason-for-wrapping-the-entire-contents-of-a-javascript-source-file-in-a-function-that-is-immediately-invoked)
 * [阐释下命令式编程和声明式编程的区别？](#explain-the-differences-between-imperative-and-declarative-programming)
-
 * [什么是内联条件表达式？](#what-is-inline-conditional-expressions)
 * [什么是 key ，在 lists 中使用的好处是什么？](#what-is-a-key-what-are-the-benefits-of-using-it-in-lists)
 * [词法作用域和动态作用域的区别？](#what-is-the-difference-between-lexical-scoping-and-dynamic-scoping)
@@ -60,23 +59,21 @@
 * [什么是记忆（memoization）？](#what-is-memoization)
 * [在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
 * [什么是 MIME 类型，有什么作用？](#what-is-a-mime-type-and-what-is-it-used-for)
-
-// todo
-* [Contrast mutable and immutable values, and mutating vs non-mutating methods.](#contrast-mutable-and-immutable-values-and-mutating-vs-non-mutating-methods)
-* [What is the only value not equal to itself in JavaScript?](#what-is-the-only-value-not-equal-to-itself-in-javascript)
-* [NodeJS often uses a callback pattern where if an error is encountered during execution, this error is passed as the first argument to the callback. What are the advantages of this pattern?](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
+* [对比下可变与不可变值，可变与不可变方法](#contrast-mutable-and-immutable-values-and-mutating-vs-non-mutating-methods)
+* [在 JavaScript 中，哪个值不等于它自己？](#what-is-the-only-value-not-equal-to-itself-in-javascript)
+* [NodeJS 错误优先回调的模式有是什么优势？](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
 * [什么是 Nodejs 里的事件循环（event loop）？](#what-is-the-event-loop-in-nodejs)
 * [`null`  和 `undefined` 有何不同？](#what-is-the-difference-between-null-and-undefined)
 * [描述下创建对象方式的不同，哪种方式更推荐？](#describe-the-different-ways-to-create-an-object-when-should-certain-ways-be-preferred-over-others)
 * [形参和实参的区别？](#what-is-the-difference-between-a-parameter-and-an-argument)
 * [JavaScript 里是通过值传递还是引用传递？](#does-javascript-pass-by-value-or-by-reference)
 * [你是怎么给事件处理/回调函数传参的？](#how-do-you-pass-an-argument-to-an-event-handler-or-callback)
-* [Create a function `pipe` that performs left-to-right function composition by returning a function that accepts one argument.](#create-a-function-pipe-that-performs-left-to-right-function-composition-by-returning-a-function-that-accepts-one-argument)
+* [创建一个管道函数，返回一个接受一个参数从左到右执行的合成函数](#create-a-function-pipe-that-performs-left-to-right-function-composition-by-returning-a-function-that-accepts-one-argument)
 * [ReactJS 中，‘portals’（传送门） 是什么？](#what-are-portals-in-reactjs)
 * [`i++`  和 `++i` 有什么不同？](#what-is-the-difference-between-the-postfix-i-and-prefix-i-increment-operators)
 * [Promise 可以变成哪些状态？](#in-which-states-can-a-promise-be)
 * [什么是 Promises？](#what-are-promises)
-* [How does prototypal inheritance differ from classical inheritance?](#how-does-prototypal-inheritance-differ-from-classical-inheritance)
+* [原型继承和经典继承方式有何不同？](#how-does-prototypal-inheritance-differ-from-classical-inheritance)
 * [什么是纯函数？](#what-is-a-pure-function)
 * [什么是递归，什么时候它是有用的？](#what-is-recursion-and-when-is-it-useful)
 * [下面的代码会输出什么？](#what-is-the-output-of-the-following-code)
@@ -1298,7 +1295,7 @@ const mask = (str, maskChar = "#") =>
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### NodeJS often uses a callback pattern where if an error is encountered during execution, this error is passed as the first argument to the callback. What are the advantages of this pattern?
+### NodeJS 错误优先回调的模式有是什么优势？
 
 ```js
 fs.readFile(filePath, function(err, data) {
@@ -1606,7 +1603,7 @@ new Promise((resolve, reject) => {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### How does prototypal inheritance differ from classical inheritance?
+### 原型继承和经典继承方式有何不同？
 
 <details>
 <summary>View answer</summary>
@@ -2595,7 +2592,7 @@ Note that extra re-rendering can occur using this technique because a new functi
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Contrast mutable and immutable values, and mutating vs non-mutating methods.
+### 对比下可变与不可变值，可变与不可变方法
 
 <details>
 <summary>View answer</summary>
@@ -2634,7 +2631,7 @@ originalArray.concat(4) // returns a new array, does not mutate the original
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the only value not equal to itself in JavaScript?
+### 在 JavaScript 中，哪个值不等于它自己？
 
 <details>
 <summary>View answer</summary>
@@ -2681,7 +2678,7 @@ The event loop handles all async callbacks. Callbacks are queued in a loop, whil
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Create a function `pipe` that performs left-to-right function composition by returning a function that accepts one argument.
+### 创建一个管道函数，返回一个接受一个参数从左到右执行的合成函数
 
 ```js
 const square = v => v * v
@@ -4688,7 +4685,7 @@ The best solution is an upcoming pseudo-selector `:focus-visible` which can be p
 
 
 ## Node
-### NodeJS often uses a callback pattern where if an error is encountered during execution, this error is passed as the first argument to the callback. What are the advantages of this pattern?
+### NodeJS 错误优先回调的模式有是什么优势？
 
 ```js
 fs.readFile(filePath, function(err, data) {
