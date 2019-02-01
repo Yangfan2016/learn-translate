@@ -25,7 +25,7 @@
 * [创建一个 `batches` 函数，返回一个食谱中可以被作为烹饪整批食材的最大数量](#create-a-function-batches-that-returns-the-maximum-number-of-whole-batches-that-can-be-cooked-from-a-recipe)
 * [什么是大 O 标记法？](#what-is-big-o-notation)
 * [创建一个和 `Function.prototype.bind` 功能一样的独立函数 `bind`](#create-a-standalone-function-bind-that-is-functionally-equivalent-to-the-method-functionprototypebind)
-* [你可以避免回调地狱吗？](#how-can-you-avoid-callback-hells)
+* [你是怎么避免回调地狱的？](#how-can-you-avoid-callback-hells)
 * [`setState` 将回调函数作为参数目的是什么？](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
 * [回调引用 refs 和 findDOMNode 哪个更推荐使用？](#which-is-the-preferred-option-between-callback-refs-and-finddomnode)
 * [什么是回调，你可以举个例子吗？](#what-is-a-callback-can-you-show-an-example-using-one)
@@ -56,12 +56,12 @@
 * [什么是 key ，在 lists 中使用的好处是什么？](#what-is-a-key-what-are-the-benefits-of-using-it-in-lists)
 * [词法作用域和动态作用域的区别？](#what-is-the-difference-between-lexical-scoping-and-dynamic-scoping)
 * [创建一个函数，用 ‘#’ 符号遮住字符串（除最后4个字符之外）](#create-a-function-that-masks-a-string-of-characters-with--except-for-the-last-four-4-characters)
-* [什么是记忆（memoization）？](#what-is-memoization)
+* [什么是缓存代理模式（memoization）？](#what-is-memoization)
 * [在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
 * [什么是 MIME 类型，有什么作用？](#what-is-a-mime-type-and-what-is-it-used-for)
 * [对比下可变与不可变值，可变与不可变方法](#contrast-mutable-and-immutable-values-and-mutating-vs-non-mutating-methods)
 * [在 JavaScript 中，哪个值不等于它自己？](#what-is-the-only-value-not-equal-to-itself-in-javascript)
-* [NodeJS 错误优先回调的模式有是什么优势？](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
+* [NodeJS 错误优先回调的模式有什么优势？](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
 * [什么是 Nodejs 里的事件循环（event loop）？](#what-is-the-event-loop-in-nodejs)
 * [`null`  和 `undefined` 有何不同？](#what-is-the-difference-between-null-and-undefined)
 * [描述下创建对象方式的不同，哪种方式更推荐？](#describe-the-different-ways-to-create-an-object-when-should-certain-ways-be-preferred-over-others)
@@ -89,7 +89,7 @@
 * [下面的代码执行的结果是什么？](#what-does-the-following-code-evaluate-to)
 * [什么是 JavaScript 的数据类型？](#what-are-javascript-data-types)
 * [诸如 React，Vue，Angular，Hyperapp 等 JavaScript UI 库/框架的目的是什么？](#what-is-the-purpose-of-javascript-ui-librariesframeworks-like-react-vue-angular-hyperapp-etc)
-* [什么是‘严格模式’，它带来那些关键性的好处？](#what-does-use-strict-do-and-what-are-some-of-the-key-benefits-to-using-it)
+* [什么是‘严格模式’，它带来哪些关键性的好处？](#what-does-use-strict-do-and-what-are-some-of-the-key-benefits-to-using-it)
 * [`let` `var` `const` 和无关键字声明变量有何不同？](#what-are-the-differences-between-var-let-const-and-no-keyword-statements)
 * [什么是虚拟 DOM，为何库/框架都在用它？](#what-is-a-virtual-dom-and-why-is-it-used-in-librariesframeworks)
 * [什么是跨站脚本攻击（XSS），你是如何阻止它的？](#what-is-a-cross-site-scripting-attack-xss-and-how-do-you-prevent-it)
@@ -188,7 +188,7 @@
 ---
 
 ## JavaScript
-### What is the difference between the equality operators `==` and `===`?
+### == 和 === 相等运算符有什么区别？
 
 <details>
 <summary>View answer</summary>
@@ -213,7 +213,7 @@ Triple equals (`===`) checks for strict equality, which means both the type and 
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the difference between Element and Component?
+### Element 和 Component 有什么区别？
 
 <details>
 <summary>View answer</summary>
@@ -368,7 +368,7 @@ A stateless component is a component whose behavior does not depend on its state
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Create a function `batches` that returns the maximum number of whole batches that can be cooked from a recipe.
+### 创建一个 batches 函数，返回一个食谱中可以被作为烹饪整批食材的最大数量
 
 ```js
 /**
@@ -432,7 +432,7 @@ const batches = (recipe, available) =>
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Create a standalone function `bind` that is functionally equivalent to the method `Function.prototype.bind`.
+### 创建一个和 Function.prototype.bind 功能一样的独立函数 bind
 
 ```js
 function example() {
@@ -465,7 +465,7 @@ const bind = (fn, context) => (...args) => fn.apply(context, args)
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the purpose of callback function as an argument of `setState`?
+### setState 将回调函数作为参数目的是什么？
 
 <details>
 <summary>View answer</summary>
@@ -495,7 +495,7 @@ setState({ name: "sudheer" }, () =>
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is a callback? Can you show an example using one?
+### 什么是回调，你可以举个例子吗？
 
 <details>
 <summary>View answer</summary>
@@ -541,7 +541,7 @@ map([1, 2, 3, 4, 5], n => n * 2) // [2, 4, 6, 8, 10]
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### How do you clone an object in JavaScript?
+### 在 JavaScript 中，你是如何克隆一个对象的？
 
 <details>
 <summary>View answer</summary>
@@ -580,7 +580,7 @@ Other alternatives include:
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### How do you compare two objects in JavaScript?
+### 在 JavaScript 中，你是如何比较两个对象的？
 
 <details>
 <summary>View answer</summary>
@@ -653,7 +653,7 @@ function isDeepEqual(obj1, obj2, testPrototypes = false) {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is CORS?
+### 什么是 CORS？
 
 <details>
 <summary>View answer</summary>
@@ -681,7 +681,7 @@ For security reasons, browsers restrict cross-origin HTTP requests initiated by 
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the DOM?
+### 什么是 DOM？
 
 <details>
 <summary>View answer</summary>
@@ -707,7 +707,7 @@ The DOM (Document Object Model) is a cross-platform API that treats HTML and XML
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is event delegation and why is it useful? Can you show an example of how to use it?
+### 什么是事件委托，为什么它是有用的，你可以举个例子说明如何使用它？
 
 <details>
 <summary>View answer</summary>
@@ -755,7 +755,7 @@ document.addEventListener("click", e => {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the difference between an expression and a statement in JavaScript?
+### 在 JavaScript 中，声明和表达式的区别？
 
 <details>
 <summary>View answer</summary>
@@ -834,7 +834,7 @@ This is both an expression and a statement, because we are declaring a variable 
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are truthy and falsy values in JavaScript?
+### 在 JavaScript 中，什么是真值（truthy），假值（falsy）?
 
 <details>
 <summary>View answer</summary>
@@ -882,7 +882,7 @@ There is a shortcut for this using the logical NOT `!` operator. Using `!` once 
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Generate an array, containing the Fibonacci sequence, up until the nth term.
+### 生成一个包含的 n 项斐波那契数列元素的数组
 
 <details>
 <summary>View answer</summary>
@@ -912,7 +912,7 @@ const fibonacci = n =>
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What does `0.1 + 0.2 === 0.3` evaluate to?
+### 0.1 + 0.2 === 0.3 表达式的值是？
 
 <details>
 <summary>View answer</summary>
@@ -947,7 +947,7 @@ approxEqual(0.1 + 0.2, 0.3) // true
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the difference between the array methods `map()` and `forEach()`?
+### 数组 map() 和 forEach() 方法的区别？
 
 <details>
 <summary>View answer</summary>
@@ -973,7 +973,7 @@ Both methods iterate through the elements of an array. `map()` maps each element
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What will the console log in this example?
+### 下面的例子中，console.log 会打印出什么？
 
 ```js
 var foo = 1
@@ -1006,7 +1006,7 @@ Due to hoisting, the local variable `foo` is declared before the `console.log` m
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### How does hoisting work in JavaScript?
+### 在 JavaScript 中，声明提升是如何工作的？
 
 <details>
 <summary>View answer</summary>
@@ -1068,7 +1068,7 @@ var myFunction = function() {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the difference between HTML and React event handling?
+### HTML 和 React 中的事件处理有什么区别？
 
 <details>
 <summary>View answer</summary>
@@ -1118,7 +1118,7 @@ function handleClick(e) {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the reason for wrapping the entire contents of a JavaScript source file in a function that is immediately invoked?
+### 为何将 JavaScript 源文件里的整个内容用匿名函数包裹起来？
 
 <details>
 <summary>View answer</summary>
@@ -1295,7 +1295,7 @@ const mask = (str, maskChar = "#") =>
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### NodeJS 错误优先回调的模式有是什么优势？
+### NodeJS 错误优先回调的模式有什么优势？
 
 ```js
 fs.readFile(filePath, function(err, data) {
@@ -2007,7 +2007,7 @@ For example, a comment system will be at risk if it does not validate or escape 
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is Big O Notation?
+### 什么是大 O 标记法？
 
 <details>
 <summary>View answer</summary>
@@ -2110,7 +2110,7 @@ The execution time rises extremely fast with even just 1 addition to the array.
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### How can you avoid callback hells?
+### 你是怎么避免回调地狱的？
 
 ```js
 getData(function(a) {
@@ -2168,7 +2168,7 @@ There are lots of ways to solve the issue of callback hells:
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Which is the preferred option between callback refs and findDOMNode()?
+### 回调引用 refs 和 findDOMNode 哪个更推荐使用？
 
 <details>
 <summary>View answer</summary>
@@ -2215,7 +2215,7 @@ class MyComponent extends Component {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is children prop?
+### React 组件中的属性（prop）children 是什么？
 
 <details>
 <summary>View answer</summary>
@@ -2255,7 +2255,7 @@ ReactDOM.render(
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is a closure? Can you give a useful example of one?
+### 什么是闭包，你可以举一个有用的例子吗？
 
 <details>
 <summary>View answer</summary>
@@ -2290,7 +2290,7 @@ In addition, closures are the only way to store private data that can't be acces
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is context?
+### 在 React 中，什么是 context？
 
 <details>
 <summary>View answer</summary>
@@ -2318,7 +2318,7 @@ const { Provider, Consumer } = React.createContext(defaultValue)
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is event-driven programming?
+### 什么是事件驱动编程？
 
 <details>
 <summary>View answer</summary>
@@ -2368,7 +2368,7 @@ With this implementation, `on` is the way to _subscribe_ to an event, while `emi
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are fragments?
+### 在 React 中，什么是 fragments？
 
 <details>
 <summary>View answer</summary>
@@ -2414,7 +2414,7 @@ render() {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is functional programming?
+### 什么是函数式编程？
 
 <details>
 <summary>View answer</summary>
@@ -2435,13 +2435,13 @@ Functional programming is a paradigm in which programs are built in a declarativ
 
 
 * [Javascript and Functional Programming: An Introduction](https://hackernoon.com/javascript-and-functional-programming-an-introduction-286aa625e26d)
-* [Master the JavaScript Interview: What is Functional Programming?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0)
+* [Master the JavaScript Interview:  什么是函数式编程？](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0)
 
 </details>
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Explain the differences between imperative and declarative programming.
+### 阐释下命令式编程和声明式编程的区别？
 
 <details>
 <summary>View answer</summary>
@@ -2493,7 +2493,7 @@ We declare that the new array is mapped to a new one where each value is doubled
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### 什么是记忆（memoization）？
+### 什么是缓存代理模式（memoization）？
 
 <details>
 <summary>View answer</summary>
@@ -3060,7 +3060,7 @@ When working with DOM manipulation libraries like jQuery, the data of an applica
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### 什么是‘严格模式’，它带来那些关键性的好处？
+### 什么是‘严格模式’，它带来哪些关键性的好处？
 
 <details>
 <summary>View answer</summary>
@@ -3155,7 +3155,7 @@ Once the changes between the old VDOM and new VDOM have been calculated by the d
 
 
 ## React
-### What is the difference between Element and Component?
+### Element 和 Component 有什么区别？
 
 <details>
 <summary>View answer</summary>
@@ -3182,7 +3182,7 @@ A component, on the other hand, can be declared in several different ways. It ca
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What does lifting state up in React mean?
+### 在 React 中，状态提升是什么意思？
 
 <details>
 <summary>View answer</summary>
@@ -3203,7 +3203,7 @@ When several components need to share the same data, then it is recommended to l
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### How to write comments in React?
+### 在 React 里，如何写注释？
 
 <details>
 <summary>View answer</summary>
@@ -3299,7 +3299,7 @@ A stateless component is a component whose behavior does not depend on its state
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the purpose of callback function as an argument of `setState`?
+### setState 将回调函数作为参数目的是什么？
 
 <details>
 <summary>View answer</summary>
@@ -3329,7 +3329,7 @@ setState({ name: "sudheer" }, () =>
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Why React uses className over class attribute?
+### React 为什么用 className 属性代替 class?
 
 <details>
 <summary>View answer</summary>
@@ -3356,7 +3356,7 @@ render() {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the difference between HTML and React event handling?
+### HTML 和 React 中的事件处理有什么区别？
 
 <details>
 <summary>View answer</summary>
@@ -3467,7 +3467,7 @@ const todoItems = todos.map(todo => <li key={todo.id}>{todo.text}</li>)
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are the lifecycle methods in React?
+### React 里的生命周期有哪些？
 
 <details>
 <summary>View answer</summary>
@@ -3500,7 +3500,7 @@ const todoItems = todos.map(todo => <li key={todo.id}>{todo.text}</li>)
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are the different phases of the component lifecycle in React?
+### React 组件中，生命周期的各个阶段是什么？
 
 <details>
 <summary>View answer</summary>
@@ -3560,7 +3560,7 @@ You can use an arrow function to wrap around an event handler and pass arguments
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Which is the preferred option between callback refs and findDOMNode()?
+### 回调引用 refs 和 findDOMNode 哪个更推荐使用？
 
 <details>
 <summary>View answer</summary>
@@ -3607,7 +3607,7 @@ class MyComponent extends Component {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is children prop?
+### React 组件中的属性（prop）children 是什么？
 
 <details>
 <summary>View answer</summary>
@@ -3647,7 +3647,7 @@ ReactDOM.render(
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is context?
+### 在 React 中，什么是 context？
 
 <details>
 <summary>View answer</summary>
@@ -3675,7 +3675,7 @@ const { Provider, Consumer } = React.createContext(defaultValue)
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are error boundaries in React?
+### 在 React 中，错误边界是什么？
 
 <details>
 <summary>View answer</summary>
@@ -3722,7 +3722,7 @@ class ErrorBoundary extends React.Component {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are fragments?
+### 在 React 中，什么是 fragments？
 
 <details>
 <summary>View answer</summary>
@@ -3768,7 +3768,7 @@ render() {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are higher-order components?
+### 什么是高阶组件？
 
 <details>
 <summary>View answer</summary>
@@ -3881,7 +3881,7 @@ The first argument (`child`) is any renderable React child, such as an element, 
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### How to apply prop validation in React?
+### 在 React 中，如何校验 prop？
 
 <details>
 <summary>View answer</summary>
@@ -3975,7 +3975,7 @@ Refs can also be used in functional components with the help of closures.
 
 
 ## HTML
-### What is the purpose of the `alt` attribute on images?
+###  图片里的 alt 属性是做什么的？
 
 <details>
 <summary>View answer</summary>
@@ -4000,7 +4000,7 @@ The `alt` attribute provides alternative information for an image if a user cann
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the purpose of cache busting and how can you achieve it?
+### 不采用缓存的目的是什么，你如何实现它？
 
 <details>
 <summary>View answer</summary>
@@ -4032,7 +4032,7 @@ The browser considers it a different file but prevents the need to change the fi
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Can a web page contain multiple `<header>` elements? What about `<footer>` elements?
+### 一个页面里是否可以包含多个 <header> 元素， <footer> 元素呢？
 
 <details>
 <summary>View answer</summary>
@@ -4055,7 +4055,7 @@ Yes to both. The W3 documents state that the tags represent the header(`<header>
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Briefly describe the correct usage of the following HTML5 semantic elements: `<header>`, `<article>`,`<section>`, `<footer>`
+### 简明的阐述下 HTML5 语义标签 <header>，<article>，<section>，<footer> 的用法
 
 <details>
 <summary>View answer</summary>
@@ -4084,7 +4084,7 @@ Yes to both. The W3 documents state that the tags represent the header(`<header>
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are `defer` and `async` attributes on a `<script>` tag?
+### <script> 标签的 defer 和 async 是什么？
 
 <details>
 <summary>View answer</summary>
@@ -4123,7 +4123,7 @@ Note: both attributes must only be used if the script has a `src` attribute (i.e
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the DOM?
+### 什么是 DOM？
 
 <details>
 <summary>View answer</summary>
@@ -4149,7 +4149,7 @@ The DOM (Document Object Model) is a cross-platform API that treats HTML and XML
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Discuss the differences between an HTML specification and a browser’s implementation thereof.
+### 讨论下 HTML 规范和浏览器实现之间的区别？
 
 <details>
 <summary>View answer</summary>
@@ -4176,7 +4176,7 @@ A browser is said to “support” a specification if it handles valid documents
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the difference between HTML and React event handling?
+### HTML 和 React 中的事件处理有什么区别？
 
 <details>
 <summary>View answer</summary>
@@ -4226,7 +4226,7 @@ function handleClick(e) {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are some differences that XHTML has compared to HTML?
+### 相比 HTML，XHTML 有哪些不同？
 
 <details>
 <summary>View answer</summary>
@@ -4257,7 +4257,7 @@ Some of the key differences are:
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Where and why is the `rel="noopener"` attribute used?
+### 什么时候和为什么使用 rel="noopener" 属性？
 
 <details>
 <summary>View answer</summary>
@@ -4282,7 +4282,7 @@ The `rel="noopener"` is an attribute used in `<a>` elements (hyperlinks). It pre
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is HTML5 Web Storage? Explain `localStorage` and `sessionStorage`.
+### 什么是 HTML5 Web Storage，解释下 localStorage 和 sessionStorage？
 
 <details>
 <summary>View answer</summary>
@@ -4321,7 +4321,7 @@ Both forms of storage are scoped to the document origin so that documents with d
 
 
 ## CSS
-### What is CSS BEM?
+### 什么是 CSS BEM？
 
 <details>
 <summary>View answer</summary>
@@ -4383,7 +4383,7 @@ These must be chained to the Element and never alone however, or there will be s
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are the advantages of using CSS preprocessors?
+### 用 CSS 预处理的优势是什么？
 
 <details>
 <summary>View answer</summary>
@@ -4407,7 +4407,7 @@ CSS preprocessors add useful functionality that native CSS does not have, and ge
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Using flexbox, create a 3-column layout where each column takes up a `col-{n} / 12` ratio of the container.
+### 使用 flexbox，创建一个 3 列布局，每一列取容器的百分之 col-{n}/12
 
 ```html
 <div class="row">
@@ -4456,7 +4456,7 @@ Set the `.row` parent to `display: flex;` and use the `flex` shorthand property 
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Can you name the four types of `@media` properties?
+### 你能说出 @media 属性的四种类型吗？
 
 <details>
 <summary>View answer</summary>
@@ -4482,7 +4482,7 @@ Set the `.row` parent to `display: flex;` and use the `flex` shorthand property 
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Describe the layout of the CSS Box Model and briefly describe each component.
+### 简要阐述下 CSS 的盒模型，及各个组成部分？
 
 <details>
 <summary>View answer</summary>
@@ -4517,7 +4517,7 @@ _Margin_: The transparent outer-most layer that surrounds the border. It separat
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the difference between `em` and `rem` units?
+### em 和 rem 单位的区别？
 
 <details>
 <summary>View answer</summary>
@@ -4545,7 +4545,7 @@ In most browsers, the `font-size` of the root element is set to `16px` by defaul
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What are the advantages of using CSS sprites and how are they utilized?
+### CSS 雪碧图的优势在哪里，如何使用？
 
 <details>
 <summary>View answer</summary>
@@ -4574,7 +4574,7 @@ To utilize a spritesheet in CSS, one would use certain properties, such as `back
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is the difference between '+' and '~' sibling selectors?.
+###  CSS 里通用兄弟选择器和相邻兄弟选择器的区别？
 
 <details>
 <summary>View answer</summary>
@@ -4624,7 +4624,7 @@ div + p {
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### Can you describe how CSS specificity works?
+### 你能描述下 CSS 优先级是如何工作的？
 
 <details>
 <summary>View answer</summary>
@@ -4655,7 +4655,7 @@ When two selectors are compared, the comparison is made on a per-column basis (e
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is a focus ring? What is the correct solution to handle them?
+### 什么是聚焦环，正确的解决方案是什么？
 
 <details>
 <summary>View answer</summary>
@@ -4685,7 +4685,7 @@ The best solution is an upcoming pseudo-selector `:focus-visible` which can be p
 
 
 ## Node
-### NodeJS 错误优先回调的模式有是什么优势？
+### NodeJS 错误优先回调的模式有什么优势？
 
 ```js
 fs.readFile(filePath, function(err, data) {
@@ -4758,7 +4758,7 @@ isTrue(true, callback)
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### What is REST?
+### 什么是 REST？
 
 <details>
 <summary>View answer</summary>
@@ -4793,7 +4793,7 @@ Here is an example of the URL and HTTP method with a `posts` resource:
 
 <br>[⬆ Back to top](#table-of-contents)
 
-### How can you avoid callback hells?
+### 你是怎么避免回调地狱的？
 
 ```js
 getData(function(a) {
