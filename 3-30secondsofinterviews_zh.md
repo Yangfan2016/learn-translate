@@ -310,7 +310,7 @@ let i = 0
 <details>
 <summary>查看答案</summary>
 
-A stateful component is a component whose behavior depends on its state. Stateful components are always class components and have a state that is initialized in the constructor.
+一个有状态组件是一个行为依赖它状态（state）的组件。有状态组件总是类组件，并且在构造函数中初始化它的状态（state）
 
 ```jsx
 class App extends Component {
@@ -328,9 +328,9 @@ class App extends Component {
 #### 小贴士
 
 
-* Stateful components have internal state that they depend on.
-* Stateful components are always class components.
-* Stateful components have their state initialized in the constructor.
+* 有状态组件拥有他们所依赖的内部状态（state）
+* 有状态组件总是类组件
+* 有状态组件拥有他们在构造函数初始化的状态（state）
 
 
 ##### 附加链接
@@ -347,15 +347,15 @@ class App extends Component {
 <details>
 <summary>查看答案</summary>
 
-A stateless component is a component whose behavior does not depend on its state. Stateless components can be either functional or class components. Stateless functional components are easier to maintain and test, while they avoid the `this` keyword altogether. Stateless functional components should be preferred when lifecycle hooks don't need to be used.
+一个无状态组件是一个行为不依赖它状态（state）的组件。无状态组件可以是类组件，也可以是函数式组件。无状态的函数式组件更易维护和测试，而且完全不用考虑 `this` 的问题。当不需要生命周期钩子时，更推荐函数式组件
 
 
 #### 小贴士
 
 
-* Stateless components are independent of their state.
-* Stateless components can be either class or functional components.
-* Stateless functional components avoid the `this` keyword altogether.
+* 无状态组件不依赖他们的状态
+* 无状态组件可以是类组件也可以是函数式组件
+* 无状态组件可以完全避免 `this` 关键字Stateless functional components avoid the `this` keyword altogether.
 
 
 ##### 附加链接
@@ -444,7 +444,7 @@ boundExample.call({ b: true }) // logs { a: true }
 <details>
 <summary>查看答案</summary>
 
-Return a function that accepts an arbitrary number of arguments by gathering them with the rest `...` operator. From that function, return the result of calling the `fn` with `Function.prototype.apply` to apply the context and the array of arguments to the function.
+返回一个接受任意数量参数，通过 `...` rest 操作符收集参数的函数。 在这个函数中，返回一个由 `Function.prototype.apply` 调用，context 作为上下文，args 作为参数数组的函数 fn
 
 ```js
 const bind = (fn, context) => (...args) => fn.apply(context, args)
