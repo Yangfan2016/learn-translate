@@ -3233,67 +3233,6 @@ render() => (<div>
 
 <br>[⬆ 返回顶部](#目录)
 
-### 什么是有状态组件？
-
-<details>
-<summary>查看答案</summary>
-
-A stateful component is a component whose behavior depends on its state. Stateful components are always class components and have a state that is initialized in the constructor.
-
-```jsx
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { count: 0 }
-  }
-  render() {
-    // ...
-  }
-}
-```
-
-
-#### 小贴士
-
-
-* Stateful components have internal state that they depend on.
-* Stateful components are always class components.
-* Stateful components have their state initialized in the constructor.
-
-
-##### 附加链接
-
-
-* [React docs on State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
-### 什么是无状态组件？
-
-<details>
-<summary>查看答案</summary>
-
-A stateless component is a component whose behavior does not depend on its state. Stateless components can be either functional or class components. Stateless functional components are easier to maintain and test, while they avoid the `this` keyword altogether. Stateless functional components should be preferred when lifecycle hooks don't need to be used.
-
-
-#### 小贴士
-
-
-* Stateless components are independent of their state.
-* Stateless components can be either class or functional components.
-* Stateless functional components avoid the `this` keyword altogether.
-
-
-##### 附加链接
-
-
-* [React docs on State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
 
 ### setState 将回调函数作为参数目的是什么？
 
