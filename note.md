@@ -11,7 +11,8 @@
 `colon`  冒号  
 `coercion` 强制  
 `type coercion` 强制类型转换
-`in terms of` 依据，按照
+`in terms of` 依据，按照  
+`critical` 至关重要的，严重的，关键的
 
 ## 未知
 

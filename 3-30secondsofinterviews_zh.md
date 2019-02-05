@@ -371,14 +371,11 @@ class App extends Component {
 
 ```js
 /**
-It accepts two objects as arguments: the first object is the recipe
-for the food, while the second object is the available ingredients.
-Each ingredient's value is number representing how many units there are.
-
+它接受两个对象参数：第一个是食谱，第二个是可用食材。每个食材的值是一个数字代表有多少单位
 `batches(recipe, available)`
 */
 
-// 0 batches can be made
+// 0 批食材可用
 batches(
   { milk: 100, butter: 50, flour: 5 },
   { milk: 132, butter: 48, flour: 51 }
@@ -388,13 +385,13 @@ batches(
   { milk: 1288, flour: 9, sugar: 95 }
 )
 
-// 1 batch can be made
+// 1 批食材可用
 batches(
   { milk: 100, butter: 50, cheese: 10 },
   { milk: 198, butter: 52, cheese: 10 }
 )
 
-// 2 batches can be made
+// 2 批食材可用
 batches(
   { milk: 2, sugar: 40, butter: 20 },
   { milk: 5, sugar: 120, butter: 500 }
@@ -404,11 +401,11 @@ batches(
 <details>
 <summary>查看答案</summary>
 
-We must have all ingredients of the recipe available, and in quantities that are more than or equal to the number of units required. If just one of ingredients is not available or lower than needed, we cannot make a single batch.
+我们必须有所有足够可用的食材，数量大于或等于所需的单位数量。如果其中一种食材数量不够，那么就构不成一批
 
-Use `Object.keys()` to return the ingredients of the recipe as an array, then use `Array.prototype.map()` to map each ingredient to the ratio of available units to the amount required by the recipe. If one of the ingredients required by the recipe is not available at all, the ratio will evaluate to `NaN`, so the logical OR operator can be used to fallback to `0` in this case.
+使用 `Object.keys()` 返回一个食谱数组，然后使用 `Array.prototype.map()` 来映射每一个食材占食谱的比例。如果其中所需的食材之一数量不够，那么比例将会计算得到 `NaN`，因此在这个例子中，我们可以使用逻辑或操作符来作为后备处理（ratio || 0）
 
-Use the spread `...` operator to feed the array of all the ingredient ratios into `Math.min()` to determine the lowest ratio. Passing this entire result into `Math.floor()` rounds down to return the maximum number of whole batches.
+使用扩展操作符（`...`）分配食材比例数组给 `Math.min()` 函数，来决定最小比例。通过对整个结果使用 `Math.floor()` 向下取整得到整批食材的最大数
 
 ```js
 const batches = (recipe, available) =>
@@ -4304,9 +4301,9 @@ Both forms of storage are scoped to the document origin so that documents with d
 #### 小贴士
 
 
-* Earlier, this was done with cookies.
-* The storage limit is far larger (at least 5MB) than with cookies and its faster.
-* The data is never transferred to the server and can only be used if the client specifically asks for it.
+* 较早时候，存储是用 cookie 做的
+* 这个存储限制（至少 5MB）远比 cookie 大而且更快
+* 数据永远不会传输到服务器，只能在客户端的特别要求下使用
 
 
 ##### 附加链接
@@ -4419,7 +4416,7 @@ CSS preprocessors add useful functionality that native CSS does not have, and ge
 <details>
 <summary>查看答案</summary>
 
-Set the `.row` parent to `display: flex;` and use the `flex` shorthand property to give the column classes a `flex-grow` value that corresponds to its ratio value.
+给类名为 `.row` 的父元素设置 `display:flex;`，并且使用 `flex-grow` 属性的缩写 `flex` 设置与列所给类名一致的比例值
 
 ```css
 .row {
@@ -4460,10 +4457,10 @@ Set the `.row` parent to `display: flex;` and use the `flex` shorthand property 
 <details>
 <summary>查看答案</summary>
 
-* `all`, which applies to all media type devices
-* `print`, which only applies to printers
-* `screen`, which only applies to screens (desktops, tablets, mobile etc.)
-* `speech`, which only applies to screenreaders
+* `all`，适用于所有媒体设备
+* `print`，仅适用于打印机
+* `screen`，仅适用于屏幕设备（台式电脑、平板电脑、移动设备等）
+* `speech`，仅适用于屏幕阅读器
 
 
 #### 小贴士
@@ -4488,13 +4485,13 @@ Set the `.row` parent to `display: flex;` and use the `flex` shorthand property 
 
 <!-- Your answer goes here. -->
 
-`Content`: The inner-most part of the box filled with content, such as text, an image, or video player. It has the dimensions `content-box width` and `content-box height`.
+`Content`: 盒子的最里面的部分，被内容填充（如：文本、图像、视频播放器）。它有 `content-box width` 和 `content-box height` 两个维度
 
-`Padding`: The transparent area surrounding the content. It has dimensions `padding-box width` and `padding-box height`.
+`Padding`: 围绕内容的透明区域。它有 `padding-box width` 和 `padding-box height` 两个维度
 
-`Border`: The area surrounding the padding (if any) and content. It has dimensions `border-box width` and `border-box height`.
+`Border`: 围绕内边距（如果有的话）和内容的透明区域。它有 `border-box width` 和 `border-box height`  两个维度
 
-_Margin_: The transparent outer-most layer that surrounds the border. It separates the element from other elements in the DOM. It has dimensions `margin-box width` and `margin-box height`.
+_Margin_: 围绕着边框的盒子最外层区域。它将 DOM 元素之间分割开来。它有 `margin-box width` 和 `margin-box height` 两个维度
 
 ![alt text](https://www.washington.edu/accesscomputing/webd2/student/unit3/images/boxmodel.gif)
 
@@ -4502,8 +4499,8 @@ _Margin_: The transparent outer-most layer that surrounds the border. It separat
 #### 小贴士
 
 
-* This is a very common question asked during front-end interviews and while it may seem easy, it is critical you know it well!
-* Shows a solid understanding of spacing and the DOM
+* 这个在前端面试是个很常见的问题，虽然看起来很容易，但关键是你对它很熟悉。
+* 展示了一个对 DOM 更深刻的了解
 
 
 ##### 附加链接
@@ -4906,6 +4903,6 @@ For example, a comment system will be at risk if it does not validate or escape 
 <br>[⬆ 返回顶部](#目录)
 
 
-## License
+## 协议
 
 [MIT](LICENSE). Copyright (c) [Stefan Feješ](https://stefanfejes.com/).
