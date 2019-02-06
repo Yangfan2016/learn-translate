@@ -3204,14 +3204,13 @@ When several components need to share the same data, then it is recommended to l
 <details>
 <summary>查看答案</summary>
 
-The comments in React are similar to JavaScript multiline comments which are wrapped with curly braces. When using JSX they look like this:
+React 的注释和 Javascript 的多行注释很相似，它是用大括号包裹起来的。在 JSX 中这么使用：
 
 ```jsx
 render() => (<div>
-  {/* single-line comments */}
+  {/* 单行注释 */}
   Hey {user}, write cool comments
-  {/* multi-line
-  comments */}
+  {/* 多行注释 */}
 </div>)
 ```
 
@@ -3269,7 +3268,7 @@ setState({ name: "sudheer" }, () =>
 <details>
 <summary>查看答案</summary>
 
-`class` is a reserved keyword in JavaScript and JSX is an extension of JavaScript. That's the primary reason why React uses `className` instead of `class`.
+`class` 是 JavaScript 的保留关键字，而 JSX 是 JavaScript 的扩展，这就是为何使用 `className` 代替 `class` 的主要原因 
 
 ```jsx
 render() {
@@ -3296,25 +3295,25 @@ render() {
 <details>
 <summary>查看答案</summary>
 
-Some of the key differences are:
+一些关键的区别：
 
-* In HTML, the event name should be in lowercase, whereas in React it follows camelcase convention.
+* 在 HTML 中，事件名应该是小写，然而在 React 中，遵循驼峰写法约定
 
 ```html
 <!-- HTML -->
-<button onclick="handleClick()">
+<button onclick="handleClick()">Click me</button>
 ```
 
 ```jsx
 /* React */
-<button onClick="handleClick()">
+<button onClick="handleClick()">Click me</button>
 ```
 
-* In HTML, `false` can be returned to prevent default behavior, whereas in React `preventDefault` has to be called explicitly.
+* 在 HTML 中，返回 `false` 可以阻止默认行为发生，然而在 React 中，必须显示调用 `preventDefault`才能阻止默认行为
 
 ```html
 <!-- HTML -->
-<a href="#" onclick="console.log('The link was clicked.'); return false"/>
+<a href="#" onclick="console.log('The link was clicked.'); return false">Click me</a>
 ```
 
 ```jsx
@@ -3329,7 +3328,7 @@ function handleClick(e) {
 #### 小贴士
 
 
-* HTML uses lowercase event names, React uses camelcase event names.
+* HTML 事件名通常小写，而 React 事件名使用驼峰写法
 
 
 ##### 附加链接
@@ -3346,12 +3345,12 @@ function handleClick(e) {
 <details>
 <summary>查看答案</summary>
 
-You can use either `if` statements or ternary expressions to conditionally render expressions. Apart from these approaches, you can also embed any expressions in JSX by wrapping them in curly braces and then followed by the logical operator `&&`.
+你可以使用 `if` 语句或三元表达式有条件的渲染表达式。除了这些方法之外，你也可以在 JSX 中使用大括号内嵌任何表达式，然后后面跟上逻辑与运算符 `&&`
 
 ```jsx
-;<h1>Hello!</h1>
+;<h1>你好！</h1>
 {
-  messages.length > 0 && <h2>You have {messages.length} unread messages.</h2>
+  messages.length > 0 && <h2>你有 {messages.length} 条未读消息</h2>
 }
 ```
 
