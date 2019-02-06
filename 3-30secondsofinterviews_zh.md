@@ -57,7 +57,7 @@
 * [词法作用域和动态作用域的区别？](#what-is-the-difference-between-lexical-scoping-and-dynamic-scoping)
 * [创建一个函数，用 ‘#’ 符号遮住字符串（除最后4个字符之外）](#create-a-function-that-masks-a-string-of-characters-with--except-for-the-last-four-4-characters)
 * [什么是缓存代理模式（memoization）？](#what-is-memoization)
-* [在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
+* [在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
 * [什么是 MIME 类型，有什么作用？](#what-is-a-mime-type-and-what-is-it-used-for)
 * [对比下可变与不可变值，可变与不可变方法](#contrast-mutable-and-immutable-values-and-mutating-vs-non-mutating-methods)
 * [在 JavaScript 中，哪个值不等于它自己？](#what-is-the-only-value-not-equal-to-itself-in-javascript)
@@ -1235,7 +1235,7 @@ Lexical scoping refers to when the location of a function's definition determine
 
 <br>[⬆ 返回顶部](#目录)
 
-### 创建一个函数，用 ‘#’ 符号遮住字符串（除最后4个字符之外）
+### 创建一个函数，用 ‘#’ 符号遮住字符串（除最后4个字符之外）
 
 ```js
 mask("123456789") // "#####6789"
@@ -2529,7 +2529,7 @@ const memoize = fn => {
 
 <br>[⬆ 返回顶部](#目录)
 
-### 在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？
+### 在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？
 
 <details>
 <summary>查看答案</summary>
@@ -3728,7 +3728,7 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent)
 
 <br>[⬆ 返回顶部](#目录)
 
-### 在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？
+### 在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？
 
 <details>
 <summary>查看答案</summary>
