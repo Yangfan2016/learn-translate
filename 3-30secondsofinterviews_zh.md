@@ -170,7 +170,7 @@
 <summary>查看内容</summary>
 
 * [你如何避免回调地狱？](#how-can-you-avoid-callback-hells)
-* [Node.js 中，经常使用回调的模式，把执行过程中遇到的错误，作为回调函数的第一个参数，这么做的优势是什么？](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
+* [Node.js 中，经常使用回调的模式，把执行过程中遇到的错误，作为回调函数的第一个参数，这么做的优势是什么？](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
 * [在 Node.js 中，事件循环是什么？](#what-is-the-event-loop-in-nodejs)
 * [什么是 `REST`？](#what-is-rest)
 </details>
