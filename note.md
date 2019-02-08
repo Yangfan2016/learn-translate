@@ -19,7 +19,9 @@
 `apart from` 除……之外  
 `approach` 方法，途经      
 `convention` 约定，习俗  
-`whereas` 然而，反之，鉴于
+`whereas` 然而，反之，鉴于  
+`since` 因为，既然，自……以来  
+`regard` 注意，把……看作  
 
 ## 未知
 

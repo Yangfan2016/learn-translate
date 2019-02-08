@@ -466,7 +466,7 @@ const bind = (fn, context) => (...args) => fn.apply(context, args)
 <details>
 <summary>查看答案</summary>
 
-The callback function is invoked when `setState` has finished and the component gets rendered. Since `setState` is asynchronous, the callback function is used for any post action.
+在 `setState` 设置完成和组件渲染完时，会调用这个回调函数。因为 `setState` 是一步操作，所以这个回调函数可以用来做任何 post 操作
 
 ```jsx
 setState({ name: "sudheer" }, () =>
@@ -478,8 +478,8 @@ setState({ name: "sudheer" }, () =>
 #### 小贴士
 
 
-* The callback function is invoked after `setState` finishes and is used for any post action.
-* It is recommended to use lifecycle method rather this callback function.
+* 这个回调函数在 `setState` 完成后被调用，而且可以用于任何 post 操作
+* 更推荐使用生命周期的方法，而不是这个回调函数
 
 
 ##### 附加链接
@@ -3914,15 +3914,14 @@ Refs can also be used in functional components with the help of closures.
 <details>
 <summary>查看答案</summary>
 
-The `alt` attribute provides alternative information for an image if a user cannot view it. The `alt` attribute should be used to describe any images except those which only serve a decorative purposes, in which case it should be left empty.
-
+如果用户看不到图像，`alt` 属性可以提供替代信息。`alt` 属性应该用于描述，而那些仅仅是装饰目的图像，可以为空
 
 #### 小贴士
 
 
-* Decorative images should have an empty `alt` attribute.
-* Web crawlers use `alt` tags to understand image content, so they are considered important for Search Engine Optimization (SEO).
-* Put the `.` at the end of `alt` tag to improve accessibility.
+* 装饰性的图像应该有一个空的 `alt` 属性
+* web 爬虫可以通过 `alt` 属性理解图像的信息，因此认为它对于搜索引擎优化（SEO）非常重要
+* 在 `alt` 末尾加 `.` 可以提高访问性
 
 
 ##### 附加链接
@@ -4221,19 +4220,19 @@ The `rel="noopener"` is an attribute used in `<a>` elements (hyperlinks). It pre
 <details>
 <summary>查看答案</summary>
 
-With HTML5, web pages can store data locally within the user’s browser.
-The data is stored in name/value pairs, and a web page can only access data stored by itself.
+随着 HTML5 的发展，web 页面拥有了在用户浏览器存储本地数据的能力
+数据是以键值对的形式存储的，而且 web 页面只能访问它自己存储的数据
 
-**Differences between `localStorage` and `sessionStorage` regarding lifetime:**
+**从生命周期角度看，`localStorage` 和 `sessionStorage` 的区别：**
 
-* Data stored through `localStorage` is permanent: it does not expire and remains stored on the user’s computer until a web app deletes it or the user asks the browser to delete it.
-* `sessionStorage` has the same lifetime as the top-level window or browser tab in which the data got stored. When the tab is permanently closed, any data stored through `sessionStorage` is deleted.
+* 通过 `localStorage` 存储的数据是永久的：它永远不会过期，而且会一直保留在用户电脑中，直到 web app 删除或用户通过浏览器删除
+* `sessionStorage` 存储的数据与顶级 window 或浏览器 tab 拥有一样的生命周期。当 tab 被永久关闭后，通过 `sessionStorage` 存储的任何数据就会被删除
 
-**Differences between `localStorage` and `sessionStorage` regarding storage scope:**
-Both forms of storage are scoped to the document origin so that documents with different origins will never share the stored objects.
+**从存储范围角度看，`localStorage` 和 `sessionStorage` 的区别：**
+这两种存储方式均遵循浏览器同源策略，因此不同的域的数据永远不可共享
 
-* `sessionStorage` is also scoped on a per-window basis. Two browser tabs with documents from the same origin have separate `sessionStorage` data.
-* Unlike in `localStorage`, the same scripts from the same origin can't access each other's `sessionStorage` when opened in different tabs.
+* `sessionStorage` 也作为每个 window 为基础。两个同域的浏览器 tab 具有独立的 `sessionStorage`  数据
+* 和 `localStorage` 不同，在打开的不同的 tab 中，即使是同域相同的脚本也不能访问彼此的 `sessionStorage` 
 
 
 #### 小贴士
