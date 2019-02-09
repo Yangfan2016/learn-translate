@@ -496,9 +496,9 @@ setState({ name: "sudheer" }, () =>
 <details>
 <summary>查看答案</summary>
 
-Callbacks are functions passed as an argument to another function to be executed once an event has occurred or a certain task is complete, often used in asynchronous code. Callback functions are invoked later by a piece of code but can be declared on initialization without being invoked.
+回调函数是作为一个参数传递给另一个函数的函数，只有在事件触发或具体任务完成时调用，经常用在异步代码中。回调函数会在一段代码之后调用，但可以在初始化声明，而不需要调用
 
-As an example, event listeners are asynchronous callbacks that are only executed when a specific event occurs.
+例如，事件监听是异步回调，它们只有在特定事件触发后才会执行
 
 ```js
 function onClick() {
@@ -507,7 +507,7 @@ function onClick() {
 document.addEventListener("click", onClick)
 ```
 
-However, callbacks can also be synchronous. The following `map` function takes a callback function that is invoked synchronously for each iteration of the loop (array element).
+然而，回调函数也可以是同步的。下面的 `map` 函数接受一个回调函数，在数组循环每次迭代（数组元素）中同步调用
 
 ```js
 const map = (arr, callback) => {
@@ -524,8 +524,8 @@ map([1, 2, 3, 4, 5], n => n * 2) // [2, 4, 6, 8, 10]
 #### 小贴士
 
 
-* Functions are first-class objects in JavaScript
-* Callbacks vs Promises
+* 在 JavaScript 中，函数是一等公民
+* 回调 VS Promises
 
 
 ##### 附加链接
