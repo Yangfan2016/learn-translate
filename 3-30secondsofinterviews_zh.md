@@ -4789,13 +4789,13 @@ There are lots of ways to solve the issue of callback hells:
 <details>
 <summary>查看答案</summary>
 
-The event loop handles all async callbacks. Callbacks are queued in a loop, while other code runs, and will run one by one when the response for each one has been received.
+事件循环处理所有的异步回调。回调在一个循环按里队列排列，当其他代码执行时，并且收到响应时它们会一个接一个执行
 
 
 #### 小贴士
 
 
-* The event loop allows Node.js to perform non-blocking I/O operations, despite the fact that JavaScript is single-threaded
+* 事件循环允许 Node.js 执行非阻塞 I/O 操作，尽管 JavaScript 是单线程
 
 
 ##### 附加链接
