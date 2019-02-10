@@ -24,6 +24,8 @@
 `regard` 注意，把……看作  
 `thread` 线程  
 `single-thread` 单线程  
+`despite` 尽管  
+
 
 ## 未知
 
