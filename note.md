@@ -23,7 +23,7 @@
 `since` 因为，既然，自……以来  
 `regard` 注意，把……看作  
 `thread` 线程  
-`single-thread` 单线程  
+`single-threaded` 单线程  
 `despite` 尽管  
 
 
