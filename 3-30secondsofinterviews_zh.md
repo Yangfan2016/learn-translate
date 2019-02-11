@@ -22,7 +22,7 @@
 <details>
 <summary>查看内容</summary>
 
-* [创建一个 batches 函数，返回一个食谱中可以被作为烹饪整批食材的最大数量](#创建一个-batches-函数，返回一个食谱中可以被作为烹饪整批食材的最大数量)
+* [创建一个 batches 函数，返回一个食谱中可以被作为烹饪整批食材的最大数量](#创建一个%20batches%20函数，返回一个食谱中可以被作为烹饪整批食材的最大数量)
 * [什么是大 O 标记法？](#what-is-big-o-notation)
 * [创建一个和 `Function.prototype.bind` 功能一样的独立函数 `bind`](#create-a-standalone-function-bind-that-is-functionally-equivalent-to-the-method-functionprototypebind)
 * [你是怎么避免回调地狱的？](#how-can-you-avoid-callback-hells)
