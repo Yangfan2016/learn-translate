@@ -22,22 +22,17 @@
 <details>
 <summary>查看内容</summary>
 
-* [创建一个 `batches` 函数，返回一个食谱中可以被作为烹饪整批食材的最大数量](#create-a-function-batches-that-returns-the-maximum-number-of-whole-batches-that-can-be-cooked-from-a-recipe)
+* [创建一个 batches 函数，返回一个食谱中可以被作为烹饪整批食材的最大数量](#创建一个-batches-函数，返回一个食谱中可以被作为烹饪整批食材的最大数量)
 * [什么是大 O 标记法？](#what-is-big-o-notation)
 * [创建一个和 `Function.prototype.bind` 功能一样的独立函数 `bind`](#create-a-standalone-function-bind-that-is-functionally-equivalent-to-the-method-functionprototypebind)
 * [你是怎么避免回调地狱的？](#how-can-you-avoid-callback-hells)
-* [`setState` 将回调函数作为参数目的是什么？](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
-* [回调引用 refs 和 findDOMNode 哪个更推荐使用？](#which-is-the-preferred-option-between-callback-refs-and-finddomnode)
 * [什么是回调，你可以举个例子吗？](#what-is-a-callback-can-you-show-an-example-using-one)
-* [React 组件中的属性（prop）`children` 是什么？](#what-is-children-prop)
 * [在 JavaScript 中，你是如何克隆一个对象的？](#how-do-you-clone-an-object-in-javascript)
 * [什么是闭包，你可以举一个有用的例子吗？](#what-is-a-closure-can-you-give-a-useful-example-of-one)
 * [在 JavaScript 中，你是如何比较两个对象的？](#how-do-you-compare-two-objects-in-javascript)
-* [在 React 中，什么是 `context`？](#what-is-context)
 * [什么是 `CORS`？](#what-is-cors)
 * [什么是 `DOM`？](#what-is-the-dom)
 * [`==` 和 `===` 相等运算符有什么区别？](#what-is-the-difference-between-the-equality-operators--and-)
-* [在 React 中，`Element` 和 `Component` 有什么区别？](#what-is-the-difference-between-element-and-component)
 * [什么是事件委托，为什么它是有用的，你可以举个例子说明如何使用它？](#what-is-event-delegation-and-why-is-it-useful-can-you-show-an-example-of-how-to-use-it)
 * [什么是事件驱动编程？](#what-is-event-driven-programming)
 * [在 JavaScript 中，声明和表达式的区别？](#what-is-the-difference-between-an-expression-and-a-statement-in-javascript)
@@ -45,19 +40,14 @@
 * [生成一个包含的 n 项斐波那契数列元素的数组](#generate-an-array-containing-the-fibonacci-sequence-up-until-the-nth-term)
 * [`0.1 + 0.2 === 0.3` 表达式的值是？](#what-does-01--02--03-evaluate-to)
 * [数组 `map()` 和 `forEach()` 方法的区别？](#what-is-the-difference-between-the-array-methods-map-and-foreach)
-* [在 React 中，什么是 `fragments`？](#what-are-fragments)
 * [什么是函数式编程？](#what-is-functional-programming)
 * [下面的例子中，`console.log` 会打印出什么？](#what-will-the-console-log-in-this-example)
 * [在 JavaScript 中，声明提升是如何工作的？](#how-does-hoisting-work-in-javascript)
-* [HTML 和 React 中的事件处理有什么区别？](#what-is-the-difference-between-html-and-react-event-handling)
 * [为何将 JavaScript 源文件里的整个内容用匿名函数包裹起来？](#what-is-the-reason-for-wrapping-the-entire-contents-of-a-javascript-source-file-in-a-function-that-is-immediately-invoked)
 * [阐释下命令式编程和声明式编程的区别？](#explain-the-differences-between-imperative-and-declarative-programming)
-* [什么是内联条件表达式？](#what-is-inline-conditional-expressions)
-* [什么是 key ，在 lists 中使用的好处是什么？](#what-is-a-key-what-are-the-benefits-of-using-it-in-lists)
 * [词法作用域和动态作用域的区别？](#what-is-the-difference-between-lexical-scoping-and-dynamic-scoping)
 * [创建一个函数，用 ‘#’ 符号遮住字符串（除最后4个字符之外）](#create-a-function-that-masks-a-string-of-characters-with--except-for-the-last-four-4-characters)
 * [什么是缓存代理模式（memoization）？](#what-is-memoization)
-* [在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
 * [什么是 MIME 类型，有什么作用？](#what-is-a-mime-type-and-what-is-it-used-for)
 * [对比下可变与不可变值，可变与不可变方法](#contrast-mutable-and-immutable-values-and-mutating-vs-non-mutating-methods)
 * [在 JavaScript 中，哪个值不等于它自己？](#what-is-the-only-value-not-equal-to-itself-in-javascript)
@@ -69,7 +59,6 @@
 * [JavaScript 里是通过值传递还是引用传递？](#does-javascript-pass-by-value-or-by-reference)
 * [你是怎么给事件处理/回调函数传参的？](#how-do-you-pass-an-argument-to-an-event-handler-or-callback)
 * [创建一个管道函数，返回一个接受一个参数从左到右执行的合成函数](#create-a-function-pipe-that-performs-left-to-right-function-composition-by-returning-a-function-that-accepts-one-argument)
-* [ReactJS 中，‘portals’（传送门） 是什么？](#what-are-portals-in-reactjs)
 * [`i++`  和 `++i` 有什么不同？](#what-is-the-difference-between-the-postfix-i-and-prefix-i-increment-operators)
 * [Promise 可以变成哪些状态？](#in-which-states-can-a-promise-be)
 * [什么是 Promises？](#what-are-promises)
@@ -77,12 +66,9 @@
 * [什么是纯函数？](#what-is-a-pure-function)
 * [什么是递归，什么时候它是有用的？](#what-is-recursion-and-when-is-it-useful)
 * [下面的代码会输出什么？](#what-is-the-output-of-the-following-code)
-* [什么是 refs，什么时候用它们？](#what-are-refs-when-should-they-be-used)
 * [下面的函数会返回什么？](#what-does-the-following-function-return)
 * [JavaScript 里分号是必须的吗？](#are-semicolons-required-in-javascript)
 * [在 JavaScript 里，什么是短路运算？](#what-is-short-circuit-evaluation-in-javascript)
-* [什么是有状态组件？](#what-is-a-stateful-component)
-* [什么是无状态组件？](#what-is-a-stateless-component)
 * [解释下静态方法和实例方法的区别](#explain-the-difference-between-a-static-method-and-an-instance-method)
 * [在 JavaScript 里，同步代码和异步代码有什么不同？](#what-is-the-difference-between-synchronous-and-asynchronous-code-in-javascript)
 * [`this` 关键字是什么，它是如何工作的？](#what-is-the-this-keyword-and-how-does-it-work)
@@ -102,11 +88,11 @@
 <summary>查看内容</summary>
 
 * [`setState` 将回调函数作为参数目的是什么](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
-* [回调引用 refs 和 findDOMMNode 哪个更推荐使用？](#which-is-the-preferred-option-between-callback-refs-and-finddomnode)
-* [React 组件中的属性（prop）`children` 是什么？](#what-is-children-prop)
+* [回调引用 refs 和 findDOMMNode 哪个更推荐使用？](#which-is-the-preferred-option-between-callback-refs-and-finddomnode)
+* [React 组件中的属性（prop）`children` 是什么？](#what-is-children-prop)
 * [React 为什么用 `className` 属性代替 `class`?](#why-react-uses-classname-over-class-attribute)
 * [在 React 中，什么是 `context`？](#what-is-context)
-* [在 React 中，`Element` 和 `Component` 有什么区别？](#what-is-the-difference-between-element-and-component)
+* [Element 和 Component 有什么区别？](#what-is-the-difference-between-element-and-component)
 * [在 React 中，错误边界是什么？](#what-are-error-boundaries-in-react)
 * [在 React 中，什么是 `fragments`？](#what-are-fragments)
 * [什么是高阶组件？](#what-are-higher-order-components)
@@ -118,7 +104,7 @@
 * [在 React 中，状态提升是什么意思？](#what-does-lifting-state-up-in-react-mean)
 * [在 React class 组件中，你是如何确保 `this` 的正确指向的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
 * [你是怎么给事件处理或回调函数传参的？](#how-do-you-pass-an-argument-to-an-event-handler-or-callback)
-* [在 React 中是 `portals` 是什么？](#what-are-portals-in-reactjs)
+* [在 React 中，`portals` 是什么？](#what-are-portals-in-reactjs)
 * [在 React 中，如何校验 `prop`？](#how-to-apply-prop-validation-in-react)
 * [在 React 里，如何写注释？](#how-to-write-comments-in-react)
 * [什么是 `refs`，我们如何使用它？](#what-are-refs-when-should-they-be-used)
@@ -300,68 +286,6 @@ let i = 0
 
 
 * [Official Web Docs Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
-### 什么是有状态组件？
-
-<details>
-<summary>查看答案</summary>
-
-一个有状态组件是一个行为依赖它状态（state）的组件。有状态组件总是类组件，并且在构造函数中初始化它的状态（state）
-
-```jsx
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { count: 0 }
-  }
-  render() {
-    // ...
-  }
-}
-```
-
-
-#### 小贴士
-
-
-* 有状态组件拥有他们所依赖的内部状态（state）
-* 有状态组件总是类组件
-* 有状态组件拥有他们在构造函数初始化的状态（state）
-
-
-##### 附加链接
-
-
-* [React docs on State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
-### 什么是无状态组件？
-
-<details>
-<summary>查看答案</summary>
-
-一个无状态组件是一个行为不依赖它状态（state）的组件。无状态组件可以是类组件，也可以是函数式组件。无状态的函数式组件更易维护和测试，而且完全不用考虑 `this` 的问题。当不需要生命周期钩子时，更推荐函数式组件
-
-
-#### 小贴士
-
-
-* 无状态组件不依赖他们的状态
-* 无状态组件可以是类组件也可以是函数式组件
-* 无状态组件可以完全避免 `this` 关键字
-
-
-##### 附加链接
-
-
-* [React docs on State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
 
 </details>
 
@@ -3902,6 +3826,68 @@ Refs can also be used in functional components with the help of closures.
 
 
 * [React docs on Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html)
+
+</details>
+
+<br>[⬆ 返回顶部](#目录)
+
+### 什么是有状态组件？
+
+<details>
+<summary>查看答案</summary>
+
+一个有状态组件是一个行为依赖它状态（state）的组件。有状态组件总是类组件，并且在构造函数中初始化它的状态（state）
+
+```jsx
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { count: 0 }
+  }
+  render() {
+    // ...
+  }
+}
+```
+
+
+#### 小贴士
+
+
+* 有状态组件拥有他们所依赖的内部状态（state）
+* 有状态组件总是类组件
+* 有状态组件拥有他们在构造函数初始化的状态（state）
+
+
+##### 附加链接
+
+
+* [React docs on State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
+
+</details>
+
+<br>[⬆ 返回顶部](#目录)
+
+### 什么是无状态组件？
+
+<details>
+<summary>查看答案</summary>
+
+一个无状态组件是一个行为不依赖它状态（state）的组件。无状态组件可以是类组件，也可以是函数式组件。无状态的函数式组件更易维护和测试，而且完全不用考虑 `this` 的问题。当不需要生命周期钩子时，更推荐函数式组件
+
+
+#### 小贴士
+
+
+* 无状态组件不依赖他们的状态
+* 无状态组件可以是类组件也可以是函数式组件
+* 无状态组件可以完全避免 `this` 关键字
+
+
+##### 附加链接
+
+
+* [React docs on State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
 
 </details>
 
