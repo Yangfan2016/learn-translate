@@ -22,28 +22,28 @@
 <details>
 <summary>查看内容</summary>
 
-* [创建一个 batches 函数，返回一个食谱中可以被作为烹饪整批食材的最大数量](#创建一个%20batches%20函数，返回一个食谱中可以被作为烹饪整批食材的最大数量)
+* [创建一个 batches 函数，返回一个食谱中可以被作为烹饪整批食材的最大数量](#创建一个-batches-函数返回一个食谱中可以被作为烹饪整批食材的最大数量)
 * [什么是大 O 标记法？](#what-is-big-o-notation)
-* [创建一个和 `Function.prototype.bind` 功能一样的独立函数 `bind`](#create-a-standalone-function-bind-that-is-functionally-equivalent-to-the-method-functionprototypebind)
+* [创建一个和 `Function.prototype.bind` 功能一样的独立函数 `bind`](#创建一个和-Functionprototypebind-功能一样的独立函数-bind)
 * [你是怎么避免回调地狱的？](#how-can-you-avoid-callback-hells)
-* [什么是回调，你可以举个例子吗？](#what-is-a-callback-can-you-show-an-example-using-one)
+* [什么是回调，你可以举个例子吗？](#什么是回调你可以举个例子吗)
 * [在 JavaScript 中，你是如何克隆一个对象的？](#how-do-you-clone-an-object-in-javascript)
 * [什么是闭包，你可以举一个有用的例子吗？](#what-is-a-closure-can-you-give-a-useful-example-of-one)
 * [在 JavaScript 中，你是如何比较两个对象的？](#how-do-you-compare-two-objects-in-javascript)
 * [什么是 `CORS`？](#what-is-cors)
 * [什么是 `DOM`？](#what-is-the-dom)
-* [`==` 和 `===` 相等运算符有什么区别？](#what-is-the-difference-between-the-equality-operators--and-)
+* [`==` 和 `===` 相等运算符有什么区别？](#-和--相等运算符有什么区别)
 * [什么是事件委托，为什么它是有用的，你可以举个例子说明如何使用它？](#what-is-event-delegation-and-why-is-it-useful-can-you-show-an-example-of-how-to-use-it)
 * [什么是事件驱动编程？](#what-is-event-driven-programming)
 * [在 JavaScript 中，声明和表达式的区别？](#what-is-the-difference-between-an-expression-and-a-statement-in-javascript)
 * [在 JavaScript 中，什么是真值（truthy），假值（falsy）?](#what-are-truthy-and-falsy-values-in-javascript)
-* [生成一个包含的 n 项斐波那契数列元素的数组](#generate-an-array-containing-the-fibonacci-sequence-up-until-the-nth-term)
-* [`0.1 + 0.2 === 0.3` 表达式的值是？](#what-does-01--02--03-evaluate-to)
+* [生成一个包含的 n 项斐波那契数列元素的数组](#生成一个包含的-n-项斐波那契数列元素的数组)
+* [`0.1 + 0.2 === 0.3` 表达式的值是？](#01--02--03-表达式的值是)
 * [数组 `map()` 和 `forEach()` 方法的区别？](#what-is-the-difference-between-the-array-methods-map-and-foreach)
 * [什么是函数式编程？](#what-is-functional-programming)
-* [下面的例子中，`console.log` 会打印出什么？](#what-will-the-console-log-in-this-example)
+* [下面的例子中，`console.log` 会打印出什么？](#下面的例子中consolelog-会打印出什么)
 * [在 JavaScript 中，声明提升是如何工作的？](#how-does-hoisting-work-in-javascript)
-* [为何将 JavaScript 源文件里的整个内容用匿名函数包裹起来？](#what-is-the-reason-for-wrapping-the-entire-contents-of-a-javascript-source-file-in-a-function-that-is-immediately-invoked)
+* [为何将 JavaScript 源文件里的整个内容用匿名函数包裹起来？](#为何将-javascript-源文件里的整个内容用匿名函数包裹起来)
 * [阐释下命令式编程和声明式编程的区别？](#explain-the-differences-between-imperative-and-declarative-programming)
 * [词法作用域和动态作用域的区别？](#what-is-the-difference-between-lexical-scoping-and-dynamic-scoping)
 * [创建一个函数，用 ‘#’ 符号遮住字符串（除最后4个字符之外）](#create-a-function-that-masks-a-string-of-characters-with--except-for-the-last-four-4-characters)
@@ -52,7 +52,7 @@
 * [对比下可变与不可变值，可变与不可变方法](#contrast-mutable-and-immutable-values-and-mutating-vs-non-mutating-methods)
 * [在 JavaScript 中，哪个值不等于它自己？](#what-is-the-only-value-not-equal-to-itself-in-javascript)
 * [NodeJS 错误优先回调的模式有什么优势？](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
-* [什么是 Nodejs 里的事件循环（event loop）？](#what-is-the-event-loop-in-nodejs)
+* [什么是 Nodejs 里的事件循环（event loop）？](#什么是-nodejs-里的事件循环event-loop-1)
 * [`null`  和 `undefined` 有何不同？](#what-is-the-difference-between-null-and-undefined)
 * [描述下创建对象方式的不同，哪种方式更推荐？](#describe-the-different-ways-to-create-an-object-when-should-certain-ways-be-preferred-over-others)
 * [形参和实参的区别？](#what-is-the-difference-between-a-parameter-and-an-argument)
@@ -87,7 +87,7 @@
 <details>
 <summary>查看内容</summary>
 
-* [`setState` 将回调函数作为参数目的是什么](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
+* [`setState` 将回调函数作为参数目的是什么？](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
 * [回调引用 refs 和 findDOMMNode 哪个更推荐使用？](#which-is-the-preferred-option-between-callback-refs-and-finddomnode)
 * [React 组件中的属性（prop）`children` 是什么？](#what-is-children-prop)
 * [React 为什么用 `className` 属性代替 `class`?](#why-react-uses-classname-over-class-attribute)
@@ -380,36 +380,6 @@ const bind = (fn, context) => (...args) => fn.apply(context, args)
 ##### 附加链接
 
 
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
-### setState 将回调函数作为参数目的是什么？
-
-<details>
-<summary>查看答案</summary>
-
-在 `setState` 设置完成和组件渲染完时，会调用这个回调函数。因为 `setState` 是一步操作，所以这个回调函数可以用来做任何 post 操作
-
-```jsx
-setState({ name: "sudheer" }, () =>
-  console.log("The name has updated and component re-rendered")
-)
-```
-
-
-#### 小贴士
-
-
-* 这个回调函数在 `setState` 完成后被调用，而且可以用于任何 post 操作
-* 更推荐使用生命周期的方法，而不是这个回调函数
-
-
-##### 附加链接
-
-
-* [React docs on `setState`](https://reactjs.org/docs/react-component.html#setstate)
 
 </details>
 
@@ -807,7 +777,7 @@ There is a shortcut for this using the logical NOT `!` operator. Using `!` once 
 <details>
 <summary>查看答案</summary>
 
-Initialize an empty array of length `n`. Use `Array.prototype.reduce()` to add values into the array, using the sum of the last two values, except for the first two.
+初始化一个长度为 n 的空数组。使用 `Array.prototype.reduce()` 函数向这个数组累加值（使用最后两个数相加，除了第一个、第二个数）
 
 ```js
 const fibonacci = n =>
@@ -837,13 +807,13 @@ const fibonacci = n =>
 <details>
 <summary>查看答案</summary>
 
-It evaluates to `false` because JavaScript uses the IEEE 754 standard for Math and it makes use of 64-bit floating numbers. This causes precision errors when doing decimal calculations, in short, due to computers working in Base 2 while decimal is Base 10.
+这个表达式的计算结果为 `false` ，这是因为 JavaScript 遵循 IEEE 754 数学标准，使用 64 位浮点数进行运算。在进行十进制运算时会导致精度丢失，简言之，计算机是以 2 为基础进行运算的，而十进制是以 10 为基础进行运算的
 
 ```js
 0.1 + 0.2 // 0.30000000000000004
 ```
 
-A solution to this problem would be to use a function that determines if two numbers are approximately equal by defining an error margin (epsilon) value that the difference between two values should be less than.
+一个解决方案是，定义一个误差值（epsilon），使得两数之差小于这个值，然后通过函数判断它们是否近似相等
 
 ```js
 const approxEqual = (n1, n2, epsilon = 0.0001) => Math.abs(n1 - n2) < epsilon
@@ -854,7 +824,7 @@ approxEqual(0.1 + 0.2, 0.3) // true
 #### 小贴士
 
 
-* A simple solution to this problem
+* 这个问题的一个简单解决方案
 
 
 ##### 附加链接
@@ -907,14 +877,14 @@ foobar()
 <details>
 <summary>查看答案</summary>
 
-Due to hoisting, the local variable `foo` is declared before the `console.log` method is called. This means the local variable `foo` is passed as an argument to `console.log()` instead of the global one declared outside of the function. However, since the value is not hoisted with the variable declaration, the output will be `undefined`, not `2`.
+由于存在声明提升，局部变量 `foo` 会在 `console.log` 方法调用前声明。这就意味着 `console.log` 方法接受到的参数是局部变量 `foo`，而不是全局变量 `foo`。然而，变量提升并不会赋值，因此结果会输出 `undefined` 而不是 `2`
 
 
 #### 小贴士
 
 
-* Hoisting is JavaScript’s default behavior of moving declarations to the top
-* Mention of `strict` mode
+* 声明提升是 JavaScript 把声明移动到顶部的一种默认行为
+* 注意严格模式
 
 
 ##### 附加链接
@@ -988,62 +958,12 @@ var myFunction = function() {
 
 <br>[⬆ 返回顶部](#目录)
 
-### HTML 和 React 中的事件处理有什么区别？
-
-<details>
-<summary>查看答案</summary>
-
-Some of the key differences are:
-
-* In HTML, the event name should be in lowercase, whereas in React it follows camelcase convention.
-
-```html
-<!-- HTML -->
-<button onclick="handleClick()">
-```
-
-```jsx
-/* React */
-<button onClick="handleClick()">
-```
-
-* In HTML, `false` can be returned to prevent default behavior, whereas in React `preventDefault` has to be called explicitly.
-
-```html
-<!-- HTML -->
-<a href="#" onclick="console.log('The link was clicked.'); return false"/>
-```
-
-```jsx
-/* React */
-function handleClick(e) {
-  e.preventDefault()
-  console.log("The link was clicked.")
-}
-```
-
-
-#### 小贴士
-
-
-* HTML uses lowercase event names, React uses camelcase event names.
-
-
-##### 附加链接
-
-
-* [React docs on Handling Events](https://reactjs.org/docs/handling-events.html)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
 ### 为何将 JavaScript 源文件里的整个内容用匿名函数包裹起来？
 
 <details>
 <summary>查看答案</summary>
 
-This technique is very common in JavaScript libraries. It creates a closure around the entire contents of the file which creates a private namespace and thereby helps avoid potential name clashes between different JavaScript modules and libraries. The function is immediately invoked so that the namespace (library name) is assigned the return value of the function.
+这个技术在 JavaScript 库广为流传。它在文件中包围整个内容创建一个闭包（创建里一个私有命名空间），因此它可以避免不同 JavaScript 模块和库的潜在命名冲突。这个函数会被立即调用，以便于把函数的返回值赋值给命名空间（库名）
 
 ```js
 const myLibrary = (function() {
@@ -1060,43 +980,14 @@ myLibrary.publicMethod() // 2
 #### 小贴士
 
 
-* Used among many popular JavaScript libraries
-* Creates a private namespace
+* 许多流行的 JavaScript 库中使用它
+* 创建一个私有命名空间
 
 
 ##### 附加链接
 
 
 * [MDN docs for closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
-### 什么是内联条件表达式？
-
-<details>
-<summary>查看答案</summary>
-
-You can use either `if` statements or ternary expressions to conditionally render expressions. Apart from these approaches, you can also embed any expressions in JSX by wrapping them in curly braces and then followed by the logical operator `&&`.
-
-```jsx
-;<h1>Hello!</h1>
-{
-  messages.length > 0 && <h2>You have {messages.length} unread messages.</h2>
-}
-```
-
-
-#### 小贴士
-
-
-
-
-##### 附加链接
-
-
-* [React docs on Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html)
 
 </details>
 
@@ -3157,12 +3048,12 @@ render() => (<div>
 <br>[⬆ 返回顶部](#目录)
 
 
-### setState 将回调函数作为参数目的是什么？
+### `setState` 将回调函数作为参数目的是什么？
 
 <details>
 <summary>查看答案</summary>
 
-The callback function is invoked when `setState` has finished and the component gets rendered. Since `setState` is asynchronous, the callback function is used for any post action.
+在 `setState` 设置完成和组件渲染完时，会调用这个回调函数。因为 `setState` 是一步操作，所以这个回调函数可以用来做任何 post 操作
 
 ```jsx
 setState({ name: "sudheer" }, () =>
@@ -3174,8 +3065,8 @@ setState({ name: "sudheer" }, () =>
 #### 小贴士
 
 
-* The callback function is invoked after `setState` finishes and is used for any post action.
-* It is recommended to use lifecycle method rather this callback function.
+* 这个回调函数在 `setState` 完成后被调用，而且可以用于任何 post 操作
+* 更推荐使用生命周期的方法，而不是这个回调函数
 
 
 ##### 附加链接

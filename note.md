@@ -24,8 +24,13 @@
 `regard` 注意，把……看作  
 `thread` 线程  
 `single-threaded` 单线程  
-`despite` 尽管  
-
+`despite` 尽管    
+`error margin` 误差范围    
+`approximately` 大约，近似地      
+`thereby` 从而，因此    
+`assign` 赋值，分配，指派  
+`name clashes` 命名冲突  
+`clash` 冲突，碰撞  
 
 ## 未知
 
