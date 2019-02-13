@@ -8,7 +8,7 @@
 
 ## 前言
 
-面试是令人生畏的，它甚至可以让经验丰富的专家在压力之下大脑一片空白。复习和学习那些在面试中常遇到的问题（从社区中收集了被问到的和他们是如何应对的问题）。通过把实践和现实生活结合起来，你就可以从容的准备面对下一次面试
+面试是令人生畏的，它甚至可以让经验丰富的专家在压力之下大脑一片空白。复习和学习哪些在面试中常遇到的问题（从社区中收集了被问到的和他们是如何应对的问题）。通过把实践和现实生活结合起来，你就可以从容的准备面对下一次面试
 
 
 ## [在线观看](https://30secondsofinterviews.org/)
@@ -729,27 +729,27 @@ This is both an expression and a statement, because we are declaring a variable 
 <details>
 <summary>查看答案</summary>
 
-A value is either truthy or falsy depending on how it is evaluated in a Boolean context. Falsy means false-like and truthy means true-like. Essentially, they are values that are coerced to `true` or `false` when performing certain operations.
+一个值是真值（truthy）还是假值（falsy），取决于它在布尔上下文中是如何计算的。假值意味着和 `false` 相似，真值意味着和 `true` 相似。本质上，它们在执行某些操作时会被强制转换成 `true` 或 `false` 
 
-There are 6 falsy values in JavaScript. They are:
+JavaScript 里有 6 个假值：
 
 * `false`
 * `undefined`
 * `null`
-* `""` (empty string)
+* `""` (空字符串)
 * `NaN`
-* `0` (both `+0` and `-0`)
+* `0` (包括正负 0 (`+0`，`-0`))
 
-Every other value is considered truthy.
+其余值看作真值
 
-A value's truthiness can be examined by passing it into the `Boolean` function.
+可以通过  `Boolean` 函数检查一个值是真值还是假值
 
 ```js
 Boolean("") // false
 Boolean([]) // true
 ```
 
-There is a shortcut for this using the logical NOT `!` operator. Using `!` once will convert a value to its inverse boolean equivalent (i.e. not false is true), and `!` once more will convert back, thus effectively converting the value to a boolean.
+这里有一个快捷方法，使用逻辑非操作符（`!`）。使用 `!` 会将值转换为一个等价的布尔值（即是，非假即真），再次使用 `!` 会转换回去，因此这是一个非常高效的布尔转换方法
 
 ```js
 !!"" // false
@@ -842,14 +842,14 @@ approxEqual(0.1 + 0.2, 0.3) // true
 <details>
 <summary>查看答案</summary>
 
-Both methods iterate through the elements of an array. `map()` maps each element to a new element by invoking the callback function on each element and returning a new array. On the other hand, `forEach()` invokes the callback function for each element but does not return a new array. `forEach()` is generally used when causing a side effect on each iteration, whereas `map()` is a common functional programming technique.
+这两个方法都是进行遍历数组的方法。`map()` 方法通过调回回调函数映射每一个元素到新元素上，并且返回的是一个新数组。另一方面，`forEach()` 为每个元素调用回调函数，但是它不返回新数组。`forEach()` 函数通常用于在迭代中产生副作用，而 `map()` 函数是一种常见的函数式编程技术
 
 
 #### 小贴士
 
 
-* Use `forEach()` if you need to iterate over an array and cause mutations to the elements without needing to return values to generate a new array.
-* `map()` is the right choice to keep data immutable where each value of the original array is mapped to a new array.
+* 如果你需要遍历数组，会造成元素变化，而且不需要返回值来生成一个新数组，你可以使用 `forEach()` 
+* 对于保持数据的不变，`map()` 是正确的选择，原始数组的每一个值都会映射到一个新数组中
 
 
 ##### 附加链接
@@ -1030,15 +1030,15 @@ const todoItems = todos.map(todo => <li key={todo.id}>{todo.text}</li>)
 <details>
 <summary>查看答案</summary>
 
-Lexical scoping refers to when the location of a function's definition determines which variables you have access to. On the other hand, dynamic scoping uses the location of the function's invocation to determine which variables are available.
+词法作用域指的是一个函数定义的位置决定哪些变量你可以访问。另一方面，动态作用域使用函数调用的位置决定哪些变量你可以使用
 
 
 #### 小贴士
 
 
-* Lexical scoping is also known as static scoping.
-* Lexical scoping in JavaScript allows for the concept of closures.
-* Most languages use lexical scoping because it tends to promote source code that is more easily understood.
+* 词法作用域也叫做静态作用域
+* 词法作用域允许闭包概念
+* 大多数语言使用词法作用域，因为它倾向于源代码更易理解
 
 
 ##### 附加链接
@@ -3791,7 +3791,7 @@ class App extends Component {
 <details>
 <summary>查看答案</summary>
 
-如果用户看不到图像，`alt` 属性可以提供替代信息。`alt` 属性应该用于描述，而那些仅仅是装饰目的图像，可以为空
+如果用户看不到图像，`alt` 属性可以提供替代信息。`alt` 属性应该用于描述，而哪些仅仅是装饰目的图像，可以为空
 
 #### 小贴士
 

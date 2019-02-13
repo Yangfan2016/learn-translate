@@ -8,8 +8,9 @@
 `arbitrary` 武断的、任意的  
 `ternary expressions` 三元表达式    
 `semicolon` 分号  
-`colon`  冒号    
-`coercion` 强制    
+`colon`  冒号  
+`coerce` 强制       
+`coercion` 强制      
 `type coercion` 强制类型转换   
 `in terms of` 依据，按照      
 `critical` 至关重要的，严重的，关键的  
@@ -31,6 +32,10 @@
 `assign` 赋值，分配，指派  
 `name clashes` 命名冲突  
 `clash` 冲突，碰撞  
+`immutable` 不变的    
+`Closures` 闭包     
+`tend to` 趋向于  
+`known as` 被称为，以……什么著称  
 
 ## 未知
 
