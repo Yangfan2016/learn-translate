@@ -57,7 +57,6 @@
 * [描述下创建对象方式的不同，哪种方式更推荐？](#describe-the-different-ways-to-create-an-object-when-should-certain-ways-be-preferred-over-others)
 * [形参和实参的区别？](#what-is-the-difference-between-a-parameter-and-an-argument)
 * [JavaScript 里是通过值传递还是引用传递？](#does-javascript-pass-by-value-or-by-reference)
-* [你是怎么给事件处理/回调函数传参的？](#how-do-you-pass-an-argument-to-an-event-handler-or-callback)
 * [创建一个管道函数，返回一个接受一个参数从左到右执行的合成函数](#create-a-function-pipe-that-performs-left-to-right-function-composition-by-returning-a-function-that-accepts-one-argument)
 * [`i++`  和 `++i` 有什么不同？](#what-is-the-difference-between-the-postfix-i-and-prefix-i-increment-operators)
 * [Promise 可以变成哪些状态？](#in-which-states-can-a-promise-be)
@@ -1348,33 +1347,6 @@ JavaScript always passes by value. However, with objects, the value is a referen
 
 
 * [JavaScript Value vs Reference](https://medium.com/dailyjs/back-to-roots-javascript-value-vs-reference-8fb69d587a18)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
-### 你是怎么给事件处理/回调函数传参的？
-
-<details>
-<summary>查看答案</summary>
-
-You can use an arrow function to wrap around an event handler and pass arguments, which is equivalent to calling `bind`:
-
-```jsx
-<button onClick={() => this.handleClick(id)} />
-<button onClick={this.handleClick.bind(this, id)} />
-```
-
-
-#### 小贴士
-
-
-
-
-##### 附加链接
-
-
-* [React docs on Handling Events](https://reactjs.org/docs/handling-events.html)
 
 </details>
 
@@ -3254,17 +3226,17 @@ const todoItems = todos.map(todo => <li key={todo.id}>{todo.text}</li>)
 <details>
 <summary>查看答案</summary>
 
-There are four different phases of component’s lifecycle:
+组件的生命周期有 4 个不同的阶段：
 
-**Initialization**: In this phase react component prepares setting up the initial state and default props.
+**初始化阶段**：在这个阶段，react 组件准备初始化 state 和设置默认 props
 
-**Mounting**: The react component is ready to mount in the browser DOM. This phase covers `getDerivedStateFromProps` and `componentDidMount` lifecycle methods.
+**挂载阶段**：react 组件准备挂载到浏览器的 DOM 上。这个阶段包含 `getDerivedStateFromProps` 和 `componentDidMount` 生命周期方法
 
-**Updating**: In this phase, the component gets updated in two ways, sending the new props and updating the state. This phase covers `getDerivedStateFromProps`, `shouldComponentUpdate`, `getSnapshotBeforeUpdate` and `componentDidUpdate` lifecycle methods.
+**更新阶段**：在这个阶段，组件以两种方式进行更新（设置新的 props 和更新 state）。这个阶段包含 `getDerivedStateFromProps`、`shouldComponentUpdate`、`getSnapshotBeforeUpdate` 和 `componentDidUpdate` 生命周期方法
 
-**Unmounting**: In this last phase, the component is not needed and gets unmounted from the browser DOM. This phase includes the `componentWillUnmount` lifecycle method.
+**卸载阶段**：在最后一个阶段，组件已经不再需要，并且从浏览器 DOM 上卸载掉。这个阶段包括 `componentWillUnmount` 生命周期方法
 
-**Error Handling**: In this phase, the component is called whenever there's an error during rendering, in a lifecycle method, or in the constructor for any child component. This phase includes the `componentDidCatch` lifecycle method.
+**错误处理阶段**：在这个阶段，当渲染过程发生错误时，或任何一个子组件的构造函数发生错误，组件会调用这个生命周期方法。这个阶段包括 `componentDidCatch` 生命周期方法
 
 <img alt="lifecycle phases" src="https://pbs.twimg.com/media/DZ-97vzW4AAbcZj.jpg:large" style="width: 100%"/>
 
@@ -3287,7 +3259,7 @@ There are four different phases of component’s lifecycle:
 <details>
 <summary>查看答案</summary>
 
-You can use an arrow function to wrap around an event handler and pass arguments, which is equivalent to calling `bind`:
+你可以通过箭头函数包裹一个事件处理句柄然后传参，等价于调用 `bind` 函数：
 
 ```jsx
 <button onClick={() => this.handleClick(id)} />
