@@ -123,7 +123,6 @@
 * [什么是 `DOM`？](#what-is-the-dom)
 * [一个页面里是否可以包含多个 `<header>` 元素， `<footer>` 元素呢？](#can-a-web-page-contain-multiple-header-elements-what-about-footer-elements)
 * [讨论下 HTML 规范和浏览器实现之间的区别？](#discuss-the-differences-between-an-html-specification-and-a-browsers-implementation-thereof)
-* [React 和 HTML 对事件处理的区别？](#what-is-the-difference-between-html-and-react-event-handling)
 * [相比 HTML，XHTML 有哪些不同？](#what-are-some-differences-that-xhtml-has-compared-to-html)
 * [简明的阐述下 HTML5 语义标签 `<header>`，`<article>`，`<section>`，`<footer>` 的用法](#briefly-describe-the-correct-usage-of-the-following-html5-semantic-elements-header-articlesection-footer)
 * [什么是 HTML5 Web Storage，解释下 `localStorage` 和 `sessionStorage`？](#what-is-html5-web-storage-explain-localstorage-and-sessionstorage)
@@ -192,33 +191,6 @@
 
 
 * [MDN docs for comparison operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
-### Element 和 Component 有什么区别？
-
-<details>
-<summary>查看答案</summary>
-
-一个元素是一个纯对象，用来描述你想在屏幕上显示的 DOM 节点或其他组件。元素在它们的属性上可以包含其他元素。创建一个 React 元素很简单。一旦元素被创建，它就永远不会突变了
-
-另一方面，一个组件有很多中不同的声明方式。它可以通过一个含有 `render()` 方法的类定义（类组件），也可以通过一个函数定义（函数式组件）。组件接受 `props` 作为输入，并且返回一个元素树作为输出
-
-
-#### 小贴士
-
-
-* 元素（Element）是一个不可变，描述你想渲染的 DOM 节点或其他组件的纯对象
-* 组件（Component） 可以是类形式的，也可以是函数形式的，接受 `props` 作为输入，并且返回一个元素树作为输出
-
-
-##### 附加链接
-
-
-* [React docs on Rendering Elements](https://reactjs.org/docs/rendering-elements.html)
-* [React docs on Components and Props](https://reactjs.org/docs/components-and-props.html)
 
 </details>
 
@@ -2943,16 +2915,16 @@ Once the changes between the old VDOM and new VDOM have been calculated by the d
 <details>
 <summary>查看答案</summary>
 
-An element is a plain object describing what you want to appear on the screen in terms of the DOM nodes or other components. Elements can contain other elements in their props. Creating a React element is cheap. Once an element is created, it is never mutated.
+一个元素是一个纯对象，用来描述你想在屏幕上显示的 DOM 节点或其他组件。元素在它们的属性上可以包含其他元素。创建一个 React 元素很简单。一旦元素被创建，它就永远不会突变了
 
-A component, on the other hand, can be declared in several different ways. It can be a class with a `render()` method (class component) or a function (functional component). Components take props as an input and return an element tree as the output.
+另一方面，一个组件有很多中不同的声明方式。它可以通过一个含有 `render()` 方法的类定义（类组件），也可以通过一个函数定义（函数式组件）。组件接受 `props` 作为输入，并且返回一个元素树作为输出
 
 
 #### 小贴士
 
 
-* Elements are immutable, plain objects that describe the DOM nodes or components you want to render.
-* Components can be either classes or functions, that take props as an input and return an element tree as the output.
+* 元素（Element）是一个不可变，描述你想渲染的 DOM 节点或其他组件的纯对象
+* 组件（Component） 可以是类形式的，也可以是函数形式的，接受 `props` 作为输入，并且返回一个元素树作为输出
 
 
 ##### 附加链接
@@ -3077,7 +3049,7 @@ render() {
 
 <br>[⬆ 返回顶部](#目录)
 
-### HTML 和 React 中的事件处理有什么区别？
+### React 和 HTML 对事件处理的区别？
 
 <details>
 <summary>查看答案</summary>
@@ -3494,7 +3466,7 @@ render() {
 <details>
 <summary>查看答案</summary>
 
-A higher-order component (HOC) is a function that takes a component as an argument and returns a new component. It is a pattern that is derived from React’s compositional nature. Higher-order components are like **pure components** because they accept any dynamically provided child component, but they won’t modify or copy any behavior from their input components.
+高阶组件（HOC）是指接受一个组件作为参数，然后返回一个新组件的函数。它是一种 React 合成性质衍生来的模式。高阶组件像 **纯组件** ，因为它接受任何动态提供的子组件，但是它不会修改或拷贝输入组件的任何行为
 
 ```jsx
 const EnhancedComponent = higherOrderComponent(WrappedComponent)
@@ -3504,7 +3476,7 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent)
 #### 小贴士
 
 
-* They can be used for state abstraction and manipulation, props manipulation, render high jacking, etc.
+* 它可用于 state 抽象和操控，props 的操控，提高渲染，等等
 
 
 ##### 附加链接
@@ -3953,56 +3925,6 @@ A browser is said to “support” a specification if it handles valid documents
 
 
 * [HTML 5.2 WWW Specifications](https://www.w3.org/TR/html52/)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
-### HTML 和 React 中的事件处理有什么区别？
-
-<details>
-<summary>查看答案</summary>
-
-Some of the key differences are:
-
-* In HTML, the event name should be in lowercase, whereas in React it follows camelcase convention.
-
-```html
-<!-- HTML -->
-<button onclick="handleClick()">
-```
-
-```jsx
-/* React */
-<button onClick="handleClick()">
-```
-
-* In HTML, `false` can be returned to prevent default behavior, whereas in React `preventDefault` has to be called explicitly.
-
-```html
-<!-- HTML -->
-<a href="#" onclick="console.log('The link was clicked.'); return false"/>
-```
-
-```jsx
-/* React */
-function handleClick(e) {
-  e.preventDefault()
-  console.log("The link was clicked.")
-}
-```
-
-
-#### 小贴士
-
-
-* HTML uses lowercase event names, React uses camelcase event names.
-
-
-##### 附加链接
-
-
-* [React docs on Handling Events](https://reactjs.org/docs/handling-events.html)
 
 </details>
 
