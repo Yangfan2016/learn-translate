@@ -2083,52 +2083,6 @@ With this implementation, `on` is the way to _subscribe_ to an event, while `emi
 
 <br>[⬆ 返回顶部](#目录)
 
-### 在 React 中，什么是 fragments？
-
-<details>
-<summary>查看答案</summary>
-
-Fragments allow a React component to return multiple elements without a wrapper, by groupping the children without adding extra elements to the DOM. Fragments offer better performance, lower memory usage, a cleaner DOM and can help in dealing with certain CSS mechanisms (e.g. tables, Flexbox and Grid).
-
-```jsx
-render() {
-  return (
-    <React.Fragment>
-      <ChildA />
-      <ChildB />
-      <ChildC />
-    </React.Fragment>
-  );
-}
-
-// Short syntax (might not supported by all tools):
-render() {
-  return (
-    <>
-      <ChildA />
-      <ChildB />
-      <ChildC />
-    </>
-  );
-}
-```
-
-
-#### 小贴士
-
-
-* Fragments group multiple elements returned from a component, without adding a DOM element around them.
-
-
-##### 附加链接
-
-
-* [React docs on Fragments](https://reactjs.org/docs/fragments.html)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
 ### 什么是函数式编程？
 
 <details>
@@ -3375,7 +3329,7 @@ class ErrorBoundary extends React.Component {
 
 <br>[⬆ 返回顶部](#目录)
 
-### 在 React 中，什么是 fragments？
+### 在 React 中，什么是 `fragments`？
 
 <details>
 <summary>查看答案</summary>
