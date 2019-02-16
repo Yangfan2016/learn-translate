@@ -37,7 +37,8 @@
 `tend to` 趋向于  
 `known as` 被称为；以……什么著称  
 `compositional nature` 合成性质  
-`compositional`  组成的；创作的；作曲的  
+`compositional`  组成的；创作的；作曲的   
+`mechanism` 机制  
 
 ## 未知
 

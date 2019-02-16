@@ -1970,46 +1970,6 @@ class MyComponent extends Component {
 
 <br>[⬆ 返回顶部](#目录)
 
-### React 组件中的属性（prop）children 是什么？
-
-<details>
-<summary>查看答案</summary>
-
-Children is a prop (`this.prop.children`) that allows components to be passed as data to other components. There are a number of methods available in the React API to work with this prop, such as `React.Children.map`, `React.Children.forEach`, `React.Children.count`, `React.Children.only` and `React.Children.toArray`. A simple usage example of the children prop is as follows:
-
-```jsx
-var MyDiv = React.createClass({
-  render: function() {
-    return <div>{this.props.children}</div>
-  }
-})
-
-ReactDOM.render(
-  <MyDiv>
-    <span>Hello</span>
-    <span>World</span>
-  </MyDiv>,
-  node
-)
-```
-
-
-#### 小贴士
-
-
-* Children is a prop that allows components to be passed as data to other components.
-* The React API provides methods to work with this prop.
-
-
-##### 附加链接
-
-
-* [React docs on Children](https://reactjs.org/docs/jsx-in-depth.html#children-in-jsx)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
 ### 什么是闭包，你可以举一个有用的例子吗？
 
 <details>
@@ -3300,12 +3260,12 @@ class MyComponent extends Component {
 
 <br>[⬆ 返回顶部](#目录)
 
-### React 组件中的属性（prop）children 是什么？
+### React 组件中的属性（prop）`children` 是什么？
 
 <details>
 <summary>查看答案</summary>
 
-Children is a prop (`this.prop.children`) that allows components to be passed as data to other components. There are a number of methods available in the React API to work with this prop, such as `React.Children.map`, `React.Children.forEach`, `React.Children.count`, `React.Children.only` and `React.Children.toArray`. A simple usage example of the children prop is as follows:
+`Children` 是一个属性（`this.prop.children`），允许组件作为数据传给其他组件。React API 提供了许多处理这个属性的方法，例如：`React.Children.map`、`React.Children.forEach`、`React.Children.count`、`React.Children.only` 和 `React.Children.toArray`。下面是一个简单的使用 `children` 属性例子：
 
 ```jsx
 var MyDiv = React.createClass({
@@ -3327,8 +3287,8 @@ ReactDOM.render(
 #### 小贴士
 
 
-* Children is a prop that allows components to be passed as data to other components.
-* The React API provides methods to work with this prop.
+* `Children` 是一个属性，允许组件作为数据传给其他组件
+* React API 提供了方法处理这个属性
 
 
 ##### 附加链接
@@ -3373,9 +3333,9 @@ const { Provider, Consumer } = React.createContext(defaultValue)
 <details>
 <summary>查看答案</summary>
 
-Error boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed.
+错误边界是 React 组件捕获子组件树抛出的任何错误，记录这些错误，并且用一个回退的 UI 展示，而不是这个组件树崩溃
 
-A class component becomes an error boundary if it defines a new lifecycle method called `componentDidCatch`.
+一个类形式的组件如果定义了一个新的生命周期方法 `componentDidCatch`，那么它就成为了一个错误边界
 
 ```jsx
 class ErrorBoundary extends React.Component {
@@ -3385,15 +3345,15 @@ class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, info) {
-    // Display fallback UI
+    // 展示回退 UI 
     this.setState({ hasError: true })
-    // You can also log the error to an error reporting service
+    // 你也可以把错误日志报告给服务器 
     logErrorToMyService(error, info)
   }
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
+      // 你可以渲染任何自定义的回退 UI 
       return <h1>Something went wrong.</h1>
     }
     return this.props.children
@@ -3420,7 +3380,7 @@ class ErrorBoundary extends React.Component {
 <details>
 <summary>查看答案</summary>
 
-Fragments allow a React component to return multiple elements without a wrapper, by groupping the children without adding extra elements to the DOM. Fragments offer better performance, lower memory usage, a cleaner DOM and can help in dealing with certain CSS mechanisms (e.g. tables, Flexbox and Grid).
+Fragments 允许 React 组件返回没有包裹层多个元素，按组把子元素加入 DOM（不增加额外元素）。Fragments 提供更好的表现，更低内存使用，一个更加干净的 DOM 可以帮助处理特定的 CSS 机制（例如，tables，Flexbox 和 Grid）
 
 ```jsx
 render() {
@@ -3433,7 +3393,7 @@ render() {
   );
 }
 
-// Short syntax (might not supported by all tools):
+// 缩写语法（新版本支持 React v16.2.0+）：
 render() {
   return (
     <>
@@ -3449,8 +3409,7 @@ render() {
 #### 小贴士
 
 
-* Fragments group multiple elements returned from a component, without adding a DOM element around them.
-
+* Fragments 组件让你在一个render() 方法中返回多个元素，而不用创造一个额外的 DOM 元素
 
 ##### 附加链接
 
