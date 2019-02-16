@@ -3745,7 +3745,7 @@ The browser considers it a different file but prevents the need to change the fi
 
 <br>[⬆ 返回顶部](#目录)
 
-### 一个页面里是否可以包含多个 <header> 元素， <footer> 元素呢？
+### 一个页面里是否可以包含多个 `<header>` 元素， `<footer>` 元素呢？
 
 <details>
 <summary>查看答案</summary>
@@ -3768,7 +3768,7 @@ Yes to both. The W3 documents state that the tags represent the header(`<header>
 
 <br>[⬆ 返回顶部](#目录)
 
-### 简明的阐述下 HTML5 语义标签 <header>，<article>，<section>，<footer> 的用法
+### 简明的阐述下 HTML5 语义标签 `<header>`，`<article>`，`<section>`，`<footer>` 的用法
 
 <details>
 <summary>查看答案</summary>
@@ -3797,7 +3797,7 @@ Yes to both. The W3 documents state that the tags represent the header(`<header>
 
 <br>[⬆ 返回顶部](#目录)
 
-### <script> 标签的 defer 和 async 是什么？
+### `<script>` 标签的 `defer` 和 `async` 是什么？
 
 <details>
 <summary>查看答案</summary>
