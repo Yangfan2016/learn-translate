@@ -39,6 +39,9 @@
 `compositional nature` 合成性质  
 `compositional`  组成的；创作的；作曲的   
 `mechanism` 机制  
+`case-sensitive` 有大小区别写的  
+`enclose` 围绕  
+`properly` 适当地；正确地；恰当地      
 
 ## 未知
 

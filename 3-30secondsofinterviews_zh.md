@@ -3363,7 +3363,7 @@ render() {
 #### 小贴士
 
 
-* Fragments 组件让你在一个render() 方法中返回多个元素，而不用创造一个额外的 DOM 元素
+* Fragments 组件让你在一个 render() 方法中返回多个元素，而不用创造一个额外的 DOM 元素
 
 ##### 附加链接
 
@@ -3848,21 +3848,21 @@ A browser is said to “support” a specification if it handles valid documents
 <details>
 <summary>查看答案</summary>
 
-Some of the key differences are:
+有一些关键区别：
 
-* An XHTML element must have an XHTML `<DOCTYPE>`
-* Attributes values must be enclosed in quotes
-* Attribute minimization is forbidden (e.g. one has to use `checked="checked"` instead of `checked`)
-* Elements must always be properly nested
-* Elements must always be closed
-* Special characters must be escaped
+* 一个 XHTML 元素必须要有一个 XHTML `<DOCTYPE>`
+* 属性值必须用引号包裹
+* 禁止属性简写（例如，`checked="checked"` 不能简写为 `checked`）
+* 元素必须正确的被嵌套
+* 元素必须闭合
+* 特殊字符必须被转义
 
 
 #### 小贴士
 
 
-* Any element can be self-closed
-* Tags ands attributes are case-sensitive, usually lowercase
+* 任何被标签都是自闭合
+* 标签和属性区分大小写，通常小写
 
 
 ##### 附加链接
