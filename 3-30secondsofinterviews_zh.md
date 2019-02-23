@@ -1076,79 +1076,6 @@ const mask = (str, maskChar = "#") =>
 
 <br>[⬆ 返回顶部](#目录)
 
-### NodeJS 错误优先回调的模式有什么优势？
-
-```js
-fs.readFile(filePath, function(err, data) {
-  if (err) {
-    // handle the error, the return is important here
-    // so execution stops here
-    return console.log(err)
-  }
-  // use the data object
-  console.log(data)
-})
-```
-
-<details>
-<summary>查看答案</summary>
-
-优势包括：
-
-* 如果不需要引用它，就不用处理数据
-* 拥有一致性的 API 适配更多情况
-* 能够更容易使用回调模式，将使得代码维护变得更容易
-
-正如你所见到的下面这个例子，如果没有发生错误回调将接收到的第一个参数是 `null`。然而，如果发生了错误，你可以创建一个 `Error` 对象，这将成为回调的唯一参数。这种回调函数使得用户更容易知道是否遇到了错误
-
-这个惯例也叫做 _Node.js 错误约定_，并且这种回调实现成为 _错误优先回调_
-
-```js
-var isTrue = function(value, callback) {
-  if (value === true) {
-    callback(null, "Value was true.")
-  } else {
-    callback(new Error("Value is not true!"))
-  }
-}
-
-var callback = function(error, retval) {
-  if (error) {
-    console.log(error)
-    return
-  }
-  console.log(retval)
-}
-
-isTrue(false, callback)
-isTrue(true, callback)
-
-/*
-  { stack: [Getter/Setter],
-    arguments: undefined,
-    type: undefined,
-    message: 'Value is not true!' }
-  Value was true.
-*/
-```
-
-
-#### 小贴士
-
-
-* 这只是一个约定。然而，你应该坚持使用这种写法
-
-
-##### 附加链接
-
-
-* [The Node.js Way Understanding Error-First Callbacks](http://fredkschott.com/post/2014/03/understanding-error-first-callbacks-in-node-js/)
-* [What are the error conventions?](https://docs.nodejitsu.com/articles/errors/what-are-the-error-conventions)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
 ### `null`  和 `undefined` 有何不同？
 
 <details>
@@ -4318,15 +4245,15 @@ fs.readFile(filePath, function(err, data) {
 <details>
 <summary>查看答案</summary>
 
-Advantages include:
+优势包括：
 
-* Not needing to process data if there is no need to even reference it
-* Having a consistent API leads to more adoption
-* Ability to easily adapt a callback pattern that will lead to more maintainable code
+* 如果不需要引用它，就不用处理数据
+* 拥有一致性的 API 适配更多情况
+* 能够更容易使用回调模式，将使得代码维护变得更容易
 
-As you can see from below example, the callback is called with null as its first argument if there is no error. However, if there is an error, you create an Error object, which then becomes the callback's only parameter. The callback function allows a user to easily know whether or not an error occurred.
+正如你所见到的下面这个例子，如果没有发生错误回调将接收到的第一个参数是 `null`。然而，如果发生了错误，你可以创建一个 `Error` 对象，这将成为回调的唯一参数。这种回调函数使得用户更容易知道是否遇到了错误
 
-This practice is also called the _Node.js error convention_, and this kind of callback implementations are called _error-first callbacks_.
+这个惯例也叫做 _Node.js 错误约定_，并且这种回调实现成为 _错误优先回调_
 
 ```js
 var isTrue = function(value, callback) {
@@ -4361,7 +4288,7 @@ isTrue(true, callback)
 #### 小贴士
 
 
-* This is just a convention. However, you should stick to it.
+* 这只是一个约定。然而，你应该坚持使用这种写法
 
 
 ##### 附加链接
