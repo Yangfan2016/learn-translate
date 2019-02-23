@@ -1099,7 +1099,7 @@ fs.readFile(filePath, function(err, data) {
 * 拥有一致性的 API 适配更多情况
 * 能够更容易使用回调模式，将使得代码维护变得更容易
 
-正如你所见到的下面这个例子，如果没有发生错误回调将接收到的第一个参数是 `null`。然而，如果发生了错误，你可以创建一个 `Error` 对象，这将成为回调的唯一参数。这中回调函数使得用户更容易得到是否遇到了错误
+正如你所见到的下面这个例子，如果没有发生错误回调将接收到的第一个参数是 `null`。然而，如果发生了错误，你可以创建一个 `Error` 对象，这将成为回调的唯一参数。这种回调函数使得用户更容易知道是否遇到了错误
 
 这个惯例也叫做 _Node.js 错误约定_，并且这种回调实现成为 _错误优先回调_
 
@@ -1305,13 +1305,13 @@ myFunction("argument1", "argument2")
 <details>
 <summary>查看答案</summary>
 
-JavaScript always passes by value. However, with objects, the value is a reference to the object.
+JavaScript 总是通过值传递的。然而，对于对象来说，它的值是一个指向对象的引用
 
 
 #### 小贴士
 
 
-* Difference between pass-by-value and pass-by-reference
+* 值传递和引用传递的区别
 
 
 ##### 附加链接

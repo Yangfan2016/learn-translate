@@ -52,7 +52,7 @@
 `implicit` 隐式的；含蓄的；暗示的  
 `explicit` 显性的；明确的    
 `evaluate` 评估  
- 
+`primitive` 原始的  
 
 
 ## 未知
