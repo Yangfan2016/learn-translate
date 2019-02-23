@@ -41,7 +41,19 @@
 `mechanism` 机制  
 `case-sensitive` 有大小区别写的  
 `enclose` 围绕  
-`properly` 适当地；正确地；恰当地      
+`properly` 适当地；正确地；恰当地  
+`acronym` 首字母缩写  
+`classifying` 分类；分等  
+`slash` 斜线；削减    
+`stick to` 坚持  
+`consistent` 始终如一的；坚持的    
+`whether or not` 是否  
+`concrete` 混凝土的；实在的，具体的；有形的  
+`implicit` 隐式的；含蓄的；暗示的  
+`explicit` 显性的；明确的    
+`evaluate` 评估  
+ 
+
 
 ## 未知
 
