@@ -1030,9 +1030,9 @@ mask("123456789") // "#####6789"
 <details>
 <summary>查看答案</summary>
 
-> There are many ways to solve this problem, this is just one one of them.
+> 这里有许多种解决方案，这个只是其中之一
 
-Using `String.prototype.slice()` we can grab the last 4 characters of the string by passing `-4` as an argument. Then, using `String.prototype.padStart()`, we can pad the string to the original length with the repeated mask character.
+使用 `String.prototype.slice()` 方法，参数传 `-4`，我们取到字符串的后 4 个字符。然后，使用 `String.prototype.padStart()` 方法指定字符指定长度填充原始字符串
 
 ```js
 const mask = (str, maskChar = "#") =>
@@ -1043,7 +1043,7 @@ const mask = (str, maskChar = "#") =>
 #### 小贴士
 
 
-* Short, one-line functional solutions to problems should be preferred provided they are efficient
+* 如果高效的解决问题，那么首选简短的单行函数解决方案
 
 
 ##### 附加链接
@@ -1322,15 +1322,15 @@ console.log(a == b)
 <details>
 <summary>查看答案</summary>
 
-The first `console.log` outputs `true` because JavaScript's compiler performs type conversion and therefore it compares to strings by their value. On the other hand, the second `console.log` outputs `false` because Arrays are Objects and Objects are compared by reference.
+第一个 `console.log` 输出 `true` ，因为 JavaScript 的编译器执行了类型转换，因此它们通过 `string` 来比较值。另一方面，第二个 `console.log` 输出 `false`，因为数组是对象，而对象是通过引用比较的
 
 
 #### 小贴士
 
 
-* JavaScript performs automatic type conversion
-* Objects are compared by reference
-* Primitives are compared by value
+* JavaScript 执行自动类型转换
+* Objects 通过引用比较
+* 原始值通过值比较
 
 
 ##### 附加链接
@@ -1356,13 +1356,13 @@ function greet() {
 <details>
 <summary>查看答案</summary>
 
-Because of JavaScript's automatic semicolon insertion (ASI), the compiler places a semicolon after `return` keyword and therefore it returns `undefined` without an error being thrown.
+因为 JavaScript 自动插入分号（ASI）机制，编译器在 `return` 之后会插入一个分号，因此这个函数会返回 `undefined` 并且不会抛出报错
 
 
 #### 小贴士
 
 
-* Automatic semicolon placement can lead to time-consuming bugs
+* 自动添加分号导致耗时的 bug
 
 
 ##### 附加链接
