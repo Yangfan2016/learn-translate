@@ -54,7 +54,7 @@
 * [NodeJS 错误优先回调的模式有什么优势？](#nodejs-错误优先回调的模式有什么优势)
 * [什么是 Nodejs 里的事件循环（event loop）？](#什么是-nodejs-里的事件循环event-loop)
 * [`null`  和 `undefined` 有何不同？](#null--和-undefined-有何不同)
-* [描述下创建对象方式的不同，哪种方式更推荐？](#describe-the-different-ways-to-create-an-object-when-should-certain-ways-be-preferred-over-others)
+* [描述下创建对象方式的不同，哪种方式更推荐？](#描述下创建对象方式的不同哪种方式更推荐)
 * [形参和实参的区别？](#what-is-the-difference-between-a-parameter-and-an-argument)
 * [JavaScript 里是通过值传递还是引用传递？](#javascript-里是通过值传递还是引用传递)
 * [创建一个管道函数，返回一个接受一个参数从左到右执行的合成函数](#create-a-function-pipe-that-performs-left-to-right-function-composition-by-returning-a-function-that-accepts-one-argument)
@@ -65,7 +65,7 @@
 * [什么是纯函数？](#what-is-a-pure-function)
 * [什么是递归，什么时候它是有用的？](#what-is-recursion-and-when-is-it-useful)
 * [下面的代码会输出什么？](#下面的代码会输出什么)
-* [下面的函数会返回什么？](#下面的函数)
+* [下面的函数会返回什么？](#下面的函数会返回什么)
 * [JavaScript 里分号是必须的吗？](#are-semicolons-required-in-javascript)
 * [在 JavaScript 里，什么是短路运算？](#what-is-short-circuit-evaluation-in-javascript)
 * [解释下静态方法和实例方法的区别](#explain-the-difference-between-a-static-method-and-an-instance-method)
@@ -1107,9 +1107,9 @@ const mask = (str, maskChar = "#") =>
 <details>
 <summary>查看答案</summary>
 
-##### Object literal
+##### 对象字面量
 
-Often used to store one occurrence of data.
+常常用来存储出现一次的数据
 
 ```js
 const person = {
@@ -1122,9 +1122,9 @@ const person = {
 person.birthday() // person.age === 51
 ```
 
-##### Constructor
+##### 构造函数
 
-Often used when you need to create multiple instances of an object, each with their own data that other instances of the class cannot affect. The `new` operator must be used before invoking the constructor or the global object will be mutated.
+经常用于创建一个对象的多个实例，而且每个实例彼此互不影响，必须使用 `new` 操作符调用构造器，否则全局对象会被污染/改变
 
 ```js
 function Person(name, age) {
@@ -1140,9 +1140,9 @@ person1.birthday() // person1.age === 51
 person2.birthday() // person2.age === 21
 ```
 
-##### Factory function
+##### 工厂函数
 
-Creates a new object similar to a constructor, but can store private data using a closure. There is also no need to use `new` before invoking the function or the `this` keyword. Factory functions usually discard the idea of prototypes and keep all properties and methods as own properties of the object.
+创建一个和构造函数相似的对象，但是可以通过闭包存储私有数据。在调用函数或使用 `this` 关键字之前不需要使用 `new` 操作符。工厂函数通常放弃了原型概念，并且将所有属性和方法保持在对象上
 
 ```js
 const createPerson = (name, age) => {
@@ -1156,7 +1156,7 @@ person.birthday() // person.age === 51
 
 ##### `Object.create()`
 
-Sets the prototype of the newly created object.
+设置新创建对象的原型对象
 
 ```js
 const personProto = {
@@ -1169,7 +1169,7 @@ person.age = 50
 person.birthday() // person.age === 51
 ```
 
-A second argument can also be supplied to `Object.create()` which acts as a descriptor for the new properties to be defined.
+`Object.create()` 也支持第二个参数，它的担当定义新属性的描述符
 
 ```js
 Object.create(personProto, {
@@ -1185,8 +1185,8 @@ Object.create(personProto, {
 #### 小贴士
 
 
-* Prototypes are objects that other objects inherit properties and methods from.
-* Factory functions offer private properties and methods through a closure but increase memory usage as a tradeoff, while classes do not have private properties or methods but reduce memory impact by reusing a single prototype object.
+* 原型是其他对象继承属性和方法的对象
+* 工厂函数通过闭包提供私有属性和方法，但是会增加内存消耗作为交换，然而 `class` 没有私有属性和方法，但可以通过使用单原型对象减少内存影响
 
 
 ##### 附加链接
@@ -1202,7 +1202,7 @@ Object.create(personProto, {
 <details>
 <summary>查看答案</summary>
 
-Parameters are the variable names of the function definition, while arguments are the values given to a function when it is invoked.
+形参是函数吧定义的变量名，而实参是在函数调用时所给的值
 
 ```js
 function myFunction(parameter1, parameter2) {
@@ -1215,8 +1215,8 @@ myFunction("argument1", "argument2")
 #### 小贴士
 
 
-* `arguments` is an array-like object containing information about the arguments supplied to an invoked function.
-* `myFunction.length` describes the arity of a function (how many parameters it has, regardless of how many arguments it is supplied).
+* `arguments` 是一个类数组对象，包括函数调用提供的参数信息
+* `myFunction.length` 描述一个函数的形参数量（无论形参有多少，无视它提供的实参）
 
 
 ##### 附加链接

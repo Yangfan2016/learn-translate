@@ -52,7 +52,11 @@
 `implicit` 隐式的；含蓄的；暗示的  
 `explicit` 显性的；明确的    
 `evaluate` 评估  
-`primitive` 原始的  
+`primitive` 原始的    
+`Object literal` 对象字面量  
+`literal` 文字的  
+`acts as` 充当  
+
 
 
 ## 未知
