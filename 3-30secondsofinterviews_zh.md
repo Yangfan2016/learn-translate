@@ -36,36 +36,36 @@
 * [什么是事件委托，为什么它是有用的，你可以举个例子说明如何使用它？](#what-is-event-delegation-and-why-is-it-useful-can-you-show-an-example-of-how-to-use-it)
 * [什么是事件驱动编程？](#what-is-event-driven-programming)
 * [在 JavaScript 中，声明和表达式的区别？](#what-is-the-difference-between-an-expression-and-a-statement-in-javascript)
-* [在 JavaScript 中，什么是真值（truthy），假值（falsy）?](#what-are-truthy-and-falsy-values-in-javascript)
+* [在 JavaScript 中，什么是真值（truthy），假值（falsy）?](#在-javascript-中什么是真值truthy假值falsy)
 * [生成一个包含的 n 项斐波那契数列元素的数组](#生成一个包含的-n-项斐波那契数列元素的数组)
 * [`0.1 + 0.2 === 0.3` 表达式的值是？](#01--02--03-表达式的值是)
-* [数组 `map()` 和 `forEach()` 方法的区别？](#what-is-the-difference-between-the-array-methods-map-and-foreach)
+* [数组 `map()` 和 `forEach()` 方法的区别？](#数组-map-和-foreach-方法的区别)
 * [什么是函数式编程？](#what-is-functional-programming)
 * [下面的例子中，`console.log` 会打印出什么？](#下面的例子中consolelog-会打印出什么)
 * [在 JavaScript 中，声明提升是如何工作的？](#how-does-hoisting-work-in-javascript)
 * [为何将 JavaScript 源文件里的整个内容用匿名函数包裹起来？](#为何将-javascript-源文件里的整个内容用匿名函数包裹起来)
 * [阐释下命令式编程和声明式编程的区别？](#explain-the-differences-between-imperative-and-declarative-programming)
-* [词法作用域和动态作用域的区别？](#what-is-the-difference-between-lexical-scoping-and-dynamic-scoping)
-* [创建一个函数，用 ‘#’ 符号遮住字符串（除最后4个字符之外）](#create-a-function-that-masks-a-string-of-characters-with--except-for-the-last-four-4-characters)
+* [词法作用域和动态作用域的区别？](#词法作用域和动态作用域的区别)
+* [创建一个函数，用 ‘#’ 符号遮住字符串（除最后4个字符之外）](#创建一个函数用--符号遮住字符串除最后4个字符之外)
 * [什么是缓存代理模式（memoization）？](#what-is-memoization)
-* [什么是 MIME 类型，有什么作用？](#what-is-a-mime-type-and-what-is-it-used-for)
+* [什么是 MIME 类型，有什么作用？](#什么是-mime-类型有什么作用)
 * [对比下可变与不可变值，可变与不可变方法](#contrast-mutable-and-immutable-values-and-mutating-vs-non-mutating-methods)
 * [在 JavaScript 中，哪个值不等于它自己？](#what-is-the-only-value-not-equal-to-itself-in-javascript)
-* [NodeJS 错误优先回调的模式有什么优势？](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
-* [什么是 Nodejs 里的事件循环（event loop）？](#什么是-nodejs-里的事件循环event-loop-1)
-* [`null`  和 `undefined` 有何不同？](#what-is-the-difference-between-null-and-undefined)
+* [NodeJS 错误优先回调的模式有什么优势？](#nodejs-错误优先回调的模式有什么优势)
+* [什么是 Nodejs 里的事件循环（event loop）？](#什么是-nodejs-里的事件循环event-loop)
+* [`null`  和 `undefined` 有何不同？](#null--和-undefined-有何不同)
 * [描述下创建对象方式的不同，哪种方式更推荐？](#describe-the-different-ways-to-create-an-object-when-should-certain-ways-be-preferred-over-others)
 * [形参和实参的区别？](#what-is-the-difference-between-a-parameter-and-an-argument)
-* [JavaScript 里是通过值传递还是引用传递？](#does-javascript-pass-by-value-or-by-reference)
+* [JavaScript 里是通过值传递还是引用传递？](#javascript-里是通过值传递还是引用传递)
 * [创建一个管道函数，返回一个接受一个参数从左到右执行的合成函数](#create-a-function-pipe-that-performs-left-to-right-function-composition-by-returning-a-function-that-accepts-one-argument)
-* [`i++`  和 `++i` 有什么不同？](#what-is-the-difference-between-the-postfix-i-and-prefix-i-increment-operators)
-* [Promise 可以变成哪些状态？](#in-which-states-can-a-promise-be)
+* [`i++`  和 `++i` 有什么不同？](#i--和-i-有什么不同)
+* [Promise 可以变成哪些状态？](#promise-可以变成哪些状态)
 * [什么是 Promises？](#what-are-promises)
 * [原型继承和经典继承方式有何不同？](#how-does-prototypal-inheritance-differ-from-classical-inheritance)
 * [什么是纯函数？](#what-is-a-pure-function)
 * [什么是递归，什么时候它是有用的？](#what-is-recursion-and-when-is-it-useful)
-* [下面的代码会输出什么？](#what-is-the-output-of-the-following-code)
-* [下面的函数会返回什么？](#what-does-the-following-function-return)
+* [下面的代码会输出什么？](#下面的代码会输出什么)
+* [下面的函数会返回什么？](#下面的函数)
 * [JavaScript 里分号是必须的吗？](#are-semicolons-required-in-javascript)
 * [在 JavaScript 里，什么是短路运算？](#what-is-short-circuit-evaluation-in-javascript)
 * [解释下静态方法和实例方法的区别](#explain-the-difference-between-a-static-method-and-an-instance-method)
@@ -86,29 +86,29 @@
 <details>
 <summary>查看内容</summary>
 
-* [`setState` 将回调函数作为参数目的是什么？](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)
+* [`setState` 将回调函数作为参数目的是什么？](#setstate-将回调函数作为参数目的是什么)
 * [回调引用 refs 和 findDOMMNode 哪个更推荐使用？](#which-is-the-preferred-option-between-callback-refs-and-finddomnode)
-* [React 组件中的属性（prop）`children` 是什么？](#what-is-children-prop)
-* [React 为什么用 `className` 属性代替 `class`?](#why-react-uses-classname-over-class-attribute)
+* [React 组件中的属性（prop）`children` 是什么？](#react-组件中的属性propchildren-是什么)
+* [React 为什么用 `className` 属性代替 `class`?](#react-为什么用-classname-属性代替-class)
 * [在 React 中，什么是 `context`？](#what-is-context)
-* [Element 和 Component 有什么区别？](#what-is-the-difference-between-element-and-component)
-* [在 React 中，错误边界是什么？](#what-are-error-boundaries-in-react)
-* [在 React 中，什么是 `fragments`？](#what-are-fragments)
-* [什么是高阶组件？](#what-are-higher-order-components)
-* [React 和 HTML 对事件处理的区别？](#what-is-the-difference-between-html-and-react-event-handling)
-* [什么是内联条件表达式？](#what-is-inline-conditional-expressions)
+* [Element 和 Component 有什么区别？](#element-和-component-有什么区别)
+* [在 React 中，错误边界是什么？](#在-react-中错误边界是什么)
+* [在 React 中，什么是 `fragments`？](#在-react-中什么是-fragments)
+* [什么是高阶组件？](#什么是高阶组件)
+* [React 和 HTML 对事件处理的区别？](#react-和-html-对事件处理的区别)
+* [什么是内联条件表达式？](#什么是内联条件表达式)
 * [什么是 key ，在 lists 中使用的好处是什么？](#what-is-a-key-what-are-the-benefits-of-using-it-in-lists)
 * [React 里的生命周期有哪些？](#what-are-the-lifecycle-methods-in-react)
-* [React 组件中，生命周期的各个阶段是什么？](#what-are-the-different-phases-of-the-component-lifecycle-in-react)
+* [React 组件中，生命周期的各个阶段是什么？](#react-组件中生命周期的各个阶段是什么)
 * [在 React 中，状态提升是什么意思？](#what-does-lifting-state-up-in-react-mean)
 * [在 React class 组件中，你是如何确保 `this` 的正确指向的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
-* [你是怎么给事件处理或回调函数传参的？](#how-do-you-pass-an-argument-to-an-event-handler-or-callback)
+* [你是怎么给事件处理或回调函数传参的？](#你是怎么给事件处理回调函数传参的)
 * [在 React 中，`portals` 是什么？](#what-are-portals-in-reactjs)
 * [在 React 中，如何校验 `prop`？](#how-to-apply-prop-validation-in-react)
-* [在 React 里，如何写注释？](#how-to-write-comments-in-react)
+* [在 React 里，如何写注释？](#在-react-里如何写注释)
 * [什么是 `refs`，我们如何使用它？](#what-are-refs-when-should-they-be-used)
-* [什么是有状态组件？](#what-is-a-stateful-component)
-* [什么是无状态组件？](#what-is-a-stateless-component)
+* [什么是有状态组件？](#什么是有状态组件)
+* [什么是无状态组件？](#什么是无状态组件)
 </details>
 
 
@@ -117,15 +117,15 @@
 <details>
 <summary>查看内容</summary>
 
-* [图片里的 `alt` 属性是做什么的？](#what-is-the-purpose-of-the-alt-attribute-on-images)
+* [图片里的 `alt` 属性是做什么的？](#图片里的-alt-属性是做什么的)
 * [`<script>` 标签的 `defer` 和 `async` 是什么？](#what-are-defer-and-async-attributes-on-a-script-tag)
 * [不采用缓存的目的是什么，你如何实现它？](#what-is-the-purpose-of-cache-busting-and-how-can-you-achieve-it)
 * [什么是 `DOM`？](#what-is-the-dom)
 * [一个页面里是否可以包含多个 `<header>` 元素， `<footer>` 元素呢？](#can-a-web-page-contain-multiple-header-elements-what-about-footer-elements)
 * [讨论下 HTML 规范和浏览器实现之间的区别？](#discuss-the-differences-between-an-html-specification-and-a-browsers-implementation-thereof)
-* [相比 HTML，XHTML 有哪些不同？](#what-are-some-differences-that-xhtml-has-compared-to-html)
+* [相比 HTML，XHTML 有哪些不同？](#相比-htmlxhtml-有哪些不同)
 * [简明的阐述下 HTML5 语义标签 `<header>`，`<article>`，`<section>`，`<footer>` 的用法](#briefly-describe-the-correct-usage-of-the-following-html5-semantic-elements-header-articlesection-footer)
-* [什么是 HTML5 Web Storage，解释下 `localStorage` 和 `sessionStorage`？](#what-is-html5-web-storage-explain-localstorage-and-sessionstorage)
+* [什么是 HTML5 Web Storage，解释下 `localStorage` 和 `sessionStorage`？](#什么是-html5-web-storage解释下-localstorage-和-sessionstorage)
 * [什么时候和为什么使用 `rel="noopener"` 属性？](#where-and-why-is-the-relnoopener-attribute-used)
 </details>
 
@@ -136,14 +136,14 @@
 <summary>查看内容</summary>
 
 * [什么是 CSS BEM？](#what-is-css-bem)
-* [简要阐述下 CSS 的盒模型，及各个组成部分？](#describe-the-layout-of-the-css-box-model-and-briefly-describe-each-component)
+* [简要阐述下 CSS 的盒模型，及各个组成部分？](#简要阐述下-css-的盒模型及各个组成部分)
 * [用 CSS 预处理的优势是什么？](#what-are-the-advantages-of-using-css-preprocessors)
 * [CSS 里通用兄弟选择器和相邻兄弟选择器的区别？](#what-is-the-difference-between--and--sibling-selectors)
 * [你能描述下 CSS 优先级是如何工作的？](#can-you-describe-how-css-specificity-works)
 * [`em` 和 `rem` 单位的区别？](#what-is-the-difference-between-em-and-rem-units)
-* [使用 flexbox，创建一个 3 列布局，每一列取容器的百分之 `col-{n}`/12 ](#using-flexbox-create-a-3-column-layout-where-each-column-takes-up-a-col-n--12-ratio-of-the-container)
+* [使用 flexbox，创建一个 3 列布局，每一列取容器的百分之 `col-{n}`/12 ](#使用-flexbox创建一个-3-列布局每一列取容器的百分之-col-n12)
 * [什么是聚焦环，正确的解决方案是什么？](#what-is-a-focus-ring-what-is-the-correct-solution-to-handle-them)
-* [你能说出 `@media` 属性的四种类型吗？](#can-you-name-the-four-types-of-media-properties)
+* [你能说出 `@media` 属性的四种类型吗？](#你能说出-media-属性的四种类型吗)
 * [CSS 雪碧图的优势在哪里，如何使用？](#what-are-the-advantages-of-using-css-sprites-and-how-are-they-utilized)
 </details>
 
@@ -172,7 +172,7 @@
 ---
 
 ## JavaScript
-### == 和 === 相等运算符有什么区别？
+### `==` 和 `===` 相等运算符有什么区别？
 
 <details>
 <summary>查看答案</summary>
@@ -323,7 +323,7 @@ const batches = (recipe, available) =>
 
 <br>[⬆ 返回顶部](#目录)
 
-### 创建一个和 Function.prototype.bind 功能一样的独立函数 bind
+### 创建一个和 `Function.prototype.bind` 功能一样的独立函数 bind
 
 ```js
 function example() {
@@ -773,7 +773,7 @@ const fibonacci = n =>
 
 <br>[⬆ 返回顶部](#目录)
 
-### 0.1 + 0.2 === 0.3 表达式的值是？
+### `0.1 + 0.2 === 0.3` 表达式的值是？
 
 <details>
 <summary>查看答案</summary>
@@ -808,7 +808,7 @@ approxEqual(0.1 + 0.2, 0.3) // true
 
 <br>[⬆ 返回顶部](#目录)
 
-### 数组 map() 和 forEach() 方法的区别？
+### 数组 `map()` 和 `forEach()` 方法的区别？
 
 <details>
 <summary>查看答案</summary>
@@ -834,7 +834,7 @@ approxEqual(0.1 + 0.2, 0.3) // true
 
 <br>[⬆ 返回顶部](#目录)
 
-### 下面的例子中，console.log 会打印出什么？
+### 下面的例子中，`console.log` 会打印出什么？
 
 ```js
 var foo = 1
@@ -2250,29 +2250,6 @@ originalArray.concat(4) // returns a new array, does not mutate the original
 
 <br>[⬆ 返回顶部](#目录)
 
-### 什么是 Nodejs 里的事件循环（event loop）？
-
-<details>
-<summary>查看答案</summary>
-
-The event loop handles all async callbacks. Callbacks are queued in a loop, while other code runs, and will run one by one when the response for each one has been received.
-
-
-#### 小贴士
-
-
-* The event loop allows Node.js to perform non-blocking I/O operations, despite the fact that JavaScript is single-threaded
-
-
-##### 附加链接
-
-
-* [Node.js docs on event loop, timers and process.nextTick()](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
 ### 创建一个管道函数，返回一个接受一个参数从左到右执行的合成函数
 
 ```js
@@ -2862,7 +2839,7 @@ setState({ name: "sudheer" }, () =>
 
 <br>[⬆ 返回顶部](#目录)
 
-### React 为什么用 className 属性代替 class?
+### React 为什么用 `className` 属性代替 `class`?
 
 <details>
 <summary>查看答案</summary>
@@ -3066,7 +3043,7 @@ const todoItems = todos.map(todo => <li key={todo.id}>{todo.text}</li>)
 
 <br>[⬆ 返回顶部](#目录)
 
-### 你是怎么给事件处理/回调函数传参的？
+### 你是怎么给事件处理或回调函数传参的？
 
 <details>
 <summary>查看答案</summary>
@@ -3569,7 +3546,7 @@ class App extends Component {
 
 
 ## HTML
-###  图片里的 alt 属性是做什么的？
+###  图片里的 `alt` 属性是做什么的？
 
 <details>
 <summary>查看答案</summary>
@@ -3999,7 +3976,7 @@ CSS preprocessors add useful functionality that native CSS does not have, and ge
 
 <br>[⬆ 返回顶部](#目录)
 
-### 你能说出 @media 属性的四种类型吗？
+### 你能说出 `@media` 属性的四种类型吗？
 
 <details>
 <summary>查看答案</summary>
