@@ -55,7 +55,12 @@
 `primitive` 原始的    
 `Object literal` 对象字面量  
 `literal` 文字的  
-`acts as` 充当  
+`acts as` 充当    
+`make no sense` 无意义的  
+`rest operator` 剩余参数操作符   
+`act on` 对……起作用  
+`terser` 精炼的；简洁的  
+
 
 
 

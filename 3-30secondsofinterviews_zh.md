@@ -50,29 +50,27 @@
 * [什么是缓存代理模式（memoization）？](#what-is-memoization)
 * [什么是 MIME 类型，有什么作用？](#什么是-mime-类型有什么作用)
 * [对比下可变与不可变值，可变与不可变方法](#contrast-mutable-and-immutable-values-and-mutating-vs-non-mutating-methods)
-* [在 JavaScript 中，哪个值不等于它自己？](#what-is-the-only-value-not-equal-to-itself-in-javascript)
-* [NodeJS 错误优先回调的模式有什么优势？](#nodejs-错误优先回调的模式有什么优势)
-* [什么是 Nodejs 里的事件循环（event loop）？](#什么是-nodejs-里的事件循环event-loop)
+* [在 JavaScript 中，哪个值不等于它自己？](#在-javascript-中哪个值不等于它自己)
 * [`null`  和 `undefined` 有何不同？](#null--和-undefined-有何不同)
 * [描述下创建对象方式的不同，哪种方式更推荐？](#描述下创建对象方式的不同哪种方式更推荐)
 * [形参和实参的区别？](#what-is-the-difference-between-a-parameter-and-an-argument)
 * [JavaScript 里是通过值传递还是引用传递？](#javascript-里是通过值传递还是引用传递)
-* [创建一个管道函数，返回一个接受一个参数从左到右执行的合成函数](#create-a-function-pipe-that-performs-left-to-right-function-composition-by-returning-a-function-that-accepts-one-argument)
+* [创建一个管道函数，返回一个接受一个参数从左到右执行的合成函数](#创建一个管道函数返回一个接受一个参数从左到右执行的合成函数)
 * [`i++`  和 `++i` 有什么不同？](#i--和-i-有什么不同)
 * [Promise 可以变成哪些状态？](#promise-可以变成哪些状态)
 * [什么是 Promises？](#what-are-promises)
 * [原型继承和经典继承方式有何不同？](#how-does-prototypal-inheritance-differ-from-classical-inheritance)
-* [什么是纯函数？](#what-is-a-pure-function)
+* [什么是纯函数？](#什么是纯函数)
 * [什么是递归，什么时候它是有用的？](#what-is-recursion-and-when-is-it-useful)
 * [下面的代码会输出什么？](#下面的代码会输出什么)
 * [下面的函数会返回什么？](#下面的函数会返回什么)
 * [JavaScript 里分号是必须的吗？](#are-semicolons-required-in-javascript)
 * [在 JavaScript 里，什么是短路运算？](#what-is-short-circuit-evaluation-in-javascript)
-* [解释下静态方法和实例方法的区别](#explain-the-difference-between-a-static-method-and-an-instance-method)
+* [解释下静态方法和实例方法的区别](#解释下静态方法和实例方法的区别)
 * [在 JavaScript 里，同步代码和异步代码有什么不同？](#what-is-the-difference-between-synchronous-and-asynchronous-code-in-javascript)
 * [`this` 关键字是什么，它是如何工作的？](#what-is-the-this-keyword-and-how-does-it-work)
-* [下面的代码执行的结果是什么？](#what-does-the-following-code-evaluate-to)
-* [什么是 JavaScript 的数据类型？](#what-are-javascript-data-types)
+* [下面的代码执行的结果是什么？](#下面的代码执行的结果是什么)
+* [什么是 JavaScript 的数据类型？](#什么是-javascript-的数据类型)
 * [诸如 React，Vue，Angular，Hyperapp 等 JavaScript UI 库/框架的目的是什么？](#what-is-the-purpose-of-javascript-ui-librariesframeworks-like-react-vue-angular-hyperapp-etc)
 * [什么是‘严格模式’，它带来哪些关键性的好处？](#what-does-use-strict-do-and-what-are-some-of-the-key-benefits-to-using-it)
 * [`let` `var` `const` 和无关键字声明变量有何不同？](#what-are-the-differences-between-var-let-const-and-no-keyword-statements)
@@ -155,7 +153,8 @@
 
 * [你如何避免回调地狱？](#how-can-you-avoid-callback-hells)
 * [Node.js 中，经常使用回调的模式，把执行过程中遇到的错误，作为回调函数的第一个参数，这么做的优势是什么？](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
-* [在 Node.js 中，事件循环是什么？](#what-is-the-event-loop-in-nodejs)
+* [NodeJS 错误优先回调的模式有什么优势？](#nodejs-错误优先回调的模式有什么优势)
+* [什么是 Nodejs 里的事件循环（event loop）？](#什么是-nodejs-里的事件循环event-loop)
 * [什么是 `REST`？](#what-is-rest)
 </details>
 
@@ -1530,9 +1529,9 @@ typeof typeof 0
 <details>
 <summary>查看答案</summary>
 
-It evaluates to `"string"`.
+计算得到 `"string"`.
 
-`typeof 0` evaluates to the string `"number"` and therefore `typeof "number"` evaluates to `"string"`.
+`typeof 0` 计算得到字符串 `"number"`，因此 `typeof "number"` 计算得到 `"string"`.
 
 
 #### 小贴士
@@ -1554,15 +1553,14 @@ It evaluates to `"string"`.
 <details>
 <summary>查看答案</summary>
 
-The latest ECMAScript standard defines seven data types, six of them being primitive: `Boolean`, `Null`, `Undefined`, `Number`, `String`, `Symbol` and one non-primitive data type: `Object`.
-
+最新的 ECMAScript 标准定义了 7 种数据类型，其中 6 种是原始类型：`Boolean`，`Null`，`Undefined`，`Number`，`String`，`Symbol`，和一种非原始数据类型：`Object`
 
 #### 小贴士
 
 
-* Mention of newly added `Symbol` data type
-* `Array`, `Date` and `function` are all of type `object`
-* Functions in JavaScript are objects with the capability of being callable
+* 提及新添加的数据类型 `Symbol`
+* `Array`，`Date` 和 `function` 都是 `object` 类型
+* 函数在 JavaScript 是具有可调用能力的对象
 
 
 ##### 附加链接
@@ -2231,13 +2229,12 @@ originalArray.concat(4) // returns a new array, does not mutate the original
 <details>
 <summary>查看答案</summary>
 
-`NaN` (Not-a-Number) is the only value not equal to itself when comparing with any of the comparison operators. `NaN` is often the result of meaningless math computations, so two `NaN` values make no sense to be considered equal.
-
+`NaN`（Not-a-Number）是唯一一个在用任何比较操作符比较时不等于自己本身的值。`NaN` 经常表示数学计算无意义的结果，因此两个 `NaN` 值的相等比较毫无意义
 
 #### 小贴士
 
 
-* The difference between `isNaN()` and `Number.isNaN()`
+* `isNaN()` 和 `Number.isNaN()` 的区别
 * `const isNaN = x => x !== x`
 
 
@@ -2263,7 +2260,7 @@ res(3) // 19; addOne(double(square(3)))
 <details>
 <summary>查看答案</summary>
 
-Gather all supplied arguments using the rest operator `...` and return a unary function that uses `Array.prototype.reduce()` to run the value through the series of functions before returning the final value.
+通过剩余参数操作符 `...` 收集所有接受到的实参，并且返回一个用 `Array.prototype.reduce()` 处理（在返回最终值之前执行一系列操作）的一元函数
 
 ```js
 const pipe = (...fns) => x => fns.reduce((v, fn) => fn(v), x)
@@ -2273,7 +2270,7 @@ const pipe = (...fns) => x => fns.reduce((v, fn) => fn(v), x)
 #### 小贴士
 
 
-* Function composition is the process of combining two or more functions to produce a new function.
+* 函数合成是一个两个或更多函数组合生产一个函数的过程
 
 
 ##### 附加链接
@@ -2318,14 +2315,14 @@ The first argument (`child`) is any renderable React child, such as an element, 
 <details>
 <summary>查看答案</summary>
 
-A pure function is a function that satisfies these two conditions:
+一个纯函数满足两个条件：
 
-* Given the same input, the function returns the same output.
-* The function doesn't cause side effects outside of the function's scope (i.e. mutate data outside the function or data supplied to the function).
+* 给定相同的输入，返回相同的输出
+* 函数不会在函数作用域外造成副作用（即，改变函数外的数据或函数接受到的数据）
 
-Pure functions can mutate local data within the function as long as it satisfies the two conditions above.
+只要满足以上两个条件，纯函数就可以改变内部数据
 
-##### Pure
+##### 纯函数
 
 ```js
 const a = (x, y) => x + y
@@ -2333,7 +2330,7 @@ const b = (arr, value) => arr.concat(value)
 const c = arr => [...arr].sort((a, b) => a - b)
 ```
 
-##### Impure
+##### 非纯函数
 
 ```js
 const a = (x, y) => x + y + Math.random()
@@ -2345,9 +2342,9 @@ const c = arr => arr.sort((a, b) => a - b)
 #### 小贴士
 
 
-* Pure functions are easier to reason about due to their reliability.
-* All functions should be pure unless explicitly causing a side effect (i.e. `setInnerHTML`).
-* If a function does not return a value, it is an indication that it is causing side effects.
+* 纯函数更易推导由于它们的可靠性
+* 所有的函数都应该时纯函数，除非显示地造成副作用（即，`setInnerHTML`）
+* 如果一个函数没有返回一个值，那么表明它正在造成副作用
 
 
 ##### 附加链接
@@ -2461,16 +2458,16 @@ Refs can also be used in functional components with the help of closures.
 <details>
 <summary>查看答案</summary>
 
-Static methods belong to a class and don't act on instances, while instance methods belong to the class prototype which is inherited by all instances of the class and acts on them.
+静态方法属于类（class），不会作用于实例上，而实例方法属于类原型，会被所有实例继承并且作用于它们
 
 ```js
-Array.isArray // static method of Array
-Array.prototype.push // instance method of Array
+Array.isArray // 数据的静态方法static method of Array
+Array.prototype.push // 数组的实例方法instance method of Array
 ```
 
-In this case, the `Array.isArray` method does not make sense as an instance method of arrays because we already know the value is an array when working with it.
+在这个例子中，`Array.isArray` 作为实例方法并没有意义，因为我们在使用时已经知道它是一个数组
 
-Instance methods could technically work as static methods, but provide terser syntax:
+实例方法可以在技术上和静态方法一样作用，但提供简洁的语法：
 
 ```js
 const arr = [1, 2, 3]
@@ -2482,7 +2479,7 @@ Array.push(arr, 4)
 #### 小贴士
 
 
-* How to create static and instance methods with ES2015 class syntax
+* 如何用 ES2015 class 语法创建静态和实例方法
 
 
 ##### 附加链接
