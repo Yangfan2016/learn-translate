@@ -60,6 +60,12 @@
 `rest operator` 剩余参数操作符   
 `act on` 对……起作用  
 `terser` 精炼的；简洁的  
+`equivalent` 等价的  
+`invoke` 调用  
+`wary` 谨慎的；小心的  
+`interpreter` 解释器；解释者  
+`nature` 自然；性质；特性  
+
 
 
 

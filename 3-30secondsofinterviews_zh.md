@@ -42,7 +42,7 @@
 * [数组 `map()` 和 `forEach()` 方法的区别？](#数组-map-和-foreach-方法的区别)
 * [什么是函数式编程？](#what-is-functional-programming)
 * [下面的例子中，`console.log` 会打印出什么？](#下面的例子中consolelog-会打印出什么)
-* [在 JavaScript 中，声明提升是如何工作的？](#how-does-hoisting-work-in-javascript)
+* [在 JavaScript 中，声明提升是如何工作的？](#在-javascript-中声明提升是如何工作的)
 * [为何将 JavaScript 源文件里的整个内容用匿名函数包裹起来？](#为何将-javascript-源文件里的整个内容用匿名函数包裹起来)
 * [阐释下命令式编程和声明式编程的区别？](#explain-the-differences-between-imperative-and-declarative-programming)
 * [词法作用域和动态作用域的区别？](#词法作用域和动态作用域的区别)
@@ -64,10 +64,10 @@
 * [什么是递归，什么时候它是有用的？](#what-is-recursion-and-when-is-it-useful)
 * [下面的代码会输出什么？](#下面的代码会输出什么)
 * [下面的函数会返回什么？](#下面的函数会返回什么)
-* [JavaScript 里分号是必须的吗？](#are-semicolons-required-in-javascript)
+* [JavaScript 里分号是必须的吗？](#javascript-里分号是必须的吗)
 * [在 JavaScript 里，什么是短路运算？](#what-is-short-circuit-evaluation-in-javascript)
 * [解释下静态方法和实例方法的区别](#解释下静态方法和实例方法的区别)
-* [在 JavaScript 里，同步代码和异步代码有什么不同？](#what-is-the-difference-between-synchronous-and-asynchronous-code-in-javascript)
+* [在 JavaScript 里，同步代码和异步代码有什么不同？](#在-javascript-里同步代码和异步代码有什么不同)
 * [`this` 关键字是什么，它是如何工作的？](#what-is-the-this-keyword-and-how-does-it-work)
 * [下面的代码执行的结果是什么？](#下面的代码执行的结果是什么)
 * [什么是 JavaScript 的数据类型？](#什么是-javascript-的数据类型)
@@ -871,18 +871,18 @@ foobar()
 <details>
 <summary>查看答案</summary>
 
-Hoisting is a JavaScript mechanism where variable and function declarations are put into memory during the compile phase. This means that no matter where functions and variables are declared, they are moved to the top of their scope regardless of whether their scope is global or local.
+提升是 JavaScript 的一种机制，在编译阶段会把变量和函数的声明放入内存中。这就意味着无论函数和或变量在什么位置声明，它们都会移动到它们所在作用域的顶部，不管是全局作用域还是局部作用域
 
-However, the value is not hoisted with the declaration.
+然而，它的值并不会被随着声明提升
 
-The following snippet:
+下面这个代码片段：
 
 ```js
 console.log(hoist)
 var hoist = "value"
 ```
 
-is equivalent to:
+等价于：
 
 ```js
 var hoist
@@ -890,9 +890,8 @@ console.log(hoist)
 hoist = "value"
 ```
 
-Therefore logging `hoist` outputs `undefined` to the console, not `"value"`.
-
-Hoisting also allows you to invoke a function declaration before it appears to be declared in a program.
+因此控制台打印 `hoist` 会输出 `undefined` 而不是 `"value"`.
+提升也允许你在声明在程序出现之前调用它
 
 ```js
 myFunction() // No error; logs "hello"
@@ -901,7 +900,7 @@ function myFunction() {
 }
 ```
 
-But be wary of function expressions that are assigned to a variable:
+但是要注意函数表达式赋值给变量的情况：
 
 ```js
 myFunction() // Error: `myFunction` is not a function
@@ -914,8 +913,8 @@ var myFunction = function() {
 #### 小贴士
 
 
-* Hoisting is JavaScript’s default behavior of moving declarations to the top
-* Functions declarations are hoisted before variable declarations
+* 提升是将声明移动到顶部的 JavaScript 默认行为
+* 函数声明在变量声明之前被提升
 
 
 ##### 附加链接
@@ -958,38 +957,6 @@ myLibrary.publicMethod() // 2
 
 
 * [MDN docs for closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
-### 什么是 key ，在 lists 中使用的好处是什么？
-
-<details>
-<summary>查看答案</summary>
-
-Keys are a special string attribute that helps React identify which items have been changed, added or removed. They are used when rendering array elements to give them a stable indentity. Each element's key must be unique (e.g. IDs from the data or indexes as a last resort).
-
-```jsx
-const todoItems = todos.map(todo => <li key={todo.id}>{todo.text}</li>)
-```
-
-* Using indexes as keys is not recommended if the order of items may change, as it might negatively impact performance and may cause issues with component state.
-* If you extract list items as a separate component then apply keys on the list component instead of the `<li>` tag.
-
-
-#### 小贴士
-
-
-* Keys give elements in a collection a stable identity and help React identify changes.
-* You should avoid using indexes as keys if the order of items may change.
-* You should lift the key up to the component, instead of the `<li>` element, if you extract list items as components.
-
-
-##### 附加链接
-
-
-* [React docs on Lists and Keys](https://reactjs.org/docs/lists-and-keys.html)
 
 </details>
 
@@ -1378,18 +1345,18 @@ function greet() {
 <details>
 <summary>查看答案</summary>
 
-Sometimes. Due to JavaScript's automatic semicolon insertion, the interpreter places semicolons after most statements. This means semicolons can be omitted in most cases.
+有时由于 JavaScript 的分号自动插入机制，解释器会在多数语句后放置分号。这就意味着在大多数情况下分号可以被忽略
 
-However, there are some cases where they are required. They are not required at the beginning of a block, but are if they follow a line and:
+然而，有些情况分号是必须的。在块的开始不需要加分号，但是如果它们遵循在一行并且：
 
-1.  The line starts with `[`
+1. 行的开始是 `[`
 
 ```js
 const previousLine = 3
 ;[1, 2, previousLine].map(n => n * 2)
 ```
 
-2.  The line starts with `(`
+2.  行的开始是 `(`
 
 ```js
 const previousLine = 3
@@ -1398,14 +1365,14 @@ const previousLine = 3
 })()
 ```
 
-In the above cases, the interpreter does not insert a semicolon after `3`, and therefore it will see the `3` as attempting object property access or being invoked as a function, which will throw errors.
+在上面的例子，解释器并不会在 `3` 后面加入分号，并且因此它会把 `3` 当作是尝试对象访问属性或调用函数，这样会抛出错误
 
 
 #### 小贴士
 
 
-* Semicolons are usually optional in JavaScript but have edge cases where they are required.
-* If you don't use semicolons, tools like Prettier will insert semicolons for you in the places where they are required on save in a text editor to prevent errors.
+* 在 JavaScript 中，分号通常是可选的，但是在一些边缘情况它们是必须的
+* 如果你不用分号，像 Prettier 之类的工具会在文本编辑器保存时插入分号，以防出错
 
 
 ##### 附加链接
@@ -1498,18 +1465,18 @@ In the above case, if `e.target` is not or does not contain an element matching 
 <details>
 <summary>查看答案</summary>
 
-Synchronous means each operation must wait for the previous one to complete.
+同步意味着每一个操作必须等前一个完成后才能执行
 
-Asynchronous means an operation can occur while another operation is still being processed.
+异步意味着一个操作可以在其他操作仍然在执行过程中发生
 
-In JavaScript, all code is synchronous due to the single-threaded nature of it. However, asynchronous operations not part of the program (such as `XMLHttpRequest` or `setTimeout`) are processed outside of the main thread because they are controlled by native code (browser APIs), but callbacks part of the program will still be executed synchronously.
+在 JavaScript, 由于单线程特性所有的代码都是同步的。然而，异步操作（例如 `XMLHttpRequest` 或 `setTimeout`）并不是程序的一部分，它是脱离主线程的，因为它们是被内置代码控制的（浏览器的 API），但是程序的回调部分仍然是同步执行的
 
 
 #### 小贴士
 
 
-* JavaScript has a concurrency model based on an "event loop".
-* Functions like `alert` block the main thread so that no user input is registered until the user closes it.
+* JavaScript 有一个基于 “事件循环” 的并发模型JavaScript has a concurrency model based on an "event loop".
+* 像 `alert` 这样的函数会阻塞主线程，因此在用户关闭它之前是不会有用户输入被注册的
 
 
 ##### 附加链接
