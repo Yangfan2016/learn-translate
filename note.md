@@ -65,6 +65,10 @@
 `wary` 谨慎的；小心的  
 `interpreter` 解释器；解释者  
 `nature` 自然；性质；特性  
+`identical` 完全相同的；同一的  
+`eliminate` 排除；消除  
+`performance` 性能；执行  
+
 
 
 

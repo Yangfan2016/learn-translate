@@ -72,7 +72,7 @@
 * [下面的代码执行的结果是什么？](#下面的代码执行的结果是什么)
 * [什么是 JavaScript 的数据类型？](#什么是-javascript-的数据类型)
 * [诸如 React，Vue，Angular，Hyperapp 等 JavaScript UI 库/框架的目的是什么？](#what-is-the-purpose-of-javascript-ui-librariesframeworks-like-react-vue-angular-hyperapp-etc)
-* [什么是‘严格模式’，它带来哪些关键性的好处？](#what-does-use-strict-do-and-what-are-some-of-the-key-benefits-to-using-it)
+* [什么是‘严格模式’，它带来哪些关键性的好处？](#什么是严格模式它带来哪些关键性的好处)
 * [`let` `var` `const` 和无关键字声明变量有何不同？](#what-are-the-differences-between-var-let-const-and-no-keyword-statements)
 * [什么是虚拟 DOM，为何库/框架都在用它？](#what-is-a-virtual-dom-and-why-is-it-used-in-librariesframeworks)
 * [什么是跨站脚本攻击（XSS），你是如何阻止它的？](#what-is-a-cross-site-scripting-attack-xss-and-how-do-you-prevent-it)
@@ -2601,22 +2601,22 @@ When working with DOM manipulation libraries like jQuery, the data of an applica
 <details>
 <summary>查看答案</summary>
 
-Including `'use strict'` at the beginning of your JavaScript source file enables strict mode, which enforces more strict parsing and error handling of JavaScript code. It is considered a good practice and offers a lot of benefits, such as:
+在 JavaScript 源文件开头包含 `'use strict'` 会开启严格模式，它会强制解析和错误处理更严格。它被认为是一个好的体验和提供很多好处，例如：
 
-* Easier debugging due to eliminating silent errors.
-* Disallows variable redefinition.
-* Prevents accidental global variables.
-* Oftentimes provides increased performance over identical code that is not running in strict mode.
-* Simplifies `eval()` and `arguments`.
-* Helps make JavaScript more secure.
+* 由于排除了无声的错误，所以更容易调试
+* 不允许变量重新定义
+* 防止意外的全局变量
+* 相比非严格模式下的同一代码，提高了执行性能
+* 简化了 `eval()` 和 `arguments`
+* 帮助 JavaScript 更安全
 
 
 #### 小贴士
 
 
-* Eliminates `this` coercion, throwing an error when `this` references a value of `null` or `undefined`.
-* Throws an error on invalid usage of `delete`.
-* Prohibits some syntax likely to be defined in future versions of ECMAScript
+* 排除 `this` ，当 `this` 引用 `null` 或 `undefined` 会抛出错误
+* 无效使用 `delete` 会抛出一个错误
+* 禁止在 ECMAScript 未来版本定义一些语法
 
 
 ##### 附加链接
