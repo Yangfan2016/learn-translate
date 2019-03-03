@@ -60,6 +60,7 @@
 `rest operator` 剩余参数操作符   
 `act on` 对……起作用  
 `terser` 精炼的；简洁的  
+`concise` 简洁的  
 `equivalent` 等价的  
 `invoke` 调用  
 `wary` 谨慎的；小心的  
@@ -68,6 +69,25 @@
 `identical` 完全相同的；同一的  
 `eliminate` 排除；消除  
 `performance` 性能；执行  
+`subsequent` 随后的  
+`unary` 一元的【数】  
+`overhead` 开销；在头顶上  
+`usefulness` 有效性；有用   
+`persistence` 持久性；坚持不懈  
+`utilize` 利用  
+`substitute` 替代品  
+`associate with` 和……来往；联合  
+`emulate` 模仿；尽力赶上  
+`declarative manner` 声明的方式  
+`cognitive load` 认知负担   
+`pillar` 柱子；栋梁  
+`live in harmony` 和谐相处  
+`multi-paradigm` 多范式  
+
+
+
+
+
 
 
 

@@ -28,7 +28,7 @@
 * [你是怎么避免回调地狱的？](#how-can-you-avoid-callback-hells)
 * [什么是回调，你可以举个例子吗？](#什么是回调你可以举个例子吗)
 * [在 JavaScript 中，你是如何克隆一个对象的？](#how-do-you-clone-an-object-in-javascript)
-* [什么是闭包，你可以举一个有用的例子吗？](#what-is-a-closure-can-you-give-a-useful-example-of-one)
+* [什么是闭包，你可以举一个有用的例子吗？](#什么是闭包你可以举一个有用的例子吗)
 * [在 JavaScript 中，你是如何比较两个对象的？](#how-do-you-compare-two-objects-in-javascript)
 * [什么是 `CORS`？](#what-is-cors)
 * [什么是 `DOM`？](#what-is-the-dom)
@@ -40,14 +40,14 @@
 * [生成一个包含的 n 项斐波那契数列元素的数组](#生成一个包含的-n-项斐波那契数列元素的数组)
 * [`0.1 + 0.2 === 0.3` 表达式的值是？](#01--02--03-表达式的值是)
 * [数组 `map()` 和 `forEach()` 方法的区别？](#数组-map-和-foreach-方法的区别)
-* [什么是函数式编程？](#what-is-functional-programming)
+* [什么是函数式编程？](#什么是函数式编程)
 * [下面的例子中，`console.log` 会打印出什么？](#下面的例子中consolelog-会打印出什么)
 * [在 JavaScript 中，声明提升是如何工作的？](#在-javascript-中声明提升是如何工作的)
 * [为何将 JavaScript 源文件里的整个内容用匿名函数包裹起来？](#为何将-javascript-源文件里的整个内容用匿名函数包裹起来)
 * [阐释下命令式编程和声明式编程的区别？](#explain-the-differences-between-imperative-and-declarative-programming)
 * [词法作用域和动态作用域的区别？](#词法作用域和动态作用域的区别)
 * [创建一个函数，用 ‘#’ 符号遮住字符串（除最后4个字符之外）](#创建一个函数用--符号遮住字符串除最后4个字符之外)
-* [什么是缓存代理模式（memoization）？](#what-is-memoization)
+* [什么是缓存代理模式（memoization）？](#什么是缓存代理模式memoization)
 * [什么是 MIME 类型，有什么作用？](#什么是-mime-类型有什么作用)
 * [对比下可变与不可变值，可变与不可变方法](#contrast-mutable-and-immutable-values-and-mutating-vs-non-mutating-methods)
 * [在 JavaScript 中，哪个值不等于它自己？](#在-javascript-中哪个值不等于它自己)
@@ -1866,23 +1866,23 @@ class MyComponent extends Component {
 <details>
 <summary>查看答案</summary>
 
-A closure is a function defined inside another function and has access to its lexical scope even when it is executing outside its lexical scope. The closure has access to variables in three scopes:
+一个闭包是一个定义另一个函数内部可以访问它的词法作用域，甚至是它在词法作用域外执行。闭包可以在三种作用域中访问变量：
 
-* Variables declared in its own scope
-* Variables declared in the scope of the parent function
-* Variables declared in the global scope
+* 定义在自己作用域下的变量
+* 定义在父函数作用域下的变量
+* 定义在全局作用域的变量
 
-In JavaScript, all functions are closures because they have access to the outer scope, but most functions don't utilise the usefulness of closures: the persistence of state. Closures are also sometimes called stateful functions because of this.
+在 JavaScript 中，所有的函数都是闭包，因为它们可以访问外部作用域，但是大多数函数并没有利用好闭包的有效性：状态的持久性。因此闭包有时也叫有状态函数
 
-In addition, closures are the only way to store private data that can't be accessed from the outside in JavaScript. They are the key to the UMD (Universal Module Definition) pattern, which is frequently used in libraries that only expose a public API but keep the implementation details private, preventing name collisions with other libraries or the user's own code.
+此外，闭包是唯一一种存储私有数据不能被外部访问的方式。它们是 UMD（Universal Module Definition，通用模块定义）模式的关键，它已经在许多库中熟练地被使用，只暴露一个公共的 API，隐藏私有的实现细节，阻止了在用户代码中和其他库的命名冲突
 
 
 #### 小贴士
 
 
-* Closures are useful because they let you associate data with a function that operates on that data.
-* A closure can substitute an object with only a single method.
-* Closures can be used to emulate private properties and methods.
+* 闭包是有用的，因为它们可以使你的数据和操作它的函数关联起来
+* 一个闭包可以用一个单方法替代
+* 闭包可以被用来模仿私有属性和方法
 
 
 ##### 附加链接
@@ -1979,16 +1979,16 @@ With this implementation, `on` is the way to _subscribe_ to an event, while `emi
 <details>
 <summary>查看答案</summary>
 
-Functional programming is a paradigm in which programs are built in a declarative manner using pure functions that avoid shared state and mutable data. Functions that always return the same value for the same input and don't produce side effects are the pillar of functional programming. Many programmers consider this to be the best approach to software development as it reduces bugs and cognitive load.
+函数式编程是一个声明式方式构建的范式，使用纯函数避免数据共享和数据突变。函数总是以相同的输入返回相同输出值，而不会产生副作用，是函数式编程的支柱。许多程序员认为它更接近软件开发，因为它可以减少错误和认知负担
 
 
 #### 小贴士
 
 
-* Cleaner, more concise development experience
-* Simple function composition
-* Features of JavaScript that enable functional programming (`.map`, `.reduce` etc.)
-* JavaScript is multi-paradigm programming language (Object-Oriented Programming and Functional Programming live in harmony)
+* 更清晰，更简洁的开发体验
+* 简单的函数复合
+* 使函数式编程可能的 JavaScript 的特征（`.map`, `.reduce` 等等）
+* JavaScript 是一个多范式编程语言（面向对象编程和函数式编程和谐共处）
 
 
 ##### 附加链接
@@ -2058,9 +2058,9 @@ We declare that the new array is mapped to a new one where each value is doubled
 <details>
 <summary>查看答案</summary>
 
-Memoization is the process of caching the output of function calls so that subsequent calls are faster. Calling the function again with the same input will return the cached output without needing to do the calculation again.
+缓存代理是缓存函数调用输出的过程，以致于下一次调用更快。再次调用相同输入的函数时，返回已缓存的输出，而无需再次计算
 
-A basic implementation in JavaScript looks like this:
+在 JavaScript，一个基本的实现看起来像这样：
 
 ```js
 const memoize = fn => {
@@ -2079,9 +2079,9 @@ const memoize = fn => {
 #### 小贴士
 
 
-* The above technique returns a unary function even if the function can take multiple arguments.
-* The first function call will be slower than usual because of the overhead created by checking if a cached result exists and setting a result before returning the value.
-* Memoization increases performance on subsequent function calls but still needs to do work on the first call.
+* 上述技术会返回一个一元函数，即使函数接受多个参数
+* 第一次调用函数可能会比通常慢，因为在返回值之前它会检查结果是否存在和设置缓存，增加开销
+* 缓存代理在后续的函数调用中提高了性能，但是仍需要在第一次调用时作用
 
 
 ##### 附加链接
