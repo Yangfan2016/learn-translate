@@ -85,10 +85,10 @@
 <summary>查看内容</summary>
 
 * [`setState` 将回调函数作为参数目的是什么？](#setstate-将回调函数作为参数目的是什么)
-* [回调引用 refs 和 findDOMMNode 哪个更推荐使用？](#which-is-the-preferred-option-between-callback-refs-and-finddomnode)
+* [回调引用 refs 和 findDOMNode 哪个更推荐使用？](#回调引用-refs-和-finddomnode-哪个更推荐使用)
 * [React 组件中的属性（prop）`children` 是什么？](#react-组件中的属性propchildren-是什么)
 * [React 为什么用 `className` 属性代替 `class`?](#react-为什么用-classname-属性代替-class)
-* [在 React 中，什么是 `context`？](#what-is-context)
+* [在 React 中，什么是 `context`？](#在-react-中什么是-context)
 * [Element 和 Component 有什么区别？](#element-和-component-有什么区别)
 * [在 React 中，错误边界是什么？](#在-react-中错误边界是什么)
 * [在 React 中，什么是 `fragments`？](#在-react-中什么是-fragments)
@@ -98,13 +98,13 @@
 * [什么是 key ，在 lists 中使用的好处是什么？](#what-is-a-key-what-are-the-benefits-of-using-it-in-lists)
 * [React 里的生命周期有哪些？](#what-are-the-lifecycle-methods-in-react)
 * [React 组件中，生命周期的各个阶段是什么？](#react-组件中生命周期的各个阶段是什么)
-* [在 React 中，状态提升是什么意思？](#what-does-lifting-state-up-in-react-mean)
+* [在 React 中，状态提升是什么意思？](#在-react-中状态提升是什么意思)
 * [在 React class 组件中，你是如何确保 `this` 的正确指向的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
 * [你是怎么给事件处理或回调函数传参的？](#你是怎么给事件处理回调函数传参的)
 * [在 React 中，`portals` 是什么？](#what-are-portals-in-reactjs)
 * [在 React 中，如何校验 `prop`？](#how-to-apply-prop-validation-in-react)
 * [在 React 里，如何写注释？](#在-react-里如何写注释)
-* [什么是 `refs`，我们如何使用它？](#what-are-refs-when-should-they-be-used)
+* [什么是 `refs`，我们如何使用它？](#什么是-refs我们如何使用它)
 * [什么是有状态组件？](#什么是有状态组件)
 * [什么是无状态组件？](#什么是无状态组件)
 </details>
@@ -138,7 +138,7 @@
 * [用 CSS 预处理的优势是什么？](#what-are-the-advantages-of-using-css-preprocessors)
 * [CSS 里通用兄弟选择器和相邻兄弟选择器的区别？](#what-is-the-difference-between--and--sibling-selectors)
 * [你能描述下 CSS 优先级是如何工作的？](#can-you-describe-how-css-specificity-works)
-* [`em` 和 `rem` 单位的区别？](#what-is-the-difference-between-em-and-rem-units)
+* [`em` 和 `rem` 单位的区别？](#em-和-rem-单位的区别)
 * [使用 flexbox，创建一个 3 列布局，每一列取容器的百分之 `col-{n}`/12 ](#使用-flexbox创建一个-3-列布局每一列取容器的百分之-col-n12)
 * [什么是聚焦环，正确的解决方案是什么？](#what-is-a-focus-ring-what-is-the-correct-solution-to-handle-them)
 * [你能说出 `@media` 属性的四种类型吗？](#你能说出-media-属性的四种类型吗)
@@ -1814,53 +1814,6 @@ There are lots of ways to solve the issue of callback hells:
 
 <br>[⬆ 返回顶部](#目录)
 
-### 回调引用 refs 和 findDOMNode 哪个更推荐使用？
-
-<details>
-<summary>查看答案</summary>
-
-Callback refs are preferred over the `findDOMNode()` API, due to the fact that `findDOMNode()` prevents certain improvements in React in the future.
-
-```jsx
-/* Legacy approach using findDOMNode() */
-class MyComponent extends Component {
-  componentDidMount() {
-    findDOMNode(this).scrollIntoView()
-  }
-
-  render() {
-    return <div />
-  }
-}
-
-/* Recommended approach using callback refs */
-class MyComponent extends Component {
-  componentDidMount() {
-    this.node.scrollIntoView()
-  }
-
-  render() {
-    return <div ref={node => (this.node = node)} />
-  }
-}
-```
-
-
-#### 小贴士
-
-
-* Callback refs are preferred over `findDOMNode()`.
-
-
-##### 附加链接
-
-
-* [React docs on Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html#exposing-dom-refs-to-parent-components)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
 ### 什么是闭包，你可以举一个有用的例子吗？
 
 <details>
@@ -1891,34 +1844,6 @@ class MyComponent extends Component {
 * [MDN docs for closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
 * [What is a closure](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36)
 * [I never understood JavaScript closures](https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
-### 在 React 中，什么是 context？
-
-<details>
-<summary>查看答案</summary>
-
-Context provides a way to pass data through the component tree without having to pass props down manually at every level. For example, authenticated user, locale preference, UI theme need to be accessed in the application by many components.
-
-```jsx
-const { Provider, Consumer } = React.createContext(defaultValue)
-```
-
-
-#### 小贴士
-
-
-* Context provides a way to pass data through a tree of React components, without having to manually pass props.
-* Context is designed to share data that is considered _global_ for a tree of React components.
-
-
-##### 附加链接
-
-
-* [React docs on Context](https://reactjs.org/docs/context.html)
 
 </details>
 
@@ -2375,51 +2300,6 @@ In the above example, the base condition is met if `filter()` returns an empty a
 
 <br>[⬆ 返回顶部](#目录)
 
-### 什么是 refs，什么时候用它们？
-
-<details>
-<summary>查看答案</summary>
-
-Refs provide a way to access DOM nodes or React elements created in the render method. Refs should be used sparringly, but there are some good use cases for refs, such as:
-
-* Managing focus, text selection, or media playback.
-* Triggering imperative animations.
-* Integrating with third-party DOM libraries.
-
-Refs are created using `React.createRef()` method and attached to React elements via the `ref` attribute. In order to use refs throughout the component, just assign the `ref` to the instance property within the constructor:
-
-```jsx
-class MyComponent extends React.Component {
-  constructor(props) {
-    super(props)
-    this.myRef = React.createRef()
-  }
-  render() {
-    return <div ref={this.myRef} />
-  }
-}
-```
-
-Refs can also be used in functional components with the help of closures.
-
-
-#### 小贴士
-
-
-* Refs are used to return a reference to an element.
-* Refs shouldn't be overused.
-* You can create a ref using `React.createRef()` and attach to Reactelements via the `ref` attribute.
-
-
-##### 附加链接
-
-
-* [React docs on Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
 ### 解释下静态方法和实例方法的区别
 
 <details>
@@ -2723,7 +2603,7 @@ Once the changes between the old VDOM and new VDOM have been calculated by the d
 <details>
 <summary>查看答案</summary>
 
-When several components need to share the same data, then it is recommended to lift the shared state up to their closest common ancestor. For example, if two child components share the same data, it is recommended to move the shared state to parent instead of maintaining the local state in both child components.
+当几个组件需要分享数据时，它更推荐把共享状态提升到它们最近的公共祖先。例如，如果两个组件共享相同数据时，更推荐将共享状态移到它们的父组件，而不是在各自子组件内部维护
 
 
 #### 小贴士
@@ -3039,10 +2919,10 @@ const todoItems = todos.map(todo => <li key={todo.id}>{todo.text}</li>)
 <details>
 <summary>查看答案</summary>
 
-Callback refs are preferred over the `findDOMNode()` API, due to the fact that `findDOMNode()` prevents certain improvements in React in the future.
+相比 `findDOMNode()` API，回调 `refs` 更推荐使用，由于实际上 `findDOMNode()` 阻止了 React 未来的某些确定的改进
 
 ```jsx
-/* Legacy approach using findDOMNode() */
+/* 使用遗留方法 findDOMNode() */
 class MyComponent extends Component {
   componentDidMount() {
     findDOMNode(this).scrollIntoView()
@@ -3053,7 +2933,7 @@ class MyComponent extends Component {
   }
 }
 
-/* Recommended approach using callback refs */
+/* 更推荐使用 回调 refs */
 class MyComponent extends Component {
   componentDidMount() {
     this.node.scrollIntoView()
@@ -3069,7 +2949,7 @@ class MyComponent extends Component {
 #### 小贴士
 
 
-* Callback refs are preferred over `findDOMNode()`.
+* 回调 `refs` 比 `findDOMNode()` 更推荐使用
 
 
 ##### 附加链接
@@ -3121,12 +3001,12 @@ ReactDOM.render(
 
 <br>[⬆ 返回顶部](#目录)
 
-### 在 React 中，什么是 context？
+### 在 React 中，什么是 `context`？
 
 <details>
 <summary>查看答案</summary>
 
-Context provides a way to pass data through the component tree without having to pass props down manually at every level. For example, authenticated user, locale preference, UI theme need to be accessed in the application by many components.
+`Context` 提供了一种无需手动在组件树每层都通过 `props` 传递数据的方式。例如，在应用中许多组件要访问用户授权，地区首选项，UI 主题
 
 ```jsx
 const { Provider, Consumer } = React.createContext(defaultValue)
@@ -3136,8 +3016,8 @@ const { Provider, Consumer } = React.createContext(defaultValue)
 #### 小贴士
 
 
-* Context provides a way to pass data through a tree of React components, without having to manually pass props.
-* Context is designed to share data that is considered _global_ for a tree of React components.
+* `Context` 提供了一种通过 React 组件树传递数据的方式，而不需要手动传递 `props`
+* `Context` 是被设计用来共享数据（对于 React 组件树来说的全局数据）
 
 
 ##### 附加链接
@@ -3401,18 +3281,18 @@ User.propTypes = {
 
 <br>[⬆ 返回顶部](#目录)
 
-### 什么是 refs，什么时候用它们？
+### 什么是 `refs`，我们如何使用它？
 
 <details>
 <summary>查看答案</summary>
 
-Refs provide a way to access DOM nodes or React elements created in the render method. Refs should be used sparringly, but there are some good use cases for refs, such as:
+Refs 提供一种在 render 方法中访问 DOM 节点或 React 元素的方法。Refs 应该少用，但是有一些好的使用例子，例如：
 
-* Managing focus, text selection, or media playback.
-* Triggering imperative animations.
-* Integrating with third-party DOM libraries.
+* 管理聚焦，文本选择，或者媒体回放
+* 触发不可避免的动画
+* 集成三方 DOM 库
 
-Refs are created using `React.createRef()` method and attached to React elements via the `ref` attribute. In order to use refs throughout the component, just assign the `ref` to the instance property within the constructor:
+用 `React.createRef()` 创建一个引用，然后通过 `ref` 属性附到 React 元素上。为了贯穿整个组件使用 refs，需要在构造器中注册 `ref` 的实例：
 
 ```jsx
 class MyComponent extends React.Component {
@@ -3426,15 +3306,15 @@ class MyComponent extends React.Component {
 }
 ```
 
-Refs can also be used in functional components with the help of closures.
+Refs 也可以在闭包的帮助下在函数式组件下使用
 
 
 #### 小贴士
 
 
-* Refs are used to return a reference to an element.
-* Refs shouldn't be overused.
-* You can create a ref using `React.createRef()` and attach to Reactelements via the `ref` attribute.
+* Refs 用来返回一个元素的引用
+* Refs 不应该被过渡使用
+* 你可以用 `React.createRef()` 创建一个引用，然后通过 `ref` 属性附到 React 元素上
 
 
 ##### 附加链接
@@ -4001,23 +3881,23 @@ _Margin_: 围绕着边框的盒子最外层区域。它将 DOM 元素之间分�
 
 <br>[⬆ 返回顶部](#目录)
 
-### em 和 rem 单位的区别？
+### `em` 和 `rem` 单位的区别？
 
 <details>
 <summary>查看答案</summary>
 
-Both `em` and `rem` units are based on the `font-size` CSS property. The only difference is where they inherit their values from.
+`em` 和 `rem` 单位都是 CSS 属性 `font-size` 的基础。它们的唯一区别是它们的继承来源
 
-* `em` units inherit their value from the `font-size` of the parent element
-* `rem` units inherit their value from the `font-size` of the root element (`html`)
+* `em` 单位继承自它的父元素 `font-size` 的值
+* `rem` 单位继承自根元素（`html`） `font-size` 的值
 
-In most browsers, the `font-size` of the root element is set to `16px` by default.
+在多大数浏览器中，根元素的 `font-size` 默认设置为 `16px`
 
 
 #### 小贴士
 
 
-* Benefits of using `em` and `rem` units
+* 使用 `em` 和 `rem` 单位的好处
 
 
 ##### 附加链接

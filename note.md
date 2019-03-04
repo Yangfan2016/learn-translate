@@ -82,7 +82,11 @@
 `cognitive load` 认知负担   
 `pillar` 柱子；栋梁  
 `live in harmony` 和谐相处  
-`multi-paradigm` 多范式  
+`multi-paradigm` 多范式   
+`sparringly` 节俭地；保守地；爱惜地    
+`throughout` 贯穿；自始自终  
+
+
 
 
 
