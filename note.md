@@ -85,6 +85,13 @@
 `multi-paradigm` 多范式   
 `sparringly` 节俭地；保守地；爱惜地    
 `throughout` 贯穿；自始自终  
+`subject to change` 易变的；随便看看；如有变更  
+`extract` 提取；摘录；榨取    
+`adjacent` 相邻的    
+`specified` 指定的；详细说明的  
+
+
+
 
 
 

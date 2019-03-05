@@ -49,7 +49,7 @@
 * [创建一个函数，用 ‘#’ 符号遮住字符串（除最后4个字符之外）](#创建一个函数用--符号遮住字符串除最后4个字符之外)
 * [什么是缓存代理模式（memoization）？](#什么是缓存代理模式memoization)
 * [什么是 MIME 类型，有什么作用？](#什么是-mime-类型有什么作用)
-* [对比下可变与不可变值，可变与不可变方法](#contrast-mutable-and-immutable-values-and-mutating-vs-non-mutating-methods)
+* [对比下可变与不可变值，可变与不可变方法](#对比下可变与不可变值可变与不可变方法)
 * [在 JavaScript 中，哪个值不等于它自己？](#在-javascript-中哪个值不等于它自己)
 * [`null`  和 `undefined` 有何不同？](#null--和-undefined-有何不同)
 * [描述下创建对象方式的不同，哪种方式更推荐？](#描述下创建对象方式的不同哪种方式更推荐)
@@ -58,8 +58,8 @@
 * [创建一个管道函数，返回一个接受一个参数从左到右执行的合成函数](#创建一个管道函数返回一个接受一个参数从左到右执行的合成函数)
 * [`i++`  和 `++i` 有什么不同？](#i--和-i-有什么不同)
 * [Promise 可以变成哪些状态？](#promise-可以变成哪些状态)
-* [什么是 Promises？](#what-are-promises)
-* [原型继承和经典继承方式有何不同？](#how-does-prototypal-inheritance-differ-from-classical-inheritance)
+* [什么是 Promises？](#什么是-promises)
+* [原型继承和经典继承方式有何不同？](#原型继承和经典继承方式有何不同)
 * [什么是纯函数？](#什么是纯函数)
 * [什么是递归，什么时候它是有用的？](#what-is-recursion-and-when-is-it-useful)
 * [下面的代码会输出什么？](#下面的代码会输出什么)
@@ -95,7 +95,7 @@
 * [什么是高阶组件？](#什么是高阶组件)
 * [React 和 HTML 对事件处理的区别？](#react-和-html-对事件处理的区别)
 * [什么是内联条件表达式？](#什么是内联条件表达式)
-* [什么是 key ，在 lists 中使用的好处是什么？](#what-is-a-key-what-are-the-benefits-of-using-it-in-lists)
+* [什么是 key ，在 lists 中使用的好处是什么？](#什么是-key-在-lists-中使用的好处是什么)
 * [React 里的生命周期有哪些？](#what-are-the-lifecycle-methods-in-react)
 * [React 组件中，生命周期的各个阶段是什么？](#react-组件中生命周期的各个阶段是什么)
 * [在 React 中，状态提升是什么意思？](#在-react-中状态提升是什么意思)
@@ -124,7 +124,7 @@
 * [相比 HTML，XHTML 有哪些不同？](#相比-htmlxhtml-有哪些不同)
 * [简明的阐述下 HTML5 语义标签 `<header>`，`<article>`，`<section>`，`<footer>` 的用法](#briefly-describe-the-correct-usage-of-the-following-html5-semantic-elements-header-articlesection-footer)
 * [什么是 HTML5 Web Storage，解释下 `localStorage` 和 `sessionStorage`？](#什么是-html5-web-storage解释下-localstorage-和-sessionstorage)
-* [什么时候和为什么使用 `rel="noopener"` 属性？](#where-and-why-is-the-relnoopener-attribute-used)
+* [什么时候和为什么使用 `rel="noopener"` 属性？](#什么时候和为什么使用-relnoopener-属性)
 </details>
 
 
@@ -136,7 +136,7 @@
 * [什么是 CSS BEM？](#what-is-css-bem)
 * [简要阐述下 CSS 的盒模型，及各个组成部分？](#简要阐述下-css-的盒模型及各个组成部分)
 * [用 CSS 预处理的优势是什么？](#what-are-the-advantages-of-using-css-preprocessors)
-* [CSS 里通用兄弟选择器和相邻兄弟选择器的区别？](#what-is-the-difference-between--and--sibling-selectors)
+* [CSS 里通用兄弟选择器和相邻兄弟选择器的区别？](#css-里通用兄弟选择器和相邻兄弟选择器的区别)
 * [你能描述下 CSS 优先级是如何工作的？](#can-you-describe-how-css-specificity-works)
 * [`em` 和 `rem` 单位的区别？](#em-和-rem-单位的区别)
 * [使用 flexbox，创建一个 3 列布局，每一列取容器的百分之 `col-{n}`/12 ](#使用-flexbox创建一个-3-列布局每一列取容器的百分之-col-n12)
@@ -1221,8 +1221,8 @@ JavaScript 总是通过值传递的。然而，对于对象来说，它的值是
 <details>
 <summary>查看答案</summary>
 
-The `Promise` object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.
-An example can be the following snippet, which after 100ms prints out the result string to the standard output. Also, note the catch, which can be used for error handling. `Promise`s are chainable.
+`Promise` 对象代表异步操作最终的完成（或失败），和它的结果值
+下面这个代码片段，100 ms 后会在标准输出打印出结果。注意 `catch`，它是用来捕获错误的。`Promise` 是链式调用的
 
 ```js
 new Promise((resolve, reject) => {
@@ -1238,7 +1238,7 @@ new Promise((resolve, reject) => {
 #### 小贴士
 
 
-* Take a look into the other questions regarding `Promise`s!
+* 看一看关于 `Promise` 的其他问题
 
 
 ##### 附加链接
@@ -1255,9 +1255,9 @@ new Promise((resolve, reject) => {
 <details>
 <summary>查看答案</summary>
 
-In the classical inheritance paradigm, object instances inherit their properties and functions from a class, which acts as a blueprint for the object. Object instances are typically created using a constructor and the `new` keyword.
+在类继承范式中，对象实例继承从一个类上继承他们的属性和方法，实际上是复制了一份蓝本。对象实例通常通过使用一个构造器和 `new` 关键字创建
 
-In the prototypal inheritance paradigm, object instances inherit directly from other objects and are typically created using factory functions or `Object.create()`.
+在原型继承范式中，对象实例直接从其他对象上继承，通常通过工厂函数或 `Object.create()` 创建
 
 
 #### 小贴士
@@ -2082,29 +2082,29 @@ Note that extra re-rendering can occur using this technique because a new functi
 <details>
 <summary>查看答案</summary>
 
-The two terms can be contrasted as:
+两个术语的对比：
 
-* Mutable: subject to change
-* Immutable: cannot change
+* 可变：易改变
+* 不可变：不能改变
 
-In JavaScript, objects are mutable while primitive values are immutable. This means operations performed on objects can change the original reference in some way, while operations performed on a primitive value cannot change the original value.
+在 JavaScript，对象（object）是可变的，而原始值是不可变的。这就意味着某些方式执行对象操作时可能会改变原始引用，而执行原始值操作时不能改变原始值
 
-All `String.prototype` methods do not have an effect on the original string and return a new string. On the other hand, while some methods of `Array.prototype` do not mutate the original array reference and produce a fresh array, some cause mutations.
+所有 `String.prototype` 的方法都会返回一个新的字符串，而不会改变原始字符串，产生副作用。另一方面， 一些 `Array.prototype` 的方法不会改变原始数组引用，而是返回一个新数组，但有些方法会改变
 
 ```js
 const myString = "hello!"
-myString.replace("!", "") // returns a new string, cannot mutate the original value
+myString.replace("!", "") // 返回一个新字符串，不会改变原始值
 
 const originalArray = [1, 2, 3]
-originalArray.push(4) // mutates originalArray, now [1, 2, 3, 4]
-originalArray.concat(4) // returns a new array, does not mutate the original
+originalArray.push(4) // 改变了原始数组，现在的值为 [1, 2, 3, 4]
+originalArray.concat(4) // 返回一个新数组，不会改变原始数组
 ```
 
 
 #### 小贴士
 
 
-* List of mutating and non-mutating array methods
+* 列举出改变和不改变原始数组的方法
 
 
 ##### 附加链接
@@ -2794,22 +2794,22 @@ function handleClick(e) {
 <details>
 <summary>查看答案</summary>
 
-Keys are a special string attribute that helps React identify which items have been changed, added or removed. They are used when rendering array elements to give them a stable indentity. Each element's key must be unique (e.g. IDs from the data or indexes as a last resort).
+`key` 是一个特殊属性帮助 React 区分哪些元素是已经修改的，添加的，或移除的。当渲染数组元素时，它们提供一个稳定的标识。每一个元素的 `key` 必须时唯一的（例如，ID 用数据或索引作为最后选择）
 
 ```jsx
 const todoItems = todos.map(todo => <li key={todo.id}>{todo.text}</li>)
 ```
 
-* Using indexes as keys is not recommended if the order of items may change, as it might negatively impact performance and may cause issues with component state.
-* If you extract list items as a separate component then apply keys on the list component instead of the `<li>` tag.
+* 使用索引作为顺序可变元素的 `key` 并不推荐，因为可能对性能带来负面影响，而且可能造成组件状态问题
+* 如果你把列表项提取为一个组件，你应该把 `key` 绑定到列表（例如，`<ul>`，`<ol>`）上，而不是 `<li>` 标签上
 
 
 #### 小贴士
 
 
-* Keys give elements in a collection a stable identity and help React identify changes.
-* You should avoid using indexes as keys if the order of items may change.
-* You should lift the key up to the component, instead of the `<li>` element, if you extract list items as components.
+* `key` 给予集合中的元素一个稳定的标识，帮助 React 区分改变
+* 如果你的元素顺序是可变的，最好避免使用索引作为 `key` 
+* 如果你把列表提取为一个组件时，你应该把 `key` 提升到组件上，而不是 `<li>` 元素
 
 
 ##### 附加链接
@@ -3621,20 +3621,19 @@ A browser is said to “support” a specification if it handles valid documents
 
 <br>[⬆ 返回顶部](#目录)
 
-### 什么时候和为什么使用 rel="noopener" 属性？
+### 什么时候和为什么使用 `rel="noopener"` 属性？
 
 <details>
 <summary>查看答案</summary>
 
-The `rel="noopener"` is an attribute used in `<a>` elements (hyperlinks). It prevents pages from having a `window.opener` property, which would otherwise point to the page from where the link was opened and would allow the page opened from the hyperlink to manipulate the page where the hyperlink is.
+`rel="noopener"`是 `<a>` 元素（超链接）的一个属性。它阻止页面拥有 `window.opener` 属性，否则它将指向源页面（超链接所在的页），并且允许操作源页面
 
 
 #### 小贴士
 
 
-* `rel="noopener"` is applied to hyperlinks.
-* `rel="noopener"` prevents opened links from manipulating the source page.
-
+* `rel="noopener"` 应用于超链接
+* `rel="noopener"` 阻止已打开的页面操作源页面
 
 ##### 附加链接
 
@@ -3943,9 +3942,9 @@ To utilize a spritesheet in CSS, one would use certain properties, such as `back
 <details>
 <summary>查看答案</summary>
 
-The General Sibling Selector `~` selects all elements that are siblings of a specified element.
+通用兄弟选择器 `~` 会选择指定元素的所有兄弟元素
 
-The following example selects all `<p>` elements that are siblings of `<div>` elements:
+下面的例子会选择 `<div>` 元素的所有 `<p>` 兄弟元素：
 
 ```css
 div ~ p {
@@ -3953,9 +3952,9 @@ div ~ p {
 }
 ```
 
-The Adjacent Sibling Selector `+` selects all elements that are the adjacent siblings of a specified element.
+相邻兄弟选择器 `+` 会选择指定元素的相邻兄弟元素
 
-The following example will select all `<p>` elements that are placed immediately after `<div>` elements:
+下面的例子会选择紧接在 `<div>` 元素后的 `<p>` 元素：
 
 ```css
 div + p {
