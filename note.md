@@ -88,7 +88,9 @@
 `subject to change` 易变的；随便看看；如有变更  
 `extract` 提取；摘录；榨取    
 `adjacent` 相邻的    
-`specified` 指定的；详细说明的  
+`specified` 指定的；详细说明的    
+`methodology` 方法论  
+
 
 
 

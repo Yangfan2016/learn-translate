@@ -116,7 +116,7 @@
 <summary>查看内容</summary>
 
 * [图片里的 `alt` 属性是做什么的？](#图片里的-alt-属性是做什么的)
-* [`<script>` 标签的 `defer` 和 `async` 是什么？](#what-are-defer-and-async-attributes-on-a-script-tag)
+* [`<script>` 标签的 `defer` 和 `async` 是什么？](#script-标签的-defer-和-async-是什么)
 * [不采用缓存的目的是什么，你如何实现它？](#what-is-the-purpose-of-cache-busting-and-how-can-you-achieve-it)
 * [什么是 `DOM`？](#what-is-the-dom)
 * [一个页面里是否可以包含多个 `<header>` 元素， `<footer>` 元素呢？](#can-a-web-page-contain-multiple-header-elements-what-about-footer-elements)
@@ -133,11 +133,11 @@
 <details>
 <summary>查看内容</summary>
 
-* [什么是 CSS BEM？](#what-is-css-bem)
+* [什么是 CSS BEM？](#什么是-css-bem)
 * [简要阐述下 CSS 的盒模型，及各个组成部分？](#简要阐述下-css-的盒模型及各个组成部分)
 * [用 CSS 预处理的优势是什么？](#what-are-the-advantages-of-using-css-preprocessors)
 * [CSS 里通用兄弟选择器和相邻兄弟选择器的区别？](#css-里通用兄弟选择器和相邻兄弟选择器的区别)
-* [你能描述下 CSS 优先级是如何工作的？](#can-you-describe-how-css-specificity-works)
+* [你能描述下 CSS 优先级是如何工作的？](#你能描述下-css-优先级是如何工作的)
 * [`em` 和 `rem` 单位的区别？](#em-和-rem-单位的区别)
 * [使用 flexbox，创建一个 3 列布局，每一列取容器的百分之 `col-{n}`/12 ](#使用-flexbox创建一个-3-列布局每一列取容器的百分之-col-n12)
 * [什么是聚焦环，正确的解决方案是什么？](#what-is-a-focus-ring-what-is-the-correct-solution-to-handle-them)
@@ -155,7 +155,7 @@
 * [Node.js 中，经常使用回调的模式，把执行过程中遇到的错误，作为回调函数的第一个参数，这么做的优势是什么？](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
 * [NodeJS 错误优先回调的模式有什么优势？](#nodejs-错误优先回调的模式有什么优势)
 * [什么是 Nodejs 里的事件循环（event loop）？](#什么是-nodejs-里的事件循环event-loop)
-* [什么是 `REST`？](#what-is-rest)
+* [什么是 `REST`？](#什么是-rest)
 </details>
 
 
@@ -3503,14 +3503,13 @@ Yes to both. The W3 documents state that the tags represent the header(`<header>
 <details>
 <summary>查看答案</summary>
 
-If neither attribute is present, the script is downloaded and executed synchronously, and will halt parsing of the document until it has finished executing (default behavior). Scripts are downloaded and executed in the order
-they are encountered.
+如果两个属性都没有的话，脚本将同步下载和执行，并且会阻塞 document 解析，直到脚本执行完成（默认行为）。脚本下载和执行按它们书写的顺序进行
 
-The `defer` attribute downloads the script while the document is still parsing but waits until the document has finished parsing before executing it, equivalent to executing inside a `DOMContentLoaded` event listener. `defer` scripts will execute in order.
+`defer` 属性在 document 解析的过程中下载脚本，但是在 document 解析完成之前执行，等价于执行了一个内置的事件监听器 `DOMContentLoaded`。`defer` 脚本顺序执行
 
-The `async` attribute downloads the script during parsing the document but will pause the parser to execute the script before it has fully finished parsing. `async` scripts will not necessarily execute in order.
+`async` 属性在 document 解析过程中下载脚本，但是会暂停解析器，直到脚本解析执行完成。`async` 不一定按顺序执行
 
-Note: both attributes must only be used if the script has a `src` attribute (i.e. not an inline script).
+注意：两个属性必须在脚本拥有 `src` 属性时才起作用（即，在内联脚本不起作用）
 
 ```html
 <script src="myscript.js"></script>
@@ -3522,10 +3521,10 @@ Note: both attributes must only be used if the script has a `src` attribute (i.e
 #### 小贴士
 
 
-* Placing a `defer` script in the `<head>` allows the browser to download the script while the page is still parsing, and is therefore a better option than placing the script before the end of the body.
-* If the scripts rely on each other, use `defer`.
-* If the script is independent, use `async`.
-* Use `defer` if the DOM must be ready and the contents are not placed within a `DOMContentLoaded` listener.
+* 请用 `<head>` 中放置一个 `defer`，允许浏览器在页面还在解析过程中下载脚本，因此把脚本放到 `body` 之前是更好的选择
+* 如果脚本之间相互依赖，请用 `defer`.
+* 如果脚本是独立的，请用 `async`.
+* 如果 DOM 必须准备好并且内容还未被放置到 `DOMContentLoaded` 监听器中，请用 `defer` 
 
 
 ##### 附加链接
@@ -3689,23 +3688,23 @@ A browser is said to “support” a specification if it handles valid documents
 <details>
 <summary>查看答案</summary>
 
-The BEM methodology is a naming convention for CSS classes in order to keep CSS more maintainable by defining namespaces to solve scoping issues. BEM stands for Block Element Modifier which is an explanation for its structure. A Block is a standalone component that is reusable across projects and acts as a "namespace" for sub components (Elements). Modifiers are used as flags when a Block or Element is in a certain state or is different in structure or style.
+BEM 方法论是一个CSS 类的命名约定，为了更好的维护，通过定义命名空间来解决作用域的问题。BEM 代表 Block（块），Element（元素），Modifier（修饰符），这是对它结构的解释。 一个 Block（块）是单独组件，可以跨项目使用，而且它作为子组件（Element（元素））的命名空间。Modifier（修饰符）被用来标识一个 Block（块）或 Element（元素）是某个状态或不同结构或样式
 
 ```css
-/* block component */
+/* 块 组件 */
 .block {
 }
 
-/* element */
+/* 元素 */
 .block__element {
 }
 
-/* modifier */
+/* 修饰符 */
 .block__element--modifier {
 }
 ```
 
-Here is an example with the class names on markup:
+有一个标记类名的例子：
 
 ```html
 <nav class="navbar">
@@ -3715,15 +3714,15 @@ Here is an example with the class names on markup:
 </nav>
 ```
 
-In this case, `navbar` is the Block, `navbar__link` is an Element that makes no sense outside of the `navbar` component, and `navbar__link--active` is a Modifier that indicates a different state for the `navbar__link` Element.
+在这个例子中，`navbar` 是 Block（块），`navbar__link`是一个在 `navbar` 组件外部毫无意义的 Element（元素），`navbar__link--active` 是一个修饰符代表 `navbar__link` Element（元素）的不同状态
 
-Since Modifiers are verbose, many opt to use `is-*` flags instead as modifiers.
+因为修饰符太啰嗦，大多选择使用 `is-*` 标识代替修饰符
 
 ```html
 <a href="/" class="navbar__link is-active"></a>
 ```
 
-These must be chained to the Element and never alone however, or there will be scope issues.
+这样必须使用链式到 Element（元素）后，不能单独使用，否则将出现作用域问题
 
 ```css
 .navbar__link.is-active {
@@ -3734,7 +3733,7 @@ These must be chained to the Element and never alone however, or there will be s
 #### 小贴士
 
 
-* Alternative solutions to scope issues like CSS-in-JS
+* 一个可替换的选择解决方案就是使用像 CSS-in-JS 这种
 
 
 ##### 附加链接
@@ -3962,19 +3961,7 @@ div + p {
 }
 ```
 
-##### 附加链接
-
-* [W3School's CSS Combinators Page](https://www.w3schools.com/css/css_combinators.asp)
-* [Mozilla's Combinators and groups of selectors page](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Combinators_and_multiple_selectors)
-
-<!-- tags: (css) -->
-
-<!-- expertise: (2) -->
-
-
 #### 小贴士
-
-
 
 
 ##### 附加链接
@@ -3992,22 +3979,21 @@ div + p {
 <details>
 <summary>查看答案</summary>
 
-Assuming the browser has already determined the set of rules for an element, each rule is assigned a matrix of values, which correspond to the following from highest to lowest specificity:
+假设浏览器已经定义好了元素的规则集，为每一个元素分配一个矩阵值，它的优先级从高到低对应如下：
 
-* Inline rules (binary - 1 or 0)
-* Number of id selectors
-* Number of class, pseudo-class and attribute selectors
-* Number of tags and pseudo-element selectors
+* 内联规则（二进制 - 1 或 0）
+* id 选择器的数量
+* 类选择器，伪类选择器和属性选择器的数量
+* 标签选择器和伪元素选择器的数量
 
-When two selectors are compared, the comparison is made on a per-column basis (e.g. an id selector will always be higher than any amount of class selectors, as ids have higher specificity than classes). In cases of equal specificity between multiple rules, the rules that comes last in the page's style sheet is deemed more specific and therefore applied to the element.
+当两个选择器进行比较，比较设计基于每一列的基础上（例如，一个 id 选择器永远比 任何数量的类选择器级别高，id 比类选择器拥有更高优先级）。在多个级别相等的多个规则中，出现在页面样式表的最后那个规则被认为优先级更高，因此它会应用于元素上
 
 
 #### 小贴士
 
 
-* Specificity matrix: [inline, id, class/pseudo-class/attribute, tag/pseudo-element]
-* In cases of equal specificity, last rule is applied
-
+* 优先级矩阵：[内联，id，类/伪类/属性，标签/伪元素]
+* 在相同级别的情况下，后面的规则优先
 
 ##### 附加链接
 
@@ -4121,12 +4107,12 @@ isTrue(true, callback)
 
 <br>[⬆ 返回顶部](#目录)
 
-### 什么是 REST？
+### 什么是 `REST`？
 
 <details>
 <summary>查看答案</summary>
 
-REST (REpresentational State Transfer) is a software design pattern for network architecture. A RESTful web application exposes data in the form of information about its resources.
+RSET（REpresentational State Transfer 表述性状态转）是一个用于网络架构的软件设计模式。REST (REpresentational State Transfer) is a software design pattern for network architecture. A RESTful web application exposes data in the form of information about its resources.
 
 Generally, this concept is used in web applications to manage state. With most applications, there is a common theme of reading, creating, updating, and destroying data. Data is modularized into separate tables like `posts`, `users`, `comments`, and a RESTful API exposes access to this data with:
 
@@ -4135,16 +4121,16 @@ Generally, this concept is used in web applications to manage state. With most a
 
 Here is an example of the URL and HTTP method with a `posts` resource:
 
-* Reading: `/posts/` => GET
-* Creating: `/posts/new` => POST
-* Updating: `/posts/:id` => PUT
-* Destroying: `/posts/:id` => DELETE
+* 查：`/posts/` => GET
+* 增：`/posts/new` => POST
+* 改：`/posts/:id` => PUT
+* 删：`/posts/:id` => DELETE
 
 
 #### 小贴士
 
 
-* Alternatives to this pattern like GraphQL
+* 可以用如 GraphQL 模式替换
 
 
 ##### 附加链接
