@@ -119,10 +119,10 @@
 * [`<script>` 标签的 `defer` 和 `async` 是什么？](#script-标签的-defer-和-async-是什么)
 * [不采用缓存的目的是什么，你如何实现它？](#what-is-the-purpose-of-cache-busting-and-how-can-you-achieve-it)
 * [什么是 `DOM`？](#what-is-the-dom)
-* [一个页面里是否可以包含多个 `<header>` 元素， `<footer>` 元素呢？](#can-a-web-page-contain-multiple-header-elements-what-about-footer-elements)
+* [一个页面里是否可以包含多个 `<header>` 元素， `<footer>` 元素呢？](#一个页面里是否可以包含多个-header-元素-footer-元素呢)
 * [讨论下 HTML 规范和浏览器实现之间的区别？](#discuss-the-differences-between-an-html-specification-and-a-browsers-implementation-thereof)
 * [相比 HTML，XHTML 有哪些不同？](#相比-htmlxhtml-有哪些不同)
-* [简明的阐述下 HTML5 语义标签 `<header>`，`<article>`，`<section>`，`<footer>` 的用法](#briefly-describe-the-correct-usage-of-the-following-html5-semantic-elements-header-articlesection-footer)
+* [简明的阐述下 HTML5 语义标签 `<header>`，`<article>`，`<section>`，`<footer>` 的用法](#简明的阐述下-html5-语义标签-headerarticlesectionfooter-的用法)
 * [什么是 HTML5 Web Storage，解释下 `localStorage` 和 `sessionStorage`？](#什么是-html5-web-storage解释下-localstorage-和-sessionstorage)
 * [什么时候和为什么使用 `rel="noopener"` 属性？](#什么时候和为什么使用-relnoopener-属性)
 </details>
@@ -3451,14 +3451,13 @@ The browser considers it a different file but prevents the need to change the fi
 <details>
 <summary>查看答案</summary>
 
-Yes to both. The W3 documents state that the tags represent the header(`<header>`) and footer(`<footer>`) areas of their nearest ancestor "section". So not only can the page `<body>` contain a header and a footer, but so can every `<article>` and `<section>` element.
+都可以。W3C 文档声明这些标签代表离它们最近祖先区域的页眉（`<header>`）和页脚（`<footer>`）。因此，不只是可以在页面的 `<body>` 里包含页眉和页脚，而且每一个 `<article>` 和 `<section>` 元素都可以包含
 
 
 #### 小贴士
 
 
-* W3 recommends having as many as you want, but only 1 of each for each "section" of your page, i.e. body, section etc.
-
+* W3C 推荐你想用多少就用多少，但是每一个页面的区域只能有一个，即，body，section 等等
 
 ##### 附加链接
 
@@ -3474,19 +3473,19 @@ Yes to both. The W3 documents state that the tags represent the header(`<header>
 <details>
 <summary>查看答案</summary>
 
-* `<header>` is used to contain introductory and navigational information about a section of the page. This can include the section heading, the author’s name, time and date of publication, table of contents, or other navigational information.
+* `<header>` 是被用来包含介绍和导航信息页面的一部分。这部分包含章节标题，作者姓名，发布日期和时间，目录，或其他导航信息
 
-* `<article>` is meant to house a self-contained composition that can logically be independently recreated outside of the page without losing its meaning. Individual blog posts or news stories are good examples.
+* `<article>` 是一个逻辑独立的复合体，可以在页面外部重新创建而不会失去其意义。个人博客文章或新闻故事就是很好的例子
 
-* `<section>` is a flexible container for holding content that shares a common informational theme or purpose.
+* `<section>` 是一个灵活的容器，用来保存分享公共信息主题或目的的内容
 
-* `<footer>` is used to hold information that should appear at the end of a section of content and contain additional information about the section. Author’s name, copyright information, and related links are typical examples of such content.
+* `<footer>` 是被用来保存应该显示内容部分的尾部信息和这个章节的附加信息。作者的姓名，版权信息，和相关链接就是典型的例子
 
 
 #### 小贴士
 
 
-* Other semantic elements are `<form>` and `<table>`
+* 其他的语义化元素 `<form>` 和 `<table>`
 
 
 ##### 附加链接
@@ -4112,14 +4111,14 @@ isTrue(true, callback)
 <details>
 <summary>查看答案</summary>
 
-RSET（REpresentational State Transfer 表述性状态转）是一个用于网络架构的软件设计模式。REST (REpresentational State Transfer) is a software design pattern for network architecture. A RESTful web application exposes data in the form of information about its resources.
+RSET（REpresentational State Transfer 表述性状态转移）是一个用于网络架构的软件设计模式。一个 RESTful web 应用以它的资源信息形式公开数据
 
-Generally, this concept is used in web applications to manage state. With most applications, there is a common theme of reading, creating, updating, and destroying data. Data is modularized into separate tables like `posts`, `users`, `comments`, and a RESTful API exposes access to this data with:
+通常，这个概念用于 web 应用管理状态。在大多数应用中，有一个共同的内容，查，增，改，删数据。数据被模块化的分割为表，像 `posts`，`users`，`comments`，一个 RESTful API 以这种形式公开访问数据：
 
-* An identifier for the resource. This is known as the endpoint or URL for the resource.
-* The operation the server should perform on that resource in the form of an HTTP method or verb. The common HTTP methods are GET, POST, PUT, and DELETE.
+* 一个资源的 id。被认为是资源的端点或 URL
+* 服务器应该按照这个资源的 HTTP 方法或动词来执行相应操作。常用的 HTTP 方法有 GET，POST，PUT，和 DELETE
 
-Here is an example of the URL and HTTP method with a `posts` resource:
+这有一个带有 `posts` 资源的 URL 和 HTTP 方法的例子：
 
 * 查：`/posts/` => GET
 * 增：`/posts/new` => POST

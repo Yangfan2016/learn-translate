@@ -89,7 +89,10 @@
 `extract` 提取；摘录；榨取    
 `adjacent` 相邻的    
 `specified` 指定的；详细说明的    
-`methodology` 方法论  
+`methodology` 方法论    
+`modularized` 模块化的  
+`verb` 动词  
+
 
 
 
