@@ -91,7 +91,15 @@
 `specified` 指定的；详细说明的    
 `methodology` 方法论    
 `modularized` 模块化的  
-`verb` 动词  
+`verb` 动词    
+`operand` 操作数  
+`regardless` 不顾后果地；无论如何  
+`remain` 留下；残存；残余；遗骸   
+`refactor` 重构  
+`constantly` 不断地  
+`indentation` 缩进  
+`mandatory` 强制的；命令的  
+
 
 
 

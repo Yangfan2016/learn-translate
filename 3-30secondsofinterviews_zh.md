@@ -25,7 +25,7 @@
 * [创建一个 batches 函数，返回一个食谱中可以被作为烹饪整批食材的最大数量](#创建一个-batches-函数返回一个食谱中可以被作为烹饪整批食材的最大数量)
 * [什么是大 O 标记法？](#what-is-big-o-notation)
 * [创建一个和 `Function.prototype.bind` 功能一样的独立函数 `bind`](#创建一个和-Functionprototypebind-功能一样的独立函数-bind)
-* [你是怎么避免回调地狱的？](#how-can-you-avoid-callback-hells)
+* [你是怎么避免回调地狱的？](#你是怎么避免回调地狱的)
 * [什么是回调，你可以举个例子吗？](#什么是回调你可以举个例子吗)
 * [在 JavaScript 中，你是如何克隆一个对象的？](#how-do-you-clone-an-object-in-javascript)
 * [什么是闭包，你可以举一个有用的例子吗？](#什么是闭包你可以举一个有用的例子吗)
@@ -65,7 +65,7 @@
 * [下面的代码会输出什么？](#下面的代码会输出什么)
 * [下面的函数会返回什么？](#下面的函数会返回什么)
 * [JavaScript 里分号是必须的吗？](#javascript-里分号是必须的吗)
-* [在 JavaScript 里，什么是短路运算？](#what-is-short-circuit-evaluation-in-javascript)
+* [在 JavaScript 里，什么是短路运算？](#在-javascript-里什么是短路运算)
 * [解释下静态方法和实例方法的区别](#解释下静态方法和实例方法的区别)
 * [在 JavaScript 里，同步代码和异步代码有什么不同？](#在-javascript-里同步代码和异步代码有什么不同)
 * [`this` 关键字是什么，它是如何工作的？](#what-is-the-this-keyword-and-how-does-it-work)
@@ -74,7 +74,7 @@
 * [诸如 React，Vue，Angular，Hyperapp 等 JavaScript UI 库/框架的目的是什么？](#what-is-the-purpose-of-javascript-ui-librariesframeworks-like-react-vue-angular-hyperapp-etc)
 * [什么是‘严格模式’，它带来哪些关键性的好处？](#什么是严格模式它带来哪些关键性的好处)
 * [`let` `var` `const` 和无关键字声明变量有何不同？](#what-are-the-differences-between-var-let-const-and-no-keyword-statements)
-* [什么是虚拟 DOM，为何库/框架都在用它？](#what-is-a-virtual-dom-and-why-is-it-used-in-librariesframeworks)
+* [什么是虚拟 DOM，为何库/框架都在用它？](#什么是虚拟-dom为何库框架都在用它)
 * [什么是跨站脚本攻击（XSS），你是如何阻止它的？](#what-is-a-cross-site-scripting-attack-xss-and-how-do-you-prevent-it)
 </details>
 
@@ -102,7 +102,7 @@
 * [在 React class 组件中，你是如何确保 `this` 的正确指向的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
 * [你是怎么给事件处理或回调函数传参的？](#你是怎么给事件处理回调函数传参的)
 * [在 React 中，`portals` 是什么？](#what-are-portals-in-reactjs)
-* [在 React 中，如何校验 `prop`？](#how-to-apply-prop-validation-in-react)
+* [在 React 中，如何校验 `prop`？](#在-react-中如何校验-prop)
 * [在 React 里，如何写注释？](#在-react-里如何写注释)
 * [什么是 `refs`，我们如何使用它？](#什么是-refs我们如何使用它)
 * [什么是有状态组件？](#什么是有状态组件)
@@ -1388,28 +1388,28 @@ const previousLine = 3
 <details>
 <summary>查看答案</summary>
 
-Short-circuit evaluation involves logical operations evaluating from left-to-right and stopping early.
+短路求值包含逻辑运算符，从左到右求值，而且尽快停止
 
 ```js
 true || false
 ```
 
-In the above sample using logical OR, JavaScript won't look at the second operand `false`, because the expression evaluates to `true` regardless. This is known as short-circuit evaluation.
+在上面这个例子使用了逻辑或，JavaScript 不会查找第二个操作数 `false` ，因为表达式无论如何求值都是 `true`。这就是我们熟知短路求值
 
-This also works for logical AND.
+同样作用于逻辑与
 
 ```js
 false && true
 ```
 
-This means you can have an expression that throws an error if evaluated, and it won't cause issues.
+这就意味着如果你对一个表达式求值得到是一个抛出的错误的话，这并不会造成任何问题
 
 ```js
 true || nonexistentFunction()
 false && nonexistentFunction()
 ```
 
-This remains true for multiple operations because of left-to-right evaluation.
+因为从左到右的求值，多个操作符仍然会得到 `true`
 
 ```js
 true || nonexistentFunction() || window.nothing.wouldThrowError
@@ -1417,7 +1417,7 @@ true || window.nothing.wouldThrowError
 true
 ```
 
-A common use case for this behavior is setting default values. If the first operand is falsy the second operand will be evaluated.
+这种行为一个常用的用法是设置默认值。如果第一个操作数是假值（falsy），那么第二个操作符就会被求值
 
 ```js
 const options = {}
@@ -1425,30 +1425,30 @@ const setting = options.setting || "default"
 setting // "default"
 ```
 
-Another common use case is only evaluating an expression if the first operand is truthy.
+另一个常用的例子就是如果第一个操作数是真值（truthy），才将执行表达式
 
 ```js
-// Instead of:
+// 替换
 addEventListener("click", e => {
   if (e.target.closest("button")) {
     handleButtonClick(e)
   }
 })
 
-// You can take advantage of short-circuit evaluation:
+// 你可以发挥短路运算符的优势
 addEventListener(
   "click",
   e => e.target.closest("button") && handleButtonClick(e)
 )
 ```
 
-In the above case, if `e.target` is not or does not contain an element matching the `"button"` selector, the function will not be called. This is because the first operand will be falsy, causing the second operand to not be evaluated.
+在上面这个例子中，如果 `e.target` 没有或不包含匹配 `"button"` 选择器的元素时，这个函数就不会被调用。这是因为第一个操作数是假值（falsy）时，第二个操作符就不会被求值
 
 
 #### 小贴士
 
 
-* Logical operations do not produce a boolean unless the operand(s) evaluate to a boolean.
+* 逻辑操作符不会产生一个布尔值，除非操作数的值执行产生一个布尔值
 
 
 ##### 附加链接
@@ -1775,9 +1775,9 @@ getData(function(a) {
 <details>
 <summary>查看答案</summary>
 
-Refactoring the functions to return promises and using `async/await` is usually the best option. Instead of supplying the functions with callbacks that cause deep nesting, they return a promise that can be `await`ed and will be resolved once the data has arrived, allowing the next line of code to be evaluated in a sync-like fashion.
+使用 `async/await` 重构函数返回 `promise` 通常是最佳选择。代替返回深度嵌套的回调，它们返回一个 `promise`，等待数据接受后然后解析，允许下一行代码以同步风格的方式执行
 
-The above code can be restructured like so:
+上面的代码重构如下：
 
 ```js
 async function asyncAwaitVersion() {
@@ -1790,18 +1790,18 @@ async function asyncAwaitVersion() {
 }
 ```
 
-There are lots of ways to solve the issue of callback hells:
+这里还有许多解决回调地狱问题的方法：
 
-* Modularization: break callbacks into independent functions
-* Use a control flow library, like async
-* Use generators with Promises
-* Use async/await (from v7 on)
+* 模块化：把回调分割为独立函数
+* 使用一个控制流的库，像 [async](https://www.npmjs.com/package/async)
+* 使用一个带有 `promise` 的生成器
+* 使用 async/await (ES2017 版本及以上)
 
 
 #### 小贴士
 
 
-* As an efficient JavaScript developer, you have to avoid the constantly growing indentation level, produce clean and readable code and be able to handle complex flows.
+* 作为一个高效的 JavaScript 的开发者，你必须避免不断增长的缩进级别，生产出干净的和可读的代码和能够处理复杂的流
 
 
 ##### 附加链接
@@ -2513,7 +2513,7 @@ When working with DOM manipulation libraries like jQuery, the data of an applica
 <details>
 <summary>查看答案</summary>
 
-The virtual DOM (VDOM) is a representation of the real DOM in the form of plain JavaScript objects. These objects have properties to describe the real DOM nodes they represent: the node name, its attributes, and child nodes.
+虚拟 DOM（VDOM）是一个用 JavaScript 普通对象形式表示真实 DOM的表现。这些对象使用属性来描述真实 DOM 节点：节点名称，它的属性，和子节点们 
 
 ```html
 <div class="counter">
@@ -2523,7 +2523,7 @@ The virtual DOM (VDOM) is a representation of the real DOM in the form of plain 
 </div>
 ```
 
-The above markup's virtual DOM representation might look like this:
+上面用虚拟 DOM 表示出来可能看起来如下：
 
 ```js
 {
@@ -2549,15 +2549,15 @@ The above markup's virtual DOM representation might look like this:
 }
 ```
 
-The library/framework uses the virtual DOM as a means to improve performance. When the state of an application changes, the real DOM needs to be updated to reflect it. However, changing real DOM nodes is costly compared to recalculating the virtual DOM. The previous virtual DOM can be compared to the new virtual DOM very quickly in comparison.
+库/框架使用虚拟 DOM 来提高性能。当应用状态发生改变时，真实 DOM 需要更新来反映它。然而，改变真实 DOM 节点比重新计算虚拟 DOM 花费更高，开销更大。旧虚拟 DOM 和新虚拟 DOM 的比较非常快
 
-Once the changes between the old VDOM and new VDOM have been calculated by the diffing engine of the framework, the real DOM can be patched efficiently in the least time possible to match the new state of the application.
+一旦旧虚拟 DOM 和新虚拟 DOM 在框架的 diff 引擎下计算出变化，就会尽可能的以最快的有效的方式附加到真实的 DOM 上来匹配应用的新状态
 
 
 #### 小贴士
 
 
-* Why accessing the DOM can be so costly.
+* 为何访问 DOM 会如此昂贵
 
 
 ##### 附加链接
@@ -3234,18 +3234,18 @@ The first argument (`child`) is any renderable React child, such as an element, 
 
 <br>[⬆ 返回顶部](#目录)
 
-### 在 React 中，如何校验 prop？
+### 在 React 中，如何校验 `prop`？
 
 <details>
 <summary>查看答案</summary>
 
-When the application is running in development mode, React will automatically check for all props that we set on components to make sure they are the correct data type. For incorrect data type, it will generate warning messages in the console for development mode whereas it is disabled in production mode due to performance impact. The required prop is defined with `isRequired`.
+当应用运行在开发模式下时，React 会自动检查我们在组件上设置的所有 `props` 以确保它们得到的是正确的数据类型。对于不正确的数据类型，在开发模式下它将在控制台产生一个警告信息，然而由于性能的影响它在生产模式下是禁用的。必选的 `prop` 需要定义 `isRequired`
 
-The set of predefined prop types are the following:
+预定义的 `prop` 类型如下：
 
 -`PropTypes.string` -`PropTypes.number` -`PropTypes.func` -`PropTypes.node` -`PropTypes.bool`
 
-For example, we define propTypes for component as below:
+例如，我们可以在组件上如下这么定义：
 
 ```jsx
 import PropTypes from 'prop-types';
@@ -3269,8 +3269,8 @@ User.propTypes = {
 #### 小贴士
 
 
-* We can define custom `PropTypes`
-* Using `PropTypes` is not mandatory. However, it is a good practice
+* 我们可以自己自定义 `PropTypes`
+* 使用 `PropTypes` 不是强制的，但这是最佳实践
 
 
 ##### 附加链接
@@ -4136,64 +4136,6 @@ RSET（REpresentational State Transfer 表述性状态转移）是一个用于�
 
 
 *   ](https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
-### 你是怎么避免回调地狱的？
-
-```js
-getData(function(a) {
-  getMoreData(a, function(b) {
-    getMoreData(b, function(c) {
-      getMoreData(c, function(d) {
-        getMoreData(d, function(e) {
-          // ...
-        })
-      })
-    })
-  })
-})
-```
-
-<details>
-<summary>查看答案</summary>
-
-Refactoring the functions to return promises and using `async/await` is usually the best option. Instead of supplying the functions with callbacks that cause deep nesting, they return a promise that can be `await`ed and will be resolved once the data has arrived, allowing the next line of code to be evaluated in a sync-like fashion.
-
-The above code can be restructured like so:
-
-```js
-async function asyncAwaitVersion() {
-  const a = await getData()
-  const b = await getMoreData(a)
-  const c = await getMoreData(b)
-  const d = await getMoreData(c)
-  const e = await getMoreData(d)
-  // ...
-}
-```
-
-There are lots of ways to solve the issue of callback hells:
-
-* Modularization: break callbacks into independent functions
-* Use a control flow library, like async
-* Use generators with Promises
-* Use async/await (from v7 on)
-
-
-#### 小贴士
-
-
-* As an efficient JavaScript developer, you have to avoid the constantly growing indentation level, produce clean and readable code and be able to handle complex flows.
-
-
-##### 附加链接
-
-
-* [Avoiding Callback Hell in Node.js](http://stackabuse.com/avoiding-callback-hell-in-node-js/)
-* [Asynchronous JavaScript: From Callback Hell to Async and Await](https://blog.hellojs.org/asynchronous-javascript-from-callback-hell-to-async-and-await-9b9ceb63c8e8)
 
 </details>
 
