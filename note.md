@@ -98,7 +98,9 @@
 `refactor` 重构  
 `constantly` 不断地  
 `indentation` 缩进  
-`mandatory` 强制的；命令的  
+`mandatory` 强制的；命令的    
+`hierarchy` 层级  
+
 
 
 

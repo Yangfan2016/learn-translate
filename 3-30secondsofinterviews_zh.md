@@ -96,12 +96,12 @@
 * [React 和 HTML 对事件处理的区别？](#react-和-html-对事件处理的区别)
 * [什么是内联条件表达式？](#什么是内联条件表达式)
 * [什么是 key ，在 lists 中使用的好处是什么？](#什么是-key-在-lists-中使用的好处是什么)
-* [React 里的生命周期有哪些？](#what-are-the-lifecycle-methods-in-react)
+* [React 里的生命周期有哪些？](#react-里的生命周期有哪些)
 * [React 组件中，生命周期的各个阶段是什么？](#react-组件中生命周期的各个阶段是什么)
 * [在 React 中，状态提升是什么意思？](#在-react-中状态提升是什么意思)
-* [在 React class 组件中，你是如何确保 `this` 的正确指向的？](#how-do-you-ensure-methods-have-the-correct-this-context-in-react-component-classes)
+* [在 React 类方式定义的组件中，你如何保证方法得到的 `this` 是正确的？](#在-react-类方式定义的组件中你如何保证方法得到的-this-是正确的)
 * [你是怎么给事件处理或回调函数传参的？](#你是怎么给事件处理回调函数传参的)
-* [在 React 中，`portals` 是什么？](#what-are-portals-in-reactjs)
+* [在 React 中，`portals` 是什么？](#react-中portals-是什么)
 * [在 React 中，如何校验 `prop`？](#在-react-中如何校验-prop)
 * [在 React 里，如何写注释？](#在-react-里如何写注释)
 * [什么是 `refs`，我们如何使用它？](#什么是-refs我们如何使用它)
@@ -2018,64 +2018,6 @@ const memoize = fn => {
 
 <br>[⬆ 返回顶部](#目录)
 
-### 在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？
-
-<details>
-<summary>查看答案</summary>
-
-* In JavaScript classes, the methods are not bound by default. This means that their `this` context can be changed (in the case of an event handler, to the element that is listening to the event) and will not refer to the component instance. To solve this, `Function.prototype.bind()` can be used to enforce the `this` context as the component instance.
-
-```jsx
-constructor(props) {
-  super(props);
-  this.handleClick = this.handleClick.bind(this);
-}
-
-handleClick() {
-  // Perform some logic
-}
-```
-
-* The `bind` approach can be verbose and requires defining a `constructor`, so the new public class fields syntax is generally preferred:
-
-```jsx
-handleClick = () => {
-  console.log('this is:', this);
-}
-
-render() {
-  return (
-    <button onClick={this.handleClick}>
-      Click me
-    </button>
-  );
-}
-```
-
-* You can also use an inline arrow function, because lexical `this` (referring to the component instance) is preserved:
-
-```jsx
-<button onClick={e => this.handleClick(e)}>Click me</button>
-```
-
-Note that extra re-rendering can occur using this technique because a new function reference is created on render, which gets passed down to child components and breaks `shouldComponentUpdate` / `PureComponent` shallow equality checks to prevent unnecessary re-renders. In cases where performance is important, it is preferred to go with `bind` in the constructor, or the public class fields syntax approach, because the function reference remains constant.
-
-
-#### 小贴士
-
-
-* You can either bind methods to the component instance context in the constructor, use public class fields syntax, or use inline arrow functions.
-
-
-##### 附加链接
-
-
-* [React docs on Handling Events](https://reactjs.org/docs/handling-events.html)
-* [React docs on Passing Functions to Components](https://reactjs.org/docs/faq-functions.html#how-do-i-bind-a-function-to-a-component-instance)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
 
 ### 对比下可变与不可变值，可变与不可变方法
 
@@ -2169,34 +2111,6 @@ const pipe = (...fns) => x => fns.reduce((v, fn) => fn(v), x)
 
 
 * [What is function composition?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-function-composition-20dfb109a1a0)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
-### ReactJS 中，‘portals’（传送门） 是什么？
-
-<details>
-<summary>查看答案</summary>
-
-Portal are the recommended way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
-
-```jsx
-ReactDOM.createPortal(child, container)
-```
-
-The first argument (`child`) is any renderable React child, such as an element, string, or fragment. The second argument (`container`) is a DOM element.
-
-
-#### 小贴士
-
-
-
-
-##### 附加链接
-
-
-* [React docs on Portals](https://reactjs.org/docs/portals.html)
 
 </details>
 
@@ -2826,19 +2740,19 @@ const todoItems = todos.map(todo => <li key={todo.id}>{todo.text}</li>)
 <details>
 <summary>查看答案</summary>
 
-`getDerivedStateFromProps`: Executed before rendering on the initial mount and all component updates. Used to update the state based on changes in props over time. Has rare use cases, like tracking component animations during the lifecycle. There are only few cases where this makes sense to use over other lifecycle methods. It expects to return an object that will be the the new state, or null to update nothing. This method does not have access to the component instance either.
+`getDerivedStateFromProps`: 在初始挂载和所有组件更新渲染之前执行。用于随着 props 的改变更新 state。有很少的使用情况，像在生命周期中跟踪组件动画。它们只有很少的例子，在其他生命周期方法使用是有意义的。它期望返回一个对象用来设置新的 state，或者返回 `null` 是什么也不会更新。这个方法还不能访问组件实例
 
-`componentDidMount`: Executed after first rendering and here all AJAX requests, DOM or state updates, and set up eventListeners should occur.
+`componentDidMount`: 在第一渲染之后执行，这里可以发送所有 AJAX 请求，DOM 或 state 的更新，和设置事件监听器
 
-`shouldComponentUpdate`: Determines if the component will be updated or not. By default, it returns true. If you are sure that the component doesn't need to render after state or props are updated, you can return a false value. It is a great place to improve performance as it allows you to prevent a rerender if component receives new prop.
+`shouldComponentUpdate`: 决定是否更新组件。默认情况下，它返回 `true`。如果你确定在 state 或 props 更新之后组件不需要重新渲染的话，你可以返回一个假值。它是提升性能的好地方，允许你在组件接受的新的 prop 时阻止组件重新渲染
 
-`getSnapshotBeforeUpdate`: Invoked right after a component render happens because of an update, before `componentDidUpdate`. Any value returned from this method will be passed to `componentDidUpdate`.
+`getSnapshotBeforeUpdate`: 在 `componentDidUpdate` 之前的更新将导致组件渲染之后立即调用，返回的任何值将会传给 `componentDidUpdate`
 
-`componentDidUpdate`: Mostly it is used to update the DOM in response to prop or state changes.
+`componentDidUpdate`: 大多数用于更新 DOM 来响应 prop 或 state 的改变
 
-`componentWillUnmount`: It will be used to cancel any outgoing network requests, or remove all event listeners associated with the component.
+`componentWillUnmount`: 它将取消任何已经发出的网络请求，或移除所有与组件关联的事件监听器
 
-`componentDidCatch`: Used in error boundaries, which are components that implement this method. It allows the component to catch JavaScript errors anywhere in the _child_ component tree (below this component), log errors, and display a UI with error information.
+`componentDidCatch`: 在错误边界（实现这个方法的组件）里使用。它允许组件捕获子组件树（这个组件之下）任何地方的 JavaScript 错误，记录错误，并且用 UI 的信息的形式展示出来
 
 
 #### 小贴士
@@ -3147,12 +3061,12 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent)
 
 <br>[⬆ 返回顶部](#目录)
 
-### 在 React 类方式定义的组件中，你如何保证方法得到的 ‘this’ 是正确的？
+### 在 React 类方式定义的组件中，你如何保证方法得到的 `this` 是正确的？
 
 <details>
 <summary>查看答案</summary>
 
-* In JavaScript classes, the methods are not bound by default. This means that their `this` context can be changed (in the case of an event handler, to the element that is listening to the event) and will not refer to the component instance. To solve this, `Function.prototype.bind()` can be used to enforce the `this` context as the component instance.
+* 在 JavaScript 类中，方法不是默认被绑定的。这就意味着它们 `this` 上下文可以被改变（在事件处理例子里，指向监听事件的那个元素）和将不会指向组件实例。为了解决这个问题，`Function.prototype.bind()` 可以强制把 `this`  上下文绑定到组件实例上
 
 ```jsx
 constructor(props) {
@@ -3161,11 +3075,11 @@ constructor(props) {
 }
 
 handleClick() {
-  // Perform some logic
+  // 执行一些逻辑
 }
 ```
 
-* The `bind` approach can be verbose and requires defining a `constructor`, so the new public class fields syntax is generally preferred:
+* `bind` 方法可能是冗长的，而且必须在 `constructor` 中定义，因此更推荐新的公共类字段语法：
 
 ```jsx
 handleClick = () => {
@@ -3181,19 +3095,19 @@ render() {
 }
 ```
 
-* You can also use an inline arrow function, because lexical `this` (referring to the component instance) is preserved:
+* 你也可以使用内联箭头函数，因为词法 `this`（指向组件实例） 被保留里下来：
 
 ```jsx
 <button onClick={e => this.handleClick(e)}>Click me</button>
 ```
 
-Note that extra re-rendering can occur using this technique because a new function reference is created on render, which gets passed down to child components and breaks `shouldComponentUpdate` / `PureComponent` shallow equality checks to prevent unnecessary re-renders. In cases where performance is important, it is preferred to go with `bind` in the constructor, or the public class fields syntax approach, because the function reference remains constant.
+注意重新渲染会被发生，由于在渲染期间又创建了新的函数，它会破坏 `shouldComponentUpdate` / `PureComponent` 的浅比较来阻止重新渲染。在性能很重要的情况下，优先使用在构造器中使用 `bind`，或者使用公共类字段语法方法，因为函数引用保持不变
 
 
 #### 小贴士
 
 
-* You can either bind methods to the component instance context in the constructor, use public class fields syntax, or use inline arrow functions.
+* 你要么使用在构造器中用 `bind` 方法绑定组件实例，使用公共类方法字段语法，要么使用内联箭头函数
 
 
 ##### 附加链接
@@ -3206,18 +3120,18 @@ Note that extra re-rendering can occur using this technique because a new functi
 
 <br>[⬆ 返回顶部](#目录)
 
-### ReactJS 中，‘portals’（传送门） 是什么？
+### 在 React 中，`portals` 是什么？
 
 <details>
 <summary>查看答案</summary>
 
-Portal are the recommended way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+Portal 是一种渲染不在父元素层级内的子元素的推荐方式
 
 ```jsx
 ReactDOM.createPortal(child, container)
 ```
 
-The first argument (`child`) is any renderable React child, such as an element, string, or fragment. The second argument (`container`) is a DOM element.
+第一个参数（`child`）是可渲染的 React 子元素，例如，一个元素，字符串或文档片段。第二个参数（`container`）是一个 DOM 元素
 
 
 #### 小贴士
