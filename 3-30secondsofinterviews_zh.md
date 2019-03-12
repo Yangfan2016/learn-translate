@@ -31,7 +31,6 @@
 * [什么是闭包，你可以举一个有用的例子吗？](#什么是闭包你可以举一个有用的例子吗)
 * [在 JavaScript 中，你是如何比较两个对象的？](#how-do-you-compare-two-objects-in-javascript)
 * [什么是 `CORS`？](#what-is-cors)
-* [什么是 `DOM`？](#what-is-the-dom)
 * [`==` 和 `===` 相等运算符有什么区别？](#-和--相等运算符有什么区别)
 * [什么是事件委托，为什么它是有用的，你可以举个例子说明如何使用它？](#what-is-event-delegation-and-why-is-it-useful-can-you-show-an-example-of-how-to-use-it)
 * [什么是事件驱动编程？](#what-is-event-driven-programming)
@@ -118,7 +117,7 @@
 * [图片里的 `alt` 属性是做什么的？](#图片里的-alt-属性是做什么的)
 * [`<script>` 标签的 `defer` 和 `async` 是什么？](#script-标签的-defer-和-async-是什么)
 * [不采用缓存的目的是什么，你如何实现它？](#what-is-the-purpose-of-cache-busting-and-how-can-you-achieve-it)
-* [什么是 `DOM`？](#what-is-the-dom)
+* [什么是 `DOM`？](#什么是-dom)
 * [一个页面里是否可以包含多个 `<header>` 元素， `<footer>` 元素呢？](#一个页面里是否可以包含多个-header-元素-footer-元素呢)
 * [讨论下 HTML 规范和浏览器实现之间的区别？](#discuss-the-differences-between-an-html-specification-and-a-browsers-implementation-thereof)
 * [相比 HTML，XHTML 有哪些不同？](#相比-htmlxhtml-有哪些不同)
@@ -135,14 +134,14 @@
 
 * [什么是 CSS BEM？](#什么是-css-bem)
 * [简要阐述下 CSS 的盒模型，及各个组成部分？](#简要阐述下-css-的盒模型及各个组成部分)
-* [用 CSS 预处理的优势是什么？](#what-are-the-advantages-of-using-css-preprocessors)
+* [用 CSS 预处理的优势是什么？](#用-css-预处理的优势是什么)
 * [CSS 里通用兄弟选择器和相邻兄弟选择器的区别？](#css-里通用兄弟选择器和相邻兄弟选择器的区别)
 * [你能描述下 CSS 优先级是如何工作的？](#你能描述下-css-优先级是如何工作的)
 * [`em` 和 `rem` 单位的区别？](#em-和-rem-单位的区别)
 * [使用 flexbox，创建一个 3 列布局，每一列取容器的百分之 `col-{n}`/12 ](#使用-flexbox创建一个-3-列布局每一列取容器的百分之-col-n12)
 * [什么是聚焦环，正确的解决方案是什么？](#what-is-a-focus-ring-what-is-the-correct-solution-to-handle-them)
 * [你能说出 `@media` 属性的四种类型吗？](#你能说出-media-属性的四种类型吗)
-* [CSS 雪碧图的优势在哪里，如何使用？](#what-are-the-advantages-of-using-css-sprites-and-how-are-they-utilized)
+* [CSS 雪碧图的优势在哪里，如何使用？](#css-雪碧图的优势在哪里如何使用)
 </details>
 
 
@@ -536,32 +535,6 @@ For security reasons, browsers restrict cross-origin HTTP requests initiated by 
 
 
 * [MDN docs for CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
-### 什么是 DOM？
-
-<details>
-<summary>查看答案</summary>
-
-The DOM (Document Object Model) is a cross-platform API that treats HTML and XML documents as a tree structure consisting of nodes. These nodes (such as elements and text nodes) are objects that can be programmatically manipulated and any visible changes made to them are reflected live in the document. In a browser, this API is available to JavaScript where DOM nodes can be manipulated to change their styles, contents, placement in the document, or interacted with through event listeners.
-
-
-#### 小贴士
-
-
-* The DOM was designed to be independent of any particular programming language, making the structural representation of the document available from a single, consistent API.
-* The DOM is constructed progressively in the browser as a page loads, which is why scripts are often placed at the bottom of a page, in the `<head>` with a `defer` attribute, or inside a `DOMContentLoaded` event listener. Scripts that manipulate DOM nodes should be run after the DOM has been constructed to avoid errors.
-* `document.getElementById()` and `document.querySelector()` are common functions for selecting DOM nodes.
-* Setting the `innerHTML` property to a new value runs the string through the HTML parser, offering an easy way to append dynamic HTML content to a node.
-
-
-##### 附加链接
-
-
-* [MDN docs for DOM](https://developer.mozilla.org/en-US/docs/DOM)
 
 </details>
 
@@ -2572,7 +2545,7 @@ render() => (<div>
 <details>
 <summary>查看答案</summary>
 
-在 `setState` 设置完成和组件渲染完时，会调用这个回调函数。因为 `setState` 是一步操作，所以这个回调函数可以用来做任何 post 操作
+在 `setState` 设置完成和组件渲染完时，会调用这个回调函数。因为 `setState` 是异步操作，所以这个回调函数可以用来做任何 post 操作
 
 ```jsx
 setState({ name: "sudheer" }, () =>
@@ -3449,21 +3422,21 @@ The browser considers it a different file but prevents the need to change the fi
 
 <br>[⬆ 返回顶部](#目录)
 
-### 什么是 DOM？
+### 什么是 `DOM`？
 
 <details>
 <summary>查看答案</summary>
 
-The DOM (Document Object Model) is a cross-platform API that treats HTML and XML documents as a tree structure consisting of nodes. These nodes (such as elements and text nodes) are objects that can be programmatically manipulated and any visible changes made to them are reflected live in the document. In a browser, this API is available to JavaScript where DOM nodes can be manipulated to change their styles, contents, placement in the document, or interacted with through event listeners.
+DOM（Document Object Model，文档对象模型）是一个跨平台的 API，将 HTML 和 XML 文档视为一个节点组成的数结构。这些节点（例如，元素和文本节点）是可编程的对象，并且任何的改变都会反射到文档中。在一个浏览器，这个 API 对于 JavaScript 是可用的，DOM 节点可以被操作来改变它们在文档中的样式，内容，位置，或者交互的事件监听器
 
 
 #### 小贴士
 
 
-* The DOM was designed to be independent of any particular programming language, making the structural representation of the document available from a single, consistent API.
-* The DOM is constructed progressively in the browser as a page loads, which is why scripts are often placed at the bottom of a page, in the `<head>` with a `defer` attribute, or inside a `DOMContentLoaded` event listener. Scripts that manipulate DOM nodes should be run after the DOM has been constructed to avoid errors.
-* `document.getElementById()` and `document.querySelector()` are common functions for selecting DOM nodes.
-* Setting the `innerHTML` property to a new value runs the string through the HTML parser, offering an easy way to append dynamic HTML content to a node.
+* DOM 被设计为是一个独立于任何流行编程语言，使文档从一个单一的，一致的 API 可获得的结构表现
+* 当页面加载时，DOM 在浏览器中是渐进式的构建T，这就是为何脚本通常放置在页面的底部，在 `<head>` 带着 `defer` 属性，或者在 `DOMContentLoaded` 监听器的内部。脚本应该在 DOM 加载完操作 DOM 节点，以避免发生错误
+* `document.getElementById()` 和 `document.querySelector()` 是常用的 DOM 节点查找函数
+* 设置一个新值给 `innerHTML` 属性，通过 HTML 解析器来执行这个字符串，提供一个更方便的方法来给节点添加动态的 HTML 内容
 
 
 ##### 附加链接
@@ -3663,14 +3636,14 @@ BEM 方法论是一个CSS 类的命名约定，为了更好的维护，通过定
 <details>
 <summary>查看答案</summary>
 
-CSS preprocessors add useful functionality that native CSS does not have, and generally make CSS neater and more maintainable by enabling DRY (Don't Repeat Yourself) principles. Their terse syntax for nested selectors cuts down on repeated code. They provide variables for consistent theming (however, CSS variables have largely replaced this functionality) and additional tools like color functions (`lighten`, `darken`, `transparentize`, etc), mixins, and loops that make CSS more like a real programming language and gives the developer more power to generate complex CSS.
+CSS 预处理器添加了原生 CSS 所不能做的有用的功能，而且通过使用 DRY（Don't Repeat Yourself，不要重复造轮子）规则生成更整洁的和可维护的 CSS。它们简洁的嵌套的选择器语法削减了重复的代码。对于一致的主题，它们提供了变量（然而，CSS 变量已经很大程度上可以替代这个功能了）和附加的工具，比如颜色函数（`lighten`, `darken`, `transparentize`, 等等），还有混合和循环功能，使得 CSS 更像一个真实的编程语言，赋予开发者更多能力去实现复杂的 CSS
 
 
 #### 小贴士
 
 
-* They allow us to write more maintainable and scalable CSS
-* Some disadvantages of using CSS preprocessors (setup, re-compilation time can be slow etc.)
+* 它们允许我们编写更易维护和可扩展的 CSS
+* 使用 CSS 预处理器的缺点（设置，重新编译可能会很慢）
 
 
 ##### 附加链接
@@ -3825,19 +3798,18 @@ _Margin_: 围绕着边框的盒子最外层区域。它将 DOM 元素之间分�
 <details>
 <summary>查看答案</summary>
 
-CSS sprites combine multiple images into one image, limiting the number of HTTP requests a browser has to make, thus improving load times. Even under the new HTTP/2 protocol, this remains true.
+CSS 雪碧图把多个图片组合到一张图片中，限制了浏览器 HTTP 请求的数量，因此提升了加载速度。甚至在新的 HTTP/2 协议中，这仍然正确
 
-Under HTTP/1.1, at most one request is allowed per TCP connection. With HTTP/1.1, modern browsers open multiple parallel connections (between 2 to 8) but it is limited. With HTTP/2, all requests between the browser and the server are multiplexed on a single TCP connection. This means the cost of opening and closing multiple connections is mitigated, resulting in a better usage of the TCP connection and limits the impact of latency between the client and server. It could then become possible to load tens of images in parallel on the same TCP connection.
+在 HTTP/1.1 下，每个 TCP 连接最多允许一个请求。HTTP/1.1，现代浏览器可以打开多个并行连接，但有限制（2 到 8 个）。HTTP/2，所在浏览器和服务器之间的请求都可以使用一个单独的 TCP 连接多路复用。这就意味着打开和关闭多个连接的开销被减轻了，结果是更好的利用了 TCP 连接和限制了客户端和服务器之间的潜在影响。在同一个 TCP 连接中同步加载 10 张图片成为可能
 
-However, according to [benchmark results](https://blog.octo.com/en/http2-arrives-but-sprite-sets-aint-no-dead/), although HTTP/2 offers 50% improvement over HTTP/1.1, in most cases the sprite set is still faster to load than individual images.
+然而，根据 [基准结果](https://blog.octo.com/en/http2-arrives-but-sprite-sets-aint-no-dead/)，尽管 HTTP/2 比 HTTP/1.1 提高了 50% 的性能，但大多树情况使用雪碧图比独立使用图片加载更快
 
-To utilize a spritesheet in CSS, one would use certain properties, such as `background-image`, `background-position` and `background-size` to ultimately alter the `background` of an element.
-
+为了在 CSS 使用雪碧图，可以使用某些属性，例如 `background-image`，`background-position` 和 `background-size` 根本上改变了元素的 `background`
 
 #### 小贴士
 
 
-* `background-image`, `background-position` and `background-size` can be used to utilize a spritesheet.
+* `background-image`，`background-position` 和 `background-size` 可以使用于一个雪碧图中
 
 
 ##### 附加链接

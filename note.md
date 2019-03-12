@@ -46,7 +46,7 @@
 `classifying` 分类；分等  
 `slash` 斜线；削减    
 `stick to` 坚持  
-`consistent` 始终如一的；坚持的    
+`consistent` 始终如一的；坚持的；一致的      
 `whether or not` 是否  
 `concrete` 混凝土的；实在的，具体的；有形的  
 `implicit` 隐式的；含蓄的；暗示的  
@@ -60,7 +60,8 @@
 `rest operator` 剩余参数操作符   
 `act on` 对……起作用  
 `terser` 精炼的；简洁的  
-`concise` 简洁的  
+`concise` 简洁的    
+`neat` 整洁的；灵巧的  
 `equivalent` 等价的  
 `invoke` 调用  
 `wary` 谨慎的；小心的  
@@ -99,7 +100,12 @@
 `constantly` 不断地  
 `indentation` 缩进  
 `mandatory` 强制的；命令的    
-`hierarchy` 层级  
+`hierarchy` 层级    
+`scalable` 可伸缩的；可扩展的    
+`certain` 某些；确性  
+ 
+
+
 
 
 
