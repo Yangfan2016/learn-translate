@@ -52,7 +52,7 @@
 * [在 JavaScript 中，哪个值不等于它自己？](#在-javascript-中哪个值不等于它自己)
 * [`null`  和 `undefined` 有何不同？](#null--和-undefined-有何不同)
 * [描述下创建对象方式的不同，哪种方式更推荐？](#描述下创建对象方式的不同哪种方式更推荐)
-* [形参和实参的区别？](#what-is-the-difference-between-a-parameter-and-an-argument)
+* [形参和实参的区别？](#形参和实参的区别)
 * [JavaScript 里是通过值传递还是引用传递？](#javascript-里是通过值传递还是引用传递)
 * [创建一个管道函数，返回一个接受一个参数从左到右执行的合成函数](#创建一个管道函数返回一个接受一个参数从左到右执行的合成函数)
 * [`i++`  和 `++i` 有什么不同？](#i--和-i-有什么不同)
@@ -74,7 +74,6 @@
 * [什么是‘严格模式’，它带来哪些关键性的好处？](#什么是严格模式它带来哪些关键性的好处)
 * [`let` `var` `const` 和无关键字声明变量有何不同？](#what-are-the-differences-between-var-let-const-and-no-keyword-statements)
 * [什么是虚拟 DOM，为何库/框架都在用它？](#什么是虚拟-dom为何库框架都在用它)
-* [什么是跨站脚本攻击（XSS），你是如何阻止它的？](#什么是跨站脚本攻击xss你是如何阻止它的)
 </details>
 
 
@@ -163,7 +162,7 @@
 <details>
 <summary>查看内容</summary>
 
-* [什么是 XSS 攻击，你如何预防它？](#what-is-a-cross-site-scripting-attack-xss-and-how-do-you-prevent-it)
+* [什么是跨站脚本攻击（XSS），你是如何阻止它的？](#什么是跨站脚本攻击xss你是如何阻止它的)
 </details>
 
 
