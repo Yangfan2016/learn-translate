@@ -102,24 +102,18 @@
 `mandatory` 强制的；命令的    
 `hierarchy` 层级    
 `scalable` 可伸缩的；可扩展的    
-`certain` 某些；确性  
+`certain` 某些；确性    
+`unappealing` 不吸引人的    
+`upcoming` 即将到来的  
+`malicious` 恶意的   
+`legitimate` 合法的；正当的  
+`impersonate` 模仿；拟人    
+`specification` 说明书   
+`adhere` 附着；遵守  
+
+
+
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

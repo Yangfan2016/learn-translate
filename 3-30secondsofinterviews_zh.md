@@ -74,7 +74,7 @@
 * [什么是‘严格模式’，它带来哪些关键性的好处？](#什么是严格模式它带来哪些关键性的好处)
 * [`let` `var` `const` 和无关键字声明变量有何不同？](#what-are-the-differences-between-var-let-const-and-no-keyword-statements)
 * [什么是虚拟 DOM，为何库/框架都在用它？](#什么是虚拟-dom为何库框架都在用它)
-* [什么是跨站脚本攻击（XSS），你是如何阻止它的？](#what-is-a-cross-site-scripting-attack-xss-and-how-do-you-prevent-it)
+* [什么是跨站脚本攻击（XSS），你是如何阻止它的？](#什么是跨站脚本攻击xss你是如何阻止它的)
 </details>
 
 
@@ -116,10 +116,10 @@
 
 * [图片里的 `alt` 属性是做什么的？](#图片里的-alt-属性是做什么的)
 * [`<script>` 标签的 `defer` 和 `async` 是什么？](#script-标签的-defer-和-async-是什么)
-* [不采用缓存的目的是什么，你如何实现它？](#what-is-the-purpose-of-cache-busting-and-how-can-you-achieve-it)
+* [不采用缓存的目的是什么，你如何实现它？](#不采用缓存的目的是什么你如何实现它)
 * [什么是 `DOM`？](#什么是-dom)
 * [一个页面里是否可以包含多个 `<header>` 元素， `<footer>` 元素呢？](#一个页面里是否可以包含多个-header-元素-footer-元素呢)
-* [讨论下 HTML 规范和浏览器实现之间的区别？](#discuss-the-differences-between-an-html-specification-and-a-browsers-implementation-thereof)
+* [讨论下 HTML 规范和浏览器实现之间的区别？](#讨论下-html-规范和浏览器实现之间的区别)
 * [相比 HTML，XHTML 有哪些不同？](#相比-htmlxhtml-有哪些不同)
 * [简明的阐述下 HTML5 语义标签 `<header>`，`<article>`，`<section>`，`<footer>` 的用法](#简明的阐述下-html5-语义标签-headerarticlesectionfooter-的用法)
 * [什么是 HTML5 Web Storage，解释下 `localStorage` 和 `sessionStorage`？](#什么是-html5-web-storage解释下-localstorage-和-sessionstorage)
@@ -139,7 +139,7 @@
 * [你能描述下 CSS 优先级是如何工作的？](#你能描述下-css-优先级是如何工作的)
 * [`em` 和 `rem` 单位的区别？](#em-和-rem-单位的区别)
 * [使用 flexbox，创建一个 3 列布局，每一列取容器的百分之 `col-{n}`/12 ](#使用-flexbox创建一个-3-列布局每一列取容器的百分之-col-n12)
-* [什么是聚焦环，正确的解决方案是什么？](#what-is-a-focus-ring-what-is-the-correct-solution-to-handle-them)
+* [什么是聚焦环，正确的解决方案是什么？](#什么是聚焦环正确的解决方案是什么)
 * [你能说出 `@media` 属性的四种类型吗？](#你能说出-media-属性的四种类型吗)
 * [CSS 雪碧图的优势在哪里，如何使用？](#css-雪碧图的优势在哪里如何使用)
 </details>
@@ -1591,36 +1591,6 @@ myObject = "hello" // Error
 
 
 * [`let` vs `const`](https://wesbos.com/let-vs-const/)
-
-</details>
-
-<br>[⬆ 返回顶部](#目录)
-
-### 什么是跨站脚本攻击（XSS），你是如何阻止它的？
-
-<details>
-<summary>查看答案</summary>
-
-XSS refers to client-side code injection where the attacker injects malicious scripts into a legitimate website or web application. This is often achieved when the application does not validate user input and freely injects dynamic HTML content.
-
-For example, a comment system will be at risk if it does not validate or escape user input. If the comment contains unescaped HTML, the comment can inject a `<script>` tag into the website that other users will execute against their knowledge.
-
-* The malicious script has access to cookies which are often used to store session tokens. If an attacker can obtain a user’s session cookie, they can impersonate the user.
-* The script can arbitrarily manipulate the DOM of the page the script is executing in, allowing the attacker to insert pieces of content that appear to be a real part of the website.
-* The script can use AJAX to send HTTP requests with arbitrary content to arbitrary destinations.
-
-
-#### 小贴士
-
-
-* On the client, using `textContent` instead of `innerHTML` prevents the browser from running the string through the HTML parser which would execute scripts in it.
-* On the server, escaping HTML tags will prevent the browser from parsing the user input as actual HTML and therefore won't execute the script.
-
-
-##### 附加链接
-
-
-* [Cross-Site Scripting Attack (XSS)](https://www.acunetix.com/websitesecurity/cross-site-scripting/)
 
 </details>
 
@@ -3306,23 +3276,20 @@ class App extends Component {
 <details>
 <summary>查看答案</summary>
 
-Browsers have a cache to temporarily store files on websites so they don't need to be re-downloaded again when switching between pages or reloading the same page. The server is set up to send headers that tell the browser to store the file for a given amount of time. This greatly increases website speed and preserves bandwidth.
+浏览器有一个临时的存储网站文件的缓存，所以他们不需要在切换或重新加载同一个页面时再次重新下载。服务器设置发送头信息告诉浏览器在给定的一段时间内使用存储文件。这极大加快了网站的速度和节省了带宽
 
-However, it can cause problems when the website has been changed by developers because the user's cache still references old files. This can either leave them with old functionality or break a website if the cached CSS and JavaScript files are referencing elements that no longer exist, have moved or have been renamed.
+然而，当开发人员网站更新时，因为用户的缓存依然指向旧的文件，这会造成问题。如果缓存的 CSS 和 JavaScript 文件引用的元素不再存在，已移除或已重命名时，它会保留原有功能或破坏网站
 
-Cache busting is the process of forcing the browser to download the new files. This is done by naming the file something different to the old file.
+禁用缓存是一个强制浏览器下载新文件的过程。通过命名来区分于旧文件
 
-A common technique to force the browser to re-download the file is to append a query string to the end of the file.
+一个常用的强制浏览器重新下载文件的技术是在文件的结尾处增加一个查询字符串
 
 * `src="js/script.js"` => `src="js/script.js?v=2"`
 
-The browser considers it a different file but prevents the need to change the file name.
+浏览器认为这是一个不同的文件但是避免了修改文件名的必要
 
 
 #### 小贴士
-
-
-
 
 ##### 附加链接
 
@@ -3453,17 +3420,16 @@ DOM（Document Object Model，文档对象模型）是一个跨平台的 API，�
 <details>
 <summary>查看答案</summary>
 
-HTML specifications such as `HTML5` define a set of rules that a document must adhere to in order to be “valid” according to that specification. In addition, a specification provides instructions on how a browser must interpret and render such a document.
+HTML 规范，例如 `HTML5` 定义一个规则集，一个文档必须遵守为了根据规范达到 “有效”。此外，一个规范提供了一个浏览器如何解析和渲染一个文档的说明
 
-A browser is said to “support” a specification if it handles valid documents according to the rules of the specification. As of yet, no browser supports all aspects of the `HTML5` specification (although all of the major browser support most of it), and as a result, it is necessary for the developer to confirm whether the aspect they are making use of will be supported by all of the browsers on which they hope to display their content. This is why cross-browser support continues to be a headache for developers, despite the improved specificiations.
-
+如果浏览器有效的根据规范处理文档，那个就称为 “支持” 这个规范。至今，还没有所有浏览器实现了 `HTML5` 规范的所有部分（尽管大部分主流浏览器支持大多数规范），结果是，它需要开发者确认他们使用的是否支持所有浏览器来显示他们希望显示的内容。这就是为何对于开发者来说跨浏览器支持仍然是一个头疼的问题，即使改进了规范
 
 #### 小贴士
 
 
-* `HTML5` defines some rules to follow for an invalid `HTML5` document (i.e., one that contains syntactical errors)
-* However, invalid documents may contain anything, so it's impossible for the specification to handle all possibilities comprehensively.
-* Thus, many decisions about how to handle malformed documents are left up to the browser.
+* `HTML5` 为非法的 `HTML5` 文档定义了一些规则（即，包含语法错误）
+* 然而，非法文档可能包含任何东西，因此规范不可能全面地处理所有的可能性
+* 因此，许多畸形的文档处理决定就交给了浏览器
 
 
 ##### 附加链接
@@ -3894,13 +3860,13 @@ div + p {
 <details>
 <summary>查看答案</summary>
 
-A focus ring is a visible outline given to focusable elements such as buttons and anchor tags. It varies depending on the vendor, but generally it appears as a blue outline around the element to indicate it is currently focused.
+当使用按钮或链接标签获得焦点时，会得到一个可见的外边框，这就是聚焦环。它的种类依赖于根据浏览器提供商，但通常会显示一个蓝色的外边框包围在元素的周围，以表明它当前获得了焦点
 
-In the past, many people specified `outline: 0;` on the element to remove the focus ring. However, this causes accessibility issues for keyboard users because the focus state may not be clear. When not specified though, it causes an unappealing blue ring to appear around an element.
+在过去，许多人指定 `outline: 0;` 来去除元素上的聚焦环。然而，由于不可见会对键盘用户访问性造成困扰。当不指定时，它会形成一个不吸引人的蓝色环显示在元素周围
 
-In recent times, frameworks like Bootstrap have opted to use a more appealing `box-shadow` outline to replace the default focus ring. However, this is still not ideal for mouse users.
+在最近，像 Bootstrap 之类的框架有一个选择，就是通过使用一个更吸引人的 `box-shadow` 外边框替代默认的聚焦环。然而，对鼠标用户仍不完美
 
-The best solution is an upcoming pseudo-selector `:focus-visible` which can be polyfilled today with JavaScript. It will only show a focus ring if the user is using a keyboard and leave it hidden for mouse users. This keeps both aesthetics for mouse use and accessibility for keyboard use.
+最好的解决方案是一个即将到来的伪类选择器 `:focus-visible`，今天它仍需要 JavaScript 打补丁才能实现。它只会出现在用户在使用键盘时，并且对于鼠标用户会在失去焦点后隐藏。它同时保留了鼠标用户的美学和键盘用户的可访问性
 
 
 #### 小贴士
@@ -4051,26 +4017,26 @@ RSET（REpresentational State Transfer 表述性状态转移）是一个用于�
 <br>[⬆ 返回顶部](#目录)
 
 
-## Security
+## 安全
 ### 什么是跨站脚本攻击（XSS），你是如何阻止它的？
 
 <details>
 <summary>查看答案</summary>
 
-XSS refers to client-side code injection where the attacker injects malicious scripts into a legitimate website or web application. This is often achieved when the application does not validate user input and freely injects dynamic HTML content.
+XSS 指的是客户端代码注入，攻击者在一个合法网站或 web 应用注入恶意脚本。它得以实现的原因通常是应用没有校验用户的输入和自由注入动态的 HTML 内容
 
-For example, a comment system will be at risk if it does not validate or escape user input. If the comment contains unescaped HTML, the comment can inject a `<script>` tag into the website that other users will execute against their knowledge.
+例如，一个评论系统如果不对用户的输入做校验或转义的话，将处于风险中。如果评论内容包含未转义的 HTML，评论里可以注入一个 `<script>` 标签到网站中，那么该网站的其他用户在它们看到这条评论时就会再次执行
 
-* The malicious script has access to cookies which are often used to store session tokens. If an attacker can obtain a user’s session cookie, they can impersonate the user.
-* The script can arbitrarily manipulate the DOM of the page the script is executing in, allowing the attacker to insert pieces of content that appear to be a real part of the website.
-* The script can use AJAX to send HTTP requests with arbitrary content to arbitrary destinations.
+* 恶意的脚本可以获取到 cookie（通常用来存储 session 的令牌）。如果攻击者可以获取到用户的会话 cookie 的话，他们就可以模仿用户登陆
+* 脚本可以任意操控正在执行的脚本的页面的 DOM，允许攻击者插入看起来是真实网站的一部分的内容
+* 脚本可以使用 AJAX 携带任意内容发送 HTTP 请求到任意的地方
 
 
 #### 小贴士
 
 
-* On the client, using `textContent` instead of `innerHTML` prevents the browser from running the string through the HTML parser which would execute scripts in it.
-* On the server, escaping HTML tags will prevent the browser from parsing the user input as actual HTML and therefore won't execute the script.
+* 在客户端，使用 `textContent` 替代 `innerHTML`，阻止浏览器运行通过 HTML 解析器执行其中的脚本的字符串
+* 在服务端，转义 HTML 标签来阻止浏览器解析用户实际输入的 HTML，因此也不会执行脚本
 
 
 ##### 附加链接
