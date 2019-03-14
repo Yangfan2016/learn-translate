@@ -27,10 +27,10 @@
 * [创建一个和 `Function.prototype.bind` 功能一样的独立函数 `bind`](#创建一个和-Functionprototypebind-功能一样的独立函数-bind)
 * [你是怎么避免回调地狱的？](#你是怎么避免回调地狱的)
 * [什么是回调，你可以举个例子吗？](#什么是回调你可以举个例子吗)
-* [在 JavaScript 中，你是如何克隆一个对象的？](#how-do-you-clone-an-object-in-javascript)
+* [在 JavaScript 中，你是如何克隆一个对象的？](#在-javascript-中你是如何克隆一个对象的)
 * [什么是闭包，你可以举一个有用的例子吗？](#什么是闭包你可以举一个有用的例子吗)
-* [在 JavaScript 中，你是如何比较两个对象的？](#how-do-you-compare-two-objects-in-javascript)
-* [什么是 `CORS`？](#what-is-cors)
+* [在 JavaScript 中，你是如何比较两个对象的？](#在-javascript-中你是如何比较两个对象的)
+* [什么是 `CORS`？](#什么是-cors)
 * [`==` 和 `===` 相等运算符有什么区别？](#-和--相等运算符有什么区别)
 * [什么是事件委托，为什么它是有用的，你可以举个例子说明如何使用它？](#what-is-event-delegation-and-why-is-it-useful-can-you-show-an-example-of-how-to-use-it)
 * [什么是事件驱动编程？](#what-is-event-driven-programming)
@@ -404,28 +404,27 @@ map([1, 2, 3, 4, 5], n => n * 2) // [2, 4, 6, 8, 10]
 <details>
 <summary>查看答案</summary>
 
-Using the object spread operator `...`, the object's own enumerable properties can be copied
-into the new object. This creates a shallow clone of the object.
+使用对象扩展操作符 `...`，对象自己的可枚举属性可以被拷贝到新对象。这将创建一个对象的浅克隆
 
 ```js
 const obj = { a: 1, b: 2 }
 const shallowClone = { ...obj }
 ```
 
-With this technique, prototypes are ignored. In addition, nested objects are not cloned, but rather their references get copied, so nested objects still refer to the same objects as the original. Deep-cloning is much more complex in order to effectively clone any type of object (Date, RegExp, Function, Set, etc) that may be nested within the object.
+使用这个技术，原型会被忽略。此外，嵌套对象不能被克隆，但是他们的引用被拷贝了，因此嵌套的对象依然指向和原来相同的对象。深度克隆更复杂，为了高效的克隆嵌套在对象里的任何对象类型（Date，RegEx，Function，Set。等等）
 
-Other alternatives include:
+其他的替代方案包括：
 
-* `JSON.parse(JSON.stringify(obj))` can be used to deep-clone a simple object, but it is CPU-intensive and only accepts valid JSON (therefore it strips functions and does not allow circular references).
-* `Object.assign({}, obj)` is another alternative.
-* `Object.keys(obj).reduce((acc, key) => (acc[key] = obj[key], acc), {})` is another more verbose alternative that shows the concept in greater depth.
+* `JSON.parse(JSON.stringify(obj))` 可以用来克隆简单对象，但是它是 CPU 密集型，并且只接受合法的 JSON（因此它会跳过函数，而且不允许循环引用）
+* `Object.assign({}, obj)` 是另一个替代方案
+* `Object.keys(obj).reduce((acc, key) => (acc[key] = obj[key], acc), {})` 是另一个更冗长的替代方案，它更深层次的展示了这个概念
 
 
 #### 小贴士
 
 
-* JavaScript passes objects by reference, meaning that nested objects get their references copied, instead of their values.
-* The same method can be used to merge two objects.
+* JavaScript 通过引用传递对象，意味着嵌套对象获取到的是他们引用的副本，而不是他们的值
+* 同样的方法可以用来合并两个对象
 
 
 ##### 附加链接
@@ -443,14 +442,12 @@ Other alternatives include:
 <details>
 <summary>查看答案</summary>
 
-Even though two different objects can have the same properties with equal values, they are not considered equal when compared using `==` or `===`. This is because they are being compared by their reference (location in memory), unlike primitive values which are compared by value.
+即使两个拥有相同属性相同值的不同对象，当使用 `==` 或 `===` 进行比较时，也不认为他们相等。这就是因为他们是通过引用（内存里的位置）比较的，不像基本类型是通过值比较的
 
-In order to test if two objects are equal in structure, a helper function is required. It will
-iterate through the own properties of each object to test if they have the same values, including nested objects.
-Optionally, the prototypes of the objects may also be tested for equivalence by passing `true` as the 3rd argument.
+为了测试两个对象的结构是否相等，需要一个辅助函数，它会迭代每个对象每个自己的属性，测试他们是否有相同的值，包括嵌套对象
+可选的，通过传递第三个参数 `true` 来测试对象的原型的相等性
 
-Note: this technique does not attempt to test equivalence of data structures other than
-plain objects, arrays, functions, dates and primitive values.
+注意：这个技术不会尝试测试数据结构的相等性，除了普通对象，数组，函数，日期和基本类型
 
 ```js
 function isDeepEqual(obj1, obj2, testPrototypes = false) {
@@ -497,8 +494,8 @@ function isDeepEqual(obj1, obj2, testPrototypes = false) {
 #### 小贴士
 
 
-* Primitives like strings and numbers are compared by their value
-* Objects on the other hand are compared by their reference (location in memory)
+* 像 string 和 number 这样的基本类型是通过值比较的
+* 另一方面，对象是通过引用（在内存的位置）来比较的
 
 
 ##### 附加链接
@@ -511,23 +508,23 @@ function isDeepEqual(obj1, obj2, testPrototypes = false) {
 
 <br>[⬆ 返回顶部](#目录)
 
-### 什么是 CORS？
+### 什么是 `CORS`？
 
 <details>
 <summary>查看答案</summary>
 
-Cross-Origin Resource Sharing or CORS is a mechanism that uses additional HTTP headers to grant a browser permission to access resources from a server at an origin different from the website origin.
+CORS（Cross-Origin Resource Sharing，跨域资源共享）是一个使用额外的 HTTP 头授权浏览器访问跨域资源的机制
 
-An example of a cross-origin request is a web application served from `http://mydomain.com` that uses AJAX to make a request for `http://yourdomain.com`.
+一个跨域请求的例子，从 `http://mydomain.com` 提供的 web 应用程序使用 AJAX 请求 `http://yourdomain.com` 的资源
 
-For security reasons, browsers restrict cross-origin HTTP requests initiated by JavaScript. `XMLHttpRequest` and `fetch` follow the same-origin policy, meaning a web application using those APIs can only request HTTP resources from the same origin the application was accessed, unless the response from the other origin includes the correct CORS headers.
+出于安全原因，浏览器限制了 JavaScript 发起的 HTTP 跨域请求。`XMLHttpRequest` 和 `fetch` 遵循同源策略，意味着 web 应用使用这些 API 只能请求同源下的 HTTP 资源，除非其他域包括正确的 CORS 头
 
 
 #### 小贴士
 
 
-* CORS behavior is not an error,  it’s a security mechanism to protect users.
-* CORS is designed to prevent a malicious website that a user may unintentionally visit from making a request to a legitimate website to read their personal data or perform actions against their will.
+* CORS 行为不是一个错误，它是一种保护用户的安全机制
+* CORS 被设计来阻止一个用户可以无意的访问来请求合法网站阅读他们的个人信息或执行他们不想要的操作的恶意网站
 
 
 ##### 附加链接

@@ -109,7 +109,14 @@
 `legitimate` 合法的；正当的  
 `impersonate` 模仿；拟人    
 `specification` 说明书   
-`adhere` 附着；遵守  
+`adhere` 附着；遵守    
+`verbose` 冗长的；啰嗦的    
+`other than` 不同于；除了    
+`restrict` 限制；约束  
+`initiate` 发起；开始  
+
+
+
 
 
 
