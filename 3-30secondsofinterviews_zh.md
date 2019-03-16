@@ -67,7 +67,7 @@
 * [在 JavaScript 里，什么是短路运算？](#在-javascript-里什么是短路运算)
 * [解释下静态方法和实例方法的区别](#解释下静态方法和实例方法的区别)
 * [在 JavaScript 里，同步代码和异步代码有什么不同？](#在-javascript-里同步代码和异步代码有什么不同)
-* [`this` 关键字是什么，它是如何工作的？](#what-is-the-this-keyword-and-how-does-it-work)
+* [`this` 关键字是什么，它是如何工作的？](#this-关键字是什么它是如何工作的)
 * [下面的代码执行的结果是什么？](#下面的代码执行的结果是什么)
 * [什么是 JavaScript 的数据类型？](#什么是-javascript-的数据类型)
 * [诸如 React，Vue，Angular，Hyperapp 等 JavaScript UI 库/框架的目的是什么？](#what-is-the-purpose-of-javascript-ui-librariesframeworks-like-react-vue-angular-hyperapp-etc)
@@ -2196,15 +2196,15 @@ Array.push(arr, 4)
 <details>
 <summary>查看答案</summary>
 
-The `this` keyword is an object that represents the context of an executing function. Regular functions can have their `this` value changed with the methods `call()`, `apply()` and `bind()`. Arrow functions implicitly bind `this` so that it refers to the context of its lexical environment, regardless of whether or not its context is set explicitly with `call()`.
+这个 `this` 关键字是一个代表执行函数上下文的对象。普通的函数使用 `call()`，`apply()` 和 `bind()` 可以改变他们的 `this` 值。箭头函数隐式的绑定了 `this`，因此它指向它的词法环境的上下文，忽略是否通过 `call()` 方法显示设置了上下文
 
-Here are some common examples of how `this` works:
+这有一些常用的 `this` 如何工作的例子：
 
-##### Object literals
+##### 对象字面量
 
-`this` refers to the object itself inside regular functions if the object precedes the invocation of the function.
+如果这个对象在函数之前调用，普通函数中的 `this` 指向这个对象自己
 
-Properties set as `this` do not refer to the object.
+属性设置为 `this`，不会指向这个对象
 
 ```js
 var myObject = {
@@ -2222,16 +2222,16 @@ var myObject = {
 myObject.regularFunction() // myObject
 myObject["regularFunction"]() // my Object
 
-myObject.property // NOT myObject; lexical `this`
-myObject.arrowFunction() // NOT myObject; lexical `this`
-myObject.iife // NOT myObject; lexical `this`
+myObject.property // 不是 myObject； 而是 词法的 `this`
+myObject.arrowFunction() // 不是 myObject； 而是 词法的 `this`
+myObject.iife // 不是 myObject； 而是 词法的 `this`
 const regularFunction = myObject.regularFunction
-regularFunction() // NOT myObject; lexical `this`
+regularFunction() // 不是 myObject； 而是 词法的 `this`
 ```
 
-##### Event listeners
+##### 事件监听器
 
-`this` refers to the element listening to the event.
+`this` 指向事件监听的那个元素
 
 ```js
 document.body.addEventListener("click", function() {
@@ -2239,9 +2239,9 @@ document.body.addEventListener("click", function() {
 })
 ```
 
-##### Constructors
+##### 构造器
 
-`this` refers to the newly created object.
+`this` 指向新创建的对象
 
 ```js
 class Example {
@@ -2252,9 +2252,9 @@ class Example {
 const myExample = new Example()
 ```
 
-##### Manual
+##### 手动的
 
-With `call()` and `apply()`, `this` refers to the object passed as the first argument.
+使用 `call()` 和 `apply()`，`this` 指向第一个参数传递的那个对象
 
 ```js
 var myFunction = function() {
@@ -2263,9 +2263,9 @@ var myFunction = function() {
 myFunction.call({ customThis: true }) // { customThis: true }
 ```
 
-##### Unwanted `this`
+##### 不需要的 `this`
 
-Because `this` can change depending on the scope, it can have unexpected values when using regular functions.
+因为 `this` 可以根据作用域改变，当使用普通函数可能得到意想不到的值
 
 ```js
 var obj = {
@@ -2287,10 +2287,10 @@ obj.doubleArr() // Uncaught TypeError: this.double is not a function
 #### 小贴士
 
 
-* In non-strict mode, global `this` is the global object (`window` in browsers), while in strict mode global `this` is `undefined`.
-* `Function.prototype.call` and `Function.prototype.apply` set the `this` context of an executing function as the first argument, with `call` accepting a variadic number of arguments thereafter, and `apply` accepting an array as the second argument which are fed to the function in a variadic manner.
-* `Function.prototype.bind` returns a new function that enforces the `this` context as the first argument which cannot be changed by other functions.
-* If a function requires its `this` context to be changed based on how it is called, you must use the `function` keyword. Use arrow functions when you want `this` to be the surrounding (lexical) context.
+* 在非严格模式，全局 `this` 指的是全局对象（在浏览器是 `window`），在严格模式下，全局 `this` 是 `undefined`
+* `Function.prototype.call` 和 `Function.prototype.apply` 第一个参数设置执行函数的上下文 `this`，`call` 之后接受不定量的参数，和 `apply` 接受一个数组作为第二个参数以不定量的形式提供给函数
+* `Function.prototype.bind` 返回一个新函数，强制第一个参数设置为 `this` 上下文，其他函数不能改变
+* 如果一个函数需要它的 `this` 上下文被改变，基于它是如何被调用的，你必须使用 `function` 关键字。当你想把 `this` 成为包围（词法）上下文时，使用箭头函数
 
 
 ##### 附加链接
