@@ -32,7 +32,7 @@
 * [在 JavaScript 中，你是如何比较两个对象的？](#在-javascript-中你是如何比较两个对象的)
 * [什么是 `CORS`？](#什么是-cors)
 * [`==` 和 `===` 相等运算符有什么区别？](#-和--相等运算符有什么区别)
-* [什么是事件委托，为什么它是有用的，你可以举个例子说明如何使用它？](#what-is-event-delegation-and-why-is-it-useful-can-you-show-an-example-of-how-to-use-it)
+* [什么是事件代理，为什么它是有用的，你可以举个例子说明如何使用它？](#什么是事件代理为什么它是有用的你可以举个例子说明如何使用它)
 * [什么是事件驱动编程？](#what-is-event-driven-programming)
 * [在 JavaScript 中，声明和表达式的区别？](#what-is-the-difference-between-an-expression-and-a-statement-in-javascript)
 * [在 JavaScript 中，什么是真值（truthy），假值（falsy）?](#在-javascript-中什么是真值truthy假值falsy)
@@ -72,7 +72,7 @@
 * [什么是 JavaScript 的数据类型？](#什么是-javascript-的数据类型)
 * [诸如 React，Vue，Angular，Hyperapp 等 JavaScript UI 库/框架的目的是什么？](#what-is-the-purpose-of-javascript-ui-librariesframeworks-like-react-vue-angular-hyperapp-etc)
 * [什么是‘严格模式’，它带来哪些关键性的好处？](#什么是严格模式它带来哪些关键性的好处)
-* [`let` `var` `const` 和无关键字声明变量有何不同？](#what-are-the-differences-between-var-let-const-and-no-keyword-statements)
+* [`let` `var` `const` 和无关键字声明变量有何不同？](#let-var-const-和无关键字声明变量有何不同)
 * [什么是虚拟 DOM，为何库/框架都在用它？](#什么是虚拟-dom为何库框架都在用它)
 </details>
 
@@ -536,21 +536,21 @@ CORS（Cross-Origin Resource Sharing，跨域资源共享）是一个使用额�
 
 <br>[⬆ 返回顶部](#目录)
 
-### 什么是事件委托，为什么它是有用的，你可以举个例子说明如何使用它？
+### 什么是事件代理，为什么它是有用的，你可以举个例子说明如何使用它？
 
 <details>
 <summary>查看答案</summary>
 
-Event delegation is a technique of delegating events to a single common ancestor. Due to event bubbling, events "bubble" up the DOM tree by executing any handlers progressively on each ancestor element up to the root that may be listening to it.
+事件代理是一个代理事件到一个单一的公共的祖先的技术。由于事件冒泡，事件会向上冒泡到 DOM 树，逐步执行每一个处理程序，直到监听事件的根元素
 
-DOM events provide useful information about the element that initiated the event via `Event.target`. This allows the parent element to handle behavior as though the target element was listening to the event, rather than all children of the parent or the parent itself.
+DOM 事件提供了一个关于发起事件的元素有用的信息 `Event.target`。这允许父元素处理行为，就好像是目标元素在监听事件，而不是所有父元素的子元素或父元素自己
 
-This provides two main benefits:
+它会提供两个好处：
 
-* It increases performance and reduces memory consumption by only needing to register a single event listener to handle potentially thousands of elements.
-* If elements are dynamically added to the parent, there is no need to register new event listeners for them.
+* 它提高了性能和减少了内存消耗，而且只需要注册一个单事件监听器就可以处理潜在的成千上完的元素
+* 如果元素是动态添加到父元素上的，就不需要再为它们注册新的监听器
 
-Instead of:
+而不是：
 
 ```js
 document.querySelectorAll("button").forEach(button => {
@@ -558,7 +558,7 @@ document.querySelectorAll("button").forEach(button => {
 })
 ```
 
-Event delegation involves using a condition to ensure the child target matches our desired element:
+事件代理包含一个条件确保匹配到的子元素是我们想要的：
 
 ```js
 document.addEventListener("click", e => {
@@ -572,7 +572,7 @@ document.addEventListener("click", e => {
 #### 小贴士
 
 
-* The difference between event bubbling and capturing
+* 事件冒泡和事件捕获的区别
 
 
 ##### 附加链接
@@ -1514,34 +1514,32 @@ typeof typeof 0
 <details>
 <summary>查看答案</summary>
 
-##### No keyword
+##### 没有关键字
 
-When no keyword exists before a variable assignment, it is either assigning a global variable if one does not exist, or reassigns an already declared variable. In non-strict mode, if the variable has not yet been declared, it will assign the variable as a property of the global object (`window` in browsers). In strict mode, it will throw an error to prevent unwanted global variables from being created.
+在变量赋值之前没有关键字存在，要么赋值给一个不存在的全局变量，要么重新分配给已声明的变量。在非严格模式下，如果变量没有声明，它将赋值为全局对象（浏览器中的 `window`）的一个属性。在严格模式下，它将抛出一个错误阻止不需要的全局变量被创建
 
 ##### var
 
-`var` was the default statement to declare a variable until ES2015. It creates a function-scoped variable that can be reassigned and redeclared. However, due to its lack of block scoping, it can cause issues if the variable is being reused in a loop that contains an asynchronous callback because the variable will continue to exist outside of the block scope.
+直到 ES2015 `var` 仍是默认的声明语句。它创建了一个函数作用域，可以重新分配和重新声明。然而，由于缺少块作用域，如果变量在一个包含异步回调的循环中再次使用的话，他可能会造成问题，因为变量将继续存在于块作用域之外
 
-Below, by the time the the `setTimeout` callback executes, the loop has already finished and the `i` variable is `10`, so all ten callbacks reference the same variable available in the function scope.
+下面，等到 `setTimeout` 回调执行时，循环已经完成了，而且变量 `i` 的值是 `10`，因此，所有这 10 个回调在这个函数作用域下引用了同一个可用的变量
 
 ```js
 for (var i = 0; i < 10; i++) {
   setTimeout(() => {
-    // logs `10` ten times
+    // 打印 `10` 10 次
     console.log(i)
   })
 }
 
-/* Solutions with `var` */
+/* 使用 `var` 的解决方案 */
 for (var i = 0; i < 10; i++) {
-  // Passed as an argument will use the value as-is in
-  // that point in time
+  // 作为参数传递进去
   setTimeout(console.log, 0, i)
 }
 
 for (var i = 0; i < 10; i++) {
-  // Create a new function scope that will use the value
-  // as-is in that point in time
+  // 创建一个函数作用域
   ;(i => {
     setTimeout(() => {
       console.log(i)
@@ -1552,12 +1550,12 @@ for (var i = 0; i < 10; i++) {
 
 ##### let
 
-`let` was introduced in ES2015 and is the new preferred way to declare variables that will be reassigned later. Trying to redeclare a variable again will throw an error. It is block-scoped so that using it in a loop will keep it scoped to the iteration.
+`let` 在 ES2015 中引入，而且是新的变量声明推荐的方法，它之后将被重新分配。试图重新声明一个变量将会抛出错误。它是块级作用域，因此在循环中可以在迭代中保持它的作用域
 
 ```js
 for (let i = 0; i < 10; i++) {
   setTimeout(() => {
-    // logs 0, 1, 2, 3, ...
+    // 打印 0, 1, 2, 3, ...
     console.log(i)
   })
 }
@@ -1565,22 +1563,22 @@ for (let i = 0; i < 10; i++) {
 
 ##### const
 
-`const` was introduced in ES2015 and is the new preferred default way to declare all variables if they won't be reassigned later, even for objects that will be mutated (as long as the reference to the object does not change). It is block-scoped and cannot be reassigned.
+`const` 在 ES2015 中引入，而且是新的变量声明推荐的方法，它之后不能被重新分配，即使对象是可变的（只要对象的引用不变就行）。它是块级作用域而且不能被重新分配
 
 ```js
 const myObject = {}
-myObject.prop = "hello!" // No error
-myObject = "hello" // Error
+myObject.prop = "hello!" // 没有错误
+myObject = "hello" // 抛出错误
 ```
 
 
 #### 小贴士
 
 
-* All declarations are hoisted to the top of their scope.
-* However, with `let` and `const` there is a concept called the temporal dead zone (TDZ). While the declarations are still hoisted, there is a period between entering scope and being declared where they cannot be accessed.
-* Show a common issue with using `var` and how `let` can solve it, as well as a solution that keeps `var`.
-* `var` should be avoided whenever possible and prefer `const` as the default declaration statement for all variables unless they will be reassigned later, then use `let` if so.
+* 所有的声明都会被提升到它们的作用域顶部
+* 然而，`let` 和 `const` 有一个叫暂时性死区的概念（TDZ，Temporal Dead Zone）。虽然声明被提升了，但有一段时间在进入作用域和被声明之间它们是不能被访问的
+* 给你一个使用 `var` 的常见问题，和 `let` 如何解决它，以及保留 `var` 的解决方案
+* `var` 应该尽可能的避免使用，推荐 `const` 作为所有变量的默认声明，除非它们之后会被重新分配，则使用 `let` 
 
 
 ##### 附加链接

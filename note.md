@@ -114,7 +114,17 @@
 `other than` 不同于；除了    
 `restrict` 限制；约束  
 `initiate` 发起；开始    
-`regular` 合格的；普通的  
+`regular` 合格的；普通的    
+`either or` 要么……要么；二者选一的    
+`lack` 缺乏；不足     
+`introduce` 介绍；引入   
+`as thougn` 好像；仿佛   
+`desire` 欲望；心愿；要求  
+
+
+
+
+
 
 
 
