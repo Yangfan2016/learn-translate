@@ -33,7 +33,7 @@
 * [什么是 `CORS`？](#什么是-cors)
 * [`==` 和 `===` 相等运算符有什么区别？](#-和--相等运算符有什么区别)
 * [什么是事件代理，为什么它是有用的，你可以举个例子说明如何使用它？](#什么是事件代理为什么它是有用的你可以举个例子说明如何使用它)
-* [什么是事件驱动编程？](#what-is-event-driven-programming)
+* [什么是事件驱动编程？](#什么是事件驱动编程)
 * [在 JavaScript 中，声明和表达式的区别？](#what-is-the-difference-between-an-expression-and-a-statement-in-javascript)
 * [在 JavaScript 中，什么是真值（truthy），假值（falsy）?](#在-javascript-中什么是真值truthy假值falsy)
 * [生成一个包含的 n 项斐波那契数列元素的数组](#生成一个包含的-n-项斐波那契数列元素的数组)
@@ -60,7 +60,7 @@
 * [什么是 Promises？](#什么是-promises)
 * [原型继承和经典继承方式有何不同？](#原型继承和经典继承方式有何不同)
 * [什么是纯函数？](#什么是纯函数)
-* [什么是递归，什么时候它是有用的？](#what-is-recursion-and-when-is-it-useful)
+* [什么是递归，什么时候它是有用的？](#什么是递归什么时候它是有用的)
 * [下面的代码会输出什么？](#下面的代码会输出什么)
 * [下面的函数会返回什么？](#下面的函数会返回什么)
 * [JavaScript 里分号是必须的吗？](#javascript-里分号是必须的吗)
@@ -70,7 +70,7 @@
 * [`this` 关键字是什么，它是如何工作的？](#this-关键字是什么它是如何工作的)
 * [下面的代码执行的结果是什么？](#下面的代码执行的结果是什么)
 * [什么是 JavaScript 的数据类型？](#什么是-javascript-的数据类型)
-* [诸如 React，Vue，Angular，Hyperapp 等 JavaScript UI 库/框架的目的是什么？](#what-is-the-purpose-of-javascript-ui-librariesframeworks-like-react-vue-angular-hyperapp-etc)
+* [诸如 React，Vue，Angular，Hyperapp 等 JavaScript UI 库/框架的目的是什么？](#诸如-reactvueangularhyperapp-等-javascript-ui-库框架的目的是什么)
 * [什么是‘严格模式’，它带来哪些关键性的好处？](#什么是严格模式它带来哪些关键性的好处)
 * [`let` `var` `const` 和无关键字声明变量有何不同？](#let-var-const-和无关键字声明变量有何不同)
 * [什么是虚拟 DOM，为何库/框架都在用它？](#什么是虚拟-dom为何库框架都在用它)
@@ -1791,18 +1791,17 @@ async function asyncAwaitVersion() {
 <details>
 <summary>查看答案</summary>
 
-Event-driven programming is a paradigm that involves building applications that send and receive events. When the program emits events, the program responds by running any callback functions that are registered to that event and context, passing in associated data to the function. With this pattern, events can be emitted into the wild without throwing errors even if no functions are subscribed to it.
+事件驱动编程是一种范式，包含构建发送和接受事件的应用。当程序触发事件时，程序通过运行仍注册了这个事件的回调函数来回应，传递给函数相关的数据。在这个模式中，事件会被触发即使没有函数订阅它也不会抛出错误
 
-A common example of this is the pattern of elements listening to DOM events such as `click` and `mouseenter`, where a callback function is run when the event occurs.
+DOM 元素事件监听模式的一个常用的例子，例如，`click` 和 `mouseenter`，回调函数会在事件触发时执行
 
 ```js
 document.addEventListener("click", function(event) {
-  // This callback function is run when the user
-  // clicks on the document.
+  // 当用户点击文档时，这个回调函数会执行
 })
 ```
 
-Without the context of the DOM, the pattern may look like this:
+没有 DOM 上下文，这个模式看起来是这样：
 
 ```js
 const hub = createEventHub()
@@ -1815,15 +1814,15 @@ hub.emit("message", {
 })
 ```
 
-With this implementation, `on` is the way to _subscribe_ to an event, while `emit` is the way to _publish_ the event.
+这个实现，`on` 是 _订阅_ 事件的方法，`emit` 是 _发布_ 事件的方法
 
 
 #### 小贴士
 
 
-* Follows a publish-subscribe pattern.
-* Responds to events that occur by running any callback functions subscribed to the event.
-* Show how to create a simple pub-sub implementation with JavaScript.
+* 领会发布订阅者模式
+* 事件触发时，任何订阅了这个事件的回调函数会响应
+* 用 JavaScript 展示如何创建一个简单的发布订阅者的实现
 
 
 ##### 附加链接
@@ -2104,9 +2103,9 @@ const c = arr => arr.sort((a, b) => a - b)
 <details>
 <summary>查看答案</summary>
 
-Recursion is the repeated application of a process. In JavaScript, recursion involves functions that call themselves repeatedly until they reach a base condition. The base condition breaks out of the recursion loop because otherwise the function would call itself indefinitely. Recursion is very useful when working with data structures that contain nesting where the number of levels deep is unknown.
+递归是一个应用重复的过程。在 JavaScript 中，递归包含重复调用它们自己的函数，直到到达基本条件，基本条件会打破递归循环，否则函数将无限的调用自己。当使用包含嵌套的未知深层级的数据结构时，递归是非常有用的
 
-For example, you may have a thread of comments returned from a database that exist in a flat array but need to be nested for display in the UI. Each comment is either a top-level comment (no parent) or is a reply to a parent comment. Comments can be a reply of a reply of a reply... we have no knowledge beforehand the number of levels deep a comment may be. This is where recursion can help.
+例如，你可以从数据库中得到以平铺数组形式的大量评论数据，但是需要以嵌套的形式显示在 UI 上。每个评论要么是顶级评论（没有父级），要么是一个父评论的回复。评论可能是一个回复的回复的回复…… 我们事先不知道这个评论之前还有多少层次。这时候递归就可以帮到我们
 
 ```js
 const nest = (items, id = null, link = "parent_id") =>
@@ -2132,14 +2131,14 @@ nest(comments)
 */
 ```
 
-In the above example, the base condition is met if `filter()` returns an empty array. The chained `map()` won't invoke the callback function which contains the recursive call, thereby breaking the loop.
+在上面的例子中，如果 `filter()` 返回一个空数组，则满足基本条件。链式的 `map()` 也不会被调用包含的递归回调，因此退出循环
 
 
 #### 小贴士
 
 
-* Recursion is useful when working with data structures containing an unknown number of nested structures.
-* Recursion must have a base condition to be met that breaks out of the loop or it will call itself indefinitely.
+* 当使用包含未知数量的嵌套的数据结构时，递归是有用的
+* 递归必须有一个基本条件被满足以此退出循环，否则将无限的调用自己
 
 
 ##### 附加链接
@@ -2305,17 +2304,16 @@ obj.doubleArr() // Uncaught TypeError: this.double is not a function
 <details>
 <summary>查看答案</summary>
 
-The main purpose is to avoid manipulating the DOM directly and keep the state of an application
-in sync with the UI easily. Additionally, they provide the ability to create components that can be reused when they have similar functionality with minor differences, avoiding duplication which would require multiple changes whenever the structure of a component which is reused in multiple places needs to be updated.
+只要的目的是避免直接操作 DOM 和更容易与 UI 保持状态同步。此外，它们提供了创建组件的能力，可以被重复使用，它们拥有相似的功能，只有一些微小的差别，避免了当多次使用的组件的结构需要多个地方改变时，多次的重复改变
 
-When working with DOM manipulation libraries like jQuery, the data of an application is generally kept in the DOM itself, often as class names or `data` attributes. Manipulating the DOM to update the UI involves many extra steps and can introduce subtle bugs over time. Keeping the state separate and letting a framework handle the UI updates when the state changes reduces cognitive load. Saying you want the UI to look a certain way when the state is a certain value is the declarative way of creating an application, instead of the imperative way of manually updating the UI to reflect the new state.
+当类似 jQuery 操作 DOM 的库工作时，应用的数据维持在 DOM 本身，经常用类名或 `data` 属性。操作 DOM 来更新 UI 会包含许多额外的步骤和随着时间的推移会引入微小的 bug。保持状态分离和让框架来处理当状态改变时的 UI 更新，以减少认知负担。你想要 UI 看起来在状态时是某个值时以某种方式显示是创建一个应用的声明式方式，而不是操作更新 UI 来反映新状态的命令式方式
 
 
 #### 小贴士
 
 
-* The virtual DOM is a representation of the real DOM tree in the form of plain objects, which allows a library to write code as if the entire document is thrown away and rebuilt on each change, while the real DOM only updates what needs to be changed. Comparing the new virtual DOM against the previous one leads to high efficiency as changing real DOM nodes is costly compared to recalculating the virtual DOM.
-* JSX is an extension to JavaScript that provides XML-like syntax to create virtual DOM objects which is transformed to function calls by a transpiler. It simplifies control flow (if statements/ternary expressions) compared to tagged template literals.
+* 虚拟 DOM 是用普通对象表式一个真实 DOM 树的形式，允许一个库编写代码,就像整个文档在每个改变时抛出重建，当真实 DOM 需要改变时才更新。比较新旧虚拟 DOM 更高效 ，相比重新计算虚拟 DOM，改变真实 DOM 节点开销更大 
+* JSX 是 JavaScript 提供类似 XML 语法的一种扩展，用来创建虚拟 DOM 对象，通过一个转换器转换为函数调用。它比标签模板字面量简化了控制流（`if` 语句/三元表达式）
 
 
 ##### 附加链接

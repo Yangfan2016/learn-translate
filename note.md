@@ -119,7 +119,11 @@
 `lack` 缺乏；不足     
 `introduce` 介绍；引入   
 `as thougn` 好像；仿佛   
-`desire` 欲望；心愿；要求  
+`desire` 欲望；心愿；要求    
+`subtle` 微妙的；精细的    
+`beforehand` 事先；预先  
+
+
 
 
 
