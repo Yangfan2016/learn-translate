@@ -23,7 +23,7 @@
 <summary>查看内容</summary>
 
 * [创建一个 batches 函数，返回一个食谱中可以被作为烹饪整批食材的最大数量](#创建一个-batches-函数返回一个食谱中可以被作为烹饪整批食材的最大数量)
-* [什么是大 O 标记法？](#what-is-big-o-notation)
+* [什么是大 O 标记法？](#什么是大-o-标记法)
 * [创建一个和 `Function.prototype.bind` 功能一样的独立函数 `bind`](#创建一个和-Functionprototypebind-功能一样的独立函数-bind)
 * [你是怎么避免回调地狱的？](#你是怎么避免回调地狱的)
 * [什么是回调，你可以举个例子吗？](#什么是回调你可以举个例子吗)
@@ -34,7 +34,7 @@
 * [`==` 和 `===` 相等运算符有什么区别？](#-和--相等运算符有什么区别)
 * [什么是事件代理，为什么它是有用的，你可以举个例子说明如何使用它？](#什么是事件代理为什么它是有用的你可以举个例子说明如何使用它)
 * [什么是事件驱动编程？](#什么是事件驱动编程)
-* [在 JavaScript 中，声明和表达式的区别？](#what-is-the-difference-between-an-expression-and-a-statement-in-javascript)
+* [在 JavaScript 中，表达式和语句的区别？](#在-javascript-中表达式和语句的区别)
 * [在 JavaScript 中，什么是真值（truthy），假值（falsy）?](#在-javascript-中什么是真值truthy假值falsy)
 * [生成一个包含的 n 项斐波那契数列元素的数组](#生成一个包含的-n-项斐波那契数列元素的数组)
 * [`0.1 + 0.2 === 0.3` 表达式的值是？](#01--02--03-表达式的值是)
@@ -43,7 +43,7 @@
 * [下面的例子中，`console.log` 会打印出什么？](#下面的例子中consolelog-会打印出什么)
 * [在 JavaScript 中，声明提升是如何工作的？](#在-javascript-中声明提升是如何工作的)
 * [为何将 JavaScript 源文件里的整个内容用匿名函数包裹起来？](#为何将-javascript-源文件里的整个内容用匿名函数包裹起来)
-* [阐释下命令式编程和声明式编程的区别？](#explain-the-differences-between-imperative-and-declarative-programming)
+* [阐释下命令式编程和声明式编程的区别？](#阐释下命令式编程和声明式编程的区别)
 * [词法作用域和动态作用域的区别？](#词法作用域和动态作用域的区别)
 * [创建一个函数，用 ‘#’ 符号遮住字符串（除最后4个字符之外）](#创建一个函数用--符号遮住字符串除最后4个字符之外)
 * [什么是缓存代理模式（memoization）？](#什么是缓存代理模式memoization)
@@ -149,8 +149,6 @@
 <details>
 <summary>查看内容</summary>
 
-* [你如何避免回调地狱？](#how-can-you-avoid-callback-hells)
-* [Node.js 中，经常使用回调的模式，把执行过程中遇到的错误，作为回调函数的第一个参数，这么做的优势是什么？](#nodejs-often-uses-a-callback-pattern-where-if-an-error-is-encountered-during-execution-this-error-is-passed-as-the-first-argument-to-the-callback-what-are-the-advantages-of-this-pattern)
 * [NodeJS 错误优先回调的模式有什么优势？](#nodejs-错误优先回调的模式有什么优势)
 * [什么是 Nodejs 里的事件循环（event loop）？](#什么是-nodejs-里的事件循环event-loop)
 * [什么是 `REST`？](#什么是-rest)
@@ -584,22 +582,22 @@ document.addEventListener("click", e => {
 
 <br>[⬆ 返回顶部](#目录)
 
-### 在 JavaScript 中，声明和表达式的区别？
+### 在 JavaScript 中，表达式和语句的区别？
 
 <details>
 <summary>查看答案</summary>
 
-There are two main syntactic categories in JavaScript: expressions and statements. A third one is both together, referred to as an expression statement. They are roughly summarized as:
+在 JavaScript 中有两种语法范畴：表达式和语句。第三种是两者结合在一起，称为一个表达式语句。它们大概概括如下：
 
-* **Expression**: produces a value
-* **Statement**: performs an action
-* **Expression statement**: produces a value and performs an action
+* **表达式**: 产生一个值
+* **语句**: 执行一个操作
+* **表达式语句**: 产生一个值和执行一个操作
 
-A general rule of thumb:
+一个通用的经验法则：
 
-> If you can print it or assign it to a variable, it’s an expression. If you can’t, it’s a statement.
+> 如果你可以打印或赋值给一个变量，那么它就是一个表达式。如果不能，那它就是一个语句
 
-##### Statements
+##### 语句
 
 ```js
 let x = 0
@@ -610,10 +608,10 @@ if (true) {
 }
 ```
 
-Statements appear as instructions that do something but don't produce values.
+语句以指令的形式出现，但是不能产生值
 
 ```js
-// Assign `x` to the absolute value of `y`.
+// 将 `y` 的绝对值赋给 `x` 
 var x
 if (y >= 0) {
   x = y
@@ -622,11 +620,11 @@ if (y >= 0) {
 }
 ```
 
-The only expression in the above code is `y >= 0` which produces a value, either `true` or `false`. A value is not produced by other parts of the code.
+上面的代码 `y >= 0` 是唯一的表达式，无论 `true` 或 `false` 都会产生一个值。这个值不是由代码的其他部分产生的
 
-##### Expressions
+##### 表达式
 
-Expressions produce a value. They can be passed around to functions because the interpreter replaces them with the value they resolve to.
+表达式产生一个值。它们可以传递给函数，因为编译器会将解析的值替代它们
 
 ```js
 5 + 5 // => 10
@@ -636,22 +634,22 @@ lastCharacter("input") // => "t"
 true === true // => true
 ```
 
-##### Expression statements
+##### 表达式语句
 
-There is an equivalent version of the set of statements used before as an expression using the conditional operator:
+这里有一个和之前使用条件表达式设置语句的等价版本：
 
 ```js
-// Assign `x` as the absolute value of `y`.
+// 将 `y` 的绝对值赋给 `x` 
 var x = y >= 0 ? y : -y
 ```
 
-This is both an expression and a statement, because we are declaring a variable `x` (statement) as an evaluation (expression).
+这既是一个表达式，又是一个语句，因为我们声明了一个变量 `x`（语句）作为一个求值（表达式）
 
 
 #### 小贴士
 
 
-* Function declarations vs function expressions
+* 函数声明 vs 函数表达式
 
 
 ##### 附加链接
@@ -1595,11 +1593,11 @@ myObject = "hello" // 抛出错误
 <details>
 <summary>查看答案</summary>
 
-Big O notation is used in Computer Science to describe the time complexity of an algorithm. The best algorithms will execute the fastest and have the simplest complexity.
+大 O 标记法是一个在计算机中用来描述算法的时间复杂度。最好的算法会执行很快而且拥有最简单的复杂度
 
-Algorithms don't always perform the same and may vary based on the data they are supplied. While in some cases they will execute quickly, in other cases they will execute slowly, even with the same number of elements to deal with.
+算法并不总是执行相同的操作，基于提供的数据变化。而一些例子会执行很快，而另一些例子，即使处理相同数量的元素也会很慢
 
-In these examples, the base time is 1 element = `1ms`.
+在这些例子中，基本的时间是 1 个元素 = `1ms`
 
 ##### O(1)
 
@@ -1607,9 +1605,9 @@ In these examples, the base time is 1 element = `1ms`.
 arr[arr.length - 1]
 ```
 
-* 1000 elements = `1ms`
+* 1000 个元素 = `1ms`
 
-Constant time complexity. No matter how many elements the array has, it will theoretically take (excluding real-world variation) the same amount of time to execute.
+常数时间复杂度。无论数组有多少个元素，理论上执行的时间的相同（排除实际的变化）
 
 ##### O(N)
 
@@ -1617,9 +1615,9 @@ Constant time complexity. No matter how many elements the array has, it will the
 arr.filter(fn)
 ```
 
-* 1000 elements = `1000ms`
+* 1000 元素 = `1000ms`
 
-Linear time complexity. The execution time will increase linearly with the number of elements the array has. If the array has 1000 elements and the function takes 1ms to execute, 7000 elements will take 7ms to execute. This is because the function must iterate through all elements of the array before returning a result.
+线性时间复杂度。执行时间会随着数组元素的数量线性增加。如果 1000 个元素的数组执行这个函数需要 1ms，那么 7000 个元素的数组将需要执行 7ms。这是因为函数在返回结果之前必须迭代数组的所有元素
 
 ##### O([1, N])
 
@@ -1627,9 +1625,9 @@ Linear time complexity. The execution time will increase linearly with the numbe
 arr.some(fn)
 ```
 
-* 1000 elements = `1ms <= x <= 1000ms`
+* 1000 元素 = `1ms <= x <= 1000ms`
 
-The execution time varies depending on the data supplied to the function, it may return very early or very late. The best case here is O(1) and the worst case is O(N).
+执行时间依赖于提供给函数的数据变化，它可能很快或很迟返回。最好的情况是 O(1)，最坏的情况是 O(N)
 
 ##### O(NlogN)
 
@@ -1637,9 +1635,9 @@ The execution time varies depending on the data supplied to the function, it may
 arr.sort(fn)
 ```
 
-* 1000 elements ~= `10000ms`
+* 1000 元素 ~= `10000ms`
 
-Browsers usually implement the quicksort algorithm for the `sort()` method and the average time complexity of quicksort is O(NlgN). This is very efficient for large collections.
+浏览器通常在 `sort()` 里使用快速排序实现，而且快速排序的平均时间复杂度是 O(NlgN)。在大的集合下非常高效
 
 ##### O(N^2)
 
@@ -1651,9 +1649,9 @@ for (let i = 0; i < arr.length; i++) {
 }
 ```
 
-* 1000 elements = `1000000ms`
+* 1000 元素 = `1000000ms`
 
-The execution time rises quadratically with the number of elements. Usually the result of nesting loops.
+执行时间随着元素的数量次方增加。通常是嵌套循环的结果
 
 ##### O(N!)
 
@@ -1673,15 +1671,15 @@ const permutations = arr => {
 }
 ```
 
-* 1000 elements = `Infinity` (practically) ms
+* 1000 元素 = `Infinity` （实际上） ms
 
-The execution time rises extremely fast with even just 1 addition to the array.
+即使数组增加一个元素，执行都会增加的极其快
 
 
 #### 小贴士
 
 
-* Be wary of nesting loops as execution time increases exponentially.
+* 当执行时间指数式增加时，要当心嵌套循环
 
 
 ##### 附加链接
@@ -1867,16 +1865,16 @@ hub.emit("message", {
 <details>
 <summary>查看答案</summary>
 
-These two types of programming can roughly be summarized as:
+这两种编程类型大致概括如下：
 
-* Imperative: **how** to achieve something
-* Declarative: **what** should be achieved
+* 命令式: **如何** 实现某事
+* 声明式: **什么** 应该被实现
 
-A common example of declarative programming is CSS. The developer specifies CSS properties that describe what something should look like rather than how to achieve it. The "how" is abstracted away by the browser.
+一个声明式编程的常用的例子是 CSS。开发者指定 CSS 属性描述某事应该看起开是什么样的而不是如何实现。”如何“ 实现被浏览器抽象出来了
 
-On the other hand, imperative programming involves the steps required to achieve something. In JavaScript, the differences can be contrasted like so:
+另一方面，命令式编程包含实现某事的必要步骤。在 JavaScript 中，区别可以这样对比：
 
-##### Imperative
+##### 命令式
 
 ```js
 const numbers = [1, 2, 3, 4, 5]
@@ -1886,23 +1884,23 @@ for (let i = 0; i < numbers.length; i++) {
 }
 ```
 
-We manually loop over the numbers of the array and assign the new index as the number doubled.
+我们手动循环数字数组和赋值双倍的数字给新的索引
 
-##### Declarative
+##### 声明式
 
 ```js
 const numbers = [1, 2, 3, 4, 5]
 const numbersDoubled = numbers.map(n => n * 2)
 ```
 
-We declare that the new array is mapped to a new one where each value is doubled.
+我们用每个加倍的新值映射到新声明的数组
 
 
 #### 小贴士
 
 
-* Declarative programming often works with functions and expressions. Imperative programming frequently uses statements and relies on low-level features that cause mutations, while declarative programming has a strong focus on abstraction and purity.
-* Declarative programming is more terse and easier to process at a glance.
+* 声明式编程经常用于函数和表达式。命令式编程频繁地使用语句而且依赖于造成突变的底层特性，而命令式编程注重抽象和纯粹
+* 声明式编程更精简和更易处理
 
 
 ##### 附加链接

@@ -121,7 +121,11 @@
 `as thougn` 好像；仿佛   
 `desire` 欲望；心愿；要求    
 `subtle` 微妙的；精细的    
-`beforehand` 事先；预先  
+`beforehand` 事先；预先    
+`roughly` 粗糙的；概略的    
+`rule of thumb` 经验法则  
+
+
 
 
 
