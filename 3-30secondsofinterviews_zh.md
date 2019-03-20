@@ -1,10 +1,10 @@
-<h1 align="center">
-  面试 30 秒
-</h1>
+## 面试 30 秒
+#### 一个面试常用的问题精选集，帮助你准备下一次面试
 
-<h4 align="center">一个面试常用的问题精选集，帮助你准备下一次面试</h4>
-
-> 原文 https://github.com/30-seconds/30-seconds-of-interviews
+> - 原文地址：https://github.com/30-seconds/30-seconds-of-interviews/blob/master/README.md
+> - 原文作者：https://github.com/30-seconds  
+> - 译者：[Yangfan2016](https://github.com/Yangfan2016)
+> - 备注：删除了重复部分，整理和精简了原文档的索引部分
 
 ## 前言
 
@@ -71,7 +71,7 @@
 * [下面的代码执行的结果是什么？](#下面的代码执行的结果是什么)
 * [什么是 JavaScript 的数据类型？](#什么是-javascript-的数据类型)
 * [诸如 React，Vue，Angular，Hyperapp 等 JavaScript UI 库/框架的目的是什么？](#诸如-reactvueangularhyperapp-等-javascript-ui-库框架的目的是什么)
-* [什么是‘严格模式’，它带来哪些关键性的好处？](#什么是严格模式它带来哪些关键性的好处)
+* [什么是 “严格模式”，它带来哪些关键性的好处？](#什么是严格模式它带来哪些关键性的好处)
 * [`let` `var` `const` 和无关键字声明变量有何不同？](#let-var-const-和无关键字声明变量有何不同)
 * [什么是虚拟 DOM，为何库/框架都在用它？](#什么是虚拟-dom为何库框架都在用它)
 </details>
@@ -98,8 +98,8 @@
 * [React 组件中，生命周期的各个阶段是什么？](#react-组件中生命周期的各个阶段是什么)
 * [在 React 中，状态提升是什么意思？](#在-react-中状态提升是什么意思)
 * [在 React 类方式定义的组件中，你如何保证方法得到的 `this` 是正确的？](#在-react-类方式定义的组件中你如何保证方法得到的-this-是正确的)
-* [你是怎么给事件处理或回调函数传参的？](#你是怎么给事件处理回调函数传参的)
-* [在 React 中，`portals` 是什么？](#react-中portals-是什么)
+* [你是怎么给事件处理或回调函数传参的？](#你是怎么给事件处理或回调函数传参的)
+* [在 React 中，`portals` 是什么？](#在-react-中portals-是什么)
 * [在 React 中，如何校验 `prop`？](#在-react-中如何校验-prop)
 * [在 React 里，如何写注释？](#在-react-里如何写注释)
 * [什么是 `refs`，我们如何使用它？](#什么是-refs我们如何使用它)
@@ -409,7 +409,7 @@ const obj = { a: 1, b: 2 }
 const shallowClone = { ...obj }
 ```
 
-使用这个技术，原型会被忽略。此外，嵌套对象不能被克隆，但是他们的引用被拷贝了，因此嵌套的对象依然指向和原来相同的对象。深度克隆更复杂，为了高效的克隆嵌套在对象里的任何对象类型（Date，RegEx，Function，Set。等等）
+使用这个技术，原型会被忽略。此外，嵌套对象不能被克隆，但是他们的引用被拷贝了，因此嵌套的对象依然指向和原来相同的对象。深度克隆更复杂，为了高效的克隆嵌套在对象里的任何对象类型（Date，RegExp，Function，Set。等等）
 
 其他的替代方案包括：
 
@@ -443,9 +443,9 @@ const shallowClone = { ...obj }
 即使两个拥有相同属性相同值的不同对象，当使用 `==` 或 `===` 进行比较时，也不认为他们相等。这就是因为他们是通过引用（内存里的位置）比较的，不像基本类型是通过值比较的
 
 为了测试两个对象的结构是否相等，需要一个辅助函数，它会迭代每个对象每个自己的属性，测试他们是否有相同的值，包括嵌套对象
-可选的，通过传递第三个参数 `true` 来测试对象的原型的相等性
+可选的，通过传递第三个参数 `true` 来测试对象的原型的等价性
 
-注意：这个技术不会尝试测试数据结构的相等性，除了普通对象，数组，函数，日期和基本类型
+注意：这个技术不会尝试测试数据结构的等价性，除了普通对象，数组，函数，日期和基本类型
 
 ```js
 function isDeepEqual(obj1, obj2, testPrototypes = false) {
@@ -545,7 +545,7 @@ DOM 事件提供了一个关于发起事件的元素有用的信息 `Event.targe
 
 它会提供两个好处：
 
-* 它提高了性能和减少了内存消耗，而且只需要注册一个单事件监听器就可以处理潜在的成千上完的元素
+* 它提高了性能和减少了内存消耗，而且只需要注册一个单事件监听器就可以处理潜在的成千上万的元素
 * 如果元素是动态添加到父元素上的，就不需要再为它们注册新的监听器
 
 而不是：
@@ -649,7 +649,7 @@ var x = y >= 0 ? y : -y
 #### 小贴士
 
 
-* 函数声明 vs 函数表达式
+* 函数声明 VS 函数表达式
 
 
 ##### 附加链接
@@ -997,7 +997,7 @@ const mask = (str, maskChar = "#") =>
 #### 小贴士
 
 
-* 一个 `MIME 类型` 通常分为两部分：一个类型和一个子类型（用斜线 “/” 分割）。例如，微软 Word 文档的类型是 `application/msword`（即是，应用类型并且是子类型是 msword）
+* 一个 `MIME 类型` 通常分为两部分：一个类型和一个子类型（用斜线 “/” 分割）。例如，微软 Word 文档的类型是 `application/msword`（即，类型是 “应用”，子类型是 msword）
 
 
 ##### 附加链接
@@ -1102,7 +1102,7 @@ person.age = 50
 person.birthday() // person.age === 51
 ```
 
-`Object.create()` 也支持第二个参数，它的担当定义新属性的描述符
+`Object.create()` 也支持第二个参数，它担当定义新属性的描述符
 
 ```js
 Object.create(personProto, {
@@ -1442,7 +1442,7 @@ addEventListener(
 #### 小贴士
 
 
-* JavaScript 有一个基于 “事件循环” 的并发模型JavaScript has a concurrency model based on an "event loop".
+* JavaScript 有一个基于 “事件循环” 的并发模型
 * 像 `alert` 这样的函数会阻塞主线程，因此在用户关闭它之前是不会有用户输入被注册的
 
 
@@ -2101,7 +2101,7 @@ const c = arr => arr.sort((a, b) => a - b)
 <details>
 <summary>查看答案</summary>
 
-递归是一个应用重复的过程。在 JavaScript 中，递归包含重复调用它们自己的函数，直到到达基本条件，基本条件会打破递归循环，否则函数将无限的调用自己。当使用包含嵌套的未知深层级的数据结构时，递归是非常有用的
+递归是一个应用重复的过程。在 JavaScript 中，递归包含重复调用它们自己的函数，直到达到基本条件，基本条件才会打破递归循环，否则函数将无限的调用自己。当使用包含嵌套的未知深层级的数据结构时，递归是非常有用的
 
 例如，你可以从数据库中得到以平铺数组形式的大量评论数据，但是需要以嵌套的形式显示在 UI 上。每个评论要么是顶级评论（没有父级），要么是一个父评论的回复。评论可能是一个回复的回复的回复…… 我们事先不知道这个评论之前还有多少层次。这时候递归就可以帮到我们
 
@@ -2258,7 +2258,7 @@ var myFunction = function() {
 myFunction.call({ customThis: true }) // { customThis: true }
 ```
 
-##### 不需要的 `this`
+##### 意料之外的 `this`
 
 因为 `this` 可以根据作用域改变，当使用普通函数可能得到意想不到的值
 
@@ -2267,7 +2267,7 @@ var obj = {
   arr: [1, 2, 3],
   doubleArr() {
     return this.arr.map(function(value) {
-      // this is now this.arr
+      // this 现在指的是 this.arr
       return this.double(value)
     })
   },
@@ -2275,7 +2275,7 @@ var obj = {
     return value * 2
   }
 }
-obj.doubleArr() // Uncaught TypeError: this.double is not a function
+obj.doubleArr() // 抛出错误：this.double 不是一个函数
 ```
 
 
@@ -2285,7 +2285,7 @@ obj.doubleArr() // Uncaught TypeError: this.double is not a function
 * 在非严格模式，全局 `this` 指的是全局对象（在浏览器是 `window`），在严格模式下，全局 `this` 是 `undefined`
 * `Function.prototype.call` 和 `Function.prototype.apply` 第一个参数设置执行函数的上下文 `this`，`call` 之后接受不定量的参数，和 `apply` 接受一个数组作为第二个参数以不定量的形式提供给函数
 * `Function.prototype.bind` 返回一个新函数，强制第一个参数设置为 `this` 上下文，其他函数不能改变
-* 如果一个函数需要它的 `this` 上下文被改变，基于它是如何被调用的，你必须使用 `function` 关键字。当你想把 `this` 成为包围（词法）上下文时，使用箭头函数
+* 如果一个函数需要它基于如何被调用而改变 `this` 上下文时，你必须使用 `function` 关键字。当你想要 `this` 成为外围（词法）上下文时，请使用箭头函数
 
 
 ##### 附加链接
@@ -2323,7 +2323,7 @@ obj.doubleArr() // Uncaught TypeError: this.double is not a function
 
 <br>[⬆ 返回顶部](#目录)
 
-### 什么是‘严格模式’，它带来哪些关键性的好处？
+### 什么是 “严格模式”，它带来哪些关键性的好处？
 
 <details>
 <summary>查看答案</summary>
@@ -2476,7 +2476,7 @@ React 的注释和 Javascript 的多行注释很相似，它是用大括号包�
 ```jsx
 render() => (<div>
   {/* 单行注释 */}
-  Hey {user}, write cool comments
+  嗨 {用户}, 写些酷酷的注释吧
   {/* 多行注释 */}
 </div>)
 ```
@@ -2576,7 +2576,7 @@ render() {
 <button onClick="handleClick()">Click me</button>
 ```
 
-* 在 HTML 中，返回 `false` 可以阻止默认行为发生，然而在 React 中，必须显示调用 `preventDefault`才能阻止默认行为
+* 在 HTML 中，`return false` 可以阻止默认行为发生，然而在 React 中，必须显示调用 `preventDefault` 才能阻止默认行为
 
 ```html
 <!-- HTML -->
@@ -3057,8 +3057,7 @@ render() {
 
 <details>
 <summary>查看答案</summary>
-
-Portal 是一种渲染不在父元素层级内的子元素的推荐方式
+Portal 是一种子组件存在于父组件的 DOM 结构层级外的渲染推荐方式
 
 ```jsx
 ReactDOM.createPortal(child, container)
@@ -3135,7 +3134,7 @@ User.propTypes = {
 
 Refs 提供一种在 render 方法中访问 DOM 节点或 React 元素的方法。Refs 应该少用，但是有一些好的使用例子，例如：
 
-* 管理聚焦，文本选择，或者媒体回放
+* 管理获取焦点，文本选择，或者媒体回放
 * 触发不可避免的动画
 * 集成三方 DOM 库
 
@@ -3242,7 +3241,7 @@ class App extends Component {
 <details>
 <summary>查看答案</summary>
 
-如果用户看不到图像，`alt` 属性可以提供替代信息。`alt` 属性应该用于描述，而哪些仅仅是装饰目的图像，可以为空
+如果用户看不到图像，`alt` 属性可以提供替代信息。`alt` 属性应该用于描述，而那些仅仅是装饰目的图像，可以为空
 
 #### 小贴士
 
@@ -3367,7 +3366,7 @@ class App extends Component {
 * 请用 `<head>` 中放置一个 `defer`，允许浏览器在页面还在解析过程中下载脚本，因此把脚本放到 `body` 之前是更好的选择
 * 如果脚本之间相互依赖，请用 `defer`.
 * 如果脚本是独立的，请用 `async`.
-* 如果 DOM 必须准备好并且内容还未被放置到 `DOMContentLoaded` 监听器中，请用 `defer` 
+* 如果 DOM 必须加载完并且内容还未放置到 `DOMContentLoaded` 监听器中时，请用 `defer` 
 
 
 ##### 附加链接
@@ -3822,7 +3821,7 @@ div + p {
 
 假设浏览器已经定义好了元素的规则集，为每一个元素分配一个矩阵值，它的优先级从高到低对应如下：
 
-* 内联规则（二进制 - 1 或 0）
+* 内联规则（二进制 1 或 0）
 * id 选择器的数量
 * 类选择器，伪类选择器和属性选择器的数量
 * 标签选择器和伪元素选择器的数量
@@ -3880,11 +3879,10 @@ div + p {
 ```js
 fs.readFile(filePath, function(err, data) {
   if (err) {
-    // handle the error, the return is important here
-    // so execution stops here
+    // 处理错误，return 在这里非常重要，因此执行在这里终止
     return console.log(err)
   }
-  // use the data object
+  // 使用 data 对象
   console.log(data)
 })
 ```
@@ -4042,3 +4040,8 @@ XSS 指的是客户端代码注入，攻击者在一个合法网站或 web 应�
 ## 协议
 
 [MIT](LICENSE). Copyright (c) [Stefan Feješ](https://stefanfejes.com/).
+
+
+> - 本文仅代表原作者个人观点，译者不发表任何观点
+> - Markdown 文件由译者手动整理，如有勘误，欢迎指正
+> - 译文和原文采用一样协议，侵删
