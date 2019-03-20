@@ -2,7 +2,7 @@
 #### 一个面试常用的问题精选集，帮助你准备下一次面试
 
 > - 原文地址：https://github.com/30-seconds/30-seconds-of-interviews/blob/master/README.md
-> - 原文作者：https://github.com/30-seconds  
+> - 原文作者：https://github.com/fejes713  
 > - 译者：[Yangfan2016](https://github.com/Yangfan2016)
 > - 备注：删除了重复部分，整理和精简了原文档的索引部分
 
@@ -4040,6 +4040,9 @@ XSS 指的是客户端代码注入，攻击者在一个合法网站或 web 应�
 ## 协议
 
 [MIT](LICENSE). Copyright (c) [Stefan Feješ](https://stefanfejes.com/).
+
+
+
 
 
 > - 本文仅代表原作者个人观点，译者不发表任何观点
