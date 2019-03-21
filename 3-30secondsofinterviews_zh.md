@@ -5,8 +5,7 @@
 </h1>
 
 <h4 align="center">一个面试常用的问题精选集，帮助你准备下一次面试</h4>
-## 面试 30 秒
-#### 一个面试常用的问题精选集，帮助你准备下一次面试
+
 
 > - 原文地址：https://github.com/30-seconds/30-seconds-of-interviews/blob/master/README.md
 > - 原文作者：https://github.com/fejes713  
