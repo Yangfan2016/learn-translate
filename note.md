@@ -124,25 +124,16 @@
 `beforehand` 事先；预先    
 `roughly` 粗糙的；概略的    
 `rule of thumb` 经验法则  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
+`canonical` 权威的    
+`primarily` 根本上      
+`flawed` 有缺陷的   
+`negligible` 细微的     
+`either` 两者其一   
+`In either case`  不论发生何种情况    
+`tutorial`  教程  
+`at all`  根本  
+`exactly`  正确地；准确地    
+`value judgement` 价值判断  
 
 
 
@@ -150,4 +141,5 @@
 
 ## 未知
 
-`Good to hear` 小贴士
+`Good to hear` 小贴士    
+`So where does that leave us` 那我们该怎么办呢    
