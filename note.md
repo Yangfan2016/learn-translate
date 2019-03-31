@@ -133,7 +133,20 @@
 `tutorial`  教程  
 `at all`  根本  
 `exactly`  正确地；准确地    
-`value judgement` 价值判断  
+`value judgement` 价值判断    
+`emphasize`  强调  
+`per se`  本身；自身          
+`illustrate`  阐明；图解  
+`peculiar`  罕见的；奇怪的  
+`Indeed`   事实上；的确    
+`particular`  特别的  
+`profile`  侧面；简介   
+`sever`  切断  
+
+
+
+
+
 
 
 

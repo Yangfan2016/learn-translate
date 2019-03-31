@@ -73,42 +73,42 @@ class ProfilePage extends React.Component {
 
 ---
 
-Before we continue, I’d like to emphasize that the difference I’m describing has nothing to do with React Hooks per se. Examples above don’t even use Hooks!
+在继续之前，我想强调下这篇文章描述的区别和 React Hooks 半毛钱关系都没有。甚至上面的例子里都没有提及 Hooks！
 
-It’s all about the difference between functions and classes in React. If you plan to use functions more often in a React app, you might want to understand it.
-
----
-
-**We’ll illustrate the difference with a bug that is common in React applications.**
-
-Open this **[example sandbox](https://codesandbox.io/s/pjqnl16lm7)** with a current profile selector and the two `ProfilePage` implementations from above — each rendering a Follow button.
-
-Try this sequence of actions with both buttons:
-
-1. **Click** one of the Follow buttons.
-2. **Change** the selected profile before 3 seconds pass.
-3. **Read** the alert text.
-
-You will notice a peculiar difference:
-
-* With the above `ProfilePage` **function**, clicking Follow on Dan’s profile and then navigating to Sophie’s would still alert `'Followed Dan'`.
-
-* With the above `ProfilePage` **class**, it would alert `'Followed Sophie'`:
-
-![Demonstration of the steps](./bug.gif)
+文章都是关于 React 中所有函数和 “类” 的差异。如果你计划在 React app 中更频繁的使用函数，你可能更想理解它
 
 ---
 
+**我们将用一个 React 应用 中常见的饿 bug 来图解这个区别**
 
-In this example, the first behavior is the correct one. **If I follow a person and then navigate to another person’s profile, my component shouldn’t get confused about who I followed.** This class implementation is clearly buggy. 
+打来这个 **[sandbox 例子](https://codesandbox.io/s/pjqnl16lm7)**，有一个简介选择器和两个 `信息页面`（每个都有一个关注按钮） 
 
-*(You should totally [follow Sophie](https://mobile.twitter.com/sophiebits) though.)*
+试着按下面的顺序触发这两个按钮：
+
+1. **单击** 其中和一个关注按钮  
+2. 在 3 秒过去之前 **改变** 已选的简介  
+3. **读取** 警告框的内容  
+
+你会发现一个奇怪的差异：
+
+* 使用上面的 **function** `信息页面` ，点击关注 Dan 的简介后，然后导航到 Sophie 的简介依然弹框显示 `'Followed Dan'`
+
+* 使用上面的 **class** `信息页面` ，它会弹框显示 `'Followed Sophie'`：
+
+![Demonstration of the steps](https://overreacted.io/bug-386a449110202d5140d67336a0ade5a0.gif)
 
 ---
 
-So why does our class example behave this way?
 
-Let’s look closely at the `showMessage` method in our class:
+在这个例子中，第一个行为是正确的。**如果我关注了一个人，然后导航到另一个人的简介页面，我的组件不应该困惑我到底关注了谁。** 这个  “类” 实现明显是个 bug 
+
+*（虽然你完全可以这样关注 [Sophie](https://mobile.twitter.com/sophiebits)）*
+
+---
+
+那么为何我们的 “类” 例子会如此表现内？
+
+让我们仔细看看我们 “类” 方法 `showMessage`：
 
 ```jsx{3}
 class ProfilePage extends React.Component {
@@ -117,15 +117,15 @@ class ProfilePage extends React.Component {
   };
 ```
 
-This class method reads from `this.props.user`. Props are immutable in React so they can never change. **However, `this` *is*, and has always been, mutable.**
+这个 “类” 方法从 `this.props.user` 读取。Props 在 React 里是不可变的，因此它们永远也不会改变。**然而，`this` *是*，总是多变的** 
 
-Indeed, that’s the whole purpose of `this` in a class. React itself mutates it over time so that you can read the fresh version in the `render` and lifecycle methods.
+事实上，这就是 “类” 里 `this` 的全部目的。React 自己会随着时间改变，以至于你可以在 `render` 和生命周期方法获取到最新的版本
 
-So if our component re-renders while the request is in flight, `this.props` will change. The `showMessage` method reads the `user` from the “too new” `props`.
+因此如果我们在请求期间重新渲染我们的组件，`this.props` 会改变。`showMessage` 方法获取到 `user` 将是 “更新的” `props`
 
-This exposes an interesting observation about the nature of user interfaces. If we say that a UI is conceptually a function of current application state, **the event handlers are a part of the render result — just like the visual output**. Our event handlers “belong” to a particular render with particular props and state.
+这个例子揭露出一个关于用户界面本质的有趣的观察。如果我们说 UI 概念上是当前应用状态的函数，**那么事件处理器就是渲染结果的一部分（就像可视化输出一样）**。我们事件处理器 “属于” 一个拥有特别 props 和 state 的特别渲染
 
-However, scheduling a timeout whose callback reads `this.props` breaks that association. Our `showMessage` callback is not “tied” to any particular render, and so it “loses” the correct props. Reading from `this` severed that connection.
+然而，这些回调读取 `this.props` 超时会断开这个联系。我们的 `showMessage` 回调不能 “绑” 到任何特定的渲染，那么它就会 “丢失” 正确的 props。读取 `this` 的链接就会被切断  
 
 ---
 
