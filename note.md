@@ -141,7 +141,16 @@
 `Indeed`   事实上；的确    
 `particular`  特别的  
 `profile`  侧面；简介   
-`sever`  切断  
+`sever`  切断    
+`Let’s say`  假设    
+`settle for`  无奈接受     
+`recommendation`  推荐  
+`prone`  易于   
+`count on`  指望  
+
+
+
+
 
 
 
@@ -156,3 +165,4 @@
 
 `Good to hear` 小贴士    
 `So where does that leave us` 那我们该怎么办呢    
+`footgun`  

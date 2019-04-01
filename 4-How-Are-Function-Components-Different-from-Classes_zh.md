@@ -129,11 +129,11 @@ class ProfilePage extends React.Component {
 
 ---
 
-**Let’s say function components didn’t exist.** How would we solve this problem?
+**我们假设函数式组件不存在。** 我们该如何解决这个问题内？
 
-We’d want to somehow “repair” the connection between the `render` with the correct props and the `showMessage` callback that reads them. Somewhere along the way the `props` get lost.
+我们想以某种方式 “修复” 带着正确的 props 的 `render` 和 `showMessage` 回调读取它们的联系。在某个地方，`props` 可能会丢失
 
-One way to do it would be to read `this.props` early during the event, and then explicitly pass them through into the timeout completion handler:
+一种方式是在事件处理更早读取 `this.props`，并且显示通过超时完成处理器传递进去：
 
 ```jsx{2,7}
 class ProfilePage extends React.Component {
@@ -152,13 +152,14 @@ class ProfilePage extends React.Component {
 }
 ```
 
-This [works](https://codesandbox.io/s/3q737pw8lq). However, this approach makes the code significantly more verbose and error-prone with time. What if we needed more than a single prop? What if we also needed to access the state? **If `showMessage` calls another method, and that method reads `this.props.something` or `this.state.something`, we’ll have the exact same problem again.** So we would have to pass `this.props` and `this.state` as arguments through every method called from `showMessage`.
+起[作用](https://codesandbox.io/s/3q737pw8lq)了。然而，这种方式随着时间变化显著造成代码更冗余和容易出错。如果我们需要不止一个 prop？如果我们也需要访问这个 state？**如果 `showMessage` 调用其他方法，而且这个方法也需要读取 `this.props.something` 或 `this.state.something`，我们又遇到了同样的问题。** 因此我们把 `this.props` 和 `this.state` 作为参数从 `showMessage` 传递给每个它调用的方法
 
-Doing so defeats the ergonomics normally afforded by a class. It is also difficult to remember or enforce, which is why people often settle for bugs instead.
 
-Similarly, inlining the `alert` code inside `handleClick` doesn’t answer the bigger problem. We want to structure the code in a way that allows splitting it into more methods *but* also reading the props and state that correspond to the render related to that call. **This problem isn’t even unique to React — you can reproduce it in any UI library that puts data into a mutable object like `this`.**
+这么做会破坏 “类” 正常提供的工程学。它也难以记住和执行，这就是为何人们常常满足于 bug 的原因
 
-Perhaps, we could *bind* the methods in the constructor?
+同样，在 `handleClick` 里内嵌 `alert` 代码并不能解决更大的问题。我们想用一种方式结构化代码允许被更多方法拆分，*但是* 还是要读取调用相应渲染的 props 和 state。**这个问题甚至都不是 React 独有的（你可以把这个可变对象如 `this`，放到任何一个 UI 库里都可以重现）**
+
+或许，我们可以在构造器中 *绑定* 这个方法？
 
 ```jsx{4-5}
 class ProfilePage extends React.Component {
@@ -182,20 +183,21 @@ class ProfilePage extends React.Component {
 }
 ```
 
-No, this doesn’t fix anything. Remember, the problem is us reading from `this.props` too late — not with the syntax we’re using! **However, the problem would go away if we fully relied on JavaScript closures.**
+不，它不会解决任何问题。记住，问题所在是我们读取 `this.props` 太迟了（不是我们使用的语法有错！）**然而，如果我们完全依赖 JavaScript 闭包可以解决这个问题** 
 
-Closures are often avoided because it’s [hard](https://wsvincent.com/javascript-closure-settimeout-for-loop/) to think about a value that can be mutated over time. But in React, props and state are immutable! (Or at least, it’s a strong recommendation.) That removes a major footgun of closures.
+闭包总是被回避，因为它[难](https://wsvincent.com/javascript-closure-settimeout-for-loop/)以理解，值会随着时间变化。但是在 React 中，props 和 state 是不可变的！（或者至少，它是强烈推荐）消除了
+闭包的主要阻碍
 
-This means that if you close over props or state from a particular render, you can always count on them staying exactly the same:
+这意味着如果你在一个特别的渲染靠近 props 或 state，你总是可以指望它们完全相同：
 
 ```jsx{3,4,9}
 class ProfilePage extends React.Component {
   render() {
-    // Capture the props!
+    // 捕获这个 props！
     const props = this.props;
 
-    // Note: we are *inside render*.
-    // These aren't class methods.
+    // 注意：我们在 *render 内部*。
+    // 这些不是类方法
     const showMessage = () => {
       alert('Followed ' + props.user);
     };
@@ -210,12 +212,12 @@ class ProfilePage extends React.Component {
 ```
 
 
-**You’ve “captured” props at the time of render:**
+**你已经捕获了渲染时的 props：**
 
+这种方法，任何代码内置在它里面（包含在 `showMessage` 里），保证看到特别渲染的 props。React 不再 “移动我们的奶酪”
 
-This way any code inside it (including `showMessage`) is guaranteed to see the props for this particular render. React doesn’t “move our cheese” anymore.
+**我们可以在里面添加我们想要的任何数量的辅助函数，并且它们都将使用捕获的 prop 和 state。** 闭包营救了！
 
-**We could then add as many helper functions inside as we want, and they would all use the captured props and state.** Closures to the rescue!
 
 ---
 
