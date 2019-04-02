@@ -1,4 +1,4 @@
-## React 函数式组件和类组件有何不同？
+## React 函数式组件和类有何不同？
 
 > - 原文地址：https://overreacted.io/how-are-function-components-different-from-classes/
 > - 原文作者：[Dan Abramov](https://github.com/gaearon)
@@ -13,7 +13,7 @@
 
 那么给我们留下了什么内？React 函数和类有本质的区别吗？当然，它们有（在心智模型层面上）。**这篇文章，我将找到它们之间的最大的不同。** 它自从 2015 的函数式组件被[引入](https://reactjs.org/blog/2015/09/10/react-v0.14-rc1.html#stateless-function-components)就存在了，但是它经常被忽视：
 
->**函数式组件捕获渲染的值**
+>**函数式组件捕获已渲染的值**
 
 让我们拆开这个概念来理解
 
@@ -243,7 +243,7 @@ function ProfilePage(props) {
 
 就像上面这样，`props` 依然可以被捕获（React 把它们作为参数传递进去）。**不像 `this`，`props` 对象永远不可能因 React 而发生改变**
 
-如果你把函数定义里的 `props` 结构的话，会更清晰：
+如果你把函数定义里的 `props` 解构的话，会更清晰：
 
 ```jsx{1,3}
 function ProfilePage({ user }) {
@@ -261,7 +261,7 @@ function ProfilePage({ user }) {
 }
 ```
 
-当父组件携带不同的 props 渲染 `ProfilePage` 时，React 会再次调用 `ProfilePage` 函数。但是我们已经点击 “属于” 前一次渲染它自己的 `user` 的值和读取 `showMessage` 回调那个事件处理程序。它们都原封不动
+当父组件携带不同的 props 渲染 `ProfilePage` 时，React 会再次调用 `ProfilePage` 函数。但是我们已经点击 “属于” 前一次渲染它自己的 `user` 的值和读取 `showMessage` 回调的那个事件处理程序。它们都原封不动
 
 这就是为何在这个版本的 [demo](https://codesandbox.io/s/pjqnl16lm7) 函数中，点击关注 Sophie 的简介和改变选项到 Sunil 依然弹出 `'Followed Sophie'`：
 
@@ -271,7 +271,7 @@ function ProfilePage({ user }) {
 
 现在我们就理解了 React 中 “类” 和函数的最大差别：
 
->**函数组件捕获到已渲染的值**
+>**函数式组件捕获已渲染的值**
 
 **对于 Hooks，同样的原则也适用于 state。** 仔细看看下面这个例子：
 
