@@ -146,7 +146,16 @@
 `settle for`  无奈接受     
 `recommendation`  推荐  
 `prone`  易于   
-`count on`  指望  
+`count on`  指望    
+`What’s the point`  有何意义      
+`obvious`   明显的；显著的      
+`leave something intact`   使某物保留原样      
+`intact` 原封不动的；完整的  
+`odd`  奇数的；古怪的  
+
+
+
+
 
 
 

@@ -214,16 +214,16 @@ class ProfilePage extends React.Component {
 
 **你已经捕获了渲染时的 props：**
 
-这种方法，任何代码内置在它里面（包含在 `showMessage` 里），保证看到特别渲染的 props。React 不再 “移动我们的奶酪”
+这种方法，任何代码内置在它里面（包含在 `showMessage` 里），保证看到特定渲染的 props。React 不再 “移动我们的奶酪”
 
-**我们可以在里面添加我们想要的任何数量的辅助函数，并且它们都将使用捕获的 prop 和 state。** 闭包营救了！
+**我们可以在里面添加我们想要的任何数量的辅助函数，并且它们都将使用捕获的 prop 和 state。** 闭包营救了我们！
 
 
 ---
 
-The [example above](https://codesandbox.io/s/oqxy9m7om5) is correct but it looks odd. What’s the point of having a class if you define functions inside `render` instead of using class methods?
+[上面这个例子](https://codesandbox.io/s/oqxy9m7om5)是对的，但是看起来有点怪，如果你在 `render` 里定义了函数而不是使用 “类” 方法，那么在 “类” 里这么做有什么意义内？
 
-Indeed, we can simplify the code by removing the class “shell” around it:
+事实上，我们可以通过移除它周围的 “壳” 来简化代码：
 
 ```jsx
 function ProfilePage(props) {
@@ -241,9 +241,9 @@ function ProfilePage(props) {
 }
 ```
 
-Just like above, the `props` are still being captured — React passes them as an argument. **Unlike `this`, the `props` object itself is never mutated by React.**
+就像上面这样，`props` 依然可以被捕获（React 把它们作为参数传递进去）。**不像 `this`，`props` 对象永远不可能因 React 而发生改变**
 
-It’s a bit more obvious if you destructure `props` in the function definition:
+如果你把函数定义里的 `props` 结构的话，会更清晰：
 
 ```jsx{1,3}
 function ProfilePage({ user }) {
@@ -261,20 +261,19 @@ function ProfilePage({ user }) {
 }
 ```
 
-When the parent component renders `ProfilePage` with different props, React will call the `ProfilePage` function again. But the event handler we already clicked “belonged” to the previous render with its own `user` value and the `showMessage` callback that reads it. They’re all left intact.
+当父组件携带不同的 props 渲染 `ProfilePage` 时，React 会再次调用 `ProfilePage` 函数。但是我们已经点击 “属于” 前一次渲染它自己的 `user` 的值和读取 `showMessage` 回调那个事件处理程序。它们都原封不动
 
-This is why, in the function version of [this demo](https://codesandbox.io/s/pjqnl16lm7), clicking Follow on Sophie’s profile and then changing selection to Sunil would alert `'Followed Sophie'`:
+这就是为何在这个版本的 [demo](https://codesandbox.io/s/pjqnl16lm7) 函数中，点击关注 Sophie 的简介和改变选项到 Sunil 依然弹出 `'Followed Sophie'`：
 
-
-This behavior is correct. *(Although you might want to [follow Sunil](https://mobile.twitter.com/threepointone) too!)*
+这个行为是对的。*（尽管你可能也想关注 [Sunil](https://mobile.twitter.com/threepointone)）*
 
 ---
 
-Now we understand the big difference between functions and classes in React:
+现在我们就理解了 React 中 “类” 和函数的最大差别：
 
->**Function components capture the rendered values.**
+>**函数组件捕获到已渲染的值**
 
-**With Hooks, the same principle applies to state as well.** Consider this example:
+**对于 Hooks，同样的原则也适用于 state。** 仔细看看下面这个例子：
 
 ```jsx
 function MessageThread() {
@@ -301,9 +300,10 @@ function MessageThread() {
 }
 ```
 
-(Here’s a [live demo](https://codesandbox.io/s/93m5mz9w24).)
+（这里有一个[在线 demo](https://codesandbox.io/s/93m5mz9w24)）
 
-While this isn’t a very good message app UI, it illustrates the same point: if I send a particular message, the component shouldn’t get confused about which message actually got sent. This function component’s `message` captures the state that “belongs” to the render which returned the click handler called by the browser. So the `message` is set to what was in the input when I clicked “Send”.
+
+虽然这个消息 app UI 并不是很好，但它阐述了相同的原理：如果我发送了一个特别的消息，那么组件不应该困惑发送出去的消息实际是什么。这个函数组件的 `message` 捕获了 “属于” 返回浏览器调用的点击处理程序的渲染的 state。因此，`message` 被设置为我点击 “发送” 那一时刻的输入框的值
 
 ---
 
