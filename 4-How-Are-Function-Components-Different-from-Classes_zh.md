@@ -3,7 +3,7 @@
 > - 原文地址：https://overreacted.io/how-are-function-components-different-from-classes/
 > - 原文作者：[Dan Abramov](https://github.com/gaearon)
 > - Markdown 地址：https://github.com/gaearon/overreacted.io/edit/master/src/pages/how-are-function-components-different-from-classes/index.md
-> - 译者：[Yangfan2016](https://github.com/Yangfan2016)
+> - 译者：[Yangfan2016](https://github.com/Yangfan2016)
 
 一段时间内，权威的答案是 “类” 可以提供更多的特性的访问（比如，`state`）。而 [Hooks](https://reactjs.org/docs/hooks-intro.html) 就不一样了
 
