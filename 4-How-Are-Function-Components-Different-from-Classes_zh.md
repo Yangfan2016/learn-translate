@@ -307,7 +307,7 @@ function MessageThread() {
 
 ---
 
-因此我们了解到 React 的函数默认捕获 props 和 state。**但是如果*想*读取到最新的不是属于这个特定渲染的 props 或 state？** 假如我们想[从未来读取它们](https://dev.to/scastiel/react-hooks-get-the-current-state-back-to-the-future-3op2)？
+因此我们了解到 React 的函数默认捕获 props 和 state。**但是如果 *想* 读取到最新的不是属于这个特定渲染的 props 或 state？** 假如我们想[从未来读取它们](https://dev.to/scastiel/react-hooks-get-the-current-state-back-to-the-future-3op2)？
 
 在 “类” 中，你可以通过 `this.props` 或 `this.state` 读取到，因为 `this` 本身是可变的。React 改变了它。在函数式组件里，你也可以拥有一个可变值，该值由所有组件渲染器共享。它称为 “ref”：
 
@@ -350,7 +350,7 @@ function MessageThread() {
 
 你可以比较这[两个](https://codesandbox.io/s/93m5mz9w24)[例子](https://codesandbox.io/s/ox200vw8k9)的区别。ref 是一种渲染一致性的 “插槽” 方法，而且在某些情况下很方便
 
-通常，你应该避免在渲染*期间*读取或设置 refs，因为它们是可变的。我们想要保持渲染的可预测性。**然而，如果想要得到一个特别的 prop 或 state 的最新值，手动更新 ref 可能非常恼火。** 我们可以用这个效果实现自动化：
+通常，你应该避免在渲染 *期间* 读取或设置 refs，因为它们是可变的。我们想要保持渲染的可预测性。**然而，如果想要得到一个特别的 prop 或 state 的最新值，手动更新 ref 可能会非常恼火。** 我们可以用这个效果实现自动化：
 
 ```js{4-8,11}
 function MessageThread() {
@@ -369,9 +369,9 @@ function MessageThread() {
 
 （这有一个[demo](https://codesandbox.io/s/yqmnz7xy8x)）
 
-我们在这个效果*内部*进行赋值，以致于 ref 值只有在 DOM 更新之后改变。这就确保了我们的改变不会打破像[Time Slicing and Suspense](https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html)特性，它们依赖渲染中断
+我们在这个效果 *内部* 进行赋值，以致于 ref 值只有在 DOM 更新之后改变。这就确保了我们的改变不会打破像 [Time Slicing and Suspense] (https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html)特性，它们依赖渲染中断
 
-这样使用 ref  并不是经常必须的。**捕获 props 或 state 还是使用默认最好。** 然而，它可以方便处理像时间间隔和订阅类[命令式 API](/making-setinterval-declarative-with-react-hooks/)。记住你可以像 this 一样跟踪*任何*值（prop，state 变量，整个 props 对象，或甚至一个函数）
+这样使用 ref  并不是经常必须的。**捕获 props 或 state 还是使用默认最好。** 然而，它可以方便处理像时间间隔和订阅类[命令式 API](/making-setinterval-declarative-with-react-hooks/)。记住你可以像 this 一样跟踪 *任何* 值（prop，state 变量，整个 props 对象，或甚至一个函数）
 
 这个模式也方便优化（例如，当 `useCallback` id 改变太频繁）。然而，[使用 reducer](https://reactjs.org/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down)通常是一个[更好的解决方案](https://github.com/ryardley/hooks-perf-issues/pull/3)。（后面的文章会提及到这个主题！）
 
