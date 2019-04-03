@@ -307,25 +307,25 @@ function MessageThread() {
 
 ---
 
-So we know functions in React capture props and state by default. **But what if we *want* to read the latest props or state that don’t belong to this particular render?** What if we want to [“read them from the future”](https://dev.to/scastiel/react-hooks-get-the-current-state-back-to-the-future-3op2)?
+因此我们了解到 React 的函数默认捕获 props 和 state。**但是如果*想*读取到最新的不是属于这个特定渲染的 props 或 state？** 假如我们想[从未来读取它们](https://dev.to/scastiel/react-hooks-get-the-current-state-back-to-the-future-3op2)？
 
-In classes, you’d do it by reading `this.props` or `this.state` because `this` itself is mutable. React mutates it. In function components, you can also have a mutable value that is shared by all component renders. It’s called a “ref”:
+在 “类” 中，你可以通过 `this.props` 或 `this.state` 读取到，因为 `this` 本身是可变的。React 改变了它。在函数式组件里，你也可以拥有一个可变值，该值由所有组件渲染器共享。它称为 “ref”：
 
 ```js
 function MyComponent() {
   const ref = useRef(null);
-  // You can read or write `ref.current`.
+  // 你可以读取或设置 `ref.current`
   // ...
 }
 ```
 
-However, you’ll have to manage it yourself.
+然而，你需要自己管理它
 
-A ref [plays the same role](https://reactjs.org/docs/hooks-faq.html#is-there-something-like-instance-variables) as an instance field. It’s the escape hatch into the mutable imperative world. You may be familiar with “DOM refs” but the concept is much more general. It’s just a box into which you can put something.
+一个 ref 扮演者和一个实例字段[相同的角色](https://reactjs.org/docs/hooks-faq.html#is-there-something-like-instance-variables)。它是进入可变命令式世界的转义口。你或许对 “DOM refs” 很熟悉，但是这个概念更宽泛。它就像你放东西的盒子一样
 
-Even visually, `this.something` looks like a mirror of `something.current`. They represent the same concept.
+即使在视觉上，`this.something` 看起来像是 `something.current` 的镜像。它们代表相同的概念
 
-By default, React doesn’t create refs for latest props or state in function components. In many cases you don’t need them, and it would be wasted work to assign them. However, you can track the value manually if you’d like:
+默认情况下，React 不会为了在函数式组件的最新 props 或 state 创建 refs。大多数情况下你不需要它们，而且给它们赋值会浪费工作。然而，如果你喜欢的话，可以手动跟踪这个值：
 
 ```jsx{3,6,15}
 function MessageThread() {
@@ -346,17 +346,17 @@ function MessageThread() {
   };
 ```
 
-If we read `message` in `showMessage`, we’ll see the message at the time we pressed the Send button. But when we read `latestMessage.current`, we get the latest value — even if we kept typing after the Send button was pressed.
+如果我们在 `showMessage` 读取 `message`，我们会看到我们按下发送按钮时的那个消息。但是当我们读取 `latestMessage.current` 时，我们得到了最新的值（即使我们在发送按钮按下之后，仍然在打字输入）
 
-You can compare the [two](https://codesandbox.io/s/93m5mz9w24) [demos](https://codesandbox.io/s/ox200vw8k9) to see the difference yourself. A ref is a way to “opt out” of the rendering consistency, and can be handy in some cases.
+你可以比较这[两个](https://codesandbox.io/s/93m5mz9w24)[例子](https://codesandbox.io/s/ox200vw8k9)的区别。ref 是一种渲染一致性的 “插槽” 方法，而且在某些情况下很方便
 
-Generally, you should avoid reading or setting refs *during* rendering because they’re mutable. We want to keep the rendering predictable. **However, if we want to get the latest value of a particular prop or state, it can be annoying to update the ref manually.** We could automate it by using an effect:
+通常，你应该避免在渲染*期间*读取或设置 refs，因为它们是可变的。我们想要保持渲染的可预测性。**然而，如果想要得到一个特别的 prop 或 state 的最新值，手动更新 ref 可能非常恼火。** 我们可以用这个效果实现自动化：
 
 ```js{4-8,11}
 function MessageThread() {
   const [message, setMessage] = useState('');
 
-  // Keep track of the latest value.
+  // 持续跟踪最新值
   const latestMessage = useRef('');
   useEffect(() => {
     latestMessage.current = message;
@@ -367,13 +367,13 @@ function MessageThread() {
   };
 ```
 
-(Here’s a [demo](https://codesandbox.io/s/yqmnz7xy8x).)
+（这有一个[demo](https://codesandbox.io/s/yqmnz7xy8x)）
 
-We do the assignment *inside* an effect so that the ref value only changes after the DOM has been updated. This ensures our mutation doesn’t break features like [Time Slicing and Suspense](https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html) which rely on interruptible rendering.
+我们在这个效果*内部*进行赋值，以致于 ref 值只有在 DOM 更新之后改变。这就确保了我们的改变不会打破像[Time Slicing and Suspense](https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html)特性，它们依赖渲染中断
 
-Using a ref like this isn’t necessary very often. **Capturing props or state is usually a better default.** However, it can be handy when dealing with [imperative APIs](/making-setinterval-declarative-with-react-hooks/) like intervals and subscriptions. Remember that you can track *any* value like this — a prop, a state variable, the whole props object, or even a function.
+这样使用 ref  并不是经常必须的。**捕获 props 或 state 还是使用默认最好。** 然而，它可以方便处理像时间间隔和订阅类[命令式 API](/making-setinterval-declarative-with-react-hooks/)。记住你可以像 this 一样跟踪*任何*值（prop，state 变量，整个 props 对象，或甚至一个函数）
 
-This pattern can also be handy for optimizations — such as when `useCallback` identity changes too often. However, [using a reducer](https://reactjs.org/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down) is often a [better solution](https://github.com/ryardley/hooks-perf-issues/pull/3). (A topic for a future blog post!)
+这个模式也方便优化（例如，当 `useCallback` id 改变太频繁）。然而，[使用 reducer](https://reactjs.org/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down)通常是一个[更好的解决方案](https://github.com/ryardley/hooks-perf-issues/pull/3)。（后面的文章会提及到这个主题！）
 
 ---
 

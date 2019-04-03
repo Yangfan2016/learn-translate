@@ -151,7 +151,17 @@
 `obvious`   明显的；显著的      
 `leave something intact`   使某物保留原样      
 `intact` 原封不动的；完整的  
-`odd`  奇数的；古怪的  
+`odd`  奇数的；古怪的    
+`wasted`  废掉的；浪费的    
+`predictable` 可预测的     
+`handy`  方便的；便利的  
+`opt out`  决定退出；请求免除；插槽    
+`annoy`  恼火的；讨厌的  
+
+
+
+
+
 
 
 
