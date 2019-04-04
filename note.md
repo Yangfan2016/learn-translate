@@ -156,7 +156,37 @@
 `predictable` 可预测的     
 `handy`  方便的；便利的  
 `opt out`  决定退出；请求免除；插槽    
-`annoy`  恼火的；讨厌的  
+`annoy`  恼火的；讨厌的    
+`stale`  陈旧的；过期的       
+`concurrent`  并发的    
+`closes over`  遮蔽  
+`clarify`  澄清  
+`This is not the case`  情况并非如此     
+`just as`    就像  
+`document`   记录；记载     
+`as someone put it`  正如某人所说         
+`material`   材料  
+`mindset`    心态   
+`specify`   指定       
+`run into`   遇到    
+`majority`  多数      
+`intuition`  直觉   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -184,4 +214,6 @@
 
 `Good to hear` 小贴士    
 `So where does that leave us` 那我们该怎么办呢    
-`footgun`  
+`footgun`    
+`broken pattern` 错纹  
+

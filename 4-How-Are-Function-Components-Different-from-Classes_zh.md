@@ -188,7 +188,7 @@ class ProfilePage extends React.Component {
 闭包总是被回避，因为它[难](https://wsvincent.com/javascript-closure-settimeout-for-loop/)以理解，值会随着时间变化。但是在 React 中，props 和 state 是不可变的！（或者至少，它是强烈推荐）消除了
 闭包的主要阻碍
 
-这意味着如果你在一个特别的渲染靠近 props 或 state，你总是可以指望它们完全相同：
+这意味着如果你在一个特别的渲染遮蔽了 props 或 state，你总是可以指望它们完全相同：
 
 ```jsx{3,4,9}
 class ProfilePage extends React.Component {
@@ -377,23 +377,22 @@ function MessageThread() {
 
 ---
 
-In this post, we’ve looked at common broken pattern in classes, and how closures help us fix it. However, you might have noticed that when you try to optimize Hooks by specifying a dependency array, you can run into bugs with stale closures. Does it mean that closures are the problem? I don’t think so.
+在这篇文章中，我们已经看到了 “类” 的常见的错纹，而且闭包如何帮助我们修复它。然而，你可能注意到当你试图指定的依赖数组优化 Hooks 时，你可能遇到旧的闭包的 bug。这么说是闭包的 “锅” 喽？我不这么认为
 
-As we’ve seen above, closures actually help us *fix* the subtle problems that are hard to notice. Similarly, they make it much easier to write code that works correctly in the [Concurrent Mode](https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html). This is possible because the logic inside the component closes over the correct props and state with which it was rendered.
+正如我们上面看到的那样，闭包确实帮助我们 *修复* 了很难察觉的细微问题。同样，它们也使得在[并发模式](https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html)正常工作的代码更容易编写。它是有可能的，因为在组件内的逻辑遮蔽了已经渲染的正确的 props 和 state
 
-In all cases I’ve seen so far, **the “stale closures” problems happen due to a mistaken assumption that “functions don’t change” or that “props are always the same”**. This is not the case, as I hope this post has helped to clarify.
+在我目前所遇到的所有情况里，** “陈旧的闭包” 的问题发生是由于假设 “函数不会发生改变” 或 ”props 总是相同的“** 造成的。事实并非如此，我希望通过这篇文章有助于澄清这一点
 
-Functions close over their props and state — and so their identity is just as important. This is not a bug, but a feature of function components. Functions shouldn’t be excluded from the “dependencies array” for `useEffect` or `useCallback`, for example. (The right fix is usually either `useReducer` or the `useRef` solution above — we will soon document how to choose between them.)
+函数遮蔽了它们的 props 和 state（而且因此它们的 id 是如此重要）。这不是 bug，而是函数式组件的一个特性。对于 `useEffect` 或 `useCallback` 函数不应该把 “依赖数组” 排除。（正确的修复是通常用 `useReducer` 或 `useRef` 来解决上面的问题 - 我们会尽快出如何在它们之间进行选择的文档）
 
-When we write the majority of our React code with functions, we need to adjust our intuition about [optimizing code](https://github.com/ryardley/hooks-perf-issues/pull/3) and [what values can change over time](https://github.com/facebook/react/issues/14920).
+当我们在 React 写大多数函数时，我们需要调整我们关于[优化代码](https://github.com/ryardley/hooks-perf-issues/pull/3) 和 [什么值会随着时间改变](https://github.com/facebook/react/issues/14920)的直觉
 
-As [Fredrik put it](https://mobile.twitter.com/EphemeralCircle/status/1099095063223812096):
+正如[Fredrik](https://mobile.twitter.com/EphemeralCircle/status/1099095063223812096)所说：
+>我目前在 hooks 发现的最好的心理规律是 “代码就像任何值，任何时候都可能改变”
 
->The best mental rule I’ve found so far with hooks is ”code as if any value can change at any time”.
+函数也不例外。它需要花费一定的时间来了解 React 学习材料的常识。它需要从 “类” 中调整一些心态。但是我希望这篇文章可以帮助你刷新你的眼光
 
-Functions are no exception to this rule. It will take some time for this to be common knowledge in React learning materials. It requires some adjustment from the class mindset. But I hope this article helps you see it with fresh eyes.
-
-React functions always capture their values — and now we know why.
+React 函数总是会捕获它们的值（现在我们知道原因了）
 
 
 > - 本文仅代表原作者个人观点，译者不发表任何观点
