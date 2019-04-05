@@ -1,4 +1,5 @@
-## React 函数式组件和类有何不同？
+
+## React 函数式组件和 React 类有何不同？
 
 > - 原文地址：https://overreacted.io/how-are-function-components-different-from-classes/
 > - 原文作者：[Dan Abramov](https://github.com/gaearon)
@@ -95,7 +96,7 @@ class ProfilePage extends React.Component {
 
 * 使用上面的 **class** `信息页面` ，它会弹框显示 `'Followed Sophie'`：
 
-![Demonstration of the steps](https://overreacted.io/bug-386a449110202d5140d67336a0ade5a0.gif)
+![步骤示范](https://overreacted.io/bug-386a449110202d5140d67336a0ade5a0.gif)
 
 ---
 
@@ -213,6 +214,8 @@ class ProfilePage extends React.Component {
 
 
 **你已经捕获了渲染时的 props：**
+
+![捕捉口袋妖怪](https://overreacted.io/pokemon-fa483dd5699aac1350c57591770a49be.gif)
 
 这种方法，任何代码内置在它里面（包含在 `showMessage` 里），保证看到特定渲染的 props。React 不再 “移动我们的奶酪”
 
@@ -393,6 +396,11 @@ function MessageThread() {
 函数也不例外。它需要花费一定的时间来了解 React 学习材料的常识。它需要从 “类” 中调整一些心态。但是我希望这篇文章可以帮助你刷新你的眼光
 
 React 函数总是会捕获它们的值（现在我们知道原因了）
+
+![微笑的皮卡丘](https://overreacted.io/pikachu-fc3bddf6d4ca14bc77917ac0cfad3608.gif)
+
+它们是完全不同的口袋妖怪
+
 
 
 > - 本文仅代表原作者个人观点，译者不发表任何观点
