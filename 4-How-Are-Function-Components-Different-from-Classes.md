@@ -1,6 +1,12 @@
 
 ## How do React function components differ from React classes?
 
+> - 原文地址：https://overreacted.io/how-are-function-components-different-from-classes/
+> - 原文作者：[Dan Abramov](https://github.com/gaearon)
+> - Markdown 地址：https://github.com/gaearon/overreacted.io/edit/master/src/pages/how-are-function-components-different-from-classes/index.md
+> - 译者：[Yangfan2016](https://github.com/Yangfan2016)
+> - 英文版权所有：[Dan Abramov](https://github.com/gaearon/overreacted.io/blob/master/LICENSE-posts)
+
 For a while, the canonical answer has been that classes provide access to more features (like state). With [Hooks](https://reactjs.org/docs/hooks-intro.html), that’s not true anymore.
 
 Maybe you’ve heard one of them is better for performance. Which one? Many of such benchmarks are [flawed](https://medium.com/@dan_abramov/this-benchmark-is-indeed-flawed-c3d6b5b6f97f?source=your_stories_page---------------------------) so I’d be careful [drawing conclusions](https://github.com/ryardley/hooks-perf-issues/pull/2) from them. Performance primarily depends on what the code is doing rather than whether you chose a function or a class. In our observation, the performance differences are negligible, though optimization strategies are a bit [different](https://reactjs.org/docs/hooks-faq.html#are-hooks-slow-because-of-creating-functions-in-render).

@@ -1,5 +1,8 @@
-## Promises/A+ 规范
-> 原文： https://promisesaplus.com/  
+## Promises/A+ 
+> - 原文地址：https://promisesaplus.com/ 
+> - Markdown 地址：https://github.com/Yangfan2016/learn-translate/blob/master/1-Promises-A%2B_zh.md
+> - 译者：[Yangfan2016](https://github.com/Yangfan2016)
+> - 英文版权所有：https://promisesaplus.com/  
 
 **An open standard for sound, interoperable JavaScript promises—by implementers, for implementers.**
 

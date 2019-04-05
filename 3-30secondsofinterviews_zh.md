@@ -8,9 +8,10 @@
 
 
 > - 原文地址：https://github.com/30-seconds/30-seconds-of-interviews/blob/master/README.md
-> - 原文作者：https://github.com/fejes713  
+> - 原文作者：[Stefan Feješ](https://github.com/fejes713)  
 > - 译者：[Yangfan2016](https://github.com/Yangfan2016)
 > - 备注：删除了重复部分，整理和精简了原文档的索引部分
+> - 英文版权所有：[MIT. Copyright (c) Stefan Feješ](https://github.com/30-seconds/30-seconds-of-interviews/blob/master/LICENSE)
 
 ## 前言
 

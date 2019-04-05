@@ -4,7 +4,7 @@
 > - 原文作者：[Dan Wellman](http://javascriptissexy.com/author/dan_wellman/)
 > - Markdown 地址：https://github.com/Yangfan2016/learn-translate/blob/master/2-Understanding-ES2015-In-Depth-Part-1.md
 > - 译者：[Yangfan2016](https://github.com/Yangfan2016)
-
+> - 英文版权所有：[Dan Wellman](http://javascriptissexy.com/author/dan_wellman/)
 
 ES2015 最大的特性之一就是有了一个全新的作用域。在这个章节里，我们将开始学习什么是作用域。我们将继续学习如何创建新的作用域类型，以及给我们代码带来的好处
 

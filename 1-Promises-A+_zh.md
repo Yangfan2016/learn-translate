@@ -2,6 +2,7 @@
 > - 原文地址：https://promisesaplus.com/ 
 > - Markdown 地址：https://github.com/Yangfan2016/learn-translate/blob/master/1-Promises-A%2B_zh.md
 > - 译者：[Yangfan2016](https://github.com/Yangfan2016)
+> - 英文版权所有：https://promisesaplus.com/ 
 
 
 **一个开放标准，对于开发人员可互操作的 JavaScript 承诺**
