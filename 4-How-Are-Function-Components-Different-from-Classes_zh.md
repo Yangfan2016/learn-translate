@@ -269,6 +269,8 @@ function ProfilePage({ user }) {
 
 这就是为何在这个版本的 [demo](https://codesandbox.io/s/pjqnl16lm7) 函数中，点击关注 Sophie 的简介和改变选项到 Sunil 依然弹出 `'Followed Sophie'`：
 
+![正确行为的 demo](https://overreacted.io/fix-84396c4b3982827bead96912a947904e.gif)
+
 这个行为是对的。*（尽管你可能也想关注 [Sunil](https://mobile.twitter.com/threepointone)）*
 
 ---
