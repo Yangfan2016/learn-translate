@@ -352,7 +352,7 @@ function MessageThread() {
 
 如果我们在 `showMessage` 读取 `message`，我们会看到我们按下发送按钮时的那个消息。但是当我们读取 `latestMessage.current` 时，我们得到了最新的值（即使我们在发送按钮按下之后，仍然在打字输入）
 
-你可以比较这[两个](https://codesandbox.io/s/93m5mz9w24)[例子](https://codesandbox.io/s/ox200vw8k9)的区别。ref 是一种渲染一致性的 “插槽” 方法，而且在某些情况下很方便
+你可以比较这[两个](https://codesandbox.io/s/93m5mz9w24)[例子](https://codesandbox.io/s/ox200vw8k9)的区别。ref 是一种渲染一致性的 “选择性退出” 方法，而且在某些情况下很方便
 
 通常，你应该避免在渲染 *期间* 读取或设置 refs，因为它们是可变的。我们想要保持渲染的可预测性。**然而，如果想要得到一个特别的 prop 或 state 的最新值，手动更新 ref 可能会非常恼火。** 我们可以用这个效果实现自动化：
 
