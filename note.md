@@ -170,7 +170,16 @@
 `specify`   指定       
 `run into`   遇到    
 `majority`  多数      
-`intuition`  直觉   
+`intuition`  直觉     
+`tolerant` 宽容的    
+`appropriate` 适当的  
+`elaborate` 详细的  
+`desired` 渴望的  
+`swap` 交换  
+`concatenates` 连接    
+`for instance` 例如  
+
+
 
 
 
