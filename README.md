@@ -12,7 +12,7 @@
 
 ### 关于我：
 
-博客：https://github.com/Yangfan2016  
+博客：https://yangfan2016.github.io/
 掘金：https://juejin.im/user/5bd570f86fb9a05d396f5d50  
 
 
