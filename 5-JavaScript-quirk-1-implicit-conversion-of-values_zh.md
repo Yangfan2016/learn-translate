@@ -2,6 +2,7 @@
 
 > - 原文地址：https://2ality.com/2013/04/quirk-implicit-conversion.html
 > - 原文作者：[Dr. Axel Rauschmayer](https://github.com/rauschma)
+> - Markdown 地址：https://github.com/Yangfan2016/learn-translate/blob/master/5-JavaScript-quirk-1-implicit-conversion-of-values.md
 > - 译者：[Yangfan2016](https://github.com/Yangfan2016)
 
 
