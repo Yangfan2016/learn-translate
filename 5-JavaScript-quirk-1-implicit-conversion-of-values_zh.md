@@ -102,7 +102,6 @@ String: ''
 
 ### 4. Best practice: explicit conversion最佳实践：显式转换
 
-It is best to explicitly convert values to the desired types before using them. A minimal solution is to use the functions Boolean(), Number() and String():
 最好的办法是在使用它们之前就显式转换为期望的类型。一个迷你的解决方案是用 Boolean()，Number() 和 String() 方法：
 
 ```
@@ -113,8 +112,7 @@ It is best to explicitly convert values to the desired types before using them. 
     }
 ```
 
-These functions always return a value (they never throw an exception). However, Number() returns the error value NaN \[1\] if it can’t convert a value:
-这些函数总会返回一个值（它们永远都不会抛出异常）。然而 Number() 函数在它不能转换一个值时会返回 `NaN` \[1\]
+这些函数总会返回一个值（它们永远都不会抛出异常）。然而 Number() 函数在它不能转换一个值时会返回 `NaN` \[1\]：
 
 ```
     > Number('xyz')
