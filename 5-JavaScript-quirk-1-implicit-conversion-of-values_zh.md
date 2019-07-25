@@ -20,7 +20,7 @@ JavaScript 是对值的接受是非常宽松的。例如在任何期待一个 nu
 
 ### 1. 隐式转换为 boolean 值：“truthy” 还是 “falsy”
 
-不管 JavaScript 希望接受一个 boolean 值（例如，if 语句的条件），任何值都可以被用。它将解释为 要么 true 要么 false。下面的值都会被解释为 false：
+不管 JavaScript 希望接受一个 boolean 值（例如，if 语句的条件），任何值都可以被用。它要么解释为 true 要么解释为 false。下面的值都会被解释为 false：
 
 ```
 undefined, null
@@ -100,7 +100,7 @@ String: ''
 
 如果是 JavaScript 转换为 string 类型，那步骤 1 和步骤 2 进行交换：首先试图调用 toString() 方法，然后调用 valueOf() 方法
 
-### 4. Best practice: explicit conversion最佳实践：显式转换
+### 4. 最佳实践：显式转换
 
 最好的办法是在使用它们之前就显式转换为期望的类型。一个迷你的解决方案是用 Boolean()，Number() 和 String() 方法：
 
