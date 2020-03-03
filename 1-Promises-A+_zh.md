@@ -85,7 +85,7 @@
 
 2.2.5 onFulfilled 和 onRejected 会作为函数形式调用 (也就是说，默认 `this` 指向 global，严格模式 `undefined`) [3.2]
 
-2.2.6 在同一个 promise 实例中，`then` 可以链式调用多次
+2.2.6  promise 的 `then` 可以链式调用多次
 
 - 2.2.6.1 如果或当 promise 转态是 fulfilled 时，所有的 onFulfilled 回调回以他们注册时的顺序依次执行
 
